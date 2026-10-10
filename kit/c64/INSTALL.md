@@ -549,7 +549,15 @@ Ubuntu 26.04 it cannot run: it is linked against `libFLAC.so.12`, and
 26.04 ships only `libflac14` (`libFLAC.so.14`); `get-vice download` names
 it as missing. Build it from source there (below); the build links
 against the system's own libraries, and on 9 October 2026 the v3.13.2
-source build passed 57 of 57.
+source build passed 57 of 57. Or keep the release and give it the old
+library inside the repository: download Ubuntu 24.04's `libflac12t64`
+package (`apt-get download libflac12t64` on a machine with the 24.04
+archive, or the `.deb` from packages.ubuntu.com) and unpack it with
+`dpkg-deb -x libflac12t64_*.deb tools/vice-libs`. The launcher adds
+`tools/vice-libs/usr/lib/x86_64-linux-gnu` to the emulator's library
+path, and to the check that names missing libraries, whenever that
+folder exists; nothing is installed on the system. On 6 October 2026,
+on Ubuntu 26.04.1, the v3.13.2 release run that way passed 57 of 57.
 `ldd tools/vice-mcp/bin/x64sc | grep "not found"` lists what another
 machine lacks. `verify-footprint` was clean with the release zip and with
 the source build. Its `SHA256SUMS` file checks every file but itself (it lists
