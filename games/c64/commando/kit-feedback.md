@@ -23,6 +23,27 @@
 - The third lesson in `kit/lessons/2026-10-10-commando.md`, a drawn map held against play in its own area, would sharpen `70-minisite`'s "Draw from the memory the game draws from", which names only the character set and the colour table. Only this game shows it so far.
 - A page sentence about how the music sounds (which voice carries the bass and the drums) went into the draft from a reading of the driver and was wrong. Running the tune through the port and counting each voice's instruments and notes settled it. Only this game shows it so far.
 
+## The follow-up run, 11 October 2026
+
+Aaron asked for the comparison with the 1985 release, a stepper for the
+box's double payout, and the unused fourth spawn list on a map.
+
+- `c64-reference`, "`CBM80` in a game that is not a cartridge": "Test the
+  reset as well ... Read `$00` and the CPU's view of the game's tables
+  after the reset" led to the reset test, which found the BASIC ROM over
+  area 3's map. It did not say the CIAs come up unset as well, and the run
+  first took the restart for a working one.
+- `70-minisite`, "A widget that runs a mechanic is a claim too": the
+  high-score table and the enemy loop each went on the page as a port with
+  a test beside it (`test_table.js`, `test_hud.js`).
+
+What was changed in the kit: `kit/skills/c64/c64-reference` gains a
+paragraph on the CIAs after a reset caught through `CBM80` (port A all
+inputs, so a joystick test that counts on the KERNAL's set-up never
+matches, and copies meant for the RAM under I/O land in the chips), and
+`kit/lessons/2026-10-11-commando.md` records the comparison with the
+original and the restart that only looked clean.
+
 ## Maintainer asks
 
 - #318: this run is another data point: a first sample of 17 % led to a full audit, which changed 137 of 897 comments (15 %), and a second sample then found 1 of 70 wrong (1.4 %).
