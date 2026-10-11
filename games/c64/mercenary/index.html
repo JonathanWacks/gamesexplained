@@ -709,7 +709,7 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
   <p>Seen from above the whole city, a view takes 13 frames to draw, so the picture changes about four times a second. On the ground, with one building to draw, the main loop runs five passes a second.</p>
 </section>
 
-<section id="rooms-underground">
+<section id="rooms-underground" data-cut hidden>
   <p class="fig">08 · The underground</p>
   <h2 class="t">The underground: 174 rooms, each a box with doors drawn on its walls</h2>
   <p class="lede">Below the city every room is a record of a few bytes: three sizes, two colours and four bytes for each door, drawn as a wire box with the doors' outlines on its walls.</p>
@@ -723,8 +723,8 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
 <!-- benson: Benson's message window, how a message is stored, the event scripts, money in BCD.
      Needs benson.css, ../../lib/c64.js, window.MERC_GAME = C64.load('listing.json'), then benson.js. -->
 <section id="benson-window">
-  <p class="fig">09 · Benson</p>
-  <h2 class="t">Benson prints a character a frame, and every character is a note</h2>
+  <p class="fig">08 · Benson</p>
+  <h2 class="t">Benson and his sound</h2>
   <p class="lede">Benson, the craft's computer, speaks through a strip of 23 cells at the bottom of the panel. Under his words runs a tick: one square wave that sounds for the whole game, retuned every frame from the character he has just printed. A blank sets its pitch to zero, and the note falls silent.</p>
   <div class="plate benson-plate">
     <div class="benson-screen"><canvas id="benson-win" width="864" height="96" role="img" aria-label="Benson's message window and its frame, drawn from the game's screen codes and character set"></canvas></div>
@@ -766,8 +766,8 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
 </section>
 
 <section id="sound">
-  <p class="fig">10 · Sound</p>
-  <h2 class="t">Sound: thirteen sound effects of four bytes each, and an engine tuned by the speed</h2>
+  <p class="fig">09 · Sound</p>
+  <h2 class="t">Sound: thirteen sound effects and an engine</h2>
   <p class="lede">The game has no music. Its sound effects are thirteen entries of four bytes in one table, each started on voice 1 or voice 2 by the same routine; only the doors' hum and Benson's tick come from elsewhere. The lift and the engine rewrite a register while they play.</p>
   <div class="plate">
     <div id="snd-player"></div>
@@ -808,7 +808,7 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
 </section>
 
 <section id="benson-store">
-  <p class="fig">11 · How a message is stored</p>
+  <p class="fig">10 · How a message is stored</p>
   <h2 class="t">How a message is stored</h2>
   <p class="lede">A message is a list of one-byte tokens, most of them numbers of words in a dictionary.</p>
   <div class="plate benson-plate">
@@ -830,7 +830,7 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
 </section>
 
 <section id="benson-scripts">
-  <p class="fig">12 · The event scripts</p>
+  <p class="fig">11 · The event scripts</p>
   <h2 class="t">The event scripts</h2>
   <p class="lede">What Benson says, and when, comes from 51 scripts in a small byte code, run one operation per pass of the main loop.</p>
   <div class="plate benson-plate">
@@ -846,7 +846,7 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
 </section>
 
 <section id="benson-money">
-  <p class="fig">13 · Money in BCD</p>
+  <p class="fig">12 · Money in BCD</p>
   <h2 class="t">Money in BCD, and a purchase without subtraction</h2>
   <p class="lede">The credits are eight decimal digits in four bytes, and the scripts have no way to subtract: a purchase adds the price's ten's complement.</p>
   <div class="plate benson-plate">
@@ -871,7 +871,7 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
   <p>Credits start at 9000 (<code>$710C</code>). The Dart's script adds 99995000 (<code>$0A29</code>), which is 5000 short of 100000000; the carry out of the top digit is thrown away, leaving 4000. The Hertz ship costs 999,999 (99000001 at <code>$0E90</code>), but the check before it (<code>$0E6F</code>) only asks whether the top byte is above zero, so it wants 1,000,000.</p>
 </section>
 
-<section id="math-numbers">
+<section id="math-numbers" data-cut hidden>
   <p class="fig">14 · Numbers</p>
   <h2 class="t">Two-byte numbers, multiplied by adding logarithms</h2>
   <p class="lede">The 3D view works in two-byte floats, a mantissa and a power of two, and multiplies two of them by adding their logarithms from a 256-byte table.</p>
@@ -922,7 +922,7 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
 </section>
 
 <section id="math-lines">
-  <p class="fig">15 · Lines</p>
+  <p class="fig">13 · Lines</p>
   <h2 class="t">Drawing a line: eight routines, one per octant</h2>
   <p class="lede">Each edge in the view is drawn by one of eight short routines that step along the longer axis, add a slope byte to an 8-bit counter (or subtract it), and step sideways whenever the counter wraps.</p>
   <div class="plate math-lineplate">
@@ -965,7 +965,7 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
 </section>
 
 <section id="keys">
-  <p class="fig">16 · Controls</p>
+  <p class="fig">14 · Controls</p>
   <h2 class="t">The keys, as the game reads them</h2>
   <p class="lede">The game scans the keyboard itself and turns each key into a number, row × 8 + column, with 64 added for SHIFT and 128 for CTRL. The joystick goes in port 2.</p>
   <div class="plate tablewrap">
@@ -990,7 +990,7 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
   </div>
 </section>
 
-<section id="reset">
+<section id="reset" data-cut hidden>
   <p class="fig">17 · Protection</p>
   <h2 class="t">The reset button hangs the original</h2>
   <p class="lede">Novagen's disk makes the game look like a cartridge, so that pressing reset runs one of the game's own loops instead of handing the machine back.</p>
@@ -1014,7 +1014,7 @@ $217C  JMP $2170</pre>
 </section>
 
 <section id="odd">
-  <p class="fig">18 · Odds and ends</p>
+  <p class="fig">15 · Odds and ends</p>
   <h2 class="t">Things a pilot would not know</h2>
   <p class="lede">Small things found in the code and checked in the emulator.</p>
   <div class="plate">
