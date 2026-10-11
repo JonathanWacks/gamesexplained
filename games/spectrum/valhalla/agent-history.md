@@ -141,3 +141,27 @@ tests ask that file for it. Looking at the pages in Chromium at 1200 and
 390 pixels found the character panel overlapping its picture, a price
 column too narrow, and the qualities table squeezed on a phone; all were
 fixed before the copy pass.
+
+## 11 October 2026, fourteen listing comments after a second check
+
+A test of checkers on 60 of the comments, scored against the full audit's
+verdicts, had models of two families read them cold. Between them they
+named errors the audit had passed or left in its corrections, and each was
+checked against the code before anything changed:
+
+- `gfx_return` ($DE64) was called the way out of every graphics command.
+  It is the early way out, with BC = 1; a command that runs to its end
+  returns through `graphics` at $F7D5 with BC = 0.
+- Line 210's comment still gave seven in eight for asking the same
+  character again, after `facts.md` had been corrected to 11 in 12.
+- `gp` (7050) said putting a figure again clears its record; only the
+  first byte goes back to 0.
+- The `draw_ridge` arguments with one column to a step said the height
+  moves one step a column. A new run takes its step at once, on top of the
+  step the last run took after its column, so the height moves twice: up
+  to 4 on the forest and marsh lines and 6 in the cave, measured in
+  SkoolKit's simulator over 12 seeds of `rng_state`. `draw_ridge` and
+  `ridge_new_run` now say so.
+- "Armour" for slots 1-3 became the game's own words: a weapon, a shield,
+  a helmet.
+

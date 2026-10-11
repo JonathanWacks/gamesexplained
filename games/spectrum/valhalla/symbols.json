@@ -5503,7 +5503,7 @@
   {
    "address": 25832,
    "type": "line",
-   "text": "\"You ask Thor to get the axe.\" (rp2), a pause, then a refusal (\"Thor refuses to get the axe.\") one time in three; or, when you are the one asking, seven times in eight if the same character was the last one asked, by you or by another character, or the last you dealt with in a trade (la, also set by line 1129), whatever it answered; or always when FN f, how far apart the two are in goodness, less half the asker's charisma, is above 2. A refusal gives back 4 of the 5 strength the command cost."
+   "text": "\"You ask Thor to get the axe.\" (rp2), a pause, then a refusal (\"Thor refuses to get the axe.\") one time in three; or, when you are the one asking and the character is the last one asked, by you or by another character, or the last you dealt with in a trade (la, also set by line 1129), whatever it answered, eleven times in twelve, since a second test refuses seven in eight of the asks the first lets through; or always when FN f, how far apart the two are in goodness, less half the asker's charisma, is above 2. A refusal gives back 4 of the 5 strength the command cost."
   },
   {
    "address": 25975,
@@ -5763,7 +5763,7 @@
   {
    "address": 32770,
    "type": "line",
-   "text": "Which slot: one of each kind of armour; a second weapon, shield or helmet is error 7, a full set of slots error 2."
+   "text": "Which slot: one each for a weapon, a shield and a helmet; a second weapon, shield or helmet is error 7, a full set of slots error 2."
   },
   {
    "address": 32920,
@@ -5773,7 +5773,7 @@
   {
    "address": 32966,
    "type": "line",
-   "text": "bget (3150): character n gives up object t from its hands: from slot 1-3 for armour, otherwise from 4-12; error 3 if it has not got it. Takes the weight off the load."
+   "text": "bget (3150): character n gives up object t from its hands: from slot 1-3 for a weapon, shield or helmet, otherwise from 4-12; error 3 if it has not got it. Takes the weight off the load."
   },
   {
    "address": 33171,
@@ -6008,7 +6008,7 @@
   {
    "address": 38671,
    "type": "line",
-   "text": "The dead character keeps its armour (slots 1-3: weapon, shield, helmet) and its crowns; everything in slots 4-12, Ofnir and Drapnir included, goes to random locations with room."
+   "text": "The dead character keeps its weapon, shield and helmet (slots 1-3) and its crowns; everything in slots 4-12, Ofnir and Drapnir included, goes to random locations with room."
   },
   {
    "address": 38822,
@@ -6083,7 +6083,7 @@
   {
    "address": 40450,
    "type": "line",
-   "text": "\"load\" (6250, run from 6255): \"Play the tape.\", USR 23819 loads the saved world, then every figure is rebuilt (graphics command 14 and the armour it carries, its name shown meanwhile) and the game goes on at your location."
+   "text": "\"load\" (6250, run from 6255): \"Play the tape.\", USR 23819 loads the saved world, then every figure is rebuilt (graphics command 14 and the weapon, shield and helmet it carries, its name shown meanwhile) and the game goes on at your location."
   },
   {
    "address": 40706,
@@ -6158,7 +6158,7 @@
   {
    "address": 42330,
    "type": "line",
-   "text": "gp (7050): puts character or object g at column x (command 2) and records it in g$, row 1 for characters, 2 for objects. Drawing is XOR, so putting it again takes it away, and the record is cleared."
+   "text": "gp (7050): puts character or object g at column x (command 2) and records it in g$, row 1 for characters, 2 for objects. Drawing is XOR, so putting it again takes it away; the record's first byte then goes back to 0, but its second still takes d."
   },
   {
    "address": 42402,
@@ -6728,12 +6728,12 @@
   {
    "address": 56027,
    "type": "line",
-   "text": "Draws a skyline across the whole width, 256 columns from x = 0: six bytes follow the CALL (the routine returns past them), giving how many columns share a height, the longest run in one direction, counted in columns, the lowest and highest y, the spread of a step and the starting y. Each column is filled from its height down to the y in fill_bottom with fill_column (or one pixel drawn, after toggle_ridge_fill)."
+   "text": "Draws a skyline across the whole width, 256 columns from x = 0: six bytes follow the CALL (the routine returns past them), giving how many columns share a height, the longest run in one direction, counted in columns, the lowest and highest y, the spread of a step and the starting y. A run's step moves the height as the run starts and again every time a height's columns are done, so where a run ends on a step the height moves twice between two columns. Each column is filled from its height down to the y in fill_bottom with fill_column (or one pixel drawn, after toggle_ridge_fill)."
   },
   {
    "address": 56097,
    "type": "line",
-   "text": "Picks a new run: a length (random below the limit, plus one) and a step (random below the spread, less half the spread), retrying until the next height is inside the limits."
+   "text": "Picks a new run: a length (random below the limit, plus one) and a step (random below the spread, less half the spread), retrying until the height moved by that step is inside the limits, and moves it at once, before the run's first column."
   },
   {
    "address": 56141,
@@ -6888,7 +6888,7 @@
   {
    "address": 56932,
    "type": "line",
-   "text": "The way out of every graphics command: puts back the stack pointer graphics saved on entry and returns BC = 1 to USR. A command that checks its string's length (all but 14, 18, 19, 20, 21 and 22) comes straight here when it is wrong."
+   "text": "The early way out of a graphics command: puts back the stack pointer graphics saved on entry and returns BC = 1 to USR (a command that runs to its end returns through graphics at $F7D5 with BC = 0). A command that checks its string's length (all but 14, 18, 19, 20, 21 and 22) comes straight here when it is wrong, and so do a command number above 24 and command 15, whose entry in gfx_table is this address."
   },
   {
    "address": 56940,
@@ -7043,7 +7043,7 @@
   {
    "address": 57796,
    "type": "line",
-   "text": "Forest, the ground along the bottom of the picture: draw_ridge's six bytes: the height moves every 1 column, in runs of 1 to 1 steps of -3 to +3; it starts at y = 50 and stays between 45 and 51."
+   "text": "Forest, the ground along the bottom of the picture: draw_ridge's six bytes: runs of 1 column, each with a step of -3 to +3 that the height takes as the run starts and again after its column, so it moves twice from one column to the next (up to 4 inside these limits); it starts at y = 50 and stays between 45 and 51."
   },
   {
    "address": 57802,
@@ -7203,7 +7203,7 @@
   {
    "address": 58328,
    "type": "line",
-   "text": "Marsh, first pool line: draw_ridge's six bytes: the height moves every 1 column, in runs of 1 to 1 steps of -3 to +3; it starts at y = 50 and stays between 45 and 51."
+   "text": "Marsh, first pool line: draw_ridge's six bytes: runs of 1 column, each with a step of -3 to +3 that the height takes as the run starts and again after its column, so it moves twice from one column to the next (up to 4 inside these limits); it starts at y = 50 and stays between 45 and 51."
   },
   {
    "address": 58334,
@@ -7213,7 +7213,7 @@
   {
    "address": 58337,
    "type": "line",
-   "text": "Marsh, second pool line: draw_ridge's six bytes: the height moves every 1 column, in runs of 1 to 1 steps of -1 to +1; it starts at y = 100 and stays between 98 and 103."
+   "text": "Marsh, second pool line: draw_ridge's six bytes: runs of 1 column, each with a step of -1 to +1 that the height takes as the run starts and again after its column, so it moves twice from one column to the next (up to 2); it starts at y = 100 and stays between 98 and 103."
   },
   {
    "address": 58343,
@@ -7433,7 +7433,7 @@
   {
    "address": 58831,
    "type": "line",
-   "text": "Cave, the roof: draw_ridge's six bytes: the height moves every 1 column, in runs of 1 to 4 steps of -3 to +3; it starts at y = 140 and stays between 137 and 158."
+   "text": "Cave, the roof: draw_ridge's six bytes: runs of 1 to 4 columns, each with a step of -3 to +3 that the height takes as the run starts and again after each column, so it moves twice where one run gives way to the next (up to 6); it starts at y = 140 and stays between 137 and 158."
   },
   {
    "address": 58837,
@@ -7443,7 +7443,7 @@
   {
    "address": 58846,
    "type": "line",
-   "text": "Cave, the lower edge of the roof: draw_ridge's six bytes: the height moves every 1 column, in runs of 1 to 4 steps of -3 to +3; it starts at y = 130 and stays between 128 and 147."
+   "text": "Cave, the lower edge of the roof: draw_ridge's six bytes: runs of 1 to 4 columns, each with a step of -3 to +3 that the height takes as the run starts and again after each column, so it moves twice where one run gives way to the next (up to 6); it starts at y = 130 and stays between 128 and 147."
   },
   {
    "address": 58852,
