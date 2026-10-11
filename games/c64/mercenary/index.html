@@ -708,7 +708,7 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
     <tbody id="out-rows"></tbody>
   </table>
   <p class="out-note">Walking times are at the walk's measured pace, about 100 steps of 80 units in 14 seconds, in a straight line from where you land at 08-08.</p>
-  <p>No building is ever drawn outside the city: the game loads a model only for squares 0 to 15 on both axes (<code>$952B</code>). So the <b>two lifts out here are objects instead</b>, 61 and 62, each a cage of four stacked squares 1,024 units across, standing on the patch where the E key works, the middle bytes <code>$70</code> to <code>$73</code> of X and Y (<code>$B40C</code>). Below them are two hangar complexes of their own. Hangar 6 has three rooms. Hangar 7 has seven, and object 3, the jet, starts there.</p>
+  <p>No building is ever drawn outside the city: the game loads a model only for squares 0 to 15 on both axes (<code>$952B</code>). So the <b>two lifts out here are objects instead</b>, 61 and 62, each a cage of four stacked squares 1,024 units across, standing on the patch where the E key works, the middle bytes <code>$70</code> to <code>$73</code> of X and Y (<code>$B40C</code>). Below them are two hangar complexes of their own. Hangar 6 has three rooms. Hangar 7 has seven, and object 3, the Concord 111, starts there.</p>
   <div class="plate">
     <div class="out-models" id="out-models"></div>
     <p class="cap">The three models from their bytes (<code>$2800</code>/<code>$2840</code>), seen from the side, each to its own scale: a model's coordinates are signed bytes in steps of 16 units. All three objects are fixed (bit 4 of <code>$29C0</code>), so T takes one only while the Kitchen Sink is carried (<code>$980B</code>).</p>
@@ -751,7 +751,7 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
   <p><b>Shooting it</b> starts script 27 (<code>$8797</code>): YOU HAVE JUST DESTROYED, THE PALYAR COMMANDER'S BROTHER-IN-LAWS NEW SHIP, then PALYAR SHIP ATTACKING. The script also sets bit 5 of <code>$BEC0</code>, the brother-in-law's anger, the same bit that script 1 sets when you take the Dart on the pad without paying: THIS CRAFT BELONGED TO THE PALYAR COMMANDER'S BROTHER-IN-LAW, HE IS NOT TOO PLEASED. The Dart you are offered is his old one. Nothing puts the new ship back once it is shot, and its step still runs, so it goes on flying its line, unseen. His house is the cottage at 07-09.</p>
 
   <h3>The attack ship aims, overshoots and aims again</h3>
-  <p>An attack is one ship, object 15, with the Palyar diamond's model whichever side sent it. It aims at you, flies for 46 passes and aims again. Each aim sets its velocity to a 32nd of the distance to you a pass (<code>$8998</code>), so after 46 passes it has gone 46/32 of the way: it overshoots, and each leg leaves it at 0.44 of the distance of the leg before, on the other side of you. It looks at you only when a leg ends: if it is then within 12,288 units on every axis, it stays where it is and fires (<code>$893E</code>). Flying past you on the way does not count.</p>
+  <p>An attack is one ship, object 15, with the Hexapod's model whichever side sent it. It aims at you, flies for 46 passes and aims again. Each aim sets its velocity to a 32nd of the distance to you a pass (<code>$8998</code>), so after 46 passes it has gone 46/32 of the way: it overshoots, and each leg leaves it at 0.44 of the distance of the leg before, on the other side of you. It looks at you only when a leg ends: if it is then within 12,288 units on every axis, it stays where it is and fires (<code>$893E</code>). Flying past you on the way does not count.</p>
   <div class="plate">
     <div class="blind-ctl"><span>You:</span>
       <button type="button" id="npc-still" aria-pressed="true">stand still</button>
@@ -781,7 +781,7 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
       <tr><td>12</td><td>the Mechanoid</td><td>lies in room <code>$66</code>; never moves</td></tr>
       <tr><td>13</td><td>Dart</td><td>never moves, never seen</td></tr>
       <tr><td>14</td><td>missile</td><td>the attack ship's missile</td></tr>
-      <tr><td>15</td><td>Palyar diamond</td><td>the attack ship</td></tr>
+      <tr><td>15</td><td>Hexapod</td><td>the attack ship</td></tr>
     </tbody>
   </table>
   <p>One of the three Darts can still turn up. CTRL+Q puts the craft you are in down in a random square of the city (<code>$85F5</code>), and it takes the craft's number from your mode, <code>$A9</code>, which is 9 while you are falling. Press CTRL+Q while you fall, after a hit or off the Colony Craft's deck, and object 9 appears on the ground somewhere in the city. It is a Dart you cannot board, since B takes only objects 0 to 7, and it never moves. In the simulator, from a fall, it landed at 12-15.</p>
@@ -883,7 +883,7 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
     <p class="cap">The flying step (<code>$9F17</code>-<code>$A13C</code>), the ground routine (<code>$9EFD</code>) and the throttle keys (<code>$B47E</code>, <code>$B499</code>), ported from the listing with the game's two-byte floats and its sine table, and the readouts drawn with the panel's own glyphs from <code>$7800</code> (<code>$B53D</code>). Checked against the Dart recorded in the emulator (all 253 passes match in speed, throttle, pitch, height, X, Y and the motion record) and against the original code in a 6502 simulator (1.2 million random passes identical). Keys work when the plate has focus: arrows for the stick, digits, SHIFT + digit, SPACE, + and -.</p>
   </div>
   <p>The throttle keys set a target, and the speed chases it: each pass the speed becomes (speed + throttle × thrust) × kept. On the ground a craft slower than 128 has its nose held level. Faster, it takes the level pitch's sine, -0.003, sinks below height 64 and lands again, every pass, until the stick lifts the nose. In the air the height changes by speed × sine of the pitch × the record's climb factor; climbing above the ceiling byte, that factor's power of two is replaced by the ceiling minus the height's top byte. A touchdown crashes when that pass's height step is 256 or more, or the nose is more than 45 degrees down.</p>
-  <p>Two things follow from the arithmetic. Every craft has a hard ceiling: above its ceiling byte the climb shrinks until the truncated step is zero. Flat out with the nose straight up, the Dart stops at ALT 24000, well short of the Colony Craft's 64997; with the Poweramp, as in the jet or the CHEESE, the top is ALT 105000, which the panel prints <code>**000</code>. And the sine table is sampled half a step off, so the level pitch's sine is −0.003, not 0. Level flight sinks slowly, a fast craft on the ground lands again every pass, and in reverse a craft climbs: SHIFT + 0 lifts the Dart off the ground with its nose level, 9 units a pass. The emulator shows the same heights, 67, 74, 82 and on.</p>
+  <p>Two things follow from the arithmetic. Every craft has a hard ceiling: above its ceiling byte the climb shrinks until the truncated step is zero. Flat out with the nose straight up, the Dart stops at ALT 24000, well short of the Colony Craft's 64997; with the Poweramp, as in the Concord 111 or the CHEESE, the top is ALT 105000, which the panel prints <code>**000</code>. And the sine table is sampled half a step off, so the level pitch's sine is −0.003, not 0. Level flight sinks slowly, a fast craft on the ground lands again every pass, and in reverse a craft climbs: SHIFT + 0 lifts the Dart off the ground with its nose level, 9 units a pass. The emulator shows the same heights, 67, 74, 82 and on.</p>
 </section>
 
 <section id="flight-records">
@@ -895,7 +895,7 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
       <thead><tr><th>Record</th><th>Craft</th><th>Routine</th><th>Turn kept</th><th>Turn step</th><th>Pitch step</th><th>Bank</th><th>Climb</th><th>Speed kept</th><th>Ceiling</th><th>Thrust</th></tr></thead>
       <tbody><tr><td colspan="11">The table is read from the game's bytes in listing.json, which the built site serves.</td></tr></tbody>
     </table></div>
-    <p class="cap">Decoded from the bytes at <code>$9DAD</code> by the loader <code>$9D99</code>: each float is a mantissa byte m and an exponent byte, worth (1 + m/256) × 2^e, e being the exponent byte's top six bits (signed) and bit 0 the sign. Byte 12 (<code>$10</code> in records 0-7) is read by nothing. The Dart and CHEESE are named by the game's own messages and the new ship by the script that runs when it is shot; the car, jet, Palyar diamond and land Dart are matched to Zzap!64 13's table by where the objects start and by their top speeds.</p>
+    <p class="cap">Decoded from the bytes at <code>$9DAD</code> by the loader <code>$9D99</code>: each float is a mantissa byte m and an exponent byte, worth (1 + m/256) × 2^e, e being the exponent byte's top six bits (signed) and bit 0 the sign. Byte 12 (<code>$10</code> in records 0-7) is read by nothing. The Dart and CHEESE are named by the game's own messages and the new ship by the script that runs when it is shot. The game prints no name for the Hovercar, Concord 111, Hexapod or Sprintcar. Those four names are from the hire tariff on the Central City map in Novagen's Targ Survival Kit, matched to the objects by shape and top speed. Zzap!64 13's table calls the same four the Car, Jet, Palyar Diamond and Land Dart, and gives where each one starts. The tariff also lists a Casper-Hanley Eagle 8SE, "available soon". Read the initials, with the 8 as an E: it is the CHEESE.</p>
   </div>
 </section>
 
@@ -1013,7 +1013,7 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
       <button type="button" data-p="-865">Reversing, SPEED −4</button>
       <button type="button" data-p="-1057">Reversing, SPEED −7</button>
       <button type="button" data-p="865">SPEED 4</button>
-      <button type="button" data-p="2825">The car flat out, 825</button>
+      <button type="button" data-p="2825">The Hovercar flat out, 825</button>
       <button type="button" data-p="3469">The Dart flat out, 4950</button>
     </div>
     <canvas id="eng-chart" class="eng-chart" role="img" aria-label="The engine's sustain level at every speed, reversing on the left and forward on the right; the current speed is marked"></canvas>
@@ -2221,7 +2221,7 @@ window.MERC_GAME.catch(() => {});
     const LAND = { x: 0x088800, y: 0x088800 };                 // where the opening leaves you
     const PLACES = [
       { o: 61, name: 'Hangar 6 lift', what: 'Object 61, a lift cage. Lift entry 6: E rides down to hangar 6, a complex of 3 rooms.' },
-      { o: 62, name: 'Hangar 7 lift', what: 'Object 62, a lift cage. Lift entry 7: E rides down to hangar 7, 7 rooms, where the jet (object 3) starts.' },
+      { o: 62, name: 'Hangar 7 lift', what: 'Object 62, a lift cage. Lift entry 7: E rides down to hangar 7, 7 rooms, where the Concord 111 (object 3) starts.' },
       { o: 56, name: 'The pyramid', what: 'Object 56. Carried, it lets D drop objects in mid-air.' },
       { o: 50, name: 'The mast', what: 'Object 50, unnamed. What it is for is unknown.' },
     ];
@@ -2344,11 +2344,11 @@ window.MERC_GAME.catch(() => {});
   const O = {
     0: ['craft', "The brother-in-law's new ship", 'Hovers 32,769 units up and moves south along column 00 by 1/256 of a square every surface pass, wrapping from row 15 back to row 0 (<code>$85C5</code>). Shooting it starts script 27. Top speed 11,475 in the air.'],
     1: ['craft', 'Dominion Dart', 'Stands at the crash site, where script 0 offers it for sale for 5,000 credits. Top speed 4,950 in the air, 9,900 with the Poweramp.'],
-    2: ['craft', 'Car', 'Ground only, top speed 825. Parked at Jordan Airport.'],
-    3: ['craft', 'Jet', 'Starts in hangar 7, under the lift at <code>**-**</code>, far outside the city. Top speed 7,400.'],
-    4: ['craft', 'Palyar diamond', 'Starts in hangar 3, under 03-00. Top speed 1,650, and its climb gives out at ALT 14000.'],
-    5: ['craft', 'Land Dart', 'Ground only, top speed 3,837. Starts in hangar 2, under 09-05. The game gives it no name.'],
-    6: ['craft', 'CHEESE', 'A flying wedge of cheese, top speed 9,900. Starts in the room beside hangar 4, under 11-13.'],
+    2: ['craft', 'Hovercar', 'Ground only, top speed 825. Parked at Jordan Airport.'],
+    3: ['craft', 'Concord 111', 'Starts in hangar 7, under the lift at <code>**-**</code>, far outside the city. Top speed 7,400.'],
+    4: ['craft', 'Hexapod', 'Starts in hangar 3, under 03-00. Top speed 1,650, and its climb gives out at ALT 14000.'],
+    5: ['craft', 'Sprintcar', 'Ground only, top speed 3,837. Starts in hangar 2, under 09-05.'],
+    6: ['craft', 'CHEESE', 'A flying wedge of cheese, top speed 9,900. Starts in the room beside hangar 4, under 11-13. The Survival Kit’s hire tariff lists it as the Casper-Hanley Eagle 8SE, "available soon": the initials, with the 8 as an E, spell its name.'],
     7: ['craft', 'Interstellar ship', 'The escape. Starts in the dark hangar 5, under 03-15, which the lift reaches only with the Pass. Script 7 asks for the Novadrive before it will launch.'],
     8: ['moving', 'Your missile', 'Fired from a craft on the surface, it flies along the view at 4,096 units a pass for 16 passes (<code>$886A</code>).'],
     9: ['moving', 'Object 9', 'One of the objects the game moves (8 to 15, <code>$8690</code>), drawn as a Dart and out of play at the start. What it is used for is unknown.'],
@@ -3268,10 +3268,10 @@ window.MERC_GAME.catch(() => {});
     { n: 0, amp: false, label: '0 New ship', name: 'the brother-in-law’s new ship' },
     { n: 1, amp: false, label: '1 Dart', name: 'Dominion Dart' },
     { n: 1, amp: true, label: '1 Dart + Poweramp', name: 'Dominion Dart with the Poweramp' },
-    { n: 2, amp: false, label: '2 Car', name: 'car (ground only)' },
-    { n: 3, amp: false, label: '3 Jet', name: 'jet' },
-    { n: 4, amp: false, label: '4 Diamond', name: 'Palyar diamond' },
-    { n: 5, amp: false, label: '5 Land Dart', name: 'land Dart (ground only)' },
+    { n: 2, amp: false, label: '2 Hovercar', name: 'Hovercar (ground only)' },
+    { n: 3, amp: false, label: '3 Concord 111', name: 'Concord 111' },
+    { n: 4, amp: false, label: '4 Hexapod', name: 'Hexapod' },
+    { n: 5, amp: false, label: '5 Sprintcar', name: 'Sprintcar (ground only)' },
     { n: 6, amp: false, label: '6 CHEESE', name: 'CHEESE' },
   ];
   // key numbers (row x 8 + column, as $B281 forms them) for the throttle keys
@@ -3835,11 +3835,11 @@ window.MERC_GAME.catch(() => {});
     const NAMES = [
       ['the brother-in-law’s new ship', 'object 0; named when shot (script 27)'],
       ['Dominion Dart', 'object 1; named by the opening’s offer'],
-      ['car', 'object 2, ground only; by Zzap!64’s table'],
-      ['jet', 'object 3; by Zzap!64’s table'],
-      ['Palyar diamond', 'object 4; by Zzap!64’s table'],
-      ['land Dart', 'object 5, ground only; by Zzap!64’s table'],
-      ['CHEESE', 'object 6; its name, canned message 6'],
+      ['Hovercar', 'object 2, ground only; the Survival Kit’s name'],
+      ['Concord 111', 'object 3; the Survival Kit’s name'],
+      ['Hexapod', 'object 4; the Survival Kit’s name'],
+      ['Sprintcar', 'object 5, ground only; the Survival Kit’s name'],
+      ['CHEESE', 'object 6; its name, canned message 6; the Survival Kit’s Casper-Hanley Eagle 8SE'],
       ['interstellar ship', 'object 7; script 7 tests it'],
       ['ground handling', 'bytes 2-11, copied at a landing'],
       ['falling', 'after a hit or a fall'],
@@ -3887,7 +3887,7 @@ window.MERC_GAME.catch(() => {});
     const ZZAP = { '1': ['08,08', 4950, 1650], '1+': ['', 9900, 3300], '2': ['12,13', null, 825], '3': ['**,**', 7400, 825],
       '4': ['03,00', 1650, 1650], '5': ['09,05', null, 3837], '6': ['11,13', 9900, 3300] };
     const ROWS = [[0, false, 'the brother-in-law’s new ship'], [1, false, 'Dominion Dart'], [1, true, 'Dart with the Poweramp'],
-      [2, false, 'car'], [3, false, 'jet'], [4, false, 'Palyar diamond'], [5, false, 'land Dart'], [6, false, 'CHEESE']];
+      [2, false, 'Hovercar'], [3, false, 'Concord 111'], [4, false, 'Hexapod'], [5, false, 'Sprintcar'], [6, false, 'CHEESE']];
     function top(n, amp, air) {
       const f = makeFlight(ram), M = f.M;
       f.board(n, amp);
