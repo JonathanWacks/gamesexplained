@@ -1,0 +1,43 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{title}}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="reference/bb-page.css">
+<!-- tabs -->
+<header class="hero">
+  <p class="eyebrow">{{platform}} · {{year}} · {{publisher}}</p>
+  <h1>{{title}}</h1>
+  <p class="sub">Stephen Ruddy's conversion draws every bubble into the character set on the fly, keeps a hundred rounds in under seven kilobytes of bitmaps, and hides part of them underneath the video chip.</p>
+</header>
+<main class="wrap">
+
+<section>
+  <p class="fig">01 · The game</p>
+  <h2 class="t">A hundred rounds of bubbles, on a machine with eight sprites</h2>
+  <p class="lede">Taito's 1986 arcade game, converted for the Commodore 64 by Software Creations and published by Firebird in 1987.</p>
+  <p>The title page names its makers: WRITTEN BY STEPHEN RUDDY, GRAPHICS BY ANDREW THRELFALL, COMMODORE CONVERSION BY SOFTWARE CREATIONS, PRODUCED BY FIREBIRD, LICENSED BY FIREBIRD FROM TAITO ELECTRONICS (<code>$462D</code>). Zzap!64 gave the conversion 97 % and a Gold Medal. The copy taken apart here is Remember's crack of the disk version, with every trainer option left off; the cracker's three stubs are marked in the listing, and the Source code tab says what they change.</p>
+  <p>The arcade game has bubbles by the dozen, and the C64 has eight sprites. This conversion keeps the sprites for the two dragons and six enemies, and draws every bubble, shot and item into the character set instead, into fresh glyphs every pass of its main loop, double-buffered. The hundred rounds are bitmaps, 46 or 92 bytes each, packed into under seven kilobytes, the last four of which sit underneath the video chip and are read with the chips switched out. The players and the enemies move inside the raster interrupt, on every other frame, while the main loop pushes the bubbles round three frames at a time.</p>
+</section>
+
+<section>
+  <p class="fig">02 · The tabs</p>
+  <h2 class="t">Explore how Bubble Bobble works</h2>
+  <p>Each tab takes one part of the game apart, from the game's own code.</p>
+  <ul class="tabs-guide">
+    <li><a href="play.html"><b>Play</b></a>: the whole game, ported from its own code and checked against it, starting on any of the hundred rounds, with its music.</li>
+    <li><a href="gameplay.html"><b>Gameplay</b></a>: what the three special bubbles release, what a chain of burst enemies pays (<code>$AB52</code>), the clock that brings the Barons, every special item, the doors, and the boss of round 100.</li>
+    <li><a href="enemies.html"><b>Enemies</b></a>: the eight kinds drawn from the game's sprites, and the routine each runs (<code>$EA08</code>), which you can step frame by frame.</li>
+    <li><a href="controls.html"><b>Controls</b></a>: the two sticks, the keys the game reads, and what each move costs in pixels and frames.</li>
+    <li><a href="levels.html"><b>Maps</b></a>: all 100 rounds drawn from the level data (<code>$C5F2</code>), with the air currents and the enemy lists.</li>
+    <li><a href="graphics.html"><b>Graphics</b></a>: why the bubbles are characters (<code>$E7CF</code>), and one frame rebuilt from memory.</li>
+    <li><a href="music.html"><b>Music</b></a>: the twelve tunes, played by a port of the game's own driver (<code>$F53C</code>).</li>
+    <li><a href="discoveries.html"><b>Discoveries</b></a>: a title page that plays once, a credit counter one ahead, code that patches itself shut, and a distance stored from the wrong register.</li>
+    <li><a href="source.html"><b>Source code</b></a>: the whole game disassembled and annotated.</li>
+  </ul>
+</section>
+</main>
+<footer style="margin:16px 0 0;padding:22px var(--gx) 0;border-top:1px solid #e0ded8;font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-size:12px;color:#80838a"><a href="https://github.com/gamesexplained/gamesexplained" style="color:#1f5fa8;text-decoration:none">GitHub</a> · <a href="https://discord.gg/3V9GWyRDWV" style="color:#1f5fa8;text-decoration:none">Discord</a><br>© Games Explained contributors. Write-ups, facts and symbol maps are available under <a href="https://creativecommons.org/licenses/by-sa/4.0/" style="color:#1f5fa8;text-decoration:none">CC BY-SA 4.0</a>; code under <a href="https://opensource.org/licenses/MIT" style="color:#1f5fa8;text-decoration:none">MIT</a></footer>
+<script src="../../lib/c64.js"></script>
+<script src="reference/bb-core.js"></script>
+<script src="reference/bb-page.js"></script>
