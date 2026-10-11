@@ -594,13 +594,14 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
 <header class="hero">
   <p class="eyebrow">{{platform}} · {{year}} · {{publisher}}</p>
   <h1>{{title}}</h1>
-  <p class="sub">The original open world masterpiece, from Paul Woakes. Explore the city of Targ – all 233 buildings! – and more exotic locations outside, and high above the city.</p>
+  <p class="sub">One Man's Sky meets GTA on an 8-bit machine: the original open world masterpiece from Paul Woakes. Explore the city of Targ and the mysterious Colony Craft high in the sky.</p>
 </header>
 <main class="wrap">
 <section id="city-view">
   <p class="fig">01 · The city in lines</p>
-  <h2 class="t">Let's fly: the city of Targ, one building at a time</h2>
+  <h2 class="t">Explore the city of Targ, one building at a time</h2>
   <p class="lede">To keep rendering under control, the game keeps only one building in memory at a time. The square you're in dictates which building is live.</p>
+  <p class="lede">Explore the city below – or <a href="https://gamesexplained.com/c64/mercenary/play.html">check the Play tab</a> for the full playable game.</p>
   <div class="plate">
     <div class="city-wrap">
       <div class="city-top">
@@ -649,8 +650,8 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
     </div>
     <p class="cap"><b>160 × 136</b> multicolour pixels, drawn by the page with the game's view code, ported routine by routine. Exhaustively verified as byte accurate.</p>
   </div>
-  <p>The square's building is loaded only when the high byte of your X or Y changes (<code>$94FE</code>-<code>$952F</code>), and drawn only while you are low enough (height is under 65536). So buildings 'pop in' only when you enter their square.</p>
-  <p>From higher up, you see the roads: they are drawn from height 2048 up, as lines between the centres of the squares they join. At height <code>$200000</code> a fixed picture of 13 roads replaces them (<code>$902A</code>).</p>
+  <p>The square's building is loaded only when the high byte of your X or Y changes (<code>$94FE</code>-<code>$952F</code>), and drawn only while you are low enough (height is under 65536). So buildings 'pop in' when you enter their square.</p>
+  <p>From altitude 2048 and above, roads are drawn: lines between the centres of the squares they join. At height <code>$200000</code> a fixed picture of 13 roads replaces them (<code>$902A</code>).</p>
 </section>
 
 <section id="lift">
@@ -662,7 +663,7 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
     <div class="lift-ctl"><button id="lmap-walk" type="button">Walk it from the landing</button><button id="lmap-clear" type="button">Clear</button><span id="lmap-msg">Click anywhere to stand there and press E.</span></div>
     <p class="cap">Square 08-08 from above: runway marks, the spinning pyramid, the Dominion Dart. One grid step is 256 units, 1/256 of the whole square.</p>
   </div>
-  <p>The Colony Craft sits over 08-08, so its deck and the grass underneath share one X and one Y. Only the height tells them apart. Its lift is entry 8 in the table of lift squares at <code>$B4B6</code>/<code>$B4BE</code>, and the E key's test checks the square and the middle bytes of X and Y. <b>It never reads the height</b>. So the patch under the deck's lift works exactly like the lift.</p>
+  <p>The Colony Craft sits over 08-08, so its deck and the grass underneath share X and Y coordinates. Only the height tells them apart. Its lift is entry 8 in the table of lift squares at <code>$B4B6</code>/<code>$B4BE</code>, and the E key's test checks the square and the middle bytes of X and Y. <b>It never reads the height</b>. So the patch under the deck's lift works exactly like the lift far above.</p>
   <div class="plate">
     <div class="lift-step">
       <pre class="lift-asm" id="lift-asm"></pre>
@@ -672,6 +673,7 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
     <p class="cap">The E key's test, one instruction group at a time, with the values it reads on the Colony Craft's deck and on the grass under it.</p>
   </div>
   <p>The ride 'down' ends in room 8, the Colony Craft's hangar. Taking the elevator up again from room 8 works as expected: it starts in the room, and once it reaches the surface side, <code>$A312</code> adds <code>$40FF00</code> to your height, so it ends on the deck. The underground has no height of its own: a room is a separate box, and no room lies below any point of the city.</p>
+  <p>Like all hangar lifts, it's designed for a vehicle – so you can drive the nearby Dominion Dart over to the pad and it works just as well.</p>
   <div class="plate">
     <div class="lift-grid lift-grid-3">
       <div><img src="reference/lift-0808-room8-hangar.png" alt="Room 8, the Colony Craft's hangar, reached by pressing E on the grass at 08-08"><p class="cap"><b>E on the grass</b>: down into room 8, the Colony Craft's hangar.</p></div>
@@ -679,7 +681,8 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
       <div><img src="reference/lift-0808-falling-from-deck.png" alt="Tumbling down towards the city after walking off the deck"><p class="cap"><b>Walk off the pad</b>: you tumble all the way down.</p></div>
     </div>
   </div>
-  <p>It doesn't break the game as much as you'd expect! Hangar 8's three doors are all locked, with object 23 – so at game start, the hangar and deck are as far as you get. Pretty much your only option is to leave by the 'express elevator' – that is, walk off the roof of the Colony Craft.</p>
+  <p>It doesn't break the game as much as you'd expect! Hangar 8's three doors are all locked, with object 23 – so at game start, the hangar and deck are as far as you get.</p>
+  <p>What you do from here depends on whether you brought the Dominion Dart. If you did, you can fly away – far above your normal permitted altitude. If you're on foot, your only option is to leave by the 'express elevator' – that is, walk off the roof of the Colony Craft and do some skydiving.</p>
   <h3 class="lmap-h">Try it yourself</h3>
   <ol class="lmap-steps">
     <li>Let the opening play to the end. Touch nothing until you stand at LOC 08-08 and Benson has finished "CRASH LANDED ON TARG". You face south.</li>
@@ -689,6 +692,7 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
   </ol>
   <figure class="lmap-fig"><img src="reference/lift-0808-spot-facing-nw.png" alt="On the patch, facing north-west: an empty field and a red COMP dial"><figcaption class="cap">On the patch, facing north-west. Nothing on the screen marks it.</figcaption></figure>
   <p>The foolproof way is to manually place yourself there. Open the VICE monitor and enter <code>&gt; 73 72</code> then <code>&gt; 79 72</code> to set your X, Y coordinates, then <code>x</code> to resume – placing you exactly in the middle of the patch at 08-08. Then press E.</p>
+  <p>The <a href="https://gamesexplained.com/c64/mercenary/play.html">Play tab</a> has explicit support for this – it shows you the coordinates you need.</p>
 </section>
 
 <section id="outside">
