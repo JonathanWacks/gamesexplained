@@ -22,7 +22,7 @@ permissions:
   pull-requests: write
 
 jobs:
-  check:
+  merged-branch:
     runs-on: ubuntu-latest
     steps:
       - name: Fail when the branch was already merged
