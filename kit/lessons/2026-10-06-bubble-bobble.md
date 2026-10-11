@@ -1,4 +1,4 @@
-## next · 6 October 2026 · Bubble Bobble · icyriver2023 with Claude
+## 0.0.154 · 6 October 2026 · Bubble Bobble · icyriver2023 with Claude
 
 **A kind is named by its picture.** Bubble Bobble has three special
 bubbles, and what each releases is a routine: one falls and runs along
