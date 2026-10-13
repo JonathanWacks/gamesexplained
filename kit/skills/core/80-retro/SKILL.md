@@ -177,7 +177,10 @@ unnoticed.
    with `tools.host` naming the operating system and the processor (the
    status page counts the games made on each kind of computer from it), model (every model the run used,
    and the subagents' model if different), `step_models` (the models that
-   ran `50-coverage` and `60-verify`, which `models.py` reads), copy
+   ran `50-coverage` and `60-verify`, which `models.py` reads),
+   `accuracy` (every step behind the listing's comments, in order: the
+   research, the annotation, each sample, each audit and a Play tab's
+   port, with the models that did them: `60-verify`), copy
    provenance, kit version, coverage figure. `credits` is for the game's
    original makers, each as `by` and `role`; never put yourself or your
    model there. The site's contributor list comes from git, humans only.

@@ -61,20 +61,101 @@ callers.
 ## Measure the listing before calling it done
 
 The comments in the listing are claims too, and an annotation agent's
-are rarely all right. Draw a random sample of about 60 (a fixed seed,
-spread over every agent's range) and have an agent that wrote none of
-them check each against the bytes, reporting every detail it finds wrong
-in a comment, not only the first: a comment corrected for one wrong
-detail often has another. The error rate with its interval goes in
-`facts.md`. Start that one checker without asking, on a run that keeps
-to one agent as on any other: the contributor's answer about agents
-(`kit/START.md`) is about fanning work out, and by this step the run is
-meant to be unattended. One run measured 25 % of its comments
-with a wrong detail (callers, rooms and counts, almost never what a
-routine does); a full pass by fresh agents, each correcting its own range
-and listing callers from the decoded listing rather than from a byte
-search, brought a second, independent sample to 3 %. If the first sample
-is bad, audit the whole listing before the page is published.
+are rarely all right. A run measures them once, with a sample, and goes
+on to the end: 100 % coverage is most of what a page is worth, and the
+sample tells the reader, and the next run, how far to trust the
+comments. An audit of every comment, and a second sample after it, are
+later work that the run recommends and does not do. A run audits only
+when the contributor asked for an audit. Of 17 games whose first sample
+is on record, 16 had more than two wrong in 60, typically about one
+comment in eight; after a full audit, the next sample passed in four of
+the seven that drew one, and a fifth missed by one comment. Correcting
+only the comments a sample found wrong never brought a listing under the
+mark, because the sample's rate holds across the rest.
+
+Both the sample and the audit are done by checkers: agents that wrote
+none of the comments, with `checker.md` beside this file as their brief.
+A checker does one of two jobs. A sample check marks a random draw of
+comments and changes nothing, so its count is a measurement. An audit
+checks every comment in a range and corrects the wrong ones.
+
+1. **Sample.** Draw about 60 comments at random, with a fixed seed,
+   spread over every agent's range, and give them to a checker for a
+   sample check. Read every comment it marks wrong or doubtful against
+   the code yourself: count the ones that are wrong, and drop the false
+   alarms.
+2. **The mark.** A sample is within the mark when at most 2 of its 60
+   are wrong (at most one in 30 in a larger sample). At that mark a
+   listing with 3 % of its comments wrong comes within it three times in
+   four, and one with 10 % one time in twenty.
+3. **Correct what it found.** Correct every comment the sample found
+   wrong, and every other comment that says the same thing (below).
+   Then go on to the end of the run.
+4. **Recommend the audit.** In `TODO.md`, the pull request and the
+   debrief (`kit/START.md`), say what the sample found and recommend an
+   audit, even when the sample is within the mark: the page calls a
+   listing checked only after one.
+
+A run asked for an audit does two more steps, and repeats them until a
+sample is within the mark:
+
+5. **Audit.** Fresh checkers audit every comment, each in its own
+   range, given the kinds of error the samples found, and correct what
+   they find.
+6. **Sample again.** Draw a new sample with a new seed and give it to a
+   checker that took no part in writing or auditing any of it: a sample
+   measures fairly only when its checker had no hand in what it
+   measures.
+
+Silver needs the measure, not the mark: at least one sample, checked and
+recorded. The game's About tab shows every step in a table, with the
+models that did it, and the reader judges from the work how far to trust
+the listing. The page calls the listing checked ("Audited & low error
+rate") only when the last sample came after a full audit and is within
+the mark. Until then the Source tab says, under its title, that the
+listing has not had a full audit or that its last sample was over the
+mark. So a run publishes without the audit, and the page is honest
+about it. Any order of steps is recorded as it happened: two samples
+with only their own comments corrected between them are two rows, an
+audit of some of the comments says how many of how many, and a second
+model is a row of its own.
+
+Start the sample check without asking, on a run that keeps to one agent
+as on any other: the contributor's answer about agents (`kit/START.md`)
+is about fanning work out, and by this step the run is meant to be
+unattended. An audit, in a run asked for one, runs on as many agents as
+that answer allows, and on one when it allows one.
+
+Any proven model may check (`models.py`), but a checker finds only what
+its model can see, so use the strongest model the contributor has. On a
+test of 60 comments with 20 known errors (11 October 2026), the strongest
+model tried found 16 or 17 in every run and raised no false alarm; the
+weakest found 4 to 7 and raised false alarms. At the mark above, a
+listing with 10 % of its comments wrong would pass about one time in
+eight with the first and three times in four with the second. When the
+contributor has a model from a second provider, a second checker on it
+is worth its cost: on the same test it reported three errors that every
+run on the other provider's models had passed. A comment is wrong when
+either checker's finding holds. A second pass on a weaker model from the
+same provider is not worth its cost: on the same test it found about
+half an error more than the strongest model's pass alone, and none that
+the strongest model's runs had all missed. A second pass on the
+strongest model, in fresh agents, found about 1.3 more, and one on a
+second provider's model about 2.5 more, besides four errors the test's
+key had missed.
+
+When the contributor named a model for checking as the run started
+(`kit/START.md`), every checker runs on it, for samples and audits
+alike, and its id goes in that step's `models`. Start it the way the
+session can: as a subagent on that model, or through the command-line
+tool the contributor named for it, with `checker.md` and the five
+things it asks for. When the session can reach the model neither way,
+write each checker's brief to `work/handoff/<step>/BRIEF.md`, tell the
+contributor to run it with that model in this clone and have the
+verdicts written beside it, and go on with whatever does not need them.
+That is the one wait in the run, and the contributor chose it by naming
+the model. Settle its verdicts against the code as for any checker.
+With no model named, use the strongest model the session has.
 
 The rate is what the checker found, and a checker misses some: in one
 run, a full audit that re-read the first sample's 60 comments found six
@@ -91,8 +172,9 @@ Comments a program wrote, a decoder describing every record of a format
 from templates, are a few claims each made hundreds of times. Give them
 a stratum of their own, draw about 20 from it, and beside the plain rate
 give the rate weighted by each stratum's size: three drawn from a
-stratum of thousands would stand for all of it. When they are bad, audit
-them by template, not one by one: test every sentence a template writes
+stratum of thousands would stand for all of it. When they are bad,
+correct them by template in this run, as one claim made many times, and
+not one by one: test every sentence a template writes
 against the code on every path (a reader cited for a field it reads only
 for some values of a flag, a condition such as "when empty" or "nothing
 reads this"), then the records whose values change what the sentence
@@ -109,11 +191,28 @@ anyway, write in `facts.md`, where the error rate would go, the seed and
 the size and that the sample is not checked yet, say so in the pull
 request, and leave `tier` where it was before this step.
 
-What the repository keeps is the result: one paragraph in `facts.md`,
-under the template's heading `## The listing's error rate`, naming the
-seed, the population and the sample's size, how many comments were
+What the repository keeps is the result. In `facts.md`, under the
+template's heading `## The listing's error rate`, one paragraph for each
+sample and each audit, in order: for a sample, the seed, the population
+and the sample's size, the checker's model, how many comments were
 wrong, what was wrong with them and what was corrected, and the
-interval. That section is the one place in `facts.md` where a correction
+interval; for an audit, how many comments it checked and how many it
+corrected. In `game.json`, `accuracy` is the ledger of every step that
+measured the listing's comments or made them more accurate, in the order
+it happened, each with the model ids that did it (`"unknown"` where
+nobody recorded them): whether the run looked the game up online,
+`{"step": "research", "web": true, "models": [...]}`; the annotation,
+`{"step": "annotate", "models": [...]}`; each sample, `{"step":
+"sample", "size": 60, "wrong": 2, "seed": ..., "models": [...]}`; each
+audit, `{"step": "audit", "checked": 640, "of": 640, "fixed": 90,
+"models": [...]}`; and a Play tab's port, `{"step": "play", "fixed": 16, "models": [...]}`
+(`70-minisite`, `play.md`). A sample or audit a maintainer makes for a
+run on an unproven model adds their GitHub login as `"by"`
+(`kit/CHECKING.md`), and games checked before 12 October 2026 keep that
+older check as a `check` row. Any row may carry a short `note`.
+`check_docs.py` fails a Silver game without a research row, an annotate
+row and a sample, and the About tab's table is made from the list
+(`kit/scripts/accuracy.py`). That section is the one place in `facts.md` where a correction
 is the fact being reported, so `check_docs.py` lets it use the plain
 words ("corrected", "misread", "was wrong") that it fails anywhere else
 in the file; keep the story of how the listing got there in

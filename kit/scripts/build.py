@@ -28,8 +28,10 @@ Plus a home page with the catalogue and the games most recently added or changed
 (from site/platform.html: its catalogue alone, the page the platform in a game's
 breadcrumb links to), site/lib/, status.html (from site/status.html +
 site/status.json: which kits work on which computers, and the work needed)
-and about.html (from site/about-site.html: who runs the site and the
-principles it follows; static). And what lets a phone
+about.html (from site/about-site.html: who runs the site and the
+principles it follows; static) and accuracy.html (from site/accuracy.html: how a
+listing's comments are checked, which every About tab's table of those steps
+links to; static). And what lets a phone
 install the site as an app: manifest.webmanifest, icons/ (kit/scripts/icons.py
 draws them) and sw.js at the root, with lines in every page's head that point
 at them.
@@ -55,6 +57,7 @@ import glob, html, html.parser, json, os, re, shutil, subprocess, sys, urllib.er
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from parts import parts, load_game, started, under, above, ranges, left_out   # noqa: E402  a game of several loads
 from models import awaits_check, proven   # noqa: E402  which games still need a maintainer's check
+from accuracy import status as listing_status, table as accuracy_table, SILVER_UP   # noqa: E402  the work behind the listing
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 SITE = os.path.join(ROOT, "site")
@@ -354,10 +357,66 @@ def banner(game, cons):
     Bronze, or no tier, is unfinished and asks for a
     contributor. The prompt behind the button is the one line to paste into an agent.
     A run on a model not yet proven is published whole, and its banner says that it awaits
-    a maintainer's check (kit/CHECKING.md) before saying what else is missing (#142).
+    a maintainer's check (kit/CHECKING.md), a sample of its listing on a proven model, before
+    saying what else is missing (#142).
+    How accurate the listing's comments are is the Source tab's to say (source_note), not
+    the banner's.
     """
     tier = game.get("tier", "none")
     repo = json.load(open(os.path.join(SITE, "config.json"))).get("repo", "")
+    body = banner_body(game, cons, tier, repo)
+    return f'<div class="gamebanner {html.escape(tier)}">{body}</div>'
+
+
+def how_checked():
+    """The link a listing's accuracy line ends with: the site's page on what a sample and an
+    audit are, at its section on reading the row and the Source tab's line (site/accuracy.html)."""
+    return '<a href="../../accuracy.html#row">How listings are checked</a>'
+
+
+def source_note(game):
+    """The Source tab's line on its comments, under the intro: the verdict (accuracy.status),
+    green when the listing is checked, a sentence on why, and links to the About tab's ledger
+    (accuracy_section) and the site's page on checking. Silver and above only, the tiers whose
+    listing is meant to be whole; none for a game made before game.json recorded the steps."""
+    st = listing_status(game)
+    if game.get("tier", "none") not in SILVER_UP or not st:
+        return ""
+    return (f'<p class="srcnote {"ok" if st["checked"] else "bad"}"><b>{html.escape(st["lead"])}</b> '
+            f'{html.escape(st["note"])} See <a href="about.html#ledger">every step on the About tab</a>, '
+            f'or <a href="../../accuracy.html#row">how listings are checked</a>.</p>')
+
+
+def listing_row(game):
+    """The About tab's Status row on the listing's comments; none for a game made before game.json
+    recorded the steps. The verdict that leads the sentence is bold (accuracy.status)."""
+    st = listing_status(game)
+    if not st:
+        return ""
+    rest = st["row"][len(st["lead"]):].lstrip()
+    return (f'<tr><th>Comments checked</th><td><b>{html.escape(st["lead"])}</b> {html.escape(rest)} '
+            f'{how_checked()}</td></tr>')
+
+
+def accuracy_section(game, gdir):
+    """The About tab's table of the steps behind the listing, in order (accuracy.table): what
+    each found and which models did it. None for a game made before game.json recorded them."""
+    rows = accuracy_table(game, gdir)
+    if not rows:
+        return ""
+    trs = "".join(f'<tr class="{kind}"><th>{html.escape(step)}</th><td>{html.escape(by)}</td><td>{html.escape(what)}'
+                  + (f'<br><span class="mute">{html.escape(note)}</span>' if note else "") + "</td></tr>"
+                  for step, by, what, note, kind in rows)
+    return ('<h2 id="ledger">How the listing was checked</h2>\n'
+            '<p class="mute">Every step that measured the Source tab\u2019s comments or made them more accurate, '
+            'in the order it happened, with the models that did it. <a href="../../accuracy.html">Accuracy of the '
+            'Source</a> explains each step and what the row above makes of them.</p>\n'
+            f'<div class="tablewrap"><table class="accuracy"><tr><th>Step</th><th>By</th><th>What it found</th></tr>'
+            f'{trs}</table></div>')
+
+
+def banner_body(game, cons, tier, repo):
+    """The banner's text before any line about the listing (banner)."""
     where = f'games/{game["platform"]}/{game["slug"]}'
     if tier in ("gold", "platinum"):
         who = ", ".join(person_html(n, l) for _, n, l in cons)
@@ -391,11 +450,11 @@ def banner(game, cons):
         else:
             who = " and ".join("one whose name was not recorded" if x == "unknown" else html.escape(x) for x in need)
             body = (f'This minisite awaits a maintainer\u2019s check. {"A model" if len(need) == 1 else "Models"} '
-                    f'this site has not proven yet worked on it ({who}), so its claims have not been tested '
-                    f'against the game (<a href="{repo}/blob/main/kit/CHECKING.md">how the check works</a>).')
+                    f'this site has not proven yet worked on it ({who}), so a maintainer will measure its '
+                    f'listing on one it has (<a href="../../accuracy.html#check">how the check works</a>).')
             if cov < 100 or n < m:
                 body += f' It is not complete either: {how}. ' + ask
-    return f'<div class="gamebanner {html.escape(tier)}">{body}</div>'
+    return body
 
 
 # the tabs build.py assembles, which every game has, and the file each one's edit link opens:
@@ -941,6 +1000,7 @@ def part_sources(gdir, game, P, out, nav, ban, common, cheats, present):
     if cheats.strip():
         whole += '<h2>Cheats</h2><div data-part="">' + markdown(cheats, addr=False, parts=pages) + "</div>"
     tpl = fill(read(os.path.join(SITE, "source.html")), **common).replace("<!-- tabs -->", nav)
+    tpl = tpl.replace("<!-- accuracy -->", source_note(game))
     for p in shown:
         page, beneath = part_page(p), [q for q in reversed(under(P, p)) if listed(q)]
         facts = f"<h2>{html.escape(p['title'])}</h2>" + markdown(read(os.path.join(p["dir"], "facts.md")), addr=page, shift=1,
@@ -1088,6 +1148,7 @@ def build_game(gdir, out_root):
         if cheats.strip():
             facts += "<h2>Cheats</h2>" + markdown(cheats)
         src = fill(read(os.path.join(SITE, "source.html")), **common).replace("<!-- tabs -->", nav).replace("<!-- facts -->", facts)
+        src = src.replace("<!-- accuracy -->", source_note(game))
         src = under_title(src, ban)
         if not links_asset(src, "site.js"):
             src += f'\n<script src="{lib}/site.js"></script>\n'
@@ -1132,7 +1193,8 @@ def build_game(gdir, out_root):
     if bare:   # no map: the template's Footprint section goes, from its marker to the one that closes it
         tpl = re.sub(r"<!-- footprint\b.*?<!-- /footprint -->\s*", "", tpl, flags=re.S)
     about = fill(tpl, **common, footprint=foot, data_links="" if bare else data_links(P), map_row=(span[1] - span[0]) // 128,
-                 tier=html.escape(tier_name(game.get("tier", "none"))), coverage=cov,
+                 tier=html.escape(tier_name(game.get("tier", "none"))), coverage=cov, listing_row=listing_row(game),
+                 accuracy=accuracy_section(game, gdir),
                  copy=html.escape(str(game.get("copy", ""))), tools=html.escape(", ".join(f"{k}: {v}" for k, v in tools.items())),
                  model=html.escape(str(game.get("model", ""))), kit_version=html.escape(str(game.get("kit_version", ""))),
                  contributors=con_html, site_contributors=site_contributors, game_credits=game_credits,
@@ -1764,6 +1826,9 @@ def main():
     repo = html.escape(json.load(open(os.path.join(SITE, "config.json")))["repo"].rstrip("/"))
     open(os.path.join(out_root, "about.html"), "w").write(
         fill(read(os.path.join(SITE, "about-site.html")), site_title="About · Games Explained", lib="lib", repo=repo))
+    open(os.path.join(out_root, "accuracy.html"), "w").write(
+        fill(read(os.path.join(SITE, "accuracy.html")), site_title="Accuracy of the Source · Games Explained", lib="lib",
+             repo=repo))
     open(os.path.join(out_root, ".nojekyll"), "w").write("")
     open(os.path.join(out_root, "CNAME"), "w").write(json.load(open(os.path.join(SITE, "config.json")))["domain"] + "\n")
     version_lib(out_root)
