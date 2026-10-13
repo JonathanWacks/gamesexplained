@@ -1,4 +1,4 @@
-## next · 2026-10-11 · Valhalla (ZX Spectrum) · air with Claude
+## 0.0.157 · 2026-10-11 · Valhalla (ZX Spectrum) · air with Claude
 
 - **Measure once, and recommend the audit.** 16 of the 17 games with a
   first sample of listing comments on record had more than two wrong in
