@@ -34,7 +34,8 @@ A game at Silver or above needs a research row and an annotate row, and one crea
 SAMPLE_SINCE needs at least one sample too: Silver asks that the listing be measured, not
 that it be within the mark. An older Silver game with no sample shows "Not measured". A
 sample is within the mark when it holds at least 60 comments and at most one in 30 of them is
-wrong (2 in 60). The About tab shows the rows as a table, and its Status table sums them up;
+wrong (2 in 60). The About tab shows the rows as a table, each ending with a bar of the whole
+listing as it stood after that step (ribbon()), and its Status table sums them up;
 the page calls the listing checked ("Audited & low error rate") only when the last sample came
 after a full audit and is within the mark. At Silver and above the Source tab says the same in
 a line under its title (build.py); the banner under the game's title leaves it out.
@@ -225,14 +226,74 @@ def corrected(sample):
     return f" {f} of them {'was' if f == 1 else 'were'} then corrected." if f else " None of them was corrected."
 
 
+ORDER = ("wrong", "maybe", "fixed", "right", "done")   # a bar's segments, left to right
+
+
+def _bar(*parts):
+    """Segments from (kind, share) pairs: one per kind, in ORDER, the empty ones left out."""
+    got = {}
+    for k, v in parts:
+        got[k] = got.get(k, 0) + v
+    return [(k, got[k]) for k in ORDER if got.get(k, 0) > 1e-9]
+
+
+def ribbon(row, before, total):
+    """The bar on one ledger row: the whole listing as it stood after the step, so the bars read
+    down the table as one story. (segments, sentence), each segment (kind, share of the listing),
+    the shares summing to 1; empty for research and an old maintainer's check, which change no
+    comment. before is the bar after the previous step (None before any annotation); total is
+    how many comments the listing holds, for a step that does not say.
+
+    An annotation leaves every comment written and not yet measured. A sample measures the whole
+    listing: red for the share likely wrong, pale red for its range, green for the rest. An audit
+    or a Play tab port reaches part of it: what it corrected is blue, what it checked and found
+    right green, and the comments it did not reach stay as the bar before showed them, which is
+    as the last sample measured them, since nothing has changed them."""
+    pc = lambda x: f"{100 * x:.0f} %"
+    step = row["step"]
+    if step == "annotate":
+        return [("done", 1.0)], "Written, not yet measured"
+    if step == "sample":
+        lo, hi = wilson(row["wrong"], row["size"])
+        return (_bar(("wrong", lo), ("maybe", hi - lo), ("right", 1 - hi)),
+                f"{100 * lo:.0f} to {pc(hi)} of the listing likely wrong, at least {pc(1 - hi)} likely right")
+    if step not in ("audit", "play"):
+        return [], ""
+    base = before or [("done", 1.0)]
+    kinds = {k for k, _ in base}
+    was = ("as the last sample measured them" if kinds & {"wrong", "maybe"} else
+           "not yet measured" if kinds == {"done"} else "as last checked")
+    of = (row.get("of") or total) if step == "audit" else total
+    if not of:
+        return [], ""
+    checked, fixed = (row.get("checked"), row.get("fixed")) if step == "audit" else (None, row.get("fixed"))
+    reached = checked if checked is not None else fixed or 0
+    right = (checked - (fixed or 0)) if checked is not None else 0
+    bar = _bar(("fixed", (fixed or 0) / of), ("right", right / of), *((k, v * (1 - reached / of)) for k, v in base))
+    rest = f"; the other {of - reached:,} {was}" if reached < of else ""
+    if step == "play":
+        said = (f"Corrected {fixed:,} of the listing’s {of:,} comments{rest}" if fixed is not None else
+                f"How many it corrected is not recorded; the comments {was}")
+    elif checked is not None:
+        said = (f"Checked {checked:,} of {of:,} comments: {fixed:,} corrected, {right:,} right{rest}" if fixed is not None else
+                f"Checked {checked:,} of {of:,} comments, how many it corrected not recorded{rest}")
+    elif fixed is not None:
+        said = f"Corrected {fixed:,} of {of:,} comments, how many it checked not recorded; the rest {was}"
+    else:
+        said = f"How many it checked and corrected is not recorded; the comments {was}"
+    return bar, said
+
+
 def table(game, gdir):
-    """The About tab's rows, as (step, by, what it found, note, kind) strings; empty for a game with
-    no record. The last annotate row carries the coverage and how many comments the listing holds.
-    kind is the step and how it came out ("sample-good", "audit-part"), a class the page colours."""
+    """The About tab's rows, as (step, by, what it found, note, kind, ribbon) strings; empty for a game
+    with no record. The last annotate row carries the coverage and how many comments the listing holds.
+    kind is the step and how it came out ("sample-good", "audit-part"), a class the page colours;
+    ribbon is the bar the row ends with (ribbon())."""
     st = status(game)
     if st is None:
         return []
     rows, out, seen = game["accuracy"], [], {}
+    total, state = comments(gdir), None
     checks = sum(1 for r in rows if r["step"] == "check")
     last_annotate = max((n for n, r in enumerate(rows) if r["step"] == "annotate"), default=None)
     for n, r in enumerate(rows):
@@ -251,7 +312,7 @@ def table(game, gdir):
             label, what = "Annotation", "Wrote the listing’s comments."
             if n == last_annotate:
                 what += (f" {game.get('coverage_percent') or 0:g} % of the program is described, "
-                         f"in {comments(gdir):,} comments.")
+                         f"in {total:,} comments.")
         elif step == "sample":
             lo, hi = wilson(r["wrong"], r["size"])
             label = f"Sample {seen[step]}"
@@ -282,7 +343,9 @@ def table(game, gdir):
                 whole = f"part of the {r['of']:,} comments" if "of" in r else "part of the listing"
             fixed = f"corrected {r['fixed']:,}" if "fixed" in r else "corrected a number not recorded"
             what = f"Checked {whole} and {fixed}."
-        out.append((label, by, what, r.get("note", ""), kind))
+        bar = ribbon(r, state, total)
+        state = bar[0] or state
+        out.append((label, by, what, r.get("note", ""), kind, bar))
     return out
 
 
