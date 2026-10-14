@@ -1,4 +1,4 @@
-## next · 2026-10-14 · Creatures (C64) · air with Claude
+## 0.0.163 · 2026-10-14 · Creatures (C64) · air with Claude
 
 - **A port test checks only the state it set up.** Creatures' creature
   gallery ran 144 animation scripts through a port and the engine side by
