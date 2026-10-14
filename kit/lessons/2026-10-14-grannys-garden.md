@@ -1,4 +1,4 @@
-## next · 2026-10-14 · Granny's Garden (BBC Micro) · air with Claude
+## 0.0.161 · 2026-10-14 · Granny's Garden (BBC Micro) · air with Claude
 
 - **Hear what reaches the chip, not what the program asks for.** Granny's
   Garden's tunes are three `SOUND` statements a note, and read in the
