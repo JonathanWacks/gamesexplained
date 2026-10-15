@@ -1,4 +1,4 @@
-## next · 2026-10-15 · Space Rogue (C64) · air with Claude
+## 0.0.171 · 2026-10-15 · Space Rogue (C64) · air with Claude
 
 - **A routine's carry on return is part of the sum that follows it.**
   Space Rogue's HIVE! sets the wait for its next mound with
