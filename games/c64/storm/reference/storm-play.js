@@ -2,11 +2,13 @@
 // The Play tab's C64: the port (storm-port.js) on a clock and chips of its own, for play.html and
 // for test_pace.js, which runs it beside the kit's machine and compares the pace.
 //
-// StormPlay.create({ M, Port }) gives the machine. M is the game's 64 KB, as the listing holds it;
-// Port is StormPort. Its costs are COST below, which test_play.js --cost measures and writes.
+// StormPlay.create({ M, Port, keep }) gives the machine. M is the game's 64 KB, as the listing holds
+// it; Port is StormPort; keep is the object the page gives C64.drawFrame, whose record of the bytes the
+// video chip reads narrows the memory compared (C64.videoMemory). Its costs are COST below, which
+// test_play.js --cost measures and writes.
 //   run(t)    runs the port until the clock reaches cycle t (a PAL frame is 19,656 cycles)
 //   joy       [port 1, port 2]: five bits each, 0 for pressed (up 1, down 2, left 4, right 8, fire 16)
-//   shown     the last whole frame, for C64.drawFrame: { vic, writes } (frame is its number)
+//   shown     the last whole frame, for C64.drawFrame: { vic, writes, mem, colour } (frame is its number)
 //   sound     each frame's SID writes, [register, value, ...], until the page takes them
 //   clock, frames, passes, vic, colour, sid, P
 //
@@ -28,7 +30,11 @@
 //
 // The screen. Each write to the video chip is kept with the line and cycle it came on: the main
 // program's at the clock, the interrupt handler's where VICE showed them in a frame of play
-// (index.html's ST_FRAME), so the colour and font changes fall where the game puts them.
+// (index.html's ST_FRAME), so the colour and font changes fall where the game puts them. Memory and
+// colour RAM are kept as each frame began, with every change after it where the game made it
+// (site/lib/c64.js, videoMemory): panel_band moves the message line a character on at line $FF,
+// after the line is shown, and drawn over the moved text with its own fine scroll, the frame showed
+// the line a character ahead and the text jumped back and forth.
 globalThis.StormPlay = (function () {
   'use strict';
   const LINE = 63, LINES = 312, FRAME = LINE * LINES;
@@ -61,7 +67,15 @@ globalThis.StormPlay = (function () {
     const joy = [0x1F, 0x1F];
     const S = { clock: 0, frames: 0, passes: 0, shown: null, sound: [], joy, vic, colour, sid, M };
     let done = -1, latch = 0, inIrq = false, bandK = 0, owed = 0, irqOwed = 0, badFrame = false;
-    let cur = { frame: 0, vic: Array.from(vic.subarray(0, 47)), writes: [] }, curSound = [];
+    // the memory the video chip reads, as each frame began and changed after (the node tests that
+    // draw nothing load no C64, and their frames carry no memory)
+    const vm = globalThis.C64 ? globalThis.C64.videoMemory(M, colour, { keep: o.keep }) : null;
+    const begin = (n) => {
+      const m = vm ? vm.begin() : {};
+      return { frame: n, vic: Array.from(vic.subarray(0, 47)), writes: [], mem: m.mem, colour: m.colour };
+    };
+    const moved = () => { if (vm) vm.at(S.clock, cur.writes, 0); };
+    let cur = begin(0), curSound = [];
 
     const line = () => Math.floor((S.clock % FRAME) / LINE);
     const cmp = () => vic[0x12] | (vic[0x11] & 0x80) << 1;
@@ -122,7 +136,7 @@ globalThis.StormPlay = (function () {
 
     function newFrame(n) {
       S.shown = cur; S.frames = n;
-      cur = { frame: n, vic: Array.from(vic.subarray(0, 47)), writes: [] };
+      cur = begin(n);
       S.sound.push(curSound); curSound = [];
       if (S.sound.length > 100) S.sound.splice(0, S.sound.length - 100);
     }
@@ -152,9 +166,10 @@ globalThis.StormPlay = (function () {
         let i = Infinity;
         if (c < LINES) { i = f0 + c * LINE; if (i <= done) i += FRAME; }
         const b = o.dma === false ? Infinity : nextBad(), e = Math.min(f, i, b), end = Math.max(S.clock + work, until);
-        if (e > end) { S.clock = end; done = end; return; }
+        if (e > end) { S.clock = end; done = end; moved(); return; }
         if (e > S.clock) { work = Math.max(0, work - (e - S.clock)); S.clock = e; }
         done = e;
+        moved();
         if (f === e) newFrame(e / FRAME);
         if (b === e) {
           const ln = (e % FRAME - 11) / LINE;
