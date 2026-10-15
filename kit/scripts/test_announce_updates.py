@@ -19,37 +19,50 @@ class Title(unittest.TestCase):
         self.assertEqual(
             au.summary_from_title(
                 "Storm (C64): Add a Play tab with a live map",
-                "Storm", "c64"),
+                "Storm", "c64", "storm"),
             "Add a Play tab with a live map")
 
     def test_platform_labels(self):
         self.assertEqual(
             au.summary_from_title(
                 "Granny's Garden (BBC Micro): Add a Discoveries tab",
-                "Granny's Garden", "bbc"),
+                "Granny's Garden", "bbc", "grannys-garden"),
             "Add a Discoveries tab")
         self.assertEqual(
             au.summary_from_title(
                 "Valhalla (Spectrum): Add the hall of heroes",
-                "Valhalla", "spectrum"),
+                "Valhalla", "spectrum", "valhalla"),
             "Add the hall of heroes")
 
     def test_no_platform_in_title(self):
         self.assertEqual(
-            au.summary_from_title("Storm: Add a Play tab", "Storm", "c64"),
+            au.summary_from_title("Storm: Add a Play tab", "Storm", "c64", "storm"),
             "Add a Play tab")
+
+    def test_platform_slug_prefix(self):
+        self.assertEqual(
+            au.summary_from_title(
+                "c64/platoon: Take Platoon to Silver with maps and music",
+                "Platoon", "c64", "platoon"),
+            "Take Platoon to Silver with maps and music")
+
+    def test_platform_slug_prefix_for_another_game_is_silent(self):
+        self.assertIsNone(
+            au.summary_from_title(
+                "c64/platoon: Take Platoon to Silver with maps and music",
+                "Storm", "c64", "storm"))
 
     def test_title_that_names_no_game_is_silent(self):
         self.assertIsNone(
             au.summary_from_title(
                 "site: Embed the listing pieces each game page draws from",
-                "Storm", "c64"))
+                "Storm", "c64", "storm"))
 
     def test_title_for_another_game_is_silent(self):
         self.assertIsNone(
             au.summary_from_title(
                 "Mercenary (C64): Add a Skip intro button",
-                "Storm", "c64"))
+                "Storm", "c64", "storm"))
 
 
 class ChangedGames(unittest.TestCase):

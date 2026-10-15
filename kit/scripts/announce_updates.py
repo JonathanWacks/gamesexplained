@@ -13,8 +13,9 @@ after the deploy, and works from the push range (`BEFORE`..HEAD):
   requests associated with a commit"), which must be merged into `main`
   and must not carry a `no-announce` label;
 - the summary, which is the pull request's title with its game prefix
-  stripped. A title that does not start with the game's name announces
-  nothing, so site-wide pull requests that touch game pages stay silent.
+  stripped. The prefix is the game's name (`Storm (C64):`) or its path
+  (`c64/storm:`). A title that starts with neither announces nothing, so
+  site-wide pull requests that touch game pages stay silent.
 
 Environment (set by the workflow):
   BEFORE            the push's before-sha (may be all zeros)
@@ -42,11 +43,13 @@ def _norm(text):
     return text.replace("’", "'").casefold()
 
 
-def summary_from_title(title, game_title, platform):
-    """The PR title minus its `<game> (<platform>):` prefix, or None.
+def summary_from_title(title, game_title, platform, slug):
+    """The PR title minus its game prefix, or None.
 
-    None when the title does not open with the game's name: the title is
-    the summary, so a title that never names the game is not one.
+    The prefix is `<game> (<platform>):` or the game's path,
+    `<platform>/<slug>:`. None when the title opens with neither: the
+    title is the summary, so a title that never names the game — by name
+    or by path — is not one.
     """
     labels = []
     for label in (PLATFORM_LABELS.get(platform), platform,
@@ -55,6 +58,8 @@ def summary_from_title(title, game_title, platform):
             labels.append(label)
     prefixes = ["%s (%s):" % (game_title, label) for label in labels]
     prefixes.append("%s:" % game_title)
+    if platform and slug:
+        prefixes.append("%s/%s:" % (platform, slug))
     norm_title = _norm(title)
     for prefix in prefixes:
         if norm_title.startswith(_norm(prefix)):
@@ -189,7 +194,8 @@ def main(argv=None):
         except Exception as exc:
             print("Skipping %s: %s" % (game_dir, exc))
             continue
-        summary = summary_from_title(pr["title"], game["title"], game["platform"])
+        summary = summary_from_title(pr["title"], game["title"],
+                                     game["platform"], game["slug"])
         if summary is None:
             print("Pull request #%s does not name %s; not announcing it."
                   % (pr["number"], game["title"]))
