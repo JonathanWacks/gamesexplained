@@ -1,4 +1,4 @@
-## next · 2026-10-16 · Space Rogue (C64) · air with Claude
+## 0.0.173 · 2026-10-16 · Space Rogue (C64) · air with Claude
 
 - **A frame count read inside a stretch must include the stretch's own
   time.** Space Rogue's main loop adds to a lag the frames its drawing
