@@ -1,4 +1,4 @@
-## next · 2026-10-16 · Castle Master (C64) · air with Claude
+## 0.0.174 · 2026-10-16 · Castle Master (C64) · air with Claude
 
 - **Run a gauge's arithmetic over its whole input range, through the
   game's own routines.** Castle Master's spirit meter is the clock times
