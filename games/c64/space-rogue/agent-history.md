@@ -141,3 +141,58 @@ agent's benefit. This is the only file that narrates; `facts.md` and
   down: they put a model's +y at the bottom of the screen, where the
   model's top is its +y side (the Sunracer's hull stands on its wings at
   y = 0). Both now put +y up; Aaron saw it first.
+
+## 15 October 2026, Play
+
+- Aaron asked for the whole game, playable. The first Play tab ran the
+  game's own code: every file of both sides and the 256 sectors of side
+  2 that no file holds, on a model of the C64 with a stand-in for the
+  KERNAL routines the game calls (the listings' `JSR $FF..` gave the
+  list: `SETLFS`, `SETNAM`, `LOAD`, `SAVE`, `OPEN`, `CLOSE`, `CHKIN`,
+  `CHRIN`, `CLALL`, `READST` and `SETMSG`). Matched against the
+  listings, about 40 % of what that page carried was in none of them:
+  most base and sector maps, most ship models, the packed cockpit,
+  navigation and landing pictures, and 231 of the 256 conversation
+  sectors. Aaron ruled that a Play tab is always a port; the page was
+  dropped, and its runner became the game a port is checked against
+  (`kit/c64/c64run.js`).
+- The model hung at "Old or New Game?" exactly as VICE did:
+  `bitmap_mode`'s raster hang (Discoveries). The runner's `rasterFix`
+  clears the compare's bit 8, as the orient run did by hand; it fires
+  again in the ending.
+- The cockpit first drew with its border and panels missing: the game
+  draws bitmaps in bank 3 over `$D000`-`$D02E`, and `C64.videoMemory`
+  logged those writes as writes to the video chip. It now logs RAM under
+  the chips as `$20000` plus the address, and `renderFrame` draws it as
+  memory; the cockpit then matched `reference/cockpit.png` outside the
+  3D view.
+- A new game on the runner goes from the story to `SEG0` and `PIT.PAC`
+  with no base loaded, as `init_game` says (flight facts), where
+  `orientation.md` step 7 and `features.md` describe a walk-around
+  start aboard the derelict. Not settled; left for a run in VICE.
+
+## The Play port (15-16 October 2026)
+
+- One agent, at Aaron's choice. Every routine of the listing was ported
+  to `port/src`, one function per label, and checked twice: alone
+  against the game's code on random states from saved moments, and in
+  the main loop's lockstep. The title, the intro and the ending became
+  programs of their own on a shared screens library, each run beside the
+  game to its jump to the next program.
+- The page's machine first ran busy views at half the game's passes.
+  `draw_frame` adds the frames the drawing took, read from the
+  interrupt's count, and the main loop skips drawing while that lag
+  lasts (`frame_skip3`); the page ran the interrupts only after a
+  stretch, so the count never included the drawing and nothing was ever
+  skipped. The page now moves its clock on by the stretch's cost so far
+  before such a read; every scene timed is within 2 % of the game.
+- The page carries the code files with their instructions zeroed, and
+  the port first stopped on them: the game keeps state in its own
+  instructions (rewritten operands, patched stores, empty hooks it
+  checks). `pack-data.js` keeps every instruction byte the port's source
+  names, 3,157 bytes, and `t-page.js` runs the page's machine on that
+  disk beside the whole one; a delta search over the blanked bytes found
+  the last ones, operands read through a helper the first pattern missed.
+- Fights were not in the first timing data, and one ran 6 % fast on the
+  page; timing the eight fight moments and fitting again brought it
+  within 2 %.
