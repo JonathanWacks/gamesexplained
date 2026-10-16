@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 // Hold the How it works page's monster simulation against the game's own code. mechanics.html's
 // gx-chase block runs level_build, generators_run ($B16A) and monsters_run ($BB2E) on a 6502 core
-// of its own; this runs the same routines on the kit's 6502 simulator, over the same memory (only
-// the listing pieces the page names in its data-listing tag, the rest 0), with the same player
+// of its own; this runs the same routines on the kit's 6502 simulator, over the same memory (every
+// byte of listing.json, which the page fetches whole, the rest 0), with the same player
 // and the same readings of the CIA timers, for 400 passes of each of the page's levels, and
 // compares the monster table ($0400-$07FF), the colour and character maps ($2000-$3FFF), the
 // players' health ($B92F-$B932) and monsters_run's own state after every pass. Everything it
@@ -14,14 +14,9 @@ const { CPU } = require(path.join(ROOT, 'kit/c64/cpu6502.js'));
 const g = game(__dirname), page = process.argv[2] ? path.resolve(process.argv[2]) : 'mechanics.html';
 const { makeChase } = g.run(page, 'gx-chase', 'makeChase');
 const html = g.read(page);
-const pm = html.match(/data-listing="listing.json">(\[.*?\])</), lm = html.match(/const CHASE_LEVELS = (\[.*?\]);/);
-if (!pm || !lm) { console.error('no data-listing pieces or CHASE_LEVELS in the page'); process.exit(1); }
-const L = g.listing();
-const base = new Uint8Array(0x10000);
-for (const piece of JSON.parse(pm[1])) {
-  const [lo, hi] = piece.split('-').map((s) => parseInt(s.slice(1), 16));
-  for (let a = lo; a <= hi; a++) base[a] = L.ram[a];
-}
+const lm = html.match(/const CHASE_LEVELS = (\[.*?\]);/);
+if (!lm) { console.error('no CHASE_LEVELS in the page'); process.exit(1); }
+const base = g.listing().ram.slice();
 const levels = JSON.parse(lm[1]).map((s) => Uint8Array.from(Buffer.from(s, 'base64')));
 const CMP = [[0x0400, 0x0800], [0x2000, 0x4000], [0xB92F, 0xB933], [0x824E, 0x824F], [0xBE6D, 0xBE6E], [0x9120, 0x9122]];
 let bad = 0, passes = 0, steps = 0, moves = 0;
