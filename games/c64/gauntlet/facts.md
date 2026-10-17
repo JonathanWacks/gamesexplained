@@ -93,8 +93,11 @@ The machine runs with `$01` = `$35` (RAM at `$A000` and `$E000`, I/O at
   character.
 - Monsters are characters too, four to a monster, drawn into the maps
   (monster_draw). The three maze fonts hold different frames of every
-  monster, and panel_flash cycles them (font selects 2 4 2 6), so all the
-  monsters on screen animate at once.
+  monster, of the transporter (glyphs `$34`-`$37`), the trap (`$38`-`$3B`)
+  and two of the treasure chest's glyphs (`$1A`, `$1B`), and panel_flash
+  cycles them (font selects 2 4 2 6), so all of these animate at once.
+  137 glyphs differ between `$4800` and `$5000`, 135 between `$4800` and
+  `$5800`, 149 between `$5000` and `$5800`.
 - Sprites: 0 and 1 are black masks at the play area's left and right
   edges (sprites_init_masks), re-used four times down the screen,
   covering the columns the scroll brings in. 2-5 are the shots (two for
@@ -249,7 +252,14 @@ wall, crumbling wall and key becomes an exit (idle_walls_exit, sound
   by bit 0 of pass_count, and stops early once main_go (`$8264`) is set.
   *Live*, level 2, 52 monsters: 26 slots a working pass, even and odd
   slots in turn; passes 88-89, 96-97 and 104-105 skipped; one pass cut
-  short after 10.
+  short after 10. When a move removes the monster (a ghost that
+  attacks), monster_step leaves Y where it is, so the monster
+  monster_remove moved in from the end of the table is visited next, in
+  the same pass if the pass has steps left: on level 1 with the hero at
+  cell 31, 31, passes 13, 15, 18 and 22 each visit a slot twice, the
+  second time for a monster far off screen; in pass 7 the removal came on
+  the pass's last step (the page's core, which `test_chase.js` holds to
+  the game's code).
 - Only monsters inside the 34 x 22 cells from map_x - 1, map_y - 1 move
   (monster_on_screen); generators_run looks only at the 16 x 10 tiles on
   screen. *Live*: of the 26 slots visited each pass, 11 reached
@@ -342,6 +352,17 @@ at `$99AC`.
   treasure-room tune (DATATREASURE). Its 96-note table (note_freqs) is
   tuned for NTSC (the tune runs 1,296 frames): 95 of its notes are within 10 cents at the NTSC clock;
   on a PAL machine the tune plays about 65 cents flat.
+- The effects and what starts them (every call to sfx_start, `$CDDB`,
+  and pickup_sounds, `$B853`): 0 a ghost hits and vanishes, 2 Death's
+  touch, 3 a level begins, 4 a player fires, 5 a potion used or shot, 6
+  into the exit, 7 a key, 8 hit by a fireball or a rock, 9 the amulet,
+  `$0A` a monster's blow, `$0B` a transporter, `$0C` a lobber throws,
+  `$0D` magic with no potion or a player joining, `$0E` doors opening, `$0F`
+  a player dying, `$10` a trap, poison, a power, the walls turning to
+  exits or a treasure room ending, `$11` treasure, food and potions.
+  Effect 1 is in the table and nothing starts it. Lengths, run on the
+  game's code in the kit's simulator: 6 frames (a shot) to 86 (a player
+  dying), 492 for all eighteen (`test_sfx.js`).
 - Sound effects: 18 (sfx_table at `$F000`), streams of two-byte steps
   (sfx_play, sfx_note) on whichever voice is free, voice 1 alone while a
   tune plays (sfx_start). When an effect on voice 3 ends, the zeroing
@@ -370,6 +391,12 @@ Never written: `$D01B` (sprite priority), `$D017`'s other bits, `$D024`.
 
 ## Questions still open
 
+- Whether a Death ever inherits a drain count of 0: monster_remove and
+  monster_kill do not move `$0700`, so a Death moved into the slot of a
+  Death that drained its last touch would wrap the count to `$FF` on its
+  next touch (death_drain, `$BC91`-`$BC9A`). Deaths sit at the front of
+  the table, so the last monster is a Death only when no other kind is
+  left; traced, not seen live.
 - Whether the monster colour routines' missing bottom-edge test
   (monster_colour, monster_colour_wrapped compare cell_pos_x twice) shows
   as a wrong colour at a vertically wrapping maze's bottom edge: not
@@ -383,29 +410,43 @@ Never written: `$D01B` (sprite priority), `$D017`'s other bits, `$D024`.
 ## The listing's error rate
 
 Seed 20261011, population 1,064 comments, a sample of 60 checked against
-the bytes by an agent that wrote none of them (`work/reports/checker.md`):
-8 were wrong, 13 % (Wilson 95 % interval 7 % to 24 %), a lower bound on
-the true rate, since a checker misses some. What was wrong: three
-comments misdescribed what the code does (treasure_end said it started
-the treasure tune, which it rewinds and leaves off; monster_attack read
-monster_hits' carry as a missed attack, where it means the player's
-counter-blow killed the monster; music_voice_freq_hi said the voice state
-was laid out like the SID's registers), two swapped or misread a table
-(shots_move paired `$BE70` with X and `$BE80` with Y, the other way round;
-facing_hold called a direction code a facing), one put the panel font's
-setting in the start-up where the raster interrupt makes it, one named
-the column after the potion icons where it is the first icon's, and one
-said nothing read DATATITLE where two BIT instructions do. All eight were
-corrected, with the comments that shared their beliefs: tune_init, which
-was also said to set tune_on and clears it. Then the whole listing was
-audited by the kinds of claim that had gone wrong: every caller or
-jump a comment cites was checked against the instruction there (13
-citations, none wrong), and every comment saying nothing reads, calls
-or reaches something (16) against every instruction that can touch it
-through an index of up to 16. That audit corrected unused_97DE, whose
-last six bytes are the power bits poison reads (`$97EE`, power_bits),
-and poison, which left out the potion a player without powers loses.
-No second sample was drawn after the corrections.
+the bytes by an agent that wrote none of them, on the same model that
+wrote them (`work/reports/checker.md`): 8 were wrong, 13 % (Wilson 95 %
+interval 7 % to 24 %), a lower bound on the true rate, since a checker
+misses some. What was wrong: three comments misdescribed what the code
+does (treasure_end said it started the treasure tune, which it rewinds
+and leaves off; monster_attack read monster_hits' carry as a missed
+attack, where it means the player's counter-blow killed the monster;
+music_voice_freq_hi said the voice state was laid out like the SID's
+registers), two swapped or misread a table (shots_move paired `$BE70`
+with X and `$BE80` with Y, the other way round; facing_hold called a
+direction code a facing), one put the panel font's setting in the
+start-up where the raster interrupt makes it, one named the column after
+the potion icons where it is the first icon's, and one said nothing read
+DATATITLE where two BIT instructions do. All eight were corrected, with
+the comments that shared their beliefs: tune_init, which was also said
+to set tune_on and clears it.
+
+An audit by the kinds of claim the sample found wrong checked 29 of the
+1,064 comments: every caller or jump a comment cites, against the
+instruction there (13, none wrong), and every comment saying nothing
+reads, calls or reaches something (16), against every instruction that
+can touch it through an index of up to 16. It corrected 2: unused_97DE,
+whose last six bytes are the power bits poison reads (`$97EE`,
+power_bits), and poison, which left out the potion a player without
+powers loses (found while the poison widget was built).
+
+A second audit checked the 43 comments on the monster update and the
+maze fonts against the code and the emulator, while How it works was
+written, and corrected 9: monster_step stepped by two, not one;
+monsters_run left out its stride and where it starts again; wrap_delta
+and monster_target left out the distance's slip across the map's edge;
+the three maze fonts said they differed only in the monsters; and
+monster_remove and monster_kill said the last monster moves into the
+slot, where Death's drain count stays behind.
+
+No second sample has been drawn after the corrections, and no full audit
+has been made.
 
 ## Live tests
 

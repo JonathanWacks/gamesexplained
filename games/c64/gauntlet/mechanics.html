@@ -50,6 +50,13 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
 .gx-mon{display:flex;gap:14px;flex-wrap:wrap}
 .gx-mon figure{margin:0;text-align:center;font-size:13px;color:var(--ink-soft)}
 .gx-mon canvas{width:96px;height:96px;image-rendering:pixelated;background:#000;border-radius:4px;display:block}
+.gx-fnow{display:flex;gap:22px;flex-wrap:wrap;align-items:flex-start;margin-top:22px}
+.gx-fnow canvas{flex:2 1 300px;max-width:542px;width:100%}
+.gx-fnow .gx-fside{flex:1 1 200px;min-width:0;font-size:15px;color:var(--ink-soft)}
+.gx-fonts{display:flex;gap:16px;flex-wrap:wrap}
+.gx-fonts figure{margin:0;flex:1 1 220px;max-width:320px;font-size:14px;color:var(--ink-soft)}
+.gx-sheet{width:100%;image-rendering:pixelated;display:block;border-radius:4px;border:3px solid transparent;box-sizing:border-box;background:#2f3136}
+.gx-sheet.gx-on{border-color:#f2c94c}
 .gx-out{font-family:var(--fm);font-size:15px;line-height:1.8}
 .gx-out b{font-size:17px}
 .gx-panel{width:192px;height:32px;image-rendering:pixelated;background:#000;border-radius:4px;vertical-align:middle}
@@ -102,13 +109,30 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
 <section>
   <p class="fig">03 · The monsters</p>
   <h2 class="t">Three fonts animate every monster at once</h2>
-  <p class="lede">The game has three copies of its maze font, identical except for the monsters. Changing font is how the monsters move their arms and legs.</p>
+  <p class="lede">The game has three copies of its maze font. They share the walls, the floor and most of the treasure, and differ in the monsters, the transporter, the trap and the treasure chest. Changing font is how all of them move.</p>
   <div class="plate">
     <div class="gx-ctl"><button type="button" id="gx-anim" aria-pressed="true">Animating</button><button type="button" id="gx-step">Step</button><label>Facing <select id="gx-face"></select></label><span id="gx-fnt" class="gx-out"></span></div>
     <div class="gx-mon" id="gx-mon"></div>
+    <div class="gx-fnow">
+      <canvas id="gx-fnow" class="gx-sheet" width="271" height="271"></canvas>
+      <div class="gx-fside">
+        <p style="margin:0 0 10px"><b id="gx-fname">The font on show</b>, all 256 glyphs, sixteen to a row from <code>$00</code>, switching with the monsters above.</p>
+        <label><input type="checkbox" id="gx-fmark" checked> Mark the glyphs that change between the fonts</label>
+        <p id="gx-fhover" class="gx-out" style="margin:10px 0 0">Point at a glyph to see its number.</p>
+      </div>
+    </div>
     <p class="cap"><b>The six monsters</b>, drawn from the tile table at <code>$F400</code> (four characters a tile), the tile colours at <code>$F600</code> and the three maze fonts at <code>$4800</code>, <code>$5000</code> and <code>$5800</code>, in the order panel_flash steps through them (<code>$8255</code>: font selects 2, 4, 2, 6), one step every eight frames.</p>
   </div>
-  <p>A monster is a tile from <code>$40</code> to <code>$6F</code>: six kinds, each with a tile for every one of eight facings. The lobber has one picture for all eight. The three fonts at <code>$4800</code>, <code>$5000</code> and <code>$5800</code> hold the same walls, floor, and treasure, and the monsters in three different poses. Once a frame panel_flash (<code>$8C7C</code>) counts, and every eighth frame it points the video chip at the next font in the cycle: one write to <code>$D018</code> animates every monster on screen.</p>
+  <p>A monster is a tile from <code>$40</code> to <code>$6F</code>: six kinds, each with a tile for every one of eight facings. The lobber has one picture for all eight. The three fonts at <code>$4800</code>, <code>$5000</code> and <code>$5800</code> hold the same walls and floor, and the monsters in three different poses. Once a frame panel_flash (<code>$8C7C</code>) counts, and every eighth frame it points the video chip at the next font in the cycle: one write to <code>$D018</code> animates every monster on screen.</p>
+  <p>The fonts differ in more than the monsters. Glyphs <code>$34</code>-<code>$37</code> make the transporter, <code>$38</code>-<code>$3B</code> the trap, and <code>$1A</code>-<code>$1B</code> are two of the treasure chest's four, and each has a different picture in each font, so the same switch that animates the monsters animates those too. Of the 256 glyphs, 137 differ between the first font and the second, 135 between the first and the third, and 149 between the second and the third. The cycle shows the first font twice as often as either of the others.</p>
+  <div class="plate">
+    <div class="gx-fonts">
+      <figure><canvas id="gx-f0" class="gx-sheet" width="271" height="271"></canvas><figcaption><code>$4800</code>, font select 2: shown at steps 1 and 3</figcaption></figure>
+      <figure><canvas id="gx-f1" class="gx-sheet" width="271" height="271"></canvas><figcaption><code>$5000</code>, font select 4: step 2</figcaption></figure>
+      <figure><canvas id="gx-f2" class="gx-sheet" width="271" height="271"></canvas><figcaption><code>$5800</code>, font select 6: step 4</figcaption></figure>
+    </div>
+    <p class="cap"><b>The three maze fonts in full</b>, from the listing, each glyph in the colour of the first tile that uses it (the tile table at <code>$F400</code>, its colours at <code>$F600</code>). The one framed in yellow is on show in the animation above. Glyphs <code>$01</code>-<code>$0C</code> are the walls as maze_style (<code>$8CC5</code>) set them for level 1: every level copies its own wall set into all three fonts. Glyph <code>$5B</code> looks like floor and is the mark that a player stands on a cell.</p>
+  </div>
   <p>A monster's byte in the table at <code>$0580</code> holds its facing (bits 0-2), kind (bits 3-5) and level (bits 6-7). The same byte is its strength: a hand-to-hand blow takes <code>$40</code> off it, so a level-one monster dies at the first blow and a level-three one at the third. Death's byte starts at <code>$C0</code> or above, and shots do not hurt it.</p>
 </section>
 
@@ -124,10 +148,10 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
     </div>
     <p class="gx-ch-k">The monster table, slot by slot, on the last pass</p>
     <canvas id="gx-ch-slots" class="gx-ch-slots" width="768" height="40"></canvas>
-    <div class="gx-key"><span><i style="background:#2a8a4a"></i>visited and moved</span><span><i style="background:#80838a"></i>visited, off screen</span><span><i style="background:#e0ded8"></i>not visited this pass</span><span><i style="background:#f2c94c"></i>the hero</span></div>
-    <p class="cap"><b>The game's own code, running in this page.</b> The whole 64 by 64 map of the level; the clear box is the area round the screen where monsters move, and everything in the shaded part stands still. Monsters that moved on the last pass are outlined. Click a floor cell to move the hero; the screen's window follows. Each pass runs generators_run (<code>$B16A</code>) and monsters_run (<code>$BB2E</code>) on the kit's 6502 simulator over the game's bytes from the listing, twelve and a half passes a second, the main loop's pace with the screen still. <code>test_chase.js</code> calls the same routines on the simulator directly for 400 passes of each of these levels: the monster table, the maps and the hero's health come out the same, byte for byte, after every pass.</p>
+    <div class="gx-key"><span><i style="background:#2a8a4a"></i>visited, took its turn</span><span><i style="background:#80838a"></i>visited, no turn (off screen, or it vanished)</span><span><i style="background:#e0ded8"></i>not visited this pass</span><span><i style="background:#f2c94c"></i>the hero</span></div>
+    <p class="cap"><b>The game's own code, running in this page.</b> The whole 64 by 64 map of the level; the clear box is the area round the screen where monsters move, and everything in the shaded part stands still. Monsters that took their turn on the last pass are outlined where the turn left them; a monster blocked on every side takes its turn without moving. Click a floor cell to move the hero; the screen's window follows. Each pass runs generators_run (<code>$B16A</code>) and monsters_run (<code>$BB2E</code>) on a small 6502 core over the game's bytes from the listing, twelve and a half passes a second, the main loop's pace with the screen still. <code>test_chase.js</code> runs the same routines on the kit's 6502 simulator for 400 passes of each of these levels: the monster table, the maps and the hero's health come out the same, byte for byte, after every pass.</p>
   </div>
-  <p>Each monster is a slot in five tables of 192 bytes: its X at <code>$0400</code>, its Y at <code>$04C0</code>, its kind, level and facing at <code>$0580</code>, its flags at <code>$0640</code>, and, for Death, the touches it has left at <code>$0700</code>. monster_count (<code>$824E</code>) holds the index of the last one. The table keeps monsters in the order they arrived: those in the level file from the maze's top-left corner on, with every Death moved to the front (deaths_first, <code>$CC60</code>), then each one a generator releases, added at the end (monster_spawn, <code>$B230</code>). A monster that dies hands its slot to the last monster in the table (monster_remove, <code>$BCC7</code>), so the table never has a gap.</p>
+  <p>Each monster is a slot in five tables of 192 bytes: its X at <code>$0400</code>, its Y at <code>$04C0</code>, its kind, level and facing at <code>$0580</code>, its flags at <code>$0640</code>, and, for Death, the touches it has left at <code>$0700</code>. monster_count (<code>$824E</code>) holds the index of the last one. The table keeps monsters in the order they arrived: those in the level file from the maze's top-left corner on, with every Death moved to the front (deaths_first, <code>$CC60</code>), then each one a generator releases, added at the end (monster_spawn, <code>$B230</code>). A monster that dies hands its slot to the last monster in the table (monster_remove, <code>$BCC7</code>), so the table never has a gap. When that happens in the middle of a pass, monsters_run looks at the same slot next, so the monster moved in from the end is visited straight away: a ghost that touches the hero and vanishes makes way for whatever monster was last, wherever it is in the maze.</p>
   <div class="plate gx-scroll">
     <table class="gx-tab">
       <tr><th>Step</th><th>What runs</th><th>Where</th></tr>
@@ -192,14 +216,16 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
 function makeChase(base) {
   'use strict';
   const m = new Uint8Array(0x10000);
-  let chance = 0, visited = [], moved = [];
+  let chance = 0, visited = [], moved = [], turns = [], events = [];
   const cpu = new C64Cpu.CPU(m, { port: 0x35, io: {
     read(ad) { if (ad >= 0xDC04 && ad <= 0xDC07) { chance = (chance + 0x3B) & 255; return chance; } return 0; },
     write() {},
   } });
   const hooks = {
-    0xBB8B: (c) => { visited.push(c.y); },          // monster_step: the slot monsters_run visits
-    0xBD06: (c) => { moved.push(c.y); },            // monster_move: the monster was on screen
+    0xBB8B: (c) => { visited.push(c.y); events.push(['v', c.y]); },   // monster_step: a slot visited
+    0xBDB3: (c) => {                                // monster_move's own return: a monster on screen took its turn
+      moved.push(c.y); turns.push({ slot: c.y, x: m[0x0400 + c.y], y: m[0x04C0 + c.y] }); events.push(['t', c.y]);
+    },
   };
   const call = (entry) => cpu.call(entry, { a: 0, x: 0, y: 0, d: 0 }, { hooks, maxSteps: 5000000 });
   const hero = { cx: -1, cy: -1 };
@@ -227,10 +253,13 @@ function makeChase(base) {
       if (Math.max(Math.abs(dx), Math.abs(dy)) === r && place(tx + dx, ty + dy)) return;
   }
   function pass() {
-    visited = []; moved = [];
+    visited = []; moved = []; turns = []; events = [];
     m[0x824B] = (m[0x824B] + 1) & 255; m[0x8264] = 0;
     call(0xB16A); call(0xBB2E);
-    return { visited, moved };
+    // a monster that attacks and vanishes never reaches $BDB3; the last monster in the table takes its
+    // slot (monster_remove) and is visited next, so a slot can come up twice in one pass: events keeps
+    // the order, and turns keeps where each monster that took its turn ended up
+    return { visited, moved, turns, events };
   }
   return { m, load, place, pass, hero };
 }
@@ -287,7 +316,51 @@ function drawMonsters() {
     }
   });
 }
-function tick() { phase = (phase + 1) & 3; drawMonsters(); }
+// ---- the fonts in full
+let GCOL = null, CHANGES = null;
+function fontSetup() {
+  GCOL = new Uint8Array(256).fill(1);
+  const seen = new Uint8Array(256);
+  for (let t = 0; t < 128; t++) for (let q = 0; q < 4; q++) {
+    const ch = G.ram[0xF400 + t * 4 + q];
+    if (!seen[ch]) { seen[ch] = 1; GCOL[ch] = G.ram[0xF600 + t * 4 + q]; }
+  }
+  CHANGES = new Set();
+  for (let i = 0; i < 256; i++) for (let r = 0; r < 8; r++) {
+    const a = G.ram[0x4800 + i * 8 + r], b = G.ram[0x5000 + i * 8 + r], c = G.ram[0x5800 + i * 8 + r];
+    if (a !== b || a !== c) { CHANGES.add(i); break; }
+  }
+}
+function drawSheet(cv, font) {
+  const ctx = C64.canvas(cv, 271, 271), f = G.ram.subarray(font, font + 2048), mark = $('gx-fmark').checked;
+  ctx.fillStyle = '#2f3136'; ctx.fillRect(0, 0, 271, 271);
+  for (let i = 0; i < 256; i++) {
+    const x = (i & 15) * 17, y = (i >> 4) * 17, c = GCOL[i];
+    ctx.fillStyle = PALC[BG[0]]; ctx.fillRect(x, y, 16, 16);
+    if (c & 8) C64.drawGlyphMC(ctx, f, i, x, y, 2, [PALC[BG[0]], PALC[BG[1]], PALC[BG[2]], PALC[c & 7]]);
+    else C64.drawGlyph(ctx, f, i, x, y, 2, PALC[c & 15]);
+    if (mark && CHANGES.has(i)) { ctx.strokeStyle = '#f2c94c'; ctx.lineWidth = 1; ctx.strokeRect(x + 0.5, y + 0.5, 15, 15); }
+  }
+}
+function drawFonts() {
+  if (!G) return;
+  const font = FONTS[phase];
+  drawSheet($('gx-fnow'), font);
+  $('gx-fname').textContent = `$${font.toString(16).toUpperCase()}, step ${phase + 1} of 4`;
+  [0x4800, 0x5000, 0x5800].forEach((a, k) => $('gx-f' + k).classList.toggle('gx-on', a === font));
+}
+function drawAllFonts() { if (!G) return; [0x4800, 0x5000, 0x5800].forEach((a, k) => drawSheet($('gx-f' + k), a)); drawFonts(); }
+$('gx-fmark').onchange = drawAllFonts;
+$('gx-fnow').onmousemove = (e) => {
+  if (!G) return;
+  const r = e.currentTarget.getBoundingClientRect();
+  const i = Math.min(15, Math.floor((e.clientY - r.top) / r.height * 16)) * 16 + Math.min(15, Math.floor((e.clientX - r.left) / r.width * 16));
+  const tiles = [];
+  for (let t = 0; t < 128; t++) for (let q = 0; q < 4; q++) if (G.ram[0xF400 + t * 4 + q] === i && !tiles.includes(t)) tiles.push(t);
+  $('gx-fhover').textContent = `Glyph $${i.toString(16).toUpperCase().padStart(2, '0')}${CHANGES.has(i) ? ', different in each font' : ''}` +
+    (tiles.length ? `; in tile${tiles.length > 1 ? 's' : ''} ${tiles.slice(0, 6).map((t) => '$' + t.toString(16).toUpperCase().padStart(2, '0')).join(', ')}${tiles.length > 6 ? ' ...' : ''}` : '; in no tile');
+};
+function tick() { phase = (phase + 1) & 3; drawMonsters(); drawFonts(); }
 $('gx-step').onclick = () => { if (G) tick(); };
 $('gx-face').onchange = () => { if (G) drawMonsters(); };
 $('gx-anim').onclick = () => {
@@ -297,13 +370,13 @@ $('gx-anim').onclick = () => {
 
 // ---- 04 moving the monsters: the game's own monster code on a level (gx-chase)
 const CHASE_LEVELS = ["TwAGCun+CEMTjpVQSV+1IoMigjiCP4UTrBX8IoIigiKyFf/PQIFAgUCmQg2QQg2QQg2QQg2+H5ohmSG6E4sVhyCRIZkhwyGENoAfjCGMNwAe","TwgBD+bhne37GfPlmfn7GUZDgaATghaAQASAIYMVijaGQASKIY1ABIAhjSKGH4BABJlABIcTkEAE/////+ITyBOnP4MggSCDILsThyKFIgAe","gAAWPvTj++X75/Ln/er46/bu8O7m7sD38P3x7PHo8vv0+fXq9eX27/f99/b46vns+vf68/3o/v/8wv7/AFxdgZ+evh+kP4cTgSCEIMQhuhOCIbITgSD9FKMgkxO2IIkguRSHE4EhjSCVIY4g1hOSIbQhlCGDE8kTgCKRIZUfnDYAHg==","ixgpFf3jmdkZVpbTElCPzAxIh1NTgv7wQKohE4kTjSATiSKDFKkTkCKMJYgUhyKfIoYUE4QTkRMAiiW6JYElmCKLH4UWgCOPJZoTAIMUniSWIaEljD+tOJ0hlEieSJ5IgiKCI41Ig0iCSIIThROeIYkhjyOeE6kTJIcTJI4luxMAjCCMIoQ2giWPIQAe","agAGF+78yRhXmMn46Y7QEE/r8gdGYofH8OIAoCYBihOAE4omAY4VgBWxE5YTkyfVJo4Vv1CrUKonh1CzNo9QAYBQk1CBUAH/xyaNJqxQlFCIUJRQhSaBUJRQgSahUJxQgFCcUIBQjT+NUAAe","hwgWNvb/BUX//MT/9sP/6MT35QPo4YTl6cPh90Tp+oTt/AjI5O1ICPPkiEj888iI5eTj5uT65vz94qAWhBOAE4UshBOAE4QuFKMhvCHbE4ATvBOAE8kthi3rLI0/jSzrLYYtqROoFZQTgBO8IJohhiHAIZgTmyKBE4A2hROAE4QsgxOAFIYTAB4=","VwApEOHkSuHxWOX4WBT95Mn96tigFZw2gmiRIhOIE78hmRODE8IijhOAIqMWwxSIIYETwyGCE4khpxPgFIEgkCDJE4MUhSChE+Bojj+QIJwTnhOeE54TAB4="];
-let CH = null, chLast = { visited: [], moved: [] }, chPass = 0, chTimer = null, chLevel = 0;
+let CH = null, chLast = { visited: [], moved: [], turns: [], events: [] }, chPass = 0, chTimer = null, chLevel = 0;
 CHASE_LEVELS.forEach((s, i) => $('gx-ch-lv').insertAdjacentHTML('beforeend', `<option value="${i}">${i + 1}</option>`));
 function chaseStart() {
   if (!G || typeof C64Cpu === 'undefined') return;
   if (!CH) CH = makeChase(G.ram);
   CH.load(Uint8Array.from(atob(CHASE_LEVELS[chLevel]), (ch) => ch.charCodeAt(0)));
-  chLast = { visited: [], moved: [] }; chPass = 0;
+  chLast = { visited: [], moved: [], turns: [], events: [] }; chPass = 0;
   chaseDraw();
 }
 function chaseStep() {
@@ -327,16 +400,20 @@ function chaseDraw() {
   // the hero
   ctx.strokeStyle = '#f2c94c'; ctx.lineWidth = 2;
   ctx.fillStyle = 'rgba(242,201,76,0.85)'; ctx.fillRect(CH.hero.cx * 8, CH.hero.cy * 8, 16, 16);
-  // monsters that moved on the last pass, where they are now
+  // monsters that took their turn on the last pass, where their turn left them (a slot's monster can
+  // change during a pass, so the position is the one recorded at the end of the turn)
   const count = (m[0x824E] + 1) & 255;
   ctx.strokeStyle = '#7dff8a';
-  for (const s of new Set(chLast.moved)) if (s < count) ctx.strokeRect((m[0x0400 + s] >> 1) * 8 + 1, (m[0x04C0 + s] >> 1) * 8 + 1, 14, 14);
+  for (const t of chLast.turns) ctx.strokeRect((t.x >> 1) * 8 + 1, (t.y >> 1) * 8 + 1, 14, 14);
   // the table, slot by slot
   const sc = $('gx-ch-slots'), sx = C64.canvas(sc, 768, 40), w = Math.max(3, Math.min(24, Math.floor(768 / Math.max(count, 1))));
   sx.fillStyle = '#fff'; sx.fillRect(0, 0, 768, 40);
-  const vis = new Set(chLast.visited), mov = new Set(chLast.moved);
+  // each slot shows what happened to it last in the pass: visited, then a turn taken or not
+  const last = new Map();
+  for (const [k, s] of chLast.events) last.set(s, k);
   for (let s = 0; s < count; s++) {
-    sx.fillStyle = mov.has(s) ? '#2a8a4a' : vis.has(s) ? '#80838a' : '#e0ded8';
+    const k = last.get(s);
+    sx.fillStyle = k === 't' ? '#2a8a4a' : k === 'v' ? '#80838a' : '#e0ded8';
     sx.fillRect(s * w, 6, w - 1, 28);
   }
   const working = (m[0x824B] & 6) !== 0;
@@ -344,7 +421,7 @@ function chaseDraw() {
     ['Pass', chPass ? `${chPass}${working ? '' : ', a pass monsters_run skips'}` : 'not yet run'],
     ['Monsters', count],
     ['Visited', chLast.visited.length ? `${chLast.visited.length}, from slot ${chLast.visited[0]}` : '0'],
-    ['Moved', mov.size],
+    ['Took a turn', chLast.turns.length],
     ['Hero', `cell ${CH.hero.cx}, ${CH.hero.cy}`],
     ['Health', ((m[0xB931] << 8) | m[0xB92F]).toString(16).toUpperCase()],
   ].map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join('');
@@ -367,7 +444,7 @@ $('gx-ch-map').onclick = (e) => {
 
 if (HASC) {
   C64.load('listing.json').then((L) => {
-    G = L; drawMonsters();
+    G = L; fontSetup(); drawMonsters(); drawAllFonts();
     if (typeof C64Cpu !== 'undefined') chaseStart(); else missing($('gx-ch-map'));
     if (anim) timer = setInterval(tick, 160);
   }).catch(() => { missing($('gx-mon')); missing($('gx-ch-map')); });
