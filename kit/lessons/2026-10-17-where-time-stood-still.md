@@ -1,4 +1,4 @@
-## next · 2026-10-17 · Where Time Stood Still (ZX Spectrum 128K) · air with Claude
+## 0.0.190 · 2026-10-17 · Where Time Stood Still (ZX Spectrum 128K) · air with Claude
 
 - **On a banked machine, record the bank with every address that ran.**
   An executed list of bare addresses cannot say whose code ran at
