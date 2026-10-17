@@ -1,4 +1,4 @@
-## next · 2026-10-17 · Castle Master (C64) · air with Claude
+## 0.0.186 · 2026-10-17 · Castle Master (C64) · air with Claude
 
 - **Time alone what runs only while the game waits.** A pace fitted on
   the stretches between checkpoints leaves out every stretch that polls,
