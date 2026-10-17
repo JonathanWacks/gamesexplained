@@ -1,4 +1,4 @@
-## next · 2026-10-17 · Castle Master (C64) · air with Claude
+## 0.0.189 · 2026-10-17 · Castle Master (C64) · air with Claude
 
 - **A view drawn again keeps to the game's own choices.** The modern
   view of a 3D game works the scene out again from the game's numbers,
