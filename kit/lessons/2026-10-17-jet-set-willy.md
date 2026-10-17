@@ -1,4 +1,4 @@
-## next · 2026-10-17 · Jet Set Willy (C64) · air with Claude
+## 0.0.188 · 2026-10-17 · Jet Set Willy (C64) · air with Claude
 
 - **A chip register that the interrupt and the main program both write
   can keep its race in the port.** Jet Set Willy's interrupt sets
