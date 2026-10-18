@@ -1,4 +1,4 @@
-## next · 2026-10-17 · The NeverEnding Story (C64) · air with Claude
+## 0.0.198 · 2026-10-17 · The NeverEnding Story (C64) · air with Claude
 
 - **A port tested over the listing cannot see a gap in the listing.** A
   page's port and its test read the same memory, the committed listing,
