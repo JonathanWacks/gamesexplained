@@ -1,4 +1,4 @@
-## next · 2026-10-18 · Gribbly's Day Out (C64) · air with Claude
+## 0.0.200 · 2026-10-18 · Gribbly's Day Out (C64) · air with Claude
 
 - **More reading per routine leaves fewer wrong comments, and helpers
   are the cheaper way to buy it.** Three copies of one Gribbly's Day Out
