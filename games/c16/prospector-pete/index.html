@@ -113,14 +113,35 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
     </div>
     <p class="pp-state" id="pp-mstate"></p>
     <p class="pp-note" id="pp-mnote"></p>
-    <p class="cap">The game's own routines, run on the kit's 6502 over the listing: <code>start_level</code> (<code>$1C54</code>) builds the mine with random numbers in place of TED's timers, Then, as <code>irq_play</code> and <code>main_loop</code> do, each frame runs <code>dynamite</code> and <code>check_big_charge</code>, <code>move_pete</code> every other frame (every frame from level 10), and <code>water_step</code> every few frames once the flood has begun. The creatures, the scoring, and Pete's deaths are left out. From the same memory and the same joystick, the game in plus4emu made the same map in each of 1,166 frames of play, and the same mine on levels 1, 6, and 16 from the same timer readings.</p>
+    <p class="cap">The game's own routines, run on the kit's 6502 over the listing: <code>start_level</code> (<code>$1C54</code>) builds the mine with random numbers in place of TED's timers. Then, as <code>irq_play</code> and <code>main_loop</code> do, each frame runs <code>dynamite</code> and <code>check_big_charge</code>, <code>move_pete</code> every other frame (every frame from level 10), and <code>water_step</code> every few frames once the flood has begun. The creatures, the scoring, and Pete's deaths are left out. From the same memory and the same joystick, the game in plus4emu made the same map in each of 1,166 frames of play, and the same mine on levels 1, 6, and 16 from the same timer readings.</p>
   </div>
   <p>The mine is not stored anywhere. <code>start_level</code> fills rows 3 to 22 of the map with earth, scatters the level's goodies at random (<code>place_goodies</code>), opens the shaft at column 44, and lays the walls, every time a level starts and every time Pete loses a life. The random numbers come from TED's two timers, the raster line, and the beam's position, mixed with a running seed (<code>random_below</code>). A goodie is placed only where the four-by-four block round it holds no other, so goodies never touch, and every one of them must be collected. How many of each kind a level gets is on the <a href="levels.html">Maps / levels</a> tab.</p>
   <p>The big charge is a stick of dynamite in the bottom cell of the shaft (<code>$3F78</code>) with a longer fuse: 255 frames on level 1, 90 on level 16. When its explosion is over, <code>check_big_charge</code> breaks the floor under it and turns the cell into the first water. The water spreads one stage at a time: falling water spreads left, right, and down, water flowing sideways carries on and also goes down and up, and rising water goes left, right, and up. Water rises above its highest row only when nothing below is still filling (<code>flow_up</code>), so it fills the lowest tunnels first. A cell Pete digs beside full water lets it in (<code>let_water_in</code>). On level 1, with Pete standing still at the top of the shaft, the water reaches him 666 frames into the level, a little over 13 seconds.</p>
 </section>
 
+<section id="sound">
+  <p class="fig">03 · Sound</p>
+  <h2 class="t">Sound: effects only, one at a time</h2>
+  <p class="lede">There is no music. Once a frame, <code>sound</code> plays the first effect that is going, in a fixed order, and an effect higher in the list silences any below it for as long as it plays.</p>
+  <div class="plate">
+    <div class="pp-scroll"><table class="pp-table" id="pp-sfx" style="max-width:760px"><tr><th>Order</th><th>Effect</th><th>What TED plays</th><th>Frames</th></tr>
+      <tr data-k="0"><td>1</td><td>a stick left at the end of a level</td><td>noise, fading from volume 8 to nothing, then from 7, and so on down to 1</td><td>36 a stick</td></tr>
+      <tr data-k="1"><td>2</td><td>the end of a level</td><td>both square voices, voice 1 warbling between two pitches, one step quieter every other frame</td><td>24</td></tr>
+      <tr data-k="2"><td>3</td><td>a goodie collected</td><td>voice 1, its pitch wobbling at random, louder to 4 and down, then fading from 3, 2 and 1</td><td>14</td></tr>
+      <tr data-k="3"><td>4</td><td>an explosion</td><td>noise on voice 2, fading from 5, then lower from 12, three steps in every four frames</td><td>20</td></tr>
+      <tr data-k="4"><td>5</td><td>Pete's death</td><td>pulses of noise rising and falling, each pair of pulses one step lower</td><td>112</td></tr>
+      <tr data-k="5"><td>6</td><td>a stick's fuse, then its explosion</td><td>a hiss of noise at volume 1</td><td>120 on level 1</td></tr>
+      <tr data-k="6"><td>7</td><td>Pete moving, here five cells</td><td>a scratch of noise at a random pitch, volumes 0, 1, 2 and 3 over and over</td><td>8 a cell</td></tr></table></div>
+    <div class="pp-bar" id="pp-sfxbar"><label><input type="checkbox" id="pp-meant"> The end of a level with <code>STA $FF10</code>, as meant</label></div>
+    <div id="pp-sfxroll"></div>
+    <p class="cap">Each effect is started by the game's own code from the listing, the code that starts it in the game, and then <code>sound</code> (<code>$3689</code>) runs once a frame, on the kit's 6502; the timer and beam readings it mixes into the pitch are this browser's random numbers, new each time. The writes it makes to TED's sound registers play through the site's model of TED, which matches plus4emu's output to within 1 %. Run so, all seven write what the game wrote in plus4emu, frame by frame (<code>test_pete.js</code>).</p>
+  </div>
+  <p>TED, the chip that also draws the C16's screen, has two voices: two square waves, and noise in place of the second. The game sets their pitches and the volume straight into TED's registers from the interrupt. Volumes 9 to 15 play as loud as 8 on TED, so the explosion's second fade and the end of a level, which start at 12, hold their level for four steps before they fall.</p>
+  <p>The end of a level loads <code>$FF10</code> where the code around it stores, so voice 2's top two pitch bits keep whatever the last effect left in them (Discoveries). Pete has just climbed the shaft, and his steps leave 1 there: voice 2 plays near 157 Hz, almost two octaves under voice 1's 568 Hz. With 3, as a store would have left it, voice 2 takes the pitch voice 1 has just left, so the two voices sound 9 Hz apart and beat against each other.</p>
+</section>
+
 <section id="frame">
-  <p class="fig">03 · One frame, rebuilt from memory</p>
+  <p class="fig">04 · One frame, rebuilt from memory</p>
   <h2 class="t">The screen is drawn in three bands</h2>
   <p class="lede">The game changes TED's registers three times as the beam goes down the screen, so one picture needs three sets of them.</p>
   <div class="plate">
@@ -137,7 +158,7 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
 </section>
 
 <section id="figures">
-  <p class="fig">04 · Pete and the creatures</p>
+  <p class="fig">05 · Pete and the creatures</p>
   <h2 class="t">Moving figures are characters redrawn every frame</h2>
   <p class="lede">Pete and each creature are two characters of their own, rebuilt every frame from the earth or tunnel behind them, so they glide between cells.</p>
   <div class="plate">
@@ -157,7 +178,7 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
 </section>
 
 <section id="digging">
-  <p class="fig">05 · Digging</p>
+  <p class="fig">06 · Digging</p>
   <h2 class="t">Every tunnel is one cell wide</h2>
   <p class="lede">Pete may dig anywhere below the surface, except where the move would open a hole two cells square.</p>
   <div class="plate">
@@ -171,7 +192,7 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
 </section>
 
 <section id="creatures">
-  <p class="fig">06 · The creatures</p>
+  <p class="fig">07 · The creatures</p>
   <h2 class="t">Where a creature heads next</h2>
   <p class="lede">Each time a creature reaches the middle of a cell it chooses again. Click the map to move the creature and see, for every place Pete could stand, which way it would go.</p>
   <div class="plate">
@@ -188,7 +209,7 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
 </section>
 
 <section id="goodies">
-  <p class="fig">07 · Goodies</p>
+  <p class="fig">08 · Goodies</p>
   <h2 class="t">One of the goodies kills Pete</h2>
   <p class="lede">The goodies as the character set draws them, with what each is worth. Click one to have the game score it.</p>
   <div class="plate">
@@ -201,7 +222,7 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
 </section>
 
 <section id="levels">
-  <p class="fig">08 · Progression</p>
+  <p class="fig">09 · Progression</p>
   <h2 class="t">A later level is the same mine, faster and fuller</h2>
   <p class="lede">Each level is a column across twelve tables of 16 bytes at <code>$1EC9</code>-<code>$1F88</code>, read by <code>start_level</code>. Pick a level to see its row.</p>
   <div class="plate">
@@ -213,7 +234,7 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
 </section>
 
 <section id="controls">
-  <p class="fig">09 · Controls</p>
+  <p class="fig">10 · Controls</p>
   <h2 class="t">A joystick in port 2, or five keys</h2>
   <p class="lede">The game reads the joystick and the keyboard through TED, never through the KERNAL.</p>
   <div class="plate">
@@ -226,7 +247,7 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
 </section>
 
 <section id="title">
-  <p class="fig">10 · The title screen</p>
+  <p class="fig">11 · The title screen</p>
   <h2 class="t">The scroller passes judgement on your score</h2>
   <p class="lede">After a game the title's scrolling message begins with a verdict chosen by the score. Type a score to see which.</p>
   <div class="plate">
@@ -236,27 +257,6 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
   </div>
   <p>The verdict looks only at the score's ten thousands and thousands. Under 2,000 is THAT WAS PATHETIC, under 6,000 NOT QUITE GOT THE HANG HAVE WE, under 9,000 NOT BAD, and 9,000 to 9,999 MY MAIN MAN. From 10,000 it is MEGA SCORE. A game that scored nothing goes straight to the greeting, in which the author says the game took four weeks, one more than his Fingers Malone, and thanks the CBM 700 and 8250 drive that assembled its 5,100 lines of source in three minutes.</p>
   <p>The five high scores all start as DOUGGY, 10,000 down to 2,000, and last until the machine is switched off. A score that goes in is given six question marks for a name, which the player spells on the title screen with left, right and fire (<code>high_scores</code>).</p>
-</section>
-
-<section id="sound">
-  <p class="fig">11 · Sound</p>
-  <h2 class="t">Sound: effects only, one at a time</h2>
-  <p class="lede">There is no music. Once a frame, <code>sound</code> plays the first effect that is going, in a fixed order, and an effect higher in the list silences any below it for as long as it plays.</p>
-  <div class="plate">
-    <div class="pp-scroll"><table class="pp-table" id="pp-sfx" style="max-width:760px"><tr><th>Order</th><th>Effect</th><th>What TED plays</th><th>Frames</th></tr>
-      <tr data-k="0"><td>1</td><td>a stick left at the end of a level</td><td>noise, fading from volume 8 to nothing, then from 7, and so on down to 1</td><td>36 a stick</td></tr>
-      <tr data-k="1"><td>2</td><td>the end of a level</td><td>both square voices, voice 1 warbling between two pitches, one step quieter every other frame</td><td>24</td></tr>
-      <tr data-k="2"><td>3</td><td>a goodie collected</td><td>voice 1, its pitch wobbling at random, louder to 4 and down, then fading from 3, 2 and 1</td><td>14</td></tr>
-      <tr data-k="3"><td>4</td><td>an explosion</td><td>noise on voice 2, fading from 5, then lower from 12, three steps in every four frames</td><td>20</td></tr>
-      <tr data-k="4"><td>5</td><td>Pete's death</td><td>pulses of noise rising and falling, each pair of pulses one step lower</td><td>112</td></tr>
-      <tr data-k="5"><td>6</td><td>a stick's fuse, then its explosion</td><td>a hiss of noise at volume 1</td><td>120 on level 1</td></tr>
-      <tr data-k="6"><td>7</td><td>Pete moving, here five cells</td><td>a scratch of noise at a random pitch, volumes 0, 1, 2 and 3 over and over</td><td>8 a cell</td></tr></table></div>
-    <div class="pp-bar" id="pp-sfxbar"><label><input type="checkbox" id="pp-meant"> The end of a level with <code>STA $FF10</code>, as meant</label></div>
-    <div id="pp-sfxroll"></div>
-    <p class="cap">Each effect is started by the game's own code from the listing, the code that starts it in the game, and then <code>sound</code> (<code>$3689</code>) runs once a frame, on the kit's 6502; the timer and beam readings it mixes into the pitch are this browser's random numbers, new each time. The writes it makes to TED's sound registers play through the site's model of TED, which matches plus4emu's output to within 1 %. Run so, all seven write what the game wrote in plus4emu, frame by frame (<code>test_pete.js</code>).</p>
-  </div>
-  <p>TED has two voices: two square waves, and noise in place of the second. The game sets their pitches and the volume straight into TED's registers from the interrupt. Volumes 9 to 15 play as loud as 8 on TED, so the explosion's second fade and the end of a level, which start at 12, hold their level for four steps before they fall.</p>
-  <p>The end of a level loads <code>$FF10</code> where the code around it stores, so voice 2's top two pitch bits keep whatever the last effect left in them (Discoveries). Pete has just climbed the shaft, and his steps leave 1 there: voice 2 plays near 157 Hz, almost two octaves under voice 1's 568 Hz. With 3, as a store would have left it, voice 2 takes the pitch voice 1 has just left, so the two voices sound 9 Hz apart and beat against each other.</p>
 </section>
 
 </main>
