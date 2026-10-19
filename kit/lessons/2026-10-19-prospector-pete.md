@@ -1,4 +1,4 @@
-## next · 2026-10-19 · Prospector Pete (Commodore 16) · air with Claude
+## 0.0.205 · 2026-10-19 · Prospector Pete (Commodore 16) · air with Claude
 
 - **For each search loop, find what ends it when nothing is found.**
   Prospector Pete's creatures look for an open way round them, adding
