@@ -1,4 +1,4 @@
-## next · 2026-10-20 · Prospector Pete (Commodore 16) · air with Claude
+## 0.0.210 · 2026-10-20 · Prospector Pete (Commodore 16) · air with Claude
 
 - **Let a read inside a stretch see the time the stretch has taken.** A
   Play tab's clock that moves on only at the end of each stretch of the
