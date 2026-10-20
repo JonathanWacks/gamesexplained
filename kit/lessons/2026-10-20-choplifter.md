@@ -1,4 +1,4 @@
-## next · 2026-10-20 · Choplifter (Apple II) · air with Claude
+## 0.0.211 · 2026-10-20 · Choplifter (Apple II) · air with Claude
 
 - **Run the game's code from the listing and compare it with the
   emulator.** Coverage read 100 % and every check passed while the
