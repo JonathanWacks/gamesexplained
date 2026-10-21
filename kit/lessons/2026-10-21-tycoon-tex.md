@@ -1,4 +1,4 @@
-## next · 2026-10-21 · Tycoon Tex (Commodore 16) · air with Claude
+## 0.0.215 · 2026-10-21 · Tycoon Tex (Commodore 16) · air with Claude
 
 - **Sweep a timing from before it can work to after it cannot.** To find
   which breaks in the pipe Tex can jump, the first search tried a jump
