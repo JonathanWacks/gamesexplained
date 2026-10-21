@@ -19,6 +19,12 @@ step needs something only they have.
    fork and cannot reach this repository at all, so you open neither
    the pull request nor issues here: step 7 says how the contributor
    opens the pull request, and the retrospective how the asks are filed.
+
+   Start each run from an up-to-date `main`, so it has the newest kit.
+   In a clone used before, `git switch main` and
+   `git pull https://github.com/gamesexplained/gamesexplained main`. In a
+   cloud session on a fork, ask the contributor to press "Sync fork" on
+   the fork's GitHub page, then `git pull origin main`.
 2. **Read `AGENTS.md` completely.** It is the rulebook and the workflow.
    Everything below assumes you have.
 3. **Ask the contributor six things** if they have not already told you:
