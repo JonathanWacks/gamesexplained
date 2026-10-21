@@ -1,4 +1,4 @@
-## next · 2026-10-21 · Tycoon Tex (Commodore 16) · air with Claude
+## 0.0.217 · 2026-10-21 · Tycoon Tex (Commodore 16) · air with Claude
 
 - **Two bytes at BASIC's start can be BASIC's, not the game's.** Tycoon
   Tex loads its graphics at $1000, and a C16's BASIC program starts at
