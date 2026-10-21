@@ -1,4 +1,4 @@
-## next · 2026-10-21 · Uridium (C64) · air with Claude
+## 0.0.219 · 2026-10-21 · Uridium (C64) · air with Claude
 
 - **Count typed data whether or not a label reaches it.** The ledger
   counted data only inside a label's span, so data typed with no label
