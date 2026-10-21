@@ -1,4 +1,4 @@
-## next · 2026-10-21 · Tycoon Tex (Commodore 16) · air with Claude
+## 0.0.216 · 2026-10-21 · Tycoon Tex (Commodore 16) · air with Claude
 
 - **Let a CLI in where the game's comes.** A port's checkpoint after a
   CLI is the instruction after it, so on the machine the stretch that
