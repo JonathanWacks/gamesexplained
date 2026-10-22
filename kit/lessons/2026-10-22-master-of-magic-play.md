@@ -1,4 +1,4 @@
-## next · 2026-10-22 · Master of Magic (C64) · air with Claude
+## 0.0.224 · 2026-10-22 · Master of Magic (C64) · air with Claude
 
 - **Give a handler the collisions the game's read.** A play interrupt that
   copies `$D01E` or `$D01F` into memory each frame reads what the beam
