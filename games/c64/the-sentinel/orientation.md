@@ -9,6 +9,11 @@ else must be able to follow this exactly.
 with no display, 25 September 2026. `check-emulator`: 56 of 56 passed, so
 none of `kit/skills/c64/tool-vice-mcp/workarounds.md` applies. PAL, 6581 SID.
 
+The snapshot the listing is built from, `work/entry.vsf`, was remade on 21
+October 2026 by the route below with the `v3.13.2` release. It differs
+from the first only in the angle cache at `$BC00`-`$CBFF`, which holds
+the emulator's fill until `$3700` runs.
+
 ## The image
 
 `SENTIN.D64`, 35 tracks, no error bytes. Disk name `P00 IMPORTS`, id `01 2A`.
@@ -39,6 +44,8 @@ difference matters in one place, below.
    two seconds (`reference/title.png`).
 5. Press SPACE (`vice_keyboard_matrix`, held 0.4 s). `LANDSCAPE NUMBER?`
    appears with an input field (`reference/landscape-number-prompt.png`).
+   Wait about three seconds before typing: digits typed 1.5 seconds after
+   the SPACE were lost.
 6. Type `0`, `0`, `0`, `0` (each held 0.3 s, 0.3 s apart), then RETURN.
    The screen goes blue for about three seconds, then shows the landscape
    from above: `LANDSCAPE 0000` / `PRESS ANY KEY`
@@ -123,6 +130,25 @@ sectors, zeros for the four lost ones) gets past that wait and then stops
 on an illegal opcode at `$0008` before any of the game reaches memory: the
 loader's first chunk is the damaged one. So this image cannot supply the
 missing `$B000`-`$B5FF` either, and the analysis stays on the backup.
+
+### The loading screen, from the Firebird tape
+
+The loading picture survives only in part in the backup (`facts.md`,
+"The loading picture"). The 1986 Firebird tape shows it whole:
+`Sentinel, The.tap` from the folder `Sentinel, The (1986 Firebird)
+[2232]` of the Ultimate Tape Archive V4.0 on archive.org (454,434
+bytes, SHA-256
+`b1b8ee375b605adeee846fa7a82c8aff3548426dfc32c1e52fe4961f039ded5a`;
+`work/sentinel-firebird.tap`). Autostarted in warp mode, it prints a
+LOADING countdown on a text screen and then shows the picture, with
+`$D011` = `$3B`, `$D018` = `$81`
+and `$DD00` = `$C6`: bitmap `$4000`, screen `$6000`, colour RAM all
+`$0F`, background `$00`. `reference/loading-screen.png` is VICE's
+picture of it, and `reference/loading-screen-in-memory.png` keeps only
+the bitmap bytes the backup still holds. The load stalled with the
+picture on screen, the loader waiting at `$C86B` for bytes from the
+tape; it was not followed further, since the analysis stays on the
+backup.
 
 ## Steady state
 
