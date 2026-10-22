@@ -1,4 +1,4 @@
-## next · 2026-10-22 · Alter Ego (C64) · air with Claude
+## 0.0.221 · 2026-10-22 · Alter Ego (C64) · air with Claude
 
 - **Start the emulator from the same RAM every time.** VICE fills RAM
   at power-on with runs of `$00` and `$FF` and then flips random bits
