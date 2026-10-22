@@ -1,4 +1,4 @@
-## next · 2026-10-22 · Master of Magic (C64) · air with Claude
+## 0.0.225 · 2026-10-22 · Master of Magic (C64) · air with Claude
 
 - **Look for memory changes in every video bank.** A Play page finds the
   port's changes to memory by comparing it, line by line, with what the
