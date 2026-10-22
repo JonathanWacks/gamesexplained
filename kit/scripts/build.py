@@ -2035,11 +2035,11 @@ def runs_on(cs, kit):
     return f'<p class="tools">Runs on {" and ".join(filter(None, [", ".join(items[:-1]), items[-1]]))}.</p>' if items else ""
 
 
-TIER_ORDER = ("diamond", "gold", "platinum", "silver-claimed", "silver", "bronze", "none")
+TIER_ORDER = ("diamond", "platinum", "gold", "silver-claimed", "silver", "bronze", "none")
 
 
 def by_tier(games):
-    """The games best first, as the home page lists them: Diamond, Gold and Platinum,
+    """The games best first, as the home page lists them: Diamond, Platinum and Gold,
     Bronze and no tier at the bottom; within a tier, the order they came in."""
     rank = lambda g: TIER_ORDER.index(g.get("tier", "none")) if g.get("tier", "none") in TIER_ORDER else len(TIER_ORDER)
     return sorted(games, key=rank)

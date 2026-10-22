@@ -10,6 +10,7 @@
   --ink:#2f3136; --ink-soft:#55585f; --ink-mute:#80838a;
   --link:#1f5fa8; --link-hover:#154480; --accent:#1f5fa8;
   --amber:#c25a00; --cyan:#1f5fa8; --coral:#d04a3a; --green:#2a8a4a; --violet:#4a5bd6; --hl:#fff0c2;
+  --diamond:#a8dcf2; --diamond-ink:#134a63; --platinum:#c5cad1; --platinum-ink:#3b4048;
   --chip:#2f3136; --chip-ink:#ffffff;
   --c64blue:#40318d; --c64grey:#686868;
   --fd:'Lato',system-ui,sans-serif; --fb:'Lato',system-ui,sans-serif; --fm:'IBM Plex Mono',ui-monospace,Menlo,monospace;
@@ -130,8 +131,9 @@ html:has(.pagenav) h2[id]{scroll-margin-top:calc(var(--tabs-h,48px) + 16px)}
 .gamebanner{display:inline-block;margin:2px 0 14px;padding:5px 12px;text-align:left;
  background:var(--surface-2);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:0 var(--r) var(--r) 0;
  font-family:var(--fb);font-size:13.5px;line-height:1.5;color:var(--ink-soft)}
-.gamebanner.gold,.gamebanner.diamond{border-left-color:var(--amber)}
-.gamebanner.platinum{border-left-color:var(--green)}
+.gamebanner.gold{border-left-color:var(--amber)}
+.gamebanner.diamond{border-left-color:var(--diamond)}
+.gamebanner.platinum{border-left-color:var(--platinum)}
 .gamebanner.silver,.gamebanner.silver-claimed{border-left-color:var(--accent)}
 .gamebanner.bronze,.gamebanner.none{border-left-color:var(--coral)}
 .gamebanner .prompt{position:absolute;left:-9999px}
@@ -175,8 +177,8 @@ html:has(.pagenav) h2[id]{scroll-margin-top:calc(var(--tabs-h,48px) + 16px)}
 .show .strip{margin-top:12px;height:14px;border-radius:4px}
 .stamp{display:inline-block;font-family:var(--fm);font-size:10px;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--line);border-radius:999px;padding:1px 8px;color:var(--ink-mute);white-space:nowrap}
 .stamp.gold{color:var(--amber);border-color:rgba(194,90,0,.5)}
-.stamp.platinum{color:var(--green);border-color:rgba(42,138,74,.5)}
-.stamp.diamond{color:var(--violet);border-color:rgba(74,91,214,.5)}
+.stamp.platinum{color:var(--platinum-ink);background:var(--platinum);border-color:var(--platinum)}
+.stamp.diamond{color:var(--diamond-ink);background:var(--diamond);border-color:var(--diamond)}
 .stamp.silver,.stamp.silver-claimed{color:var(--accent);border-color:rgba(31,95,168,.5)}
 .stamp.bronze,.stamp.none{color:var(--coral);border-color:rgba(208,74,58,.5)}
 .cathead{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin:26px 0 14px}
@@ -203,11 +205,13 @@ html:has(.pagenav) h2[id]{scroll-margin-top:calc(var(--tabs-h,48px) + 16px)}
 .tile .v a{position:relative;z-index:1}
 .tile time,.tile .m{font-family:var(--fm);font-size:11px;color:var(--ink-mute);margin-top:3px}
 /* The tier up a card's left edge, in the tier's colour: gold, slate and bronze differ in lightness
-   as well as hue, so they part for a colour-blind reader too, and the word is always there. Only a
-   card's: the tab bar's .tier, the tier or build date at its right, stays in the bar. */
-.t-diamond{--tc:#4a3fa0}.t-gold{--tc:#8f6a00}.t-platinum{--tc:#23703c}.t-silver{--tc:#68707c}.t-bronze{--tc:#8a4a1e}.t-none{--tc:#80838a}
+   as well as hue, so they part for a colour-blind reader too, and the word is always there. Diamond and
+   Platinum are light, with dark type (--tk) on them and in their heading. Only a card's: the tab bar's
+   .tier, the tier or build date at its right, stays in the bar. */
+.t-diamond{--tc:var(--diamond);--tk:var(--diamond-ink)}.t-gold{--tc:#8f6a00}.t-platinum{--tc:var(--platinum);--tk:var(--platinum-ink)}
+.t-silver{--tc:#68707c}.t-bronze{--tc:#8a4a1e}.t-none{--tc:#80838a}
 .tile>.tier{position:absolute;left:0;top:0;bottom:0;width:22px;display:flex;align-items:center;justify-content:center;
-  writing-mode:vertical-rl;transform:rotate(180deg);background:var(--tc);color:#fff;font-family:var(--fm);font-size:10px;
+  writing-mode:vertical-rl;transform:rotate(180deg);background:var(--tc);color:var(--tk,#fff);font-family:var(--fm);font-size:10px;
   font-weight:500;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}
 /* The machine a card's game runs on (build.py platform_badge): its logo from site/icons/platforms/, muted, in
    the card's bottom right corner, as a shop shows the systems a game runs on. It sits on top of the title's
@@ -246,13 +250,13 @@ html:has(.pagenav) h2[id]{scroll-margin-top:calc(var(--tabs-h,48px) + 16px)}
 .finder[hidden],.finder .facets[hidden],.recent .dots[hidden]{display:none}
 .finder .clear{border-style:dashed}
 .catgroup{margin:0 0 22px;scroll-margin-top:120px}
-.catgroup>h3{margin:0 0 10px;font-size:22px;color:var(--tc,var(--ink))}
+.catgroup>h3{margin:0 0 10px;font-size:22px;color:var(--tk,var(--tc,var(--ink)))}
 .catgroup>h3 .n{font-family:var(--fm);font-size:13px;font-weight:400;color:var(--ink-mute);margin-left:6px}
 .catgroup>h3 small{display:block;font-size:14px;font-weight:400;color:var(--ink-mute);margin-top:2px}
 .catgroup{position:relative}
 .catgroup>.tiles{margin-bottom:12px}
 .showall{display:flex;margin:0 auto;width:max-content;align-items:center;gap:6px;padding:7px 12px 7px 14px;font:500 12.5px var(--fm);
-  color:#fff;background:var(--tc,var(--ink));border:0;border-radius:999px;cursor:pointer;box-shadow:var(--plate-shadow);transition:filter .15s ease}
+  color:var(--tk,#fff);background:var(--tc,var(--ink));border:0;border-radius:999px;cursor:pointer;box-shadow:var(--plate-shadow);transition:filter .15s ease}
 .showall svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;transition:transform .15s ease}
 .showall:hover{filter:brightness(1.15)}
 .showall:hover svg{transform:translateX(2px)}

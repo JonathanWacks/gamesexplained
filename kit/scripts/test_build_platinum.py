@@ -77,9 +77,9 @@ class Platinum(unittest.TestCase):
             self.assertIn("<td>platinum (claimed)</td>", (page / "about.html").read_text())
             self.assertIn('aria-label="Tier: platinum (claimed)">Platinum<', build.tier_edge(game))
 
-    def test_the_home_page_puts_diamond_first_then_gold_then_platinum(self):
+    def test_the_home_page_puts_diamond_first_then_platinum_then_gold(self):
         games = [{"tier": t} for t in ("silver", "platinum", "gold", "diamond")]
-        self.assertEqual([g["tier"] for g in build.by_tier(games)], ["diamond", "gold", "platinum", "silver"])
+        self.assertEqual([g["tier"] for g in build.by_tier(games)], ["diamond", "platinum", "gold", "silver"])
         self.assertEqual([build.tier_group(g) for g in games], ["silver", "platinum", "gold", "diamond"])
         self.assertIn(">Diamond<", build.tier_edge({"tier": "diamond"}))
         self.assertEqual(build.featured_game([{"tier": "platinum"}, {"tier": "diamond"}])["tier"], "diamond")
