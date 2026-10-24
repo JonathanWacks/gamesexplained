@@ -1,4 +1,4 @@
-## next · 2026-10-24 · The Sacred Armour of Antiriad (C64) · air with Claude
+## 0.0.228 · 2026-10-24 · The Sacred Armour of Antiriad (C64) · air with Claude
 
 - **Take a register's value from the store, not from a dump.** The VIC
   reads its unused bits back as 1, and every way the kit looks at the

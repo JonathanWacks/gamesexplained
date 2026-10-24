@@ -1,4 +1,4 @@
-## next · 2026-10-24 · Flowers of Crystal (BBC Micro) · air with Claude
+## 0.0.228 · 2026-10-24 · Flowers of Crystal (BBC Micro) · air with Claude
 
 - **Read every line built the same way before calling one special.** A
   finding drawn from one line's shape is a claim about the lines that
