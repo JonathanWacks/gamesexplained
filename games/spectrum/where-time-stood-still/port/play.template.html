@@ -111,7 +111,7 @@ section table{margin:6px 0 18px}
       <button type="button" data-act="restart">Start again</button>
       <span class="pl-sep" aria-hidden="true"></span>
       <button type="button" data-sound aria-pressed="true">🔊 Sound</button>
-      <button type="button" data-crt aria-pressed="false" title="Draw the picture as a CRT television did: lit lines with a soft glow, on a slightly curved screen">📺 CRT screen</button>
+      <button type="button" data-crt aria-pressed="true" title="Draw the picture as a CRT television did: lit lines with a soft glow, on a slightly curved screen">📺 CRT screen</button>
       <button type="button" data-act="wide" aria-pressed="false" title="Fill the window with the plateau round the view, drawn by the game's own routines">🔭 Wide view</button>
       <span class="pl-wide-only"><button type="button" data-act="zoom-out" aria-label="Zoom out">−</button> <span class="pl-zoom" id="pl-zoom">×2</span> <button type="button" data-act="zoom-in" aria-label="Zoom in">+</button></span>
       <button type="button" class="pl-wide-only" data-act="full">⛶ Full screen</button>
@@ -491,8 +491,8 @@ $('pl-bar').addEventListener('click', e => {
 screen.addEventListener('click', () => { if (!running && data) start(); });
 // the CRT screen (site/lib/crt.js), on until the viewer switches it off, and over the wide
 // picture, switched by the same button
-CRT.attach(cv, { button: document.querySelector('[data-crt]'), on: true });
-wcrt = CRT.attach(wcv, { button: document.querySelector('[data-crt]'), source: ccv, on: true, onChange: () => { ckey = ''; drawWide(rt && rt.lastFrame()); } });
+CRT.attach(cv, { button: document.querySelector('[data-crt]') });
+wcrt = CRT.attach(wcv, { button: document.querySelector('[data-crt]'), source: ccv, onChange: () => { ckey = ''; drawWide(rt && rt.lastFrame()); } });
 try {
   data = JSON.parse(document.getElementById('wt-data').textContent);
   overMsg.textContent = 'Where Time Stood Still from where its loader hands over: the title, then the control selection. Press 2, 0 and Y there to play with the arrow keys. Click, then use the keyboard.';
