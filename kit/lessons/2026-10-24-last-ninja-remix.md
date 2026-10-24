@@ -1,4 +1,4 @@
-## next · 2026-10-24 · Last Ninja Remix (C64) · air with Claude
+## 0.0.236 · 2026-10-24 · Last Ninja Remix (C64) · air with Claude
 
 - **Hold a picture widget against the painted picture, not the memory
   behind it.** Each level's title card was drawn in the page by the
