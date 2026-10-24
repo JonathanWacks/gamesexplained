@@ -1,4 +1,4 @@
-## next · 2026-10-24 · Master of Magic (C64) · air with Claude
+## 0.0.233 · 2026-10-24 · Master of Magic (C64) · air with Claude
 
 - **Give the sound a page streams half a second of queue.** A Play tab
   sends what its game writes to the sound chip to the audio thread, a
