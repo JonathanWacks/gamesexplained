@@ -1,4 +1,4 @@
-## next · 2026-10-24 · Shadowfire (C64) · air with Claude
+## 0.0.231 · 2026-10-24 · Shadowfire (C64) · air with Claude
 
 - **Give a byte an interrupt saves and puts back to the port.** The
   lockstep runs each interrupt the game took in the port at the port's
