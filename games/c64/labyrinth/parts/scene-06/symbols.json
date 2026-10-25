@@ -110,8 +110,53 @@
  "blocks": [
   {
    "start": 1536,
+   "end": 1560,
+   "type": "Byte"
+  },
+  {
+   "start": 1561,
+   "end": 1561,
+   "type": "Byte"
+  },
+  {
+   "start": 1562,
+   "end": 1599,
+   "type": "Byte"
+  },
+  {
+   "start": 1600,
+   "end": 1791,
+   "type": "Byte"
+  },
+  {
+   "start": 1792,
+   "end": 1795,
+   "type": "Byte"
+  },
+  {
+   "start": 1796,
+   "end": 1798,
+   "type": "Byte"
+  },
+  {
+   "start": 1799,
+   "end": 1805,
+   "type": "Byte"
+  },
+  {
+   "start": 1806,
+   "end": 1807,
+   "type": "Byte"
+  },
+  {
+   "start": 1808,
+   "end": 1817,
+   "type": "Byte"
+  },
+  {
+   "start": 1818,
    "end": 1821,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 1822,
@@ -121,7 +166,7 @@
   {
    "start": 1886,
    "end": 1901,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 1902,
@@ -130,116 +175,214 @@
   },
   {
    "start": 1918,
+   "end": 1933,
+   "type": "Byte"
+  },
+  {
+   "start": 1934,
+   "end": 1949,
+   "type": "Byte"
+  },
+  {
+   "start": 1950,
+   "end": 1965,
+   "type": "Byte"
+  },
+  {
+   "start": 1966,
+   "end": 1981,
+   "type": "Byte"
+  },
+  {
+   "start": 1982,
+   "end": 1997,
+   "type": "Byte"
+  },
+  {
+   "start": 1998,
+   "end": 2013,
+   "type": "Byte"
+  },
+  {
+   "start": 2014,
+   "end": 2029,
+   "type": "Byte"
+  },
+  {
+   "start": 2030,
+   "end": 2045,
+   "type": "Byte"
+  },
+  {
+   "start": 2046,
    "end": 2047,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 30976,
-   "end": 35721,
-   "type": "Undefined"
-  },
-  {
-   "start": 35722,
-   "end": 35723,
+   "end": 32767,
    "type": "Byte"
   },
   {
-   "start": 35724,
-   "end": 35821,
-   "type": "Undefined"
+   "start": 32768,
+   "end": 32770,
+   "type": "Byte"
   },
   {
-   "start": 35822,
-   "end": 35823,
+   "start": 32771,
+   "end": 35583,
+   "type": "Byte"
+  },
+  {
+   "start": 35584,
+   "end": 35775,
+   "type": "Byte"
+  },
+  {
+   "start": 35776,
+   "end": 35945,
    "type": "Address"
   },
   {
-   "start": 35824,
-   "end": 35913,
-   "type": "Undefined"
+   "start": 35946,
+   "end": 35967,
+   "type": "Byte"
   },
   {
-   "start": 35914,
-   "end": 35915,
+   "start": 35968,
+   "end": 35973,
    "type": "Address"
   },
   {
-   "start": 35916,
-   "end": 36496,
-   "type": "Undefined"
-  },
-  {
-   "start": 36497,
-   "end": 36542,
+   "start": 35974,
+   "end": 36055,
    "type": "Code"
   },
   {
-   "start": 36543,
-   "end": 36655,
-   "type": "Undefined"
-  },
-  {
-   "start": 36656,
-   "end": 36749,
-   "type": "Code"
-  },
-  {
-   "start": 36750,
-   "end": 37075,
-   "type": "Undefined"
-  },
-  {
-   "start": 37076,
-   "end": 37080,
-   "type": "Code"
-  },
-  {
-   "start": 37081,
-   "end": 37358,
-   "type": "Undefined"
-  },
-  {
-   "start": 37359,
-   "end": 37380,
+   "start": 36056,
+   "end": 36062,
    "type": "Byte"
   },
   {
-   "start": 37381,
-   "end": 37839,
-   "type": "Undefined"
+   "start": 36063,
+   "end": 36812,
+   "type": "Code"
   },
   {
-   "start": 37840,
-   "end": 37859,
+   "start": 36813,
+   "end": 36813,
    "type": "Byte"
   },
   {
-   "start": 37860,
+   "start": 36814,
+   "end": 37083,
+   "type": "Code"
+  },
+  {
+   "start": 37084,
+   "end": 37084,
+   "type": "Byte"
+  },
+  {
+   "start": 37085,
+   "end": 37112,
+   "type": "Code"
+  },
+  {
+   "start": 37113,
+   "end": 39056,
+   "type": "Byte"
+  },
+  {
+   "start": 39057,
+   "end": 39067,
+   "type": "Byte"
+  },
+  {
+   "start": 39068,
+   "end": 39091,
+   "type": "Byte"
+  },
+  {
+   "start": 39092,
+   "end": 39564,
+   "type": "Code"
+  },
+  {
+   "start": 39565,
+   "end": 39830,
+   "type": "Byte"
+  },
+  {
+   "start": 39831,
+   "end": 39910,
+   "type": "Byte"
+  },
+  {
+   "start": 39911,
+   "end": 39914,
+   "type": "Byte"
+  },
+  {
+   "start": 39915,
+   "end": 40148,
+   "type": "Code"
+  },
+  {
+   "start": 40149,
+   "end": 40172,
+   "type": "Byte"
+  },
+  {
+   "start": 40173,
+   "end": 40334,
+   "type": "Byte"
+  },
+  {
+   "start": 40335,
+   "end": 40442,
+   "type": "Byte"
+  },
+  {
+   "start": 40443,
+   "end": 40685,
+   "type": "Code"
+  },
+  {
+   "start": 40686,
+   "end": 40812,
+   "type": "Byte"
+  },
+  {
+   "start": 40813,
+   "end": 48127,
+   "type": "Undefined"
+  },
+  {
+   "start": 48128,
+   "end": 51455,
+   "type": "Byte"
+  },
+  {
+   "start": 51456,
    "end": 53247,
    "type": "Undefined"
   },
   {
    "start": 57344,
+   "end": 59343,
+   "type": "Byte"
+  },
+  {
+   "start": 59344,
    "end": 65535,
    "type": "Undefined"
   }
  ],
  "symbols": [
   {
-   "address": 1536,
-   "name": "f_0600",
-   "type": "Field",
-   "kind": "auto"
-  },
-  {
    "address": 1561,
    "name": "stone_ladder_cell",
-   "type": "UserDefined",
-   "kind": "user"
-  },
-  {
-   "address": 1562,
-   "name": "stone_after_ladder_cell",
    "type": "UserDefined",
    "kind": "user"
   },
@@ -268,99 +411,9 @@
    "kind": "user"
   },
   {
-   "address": 1886,
-   "name": "stone_after_exit_column_limits",
-   "type": "UserDefined",
-   "kind": "user"
-  },
-  {
    "address": 1902,
    "name": "stone_exit_selectors",
    "type": "Field",
-   "kind": "user"
-  },
-  {
-   "address": 1918,
-   "name": "stone_exit_scene_banks",
-   "type": "Field",
-   "kind": "user"
-  },
-  {
-   "address": 1931,
-   "name": "stone_ladder_exit_scene",
-   "type": "UserDefined",
-   "kind": "user"
-  },
-  {
-   "address": 1932,
-   "name": "stone_after_ladder_exit_scene",
-   "type": "UserDefined",
-   "kind": "user"
-  },
-  {
-   "address": 1934,
-   "name": "stone_exit_entry_banks",
-   "type": "Field",
-   "kind": "user"
-  },
-  {
-   "address": 1947,
-   "name": "stone_ladder_exit_entry",
-   "type": "UserDefined",
-   "kind": "user"
-  },
-  {
-   "address": 1948,
-   "name": "stone_after_ladder_exit_entry",
-   "type": "UserDefined",
-   "kind": "user"
-  },
-  {
-   "address": 2015,
-   "name": "stone_slot1_bank60_scene",
-   "type": "UserDefined",
-   "kind": "user"
-  },
-  {
-   "address": 2016,
-   "name": "stone_after_checked_exit_scene",
-   "type": "UserDefined",
-   "kind": "user"
-  },
-  {
-   "address": 2029,
-   "name": "stone_slot15_bank60_scene",
-   "type": "UserDefined",
-   "kind": "user"
-  },
-  {
-   "address": 2030,
-   "name": "stone_after_arch_scene",
-   "type": "UserDefined",
-   "kind": "user"
-  },
-  {
-   "address": 2031,
-   "name": "stone_slot1_bank60_entry",
-   "type": "UserDefined",
-   "kind": "user"
-  },
-  {
-   "address": 2032,
-   "name": "stone_after_checked_exit_entry",
-   "type": "UserDefined",
-   "kind": "user"
-  },
-  {
-   "address": 2045,
-   "name": "stone_slot15_bank60_entry",
-   "type": "UserDefined",
-   "kind": "user"
-  },
-  {
-   "address": 2046,
-   "name": "stone_after_arch_entry",
-   "type": "UserDefined",
    "kind": "user"
   },
   {
@@ -371,8 +424,8 @@
   },
   {
    "address": 35632,
-   "name": "stone_after_close_pair",
-   "type": "UserDefined",
+   "name": "stone_command_object_pairs_after_close",
+   "type": "Field",
    "kind": "user"
   },
   {
@@ -383,8 +436,8 @@
   },
   {
    "address": 35724,
-   "name": "stone_after_open_pair_unanalysed",
-   "type": "UserDefined",
+   "name": "stone_command_object_pairs_after_open",
+   "type": "Field",
    "kind": "user"
   },
   {
@@ -401,8 +454,8 @@
   },
   {
    "address": 35916,
-   "name": "stone_after_open_target_unanalysed",
-   "type": "UserDefined",
+   "name": "stone_command_handler_pointers_after_open",
+   "type": "Address",
    "kind": "user"
   },
   {
@@ -412,27 +465,15 @@
    "kind": "user"
   },
   {
-   "address": 36520,
-   "name": "b_8EA8",
-   "type": "Branch",
-   "kind": "auto"
-  },
-  {
    "address": 36527,
    "name": "stone_close_accepted",
    "type": "Branch",
    "kind": "user"
   },
   {
-   "address": 36540,
-   "name": "j_8EBC",
-   "type": "Jump",
-   "kind": "auto"
-  },
-  {
    "address": 36543,
    "name": "stone_after_close",
-   "type": "UserDefined",
+   "type": "Subroutine",
    "kind": "user"
   },
   {
@@ -440,18 +481,6 @@
    "name": "stone_open_door",
    "type": "AbsoluteAddress",
    "kind": "user"
-  },
-  {
-   "address": 36668,
-   "name": "b_8F3C",
-   "type": "Branch",
-   "kind": "auto"
-  },
-  {
-   "address": 36686,
-   "name": "b_8F4E",
-   "type": "Branch",
-   "kind": "auto"
   },
   {
    "address": 36693,
@@ -491,8 +520,8 @@
   },
   {
    "address": 36750,
-   "name": "stone_after_open_regular_unanalysed",
-   "type": "UserDefined",
+   "name": "stone_take",
+   "type": "Subroutine",
    "kind": "user"
   },
   {
@@ -503,8 +532,8 @@
   },
   {
    "address": 37081,
-   "name": "stone_after_reply_mode_unanalysed",
-   "type": "UserDefined",
+   "name": "stone_time",
+   "type": "Subroutine",
    "kind": "user"
   },
   {
@@ -520,28 +549,1762 @@
    "kind": "user"
   },
   {
-   "address": 37400,
-   "name": "stone_after_already_closed",
-   "type": "UserDefined",
-   "kind": "user"
-  },
-  {
    "address": 37840,
    "name": "stone_nothing_happens_reply",
    "type": "UserDefined",
    "kind": "user"
   },
   {
-   "address": 37860,
-   "name": "stone_after_nothing_happens_unanalysed",
+   "address": 30976,
+   "name": "af_costume_unused_header",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 30978,
+   "name": "af_costume_stream_offset_low",
    "type": "UserDefined",
    "kind": "user"
   },
   {
+   "address": 31105,
+   "name": "af_costume_stream_offset_high",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 31232,
+   "name": "af_costume_frame_directory_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 31264,
+   "name": "af_costume_frame_directory_1",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 31296,
+   "name": "af_costume_frame_directory_2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 31328,
+   "name": "af_costume_frame_directory_3",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 31360,
+   "name": "af_costume_frame_directory_4",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 31392,
+   "name": "af_costume_frame_directory_5",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 31424,
+   "name": "af_costume_frame_directory_6",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 31456,
+   "name": "af_costume_directory_pad",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 31488,
+   "name": "af_costume_animation_phases_1",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 31568,
+   "name": "af_costume_animation_phases_2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 31648,
+   "name": "af_costume_animation_phases_3",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 31728,
+   "name": "af_costume_animation_phases_4",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 31808,
+   "name": "af_costume_animation_phases_5",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 31888,
+   "name": "af_costume_animation_phases_6",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 31968,
+   "name": "af_costume_stream_empty",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 31974,
+   "name": "af_costume_stream_01",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 32005,
+   "name": "af_costume_stream_02",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 32036,
+   "name": "af_costume_stream_03",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 32193,
+   "name": "af_costume_stream_04",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 32240,
+   "name": "af_costume_stream_06",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 32278,
+   "name": "af_costume_stream_07",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 32356,
+   "name": "af_costume_stream_08",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 32392,
+   "name": "af_costume_stream_09",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 32433,
+   "name": "af_costume_stream_0A",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 32470,
+   "name": "af_costume_stream_0B",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 32517,
+   "name": "af_costume_stream_0C",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 32557,
+   "name": "af_costume_stream_0D",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 32651,
+   "name": "af_costume_stream_0E",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 32691,
+   "name": "af_costume_stream_0F",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 32729,
+   "name": "af_costume_stream_10",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 32771,
+   "name": "af_costume_stream_11",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 32823,
+   "name": "af_costume_stream_12",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 32880,
+   "name": "af_costume_stream_13",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 32920,
+   "name": "af_costume_stream_14",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 32940,
+   "name": "af_costume_stream_15",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 32975,
+   "name": "af_costume_stream_16",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 33021,
+   "name": "af_costume_stream_17",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 33056,
+   "name": "af_costume_stream_18",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 33106,
+   "name": "af_costume_stream_19",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 33153,
+   "name": "af_costume_stream_1A",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 33202,
+   "name": "af_costume_stream_1B",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 33249,
+   "name": "af_costume_stream_1C",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 33291,
+   "name": "af_costume_stream_1D",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 33348,
+   "name": "af_costume_stream_1E",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 33388,
+   "name": "af_costume_stream_1F",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 33426,
+   "name": "af_costume_stream_20",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 33446,
+   "name": "af_costume_stream_21",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 33552,
+   "name": "af_costume_stream_22",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 33587,
+   "name": "af_costume_stream_23",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 33622,
+   "name": "af_costume_stream_24",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 33659,
+   "name": "af_costume_stream_25",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 33700,
+   "name": "af_costume_stream_26",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 33720,
+   "name": "af_costume_stream_27",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 33762,
+   "name": "af_costume_stream_28",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 33800,
+   "name": "af_costume_stream_29",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 33824,
+   "name": "af_costume_stream_2A",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 33865,
+   "name": "af_costume_stream_2B",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 33899,
+   "name": "af_costume_stream_2C",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 33941,
+   "name": "af_costume_stream_2D",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 33970,
+   "name": "af_costume_stream_2E",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 34003,
+   "name": "af_costume_stream_2F",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 34038,
+   "name": "af_costume_stream_30",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 34077,
+   "name": "af_costume_stream_31",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 34114,
+   "name": "af_costume_stream_32",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 34152,
+   "name": "af_costume_stream_33",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 34192,
+   "name": "af_costume_stream_34",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 34347,
+   "name": "af_costume_stream_35",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 34385,
+   "name": "af_costume_stream_36",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 34403,
+   "name": "af_costume_stream_37",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 34440,
+   "name": "af_costume_stream_38",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 34480,
+   "name": "af_costume_stream_39",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 34504,
+   "name": "af_costume_stream_3A",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 34537,
+   "name": "af_costume_stream_3B",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 34558,
+   "name": "af_costume_stream_3C",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 34596,
+   "name": "af_costume_stream_3D",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 34631,
+   "name": "af_costume_stream_3E",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 34675,
+   "name": "af_costume_stream_3F",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 34719,
+   "name": "af_costume_stream_40",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 34750,
+   "name": "af_costume_stream_41",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 34821,
+   "name": "af_costume_stream_42",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 34865,
+   "name": "af_costume_stream_43",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 34929,
+   "name": "af_costume_stream_44",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 34993,
+   "name": "af_costume_stream_45",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 35065,
+   "name": "af_costume_stream_46",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 35171,
+   "name": "af_costume_stream_47",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 35220,
+   "name": "af_costume_stream_48",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 35240,
+   "name": "af_costume_stream_49",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 35290,
+   "name": "af_costume_stream_4A",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 35339,
+   "name": "af_costume_stream_4B",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 35375,
+   "name": "af_costume_stream_4C",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 35458,
+   "name": "af_costume_stream_4D",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 35504,
+   "name": "af_costume_stream_4E",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 35532,
+   "name": "af_costume_unreferenced_tail",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 48128,
+   "name": "corridor_tile_page_00",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 48384,
+   "name": "corridor_tile_page_01",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 48640,
+   "name": "corridor_tile_page_02",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 48896,
+   "name": "corridor_tile_page_03",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 49152,
+   "name": "corridor_tile_page_04",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 49408,
+   "name": "corridor_tile_page_05",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 49664,
+   "name": "corridor_tile_page_06",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 49920,
+   "name": "corridor_tile_page_07",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50176,
+   "name": "corridor_tile_page_08",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50432,
+   "name": "corridor_tile_page_09",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50688,
+   "name": "corridor_tile_page_10",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50944,
+   "name": "corridor_tile_page_11",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 51200,
+   "name": "corridor_tile_page_12",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 57344,
+   "name": "corridor_room_font",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 58368,
+   "name": "corridor_room_font_upper",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 37113,
+   "name": "str_headered_90F9",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 37134,
+   "name": "str_headered_910E",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 37193,
+   "name": "str_headered_9149",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 37226,
+   "name": "str_headered_916A",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 37289,
+   "name": "str_headered_91A9",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 37316,
+   "name": "str_headered_91C4",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 37334,
+   "name": "str_headered_91D6",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 37402,
+   "name": "str_headered_921A",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 37425,
+   "name": "str_headered_9231",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 37479,
+   "name": "str_headered_9267",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 37502,
+   "name": "str_headered_927E",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 37523,
+   "name": "str_headered_9293",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 37570,
+   "name": "str_headered_92C2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 37600,
+   "name": "str_headered_92E0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 37648,
+   "name": "str_headered_9310",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 37703,
+   "name": "str_headered_9347",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 37737,
+   "name": "str_headered_9369",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 37785,
+   "name": "str_headered_9399",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 37802,
+   "name": "str_headered_93AA",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 37819,
+   "name": "str_headered_93BB",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 37933,
+   "name": "str_headered_942D",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 37945,
+   "name": "str_headered_9439",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 37992,
+   "name": "str_headered_9468",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38041,
+   "name": "str_headered_9499",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38072,
+   "name": "str_headered_94B8",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38119,
+   "name": "str_headered_94E7",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38156,
+   "name": "str_headered_950C",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38185,
+   "name": "str_headered_9529",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38214,
+   "name": "str_headered_9546",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38243,
+   "name": "str_headered_9563",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38289,
+   "name": "str_headered_9591",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38342,
+   "name": "str_headered_95C6",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38394,
+   "name": "str_headered_95FA",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38423,
+   "name": "str_headered_9617",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38465,
+   "name": "str_headered_9641",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38484,
+   "name": "str_headered_9654",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38545,
+   "name": "str_headered_9691",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38598,
+   "name": "str_headered_96C6",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38627,
+   "name": "str_headered_96E3",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38658,
+   "name": "str_headered_9702",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38702,
+   "name": "str_headered_972E",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38762,
+   "name": "str_headered_976A",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38786,
+   "name": "str_headered_9782",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38794,
+   "name": "str_headered_978A",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38811,
+   "name": "str_headered_979B",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38822,
+   "name": "str_headered_97A6",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38841,
+   "name": "str_headered_97B9",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38856,
+   "name": "str_headered_97C8",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38877,
+   "name": "str_headered_97DD",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38898,
+   "name": "str_headered_97F2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38911,
+   "name": "str_headered_97FF",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38939,
+   "name": "str_headered_981B",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38958,
+   "name": "str_headered_982E",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38966,
+   "name": "str_headered_9836",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 39011,
+   "name": "str_headered_9863",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 39037,
+   "name": "str_headered_987D",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 39057,
+   "name": "corridor_blocked_entry_list",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 35584,
+   "name": "stone_command_object_pairs",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 35776,
+   "name": "stone_command_handler_pointers",
+   "type": "Address",
+   "kind": "user"
+  },
+  {
+   "address": 35824,
+   "name": "stone_command_handler_pointers_after_close",
+   "type": "Address",
+   "kind": "user"
+  },
+  {
+   "address": 35946,
+   "name": "stone_zero_padding",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 35968,
+   "name": "stone_runlength_stream_table",
+   "type": "Address",
+   "kind": "user"
+  },
+  {
+   "address": 35974,
+   "name": "stone_text_hook_0",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 35977,
+   "name": "stone_text_hook_1",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 35980,
+   "name": "stone_text_hook_2",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 35983,
+   "name": "stone_room_frame_stub",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 35986,
+   "name": "stone_movement_hook_stub",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 35989,
+   "name": "stone_noop_return",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 35990,
+   "name": "stone_room_frame_callback",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 36055,
+   "name": "stone_unused_return",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 36056,
+   "name": "stone_unreferenced_8CD8",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 36057,
+   "name": "stone_rocks_call_toggle",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 36058,
+   "name": "stone_unreferenced_8CDA",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 36060,
+   "name": "stone_room_init_pending",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 36061,
+   "name": "stone_unreferenced_8CDD",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 36062,
+   "name": "stone_message_timer",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 36063,
+   "name": "stone_room_init",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 36114,
+   "name": "stone_give_cup",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 36126,
+   "name": "stone_give_refused",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 36138,
+   "name": "stone_give_taken_item",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 36153,
+   "name": "stone_give_peach",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 36179,
+   "name": "stone_give_popcorn",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 36214,
+   "name": "stone_eat_ticket",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 36224,
+   "name": "stone_eat_popcorn",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 36250,
+   "name": "stone_ask_goblin",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 36265,
+   "name": "stone_door_command_nothing",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 36275,
+   "name": "stone_call_goblin",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 36310,
+   "name": "stone_call_jareth",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 36329,
+   "name": "stone_call_rocks",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 36356,
+   "name": "stone_call_elephant",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 36385,
+   "name": "stone_congratulate_elephant",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 36407,
+   "name": "stone_adumbrate_elephant",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 36434,
+   "name": "stone_adumbrate_jareth",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 36438,
+   "name": "stone_adumbrate_door",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 36441,
+   "name": "stone_adumbrate_wall",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 36468,
+   "name": "stone_adumbrate_goblin",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 36575,
+   "name": "stone_hit_door",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 36585,
+   "name": "stone_hit_goblin",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 36623,
+   "name": "stone_insult_goblin",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 36806,
+   "name": "stone_take_nothing",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 36813,
+   "name": "stone_camcorder_countdown",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 36814,
+   "name": "stone_use_camcorder",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 36828,
+   "name": "stone_camcorder_tick",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 36853,
+   "name": "stone_require_shears",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 36886,
+   "name": "stone_manicure_door",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 36889,
+   "name": "stone_manicure_rocks_or_wall",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 36911,
+   "name": "stone_manicure_any",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 36921,
+   "name": "stone_use_shears",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 36931,
+   "name": "stone_use_helmet",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 36956,
+   "name": "stone_require_goblin_active",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 36971,
+   "name": "stone_action_phase_sound",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 36999,
+   "name": "stone_state_sound",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 37059,
+   "name": "stone_goblin_distance_or_absent",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 37084,
+   "name": "stone_peach_countdown",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 37085,
+   "name": "stone_eat_peach",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 37098,
+   "name": "stone_peach_tick",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 37104,
+   "name": "stone_use_perfume",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 37107,
+   "name": "stone_load_game",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 37110,
+   "name": "stone_save_game",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 37860,
+   "name": "str_headered_93E4",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 39068,
+   "name": "stone_goblin_hold_timer",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 39069,
+   "name": "stone_goblin_turn_flag",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 39070,
+   "name": "stone_goblin_exit_countdown",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 39071,
+   "name": "stone_goblin_walk_step",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 39072,
+   "name": "stone_goblin_variant",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 39073,
+   "name": "stone_goblin_turn_direction_table",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 39082,
+   "name": "stone_goblin_walk_direction_table",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 39090,
+   "name": "stone_goblin_direction_scratch",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 39091,
+   "name": "stone_goblin_state",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 39092,
+   "name": "stone_goblin_pick_variant",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 39111,
+   "name": "stone_goblin_apply_variant",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 39211,
+   "name": "stone_goblin_update",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 39257,
+   "name": "stone_goblin_exit_sequence",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 39304,
+   "name": "stone_goblin_walk",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 39370,
+   "name": "stone_goblin_choose_walk",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 39386,
+   "name": "stone_goblin_walk_always",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 39401,
+   "name": "stone_goblin_walk_sometimes",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 39438,
+   "name": "stone_goblin_drift_direction",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 39525,
+   "name": "stone_goblin_stand_check",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 39565,
+   "name": "stone_door_view_stream",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 39831,
+   "name": "stone_open_door_rows",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 39911,
+   "name": "stone_door_view_drawn_flag",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 39912,
+   "name": "stone_door_view_present_flag",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 39913,
+   "name": "stone_door_view_row_counter",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 39914,
+   "name": "stone_not_close_gate",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 39915,
+   "name": "stone_door_view_hook",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 39992,
+   "name": "stone_door_view_classify",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
    "address": 40022,
-   "name": "j_9C56",
-   "type": "Jump",
-   "kind": "auto"
+   "name": "stone_open_door_text_view",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 40110,
+   "name": "stone_open_position_check",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 40173,
+   "name": "stone_wall_view_stream",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 40335,
+   "name": "stone_arch_rows",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 40443,
+   "name": "stone_wall_view_hook",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 40451,
+   "name": "stone_wall_view_setup",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 40475,
+   "name": "stone_wall_view_classify",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 40494,
+   "name": "stone_elephant_arrives",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 40558,
+   "name": "stone_arch_position_check",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 40587,
+   "name": "stone_speak_password",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 40149,
+   "name": "str_headered_9CD5",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 40686,
+   "name": "str_headered_9EEE",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 40707,
+   "name": "str_headered_9F03",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 40752,
+   "name": "str_headered_9F30",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 1536,
+   "name": "stone_map_strip_start",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 1562,
+   "name": "stone_map_strip_rest",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 1600,
+   "name": "stone_map_strip_padding",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 1792,
+   "name": "stone_header_resources",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 1796,
+   "name": "stone_header_parameters",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 1799,
+   "name": "stone_header_colours",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 1806,
+   "name": "stone_header_overlay_name",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 1808,
+   "name": "stone_header_depth_thresholds",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 1818,
+   "name": "stone_header_costume_selector",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 1886,
+   "name": "stone_exit_threshold_pad",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 1918,
+   "name": "stone_exit_scenes_bank0",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 1934,
+   "name": "stone_exit_entries_bank0",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 1950,
+   "name": "stone_exit_scenes_bank1",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 1966,
+   "name": "stone_exit_entries_bank1",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 1982,
+   "name": "stone_exit_scenes_bank2",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 1998,
+   "name": "stone_exit_entries_bank2",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 2014,
+   "name": "stone_exit_scenes_bank3",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 2030,
+   "name": "stone_exit_entries_bank3",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 32768,
+   "name": "af_costume_stream_10_continued",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 2046,
+   "name": "stone_map_tail",
+   "type": "Field",
+   "kind": "user"
   }
  ],
  "comments": [
@@ -574,36 +2337,6 @@
    "address": 1902,
    "type": "line",
    "text": "Sixteen selectors:0 uses bank0,1 uses0500,2 uses0501, higher values use random bits60. Live slot1 uses selector2."
-  },
-  {
-   "address": 1931,
-   "type": "line",
-   "text": "Slot13, bank0: scene5, paired entry1 at079B. The centered ladder climb requests this and actually loads the Wall of Hands."
-  },
-  {
-   "address": 1947,
-   "type": "line",
-   "text": "Slot13, bank0 entry1. Actual scene5 loader return reaches X84/depth6; scene5 has its own part listing."
-  },
-  {
-   "address": 2015,
-   "type": "line",
-   "text": "Scene request0 paired with entry30 at07EF; live doorway refresh retains scene6 and arrives X1952/depth6."
-  },
-  {
-   "address": 2029,
-   "type": "line",
-   "text": "Archway column30 selects slot15; stored0501=60hex makes index6Fhex. Scene request0 paired with entry26 at07FD. Live up crossing retains scene6."
-  },
-  {
-   "address": 2031,
-   "type": "line",
-   "text": "Live stored0501 is60hex, OR slot1 gives index61hex; entry byte30, paired scene request0 at07DF."
-  },
-  {
-   "address": 2045,
-   "type": "line",
-   "text": "Archway exit bank60/slot15 requests entry26, arriving at X1696/depth6 in the checked local route."
   },
   {
    "address": 35630,
@@ -689,6 +2422,1896 @@
    "address": 37840,
    "type": "line",
    "text": "Headered text stream Nothing happens. The live arrival OPEN DOOR queues this with mode5, leaving its map cell unchanged."
+  },
+  {
+   "address": 30976,
+   "type": "line",
+   "text": "Two bytes ($DD $11) before the stream-offset tables. The component routine $2A0F reads the tables from $7902 and $7981 and never touches these."
+  },
+  {
+   "address": 30978,
+   "type": "line",
+   "text": "Low bytes of the AF costume stream offsets, entries 0 to 126 ($7902-$7980). Entry n is read at $2A32 as the byte at base+2+n; its high byte is at base+$81+n ($7981 on). The 16-bit offset is added to the costume base ($7900) to give the stream. Entries 0, 5 and 79 to 126 all hold $03E0, the empty stream at $7CE0."
+  },
+  {
+   "address": 31105,
+   "type": "line",
+   "text": "High bytes of the AF costume stream offsets, entries 0 to 126 ($7981-$79FF); see af_costume_stream_offset_low. The 78 distinct values run from $03E0 (stream at $7CE0) to $11B0 (stream at $8AB0)."
+  },
+  {
+   "address": 31232,
+   "type": "line",
+   "text": "Frame directory of component 0 (of 0 to 6), 32 bytes: the stream entry number for each frame index 0 to 31. $2A0F reads it at $AC/$AD = base + $100 + 32 x component, indexed by the frame index from the object's pose array at $026A + 8 x object (component 0 uses a phase table outside this costume). Zero means the empty stream, nothing drawn. Bytes: 05 07 0D 11 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00."
+  },
+  {
+   "address": 31264,
+   "type": "line",
+   "text": "Frame directory of component 1 (of 0 to 6), 32 bytes: the stream entry number for each frame index 0 to 31. $2A0F reads it at $AC/$AD = base + $100 + 32 x component, indexed by the frame index from the object's pose array at $026A + 8 x object (set by $3FC7 from af_costume_animation_phases_1). Zero means the empty stream, nothing drawn. Bytes: 01 0A 0E 0F 10 14 21 22 24 30 31 32 4D 41 43 44 45 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00."
+  },
+  {
+   "address": 31296,
+   "type": "line",
+   "text": "Frame directory of component 2 (of 0 to 6), 32 bytes: the stream entry number for each frame index 0 to 31. $2A0F reads it at $AC/$AD = base + $100 + 32 x component, indexed by the frame index from the object's pose array at $026A + 8 x object (set by $3FC7 from af_costume_animation_phases_2). Zero means the empty stream, nothing drawn. Bytes: 02 06 0C 08 1E 20 2F 37 28 2B 3C 4A 48 40 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00."
+  },
+  {
+   "address": 31328,
+   "type": "line",
+   "text": "Frame directory of component 3 (of 0 to 6), 32 bytes: the stream entry number for each frame index 0 to 31. $2A0F reads it at $AC/$AD = base + $100 + 32 x component, indexed by the frame index from the object's pose array at $026A + 8 x object (set by $3FC7 from af_costume_animation_phases_3). Zero means the empty stream, nothing drawn. Bytes: 1F 2A 33 3B 29 2E 2C 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00."
+  },
+  {
+   "address": 31360,
+   "type": "line",
+   "text": "Frame directory of component 4 (of 0 to 6), 32 bytes: the stream entry number for each frame index 0 to 31. $2A0F reads it at $AC/$AD = base + $100 + 32 x component, indexed by the frame index from the object's pose array at $026A + 8 x object (set by $3FC7 from af_costume_animation_phases_4). Zero means the empty stream, nothing drawn. Bytes: 04 17 09 12 25 38 26 27 3A 39 35 36 4E 3D 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00."
+  },
+  {
+   "address": 31392,
+   "type": "line",
+   "text": "Frame directory of component 5 (of 0 to 6), 32 bytes: the stream entry number for each frame index 0 to 31. $2A0F reads it at $AC/$AD = base + $100 + 32 x component, indexed by the frame index from the object's pose array at $026A + 8 x object (set by $3FC7 from af_costume_animation_phases_5). Zero means the empty stream, nothing drawn. Bytes: 19 15 13 1D 1B 23 3F 46 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00."
+  },
+  {
+   "address": 31424,
+   "type": "line",
+   "text": "Frame directory of component 6 (of 0 to 6), 32 bytes: the stream entry number for each frame index 0 to 31. $2A0F reads it at $AC/$AD = base + $100 + 32 x component, indexed by the frame index from the object's pose array at $026A + 8 x object (set by $3FC7 from af_costume_animation_phases_6). Zero means the empty stream, nothing drawn. Bytes: 0B 16 18 1A 1C 03 2D 34 4B 49 3E 47 42 4C 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00."
+  },
+  {
+   "address": 31456,
+   "type": "line",
+   "text": "32 zero bytes after the seven frame directories. Nothing reads them."
+  },
+  {
+   "address": 31488,
+   "type": "line",
+   "text": "Animation-phase table of component 1, 80 bytes: ten animation requests of eight phases each. $3FC7 reads it through the pointers at $78D0/$78E8 (slot 1 of each object) at index (request-1) x 8 + current phase. The byte read gives the next phase in its low three bits and the frame index into af_costume_frame_directory_1 in its high five bits. Bytes: 69 72 7B 80 80 80 80 80 69 7B 7B 80 80 80 80 80 09 12 1B 20 20 20 20 20 41 4A 53 58 58 58 58 58 39 4A 4B 54 55 5E 47 41 81 3A 3B 54 75 75 70 70 80 39 3A 3B 3C 3D 3E 3F 60 00 00 00 00 00 00 00 00 00 00 00 00 1C 2D 36 01 02 1B 1B 04 1D 2E 37."
+  },
+  {
+   "address": 31568,
+   "type": "line",
+   "text": "Animation-phase table of component 2, 80 bytes: ten animation requests of eight phases each. $3FC7 reads it through the pointers at $78D0/$78E8 (slot 2 of each object) at index (request-1) x 8 + current phase. The byte read gives the next phase in its low three bits and the frame index into af_costume_frame_directory_2 in its high five bits. Bytes: 61 6A 63 58 58 58 58 58 61 6B 63 58 58 58 58 58 09 12 1B 20 20 20 20 20 39 42 4B 50 50 50 50 50 39 3A 43 44 4D 4E 57 39 61 42 33 34 5D 5D 58 58 60 41 32 33 34 35 36 37 F8 00 00 00 00 00 00 00 00 00 00 00 00 0C 2D FE 01 02 0B 0B 04 0D 2E FF."
+  },
+  {
+   "address": 31648,
+   "type": "line",
+   "text": "Animation-phase table of component 3, 80 bytes: ten animation requests of eight phases each. $3FC7 reads it through the pointers at $78D0/$78E8 (slot 3 of each object) at index (request-1) x 8 + current phase. The byte read gives the next phase in its low three bits and the frame index into af_costume_frame_directory_3 in its high five bits. Bytes: F9 FA FB F8 F8 F8 F8 F8 F9 FB FB F8 F8 F8 F8 F8 01 02 03 00 00 00 00 00 09 12 1B 10 10 10 10 10 21 2A 2B 24 25 2E 37 31 F9 12 0B 0C FD FD F8 F8 F8 11 1A 13 0C 0D 0E 0F F8 00 00 00 00 00 00 00 00 00 00 00 00 04 05 FE 01 02 03 03 04 05 06 FF."
+  },
+  {
+   "address": 31728,
+   "type": "line",
+   "text": "Animation-phase table of component 4, 80 bytes: ten animation requests of eight phases each. $3FC7 reads it through the pointers at $78D0/$78E8 (slot 4 of each object) at index (request-1) x 8 + current phase. The byte read gives the next phase in its low three bits and the frame index into af_costume_frame_directory_4 in its high five bits. Bytes: 61 62 63 60 60 60 60 60 69 6B 6B 68 68 68 68 68 01 0A 13 08 08 08 08 08 31 2A 23 28 28 28 28 28 49 4A 43 3C 3D 46 47 49 61 52 5B 24 65 65 60 60 60 29 32 2B 24 25 26 27 60 00 00 00 00 00 00 00 00 00 00 00 00 0C 15 FE 01 02 03 1B 04 15 16 FF."
+  },
+  {
+   "address": 31808,
+   "type": "line",
+   "text": "Animation-phase table of component 5, 80 bytes: ten animation requests of eight phases each. $3FC7 reads it through the pointers at $78D0/$78E8 (slot 5 of each object) at index (request-1) x 8 + current phase. The byte read gives the next phase in its low three bits and the frame index into af_costume_frame_directory_5 in its high five bits. Bytes: 31 32 33 30 30 30 30 30 31 33 33 30 30 30 30 30 11 0A 03 08 08 08 08 08 29 2A 2B 28 28 28 28 28 29 2A 2B 2C 2D 2E 2F 29 31 2A 2B 2C 35 35 30 30 30 29 2A 2B 2C 2D 2E 2F 30 00 00 00 00 00 00 00 00 00 00 00 00 14 0D FE 01 02 03 1B 04 15 16 FF."
+  },
+  {
+   "address": 31888,
+   "type": "line",
+   "text": "Animation-phase table of component 6, 80 bytes: ten animation requests of eight phases each. $3FC7 reads it through the pointers at $78D0/$78E8 (slot 6 of each object) at index (request-1) x 8 + current phase. The byte read gives the next phase in its low three bits and the frame index into af_costume_frame_directory_6 in its high five bits. Bytes: 51 4A 53 58 58 58 58 58 51 4B 53 58 58 58 58 58 01 02 03 00 00 00 00 00 31 32 33 30 30 30 30 30 31 32 33 34 35 36 37 31 61 32 33 34 45 45 40 40 58 31 32 33 34 35 36 37 68 00 00 00 00 00 00 00 00 00 00 00 00 24 05 FE 01 0A 1B 1B 04 1D 16 FF."
+  },
+  {
+   "address": 31968,
+   "type": "line",
+   "text": "The empty costume stream shared by 50 entries (0, 5 and every unused one from 79). It is a four-byte header of zeros and the terminator $FF, so a component using it draws nothing; one more byte, $01, follows before the next stream and no offset points at it."
+  },
+  {
+   "address": 31974,
+   "type": "line",
+   "text": "AF costume stream 1 ($7CE6-$7D04, 31 bytes), used by component 1 frame 0. Header: origin offsets -7, 1 (added to the component's fixed-point origin), attachment offsets 0, 2 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 32005,
+   "type": "line",
+   "text": "AF costume stream 2 ($7D05-$7D23, 31 bytes), used by component 2 frame 0. Header: origin offsets 0, -1 (added to the component's fixed-point origin), attachment offsets 0, 0 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 32036,
+   "type": "line",
+   "text": "AF costume stream 3 ($7D24-$7DC0, 157 bytes), used by component 6 frame 5. Header: origin offsets -13, 44 (added to the component's fixed-point origin), attachment offsets 0, 0 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 32193,
+   "type": "line",
+   "text": "AF costume stream 4 ($7DC1-$7DEF, 47 bytes), used by component 4 frame 0. Header: origin offsets 4, 17 (added to the component's fixed-point origin), attachment offsets 0, 0 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 32240,
+   "type": "line",
+   "text": "AF costume stream 6 ($7DF0-$7E15, 38 bytes), used by component 2 frame 1. Header: origin offsets 0, 4 (added to the component's fixed-point origin), attachment offsets 0, 0 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 32278,
+   "type": "line",
+   "text": "AF costume stream 7 ($7E16-$7E63, 78 bytes), used by component 0 frame 1. Header: origin offsets -17, -3 (added to the component's fixed-point origin), attachment offsets 0, 0 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 32356,
+   "type": "line",
+   "text": "AF costume stream 8 ($7E64-$7E87, 36 bytes), used by component 2 frame 3. Header: origin offsets 0, 3 (added to the component's fixed-point origin), attachment offsets 0, 0 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 32392,
+   "type": "line",
+   "text": "AF costume stream 9 ($7E88-$7EB0, 41 bytes), used by component 4 frame 2. Header: origin offsets -1, 25 (added to the component's fixed-point origin), attachment offsets 0, 0 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 32433,
+   "type": "line",
+   "text": "AF costume stream 10 ($7EB1-$7ED5, 37 bytes), used by component 1 frame 1. Header: origin offsets -7, 5 (added to the component's fixed-point origin), attachment offsets 0, 3 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 32470,
+   "type": "line",
+   "text": "AF costume stream 11 ($7ED6-$7F04, 47 bytes), used by component 6 frame 0. Header: origin offsets -4, 44 (added to the component's fixed-point origin), attachment offsets 0, 0 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 32517,
+   "type": "line",
+   "text": "AF costume stream 12 ($7F05-$7F2C, 40 bytes), used by component 2 frame 2. Header: origin offsets -1, -1 (added to the component's fixed-point origin), attachment offsets 0, 0 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 32557,
+   "type": "line",
+   "text": "AF costume stream 13 ($7F2D-$7F8A, 94 bytes), used by component 0 frame 2. Header: origin offsets -17, -3 (added to the component's fixed-point origin), attachment offsets 0, 0 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 32651,
+   "type": "line",
+   "text": "AF costume stream 14 ($7F8B-$7FB2, 40 bytes), used by component 1 frame 2. Header: origin offsets -7, 7 (added to the component's fixed-point origin), attachment offsets 0, 2 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 32691,
+   "type": "line",
+   "text": "AF costume stream 15 ($7FB3-$7FD8, 38 bytes), used by component 1 frame 3. Header: origin offsets -13, 6 (added to the component's fixed-point origin), attachment offsets 0, 3 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 32729,
+   "type": "line",
+   "text": "AF costume stream 16 ($7FD9-$8002, 42 bytes), used by component 1 frame 4. Header: origin offsets -7, 1 (added to the component's fixed-point origin), attachment offsets 0, 2 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 32771,
+   "type": "line",
+   "text": "AF costume stream 17 ($8003-$8036, 52 bytes), used by component 0 frame 3. Header: origin offsets -17, -3 (added to the component's fixed-point origin), attachment offsets 0, 0 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 32823,
+   "type": "line",
+   "text": "AF costume stream 18 ($8037-$806F, 57 bytes), used by component 4 frame 3. Header: origin offsets 4, 38 (added to the component's fixed-point origin), attachment offsets 0, 0 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 32880,
+   "type": "line",
+   "text": "AF costume stream 19 ($8070-$8097, 40 bytes), used by component 5 frame 2. Header: origin offsets -9, 26 (added to the component's fixed-point origin), attachment offsets 0, 0 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 32920,
+   "type": "line",
+   "text": "AF costume stream 20 ($8098-$80AB, 20 bytes), used by component 1 frame 5. Header: origin offsets -5, 1 (added to the component's fixed-point origin), attachment offsets 0, -11 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 32940,
+   "type": "line",
+   "text": "AF costume stream 21 ($80AC-$80CE, 35 bytes), used by component 5 frame 1. Header: origin offsets -9, 17 (added to the component's fixed-point origin), attachment offsets 0, 0 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 32975,
+   "type": "line",
+   "text": "AF costume stream 22 ($80CF-$80FC, 46 bytes), used by component 6 frame 1. Header: origin offsets -4, 44 (added to the component's fixed-point origin), attachment offsets 0, 0 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 33021,
+   "type": "line",
+   "text": "AF costume stream 23 ($80FD-$811F, 35 bytes), used by component 4 frame 1. Header: origin offsets 4, 17 (added to the component's fixed-point origin), attachment offsets 0, 0 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 33056,
+   "type": "line",
+   "text": "AF costume stream 24 ($8120-$8151, 50 bytes), used by component 6 frame 2. Header: origin offsets -4, 44 (added to the component's fixed-point origin), attachment offsets 0, 0 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 33106,
+   "type": "line",
+   "text": "AF costume stream 25 ($8152-$8180, 47 bytes), used by component 5 frame 0. Header: origin offsets -10, 17 (added to the component's fixed-point origin), attachment offsets 0, 0 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 33153,
+   "type": "line",
+   "text": "AF costume stream 26 ($8181-$81B1, 49 bytes), used by component 6 frame 3. Header: origin offsets -4, 44 (added to the component's fixed-point origin), attachment offsets 0, 0 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 33202,
+   "type": "line",
+   "text": "AF costume stream 27 ($81B2-$81E0, 47 bytes), used by component 5 frame 4. Header: origin offsets -13, 21 (added to the component's fixed-point origin), attachment offsets 0, 0 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 33249,
+   "type": "line",
+   "text": "AF costume stream 28 ($81E1-$820A, 42 bytes), used by component 6 frame 4. Header: origin offsets -4, 34 (added to the component's fixed-point origin), attachment offsets 0, 0 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 33291,
+   "type": "line",
+   "text": "AF costume stream 29 ($820B-$8243, 57 bytes), used by component 5 frame 3. Header: origin offsets -13, 38 (added to the component's fixed-point origin), attachment offsets 0, 0 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 33348,
+   "type": "line",
+   "text": "AF costume stream 30 ($8244-$826B, 40 bytes), used by component 2 frame 4. Header: origin offsets 0, 5 (added to the component's fixed-point origin), attachment offsets 0, 0 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 33388,
+   "type": "line",
+   "text": "AF costume stream 31 ($826C-$8291, 38 bytes), used by component 3 frame 0. Header: origin offsets -5, 27 (added to the component's fixed-point origin), attachment offsets 0, 0 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 33426,
+   "type": "line",
+   "text": "AF costume stream 32 ($8292-$82A5, 20 bytes), used by component 2 frame 5. Header: origin offsets 0, 12 (added to the component's fixed-point origin), attachment offsets 0, 0 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 33446,
+   "type": "line",
+   "text": "AF costume stream 33 ($82A6-$830F, 106 bytes), used by component 1 frame 6. Header: origin offsets -15, 1 (added to the component's fixed-point origin), attachment offsets 0, -11 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 33552,
+   "type": "line",
+   "text": "AF costume stream 34 ($8310-$8332, 35 bytes), used by component 1 frame 7. Header: origin offsets -8, 1 (added to the component's fixed-point origin), attachment offsets 0, 2 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 33587,
+   "type": "line",
+   "text": "AF costume stream 35 ($8333-$8355, 35 bytes), used by component 5 frame 5. Header: origin offsets -5, 27 (added to the component's fixed-point origin), attachment offsets 0, 0 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 33622,
+   "type": "line",
+   "text": "AF costume stream 36 ($8356-$837A, 37 bytes), used by component 1 frame 8. Header: origin offsets -7, 5 (added to the component's fixed-point origin), attachment offsets 0, 3 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 33659,
+   "type": "line",
+   "text": "AF costume stream 37 ($837B-$83A3, 41 bytes), used by component 4 frame 4. Header: origin offsets 4, 17 (added to the component's fixed-point origin), attachment offsets 0, 0 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 33700,
+   "type": "line",
+   "text": "AF costume stream 38 ($83A4-$83B7, 20 bytes), used by component 4 frame 6. Header: origin offsets 4, 31 (added to the component's fixed-point origin), attachment offsets 0, 0 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 33720,
+   "type": "line",
+   "text": "AF costume stream 39 ($83B8-$83E1, 42 bytes), used by component 4 frame 7. Header: origin offsets 4, 37 (added to the component's fixed-point origin), attachment offsets 0, 0 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 33762,
+   "type": "line",
+   "text": "AF costume stream 40 ($83E2-$8407, 38 bytes), used by component 2 frame 8. Header: origin offsets -1, -1 (added to the component's fixed-point origin), attachment offsets 0, 0 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 33800,
+   "type": "line",
+   "text": "AF costume stream 41 ($8408-$841F, 24 bytes), used by component 3 frame 4. Header: origin offsets -11, 34 (added to the component's fixed-point origin), attachment offsets 0, 0 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 33824,
+   "type": "line",
+   "text": "AF costume stream 42 ($8420-$8448, 41 bytes), used by component 3 frame 1. Header: origin offsets -10, 17 (added to the component's fixed-point origin), attachment offsets 0, 0 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 33865,
+   "type": "line",
+   "text": "AF costume stream 43 ($8449-$846A, 34 bytes), used by component 2 frame 9. Header: origin offsets 0, 2 (added to the component's fixed-point origin), attachment offsets 0, 0 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 33899,
+   "type": "line",
+   "text": "AF costume stream 44 ($846B-$8494, 42 bytes), used by component 3 frame 6. Header: origin offsets -11, 37 (added to the component's fixed-point origin), attachment offsets 0, 0 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 33941,
+   "type": "line",
+   "text": "AF costume stream 45 ($8495-$84B1, 29 bytes), used by component 6 frame 6. Header: origin offsets -4, 44 (added to the component's fixed-point origin), attachment offsets 0, 0 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 33970,
+   "type": "line",
+   "text": "AF costume stream 46 ($84B2-$84D2, 33 bytes), used by component 3 frame 5. Header: origin offsets -11, 37 (added to the component's fixed-point origin), attachment offsets 0, 0 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 34003,
+   "type": "line",
+   "text": "AF costume stream 47 ($84D3-$84F5, 35 bytes), used by component 2 frame 6. Header: origin offsets 0, -1 (added to the component's fixed-point origin), attachment offsets 0, 0 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 34038,
+   "type": "line",
+   "text": "AF costume stream 48 ($84F6-$851C, 39 bytes), used by component 1 frame 9. Header: origin offsets -7, 7 (added to the component's fixed-point origin), attachment offsets 0, 2 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 34077,
+   "type": "line",
+   "text": "AF costume stream 49 ($851D-$8541, 37 bytes), used by component 1 frame 10. Header: origin offsets -11, 6 (added to the component's fixed-point origin), attachment offsets 0, 3 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 34114,
+   "type": "line",
+   "text": "AF costume stream 50 ($8542-$8567, 38 bytes), used by component 1 frame 11. Header: origin offsets -7, 1 (added to the component's fixed-point origin), attachment offsets 0, 2 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 34152,
+   "type": "line",
+   "text": "AF costume stream 51 ($8568-$858F, 40 bytes), used by component 3 frame 2. Header: origin offsets -9, 25 (added to the component's fixed-point origin), attachment offsets 0, 0 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 34192,
+   "type": "line",
+   "text": "AF costume stream 52 ($8590-$862A, 155 bytes), used by component 6 frame 7. Header: origin offsets -13, 44 (added to the component's fixed-point origin), attachment offsets 0, 0 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 34347,
+   "type": "line",
+   "text": "AF costume stream 53 ($862B-$8650, 38 bytes), used by component 4 frame 10. Header: origin offsets 4, 37 (added to the component's fixed-point origin), attachment offsets 0, 0 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 34385,
+   "type": "line",
+   "text": "AF costume stream 54 ($8651-$8662, 18 bytes), used by component 4 frame 11. Header: origin offsets 4, 36 (added to the component's fixed-point origin), attachment offsets 0, 0 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 34403,
+   "type": "line",
+   "text": "AF costume stream 55 ($8663-$8687, 37 bytes), used by component 2 frame 7. Header: origin offsets 0, 3 (added to the component's fixed-point origin), attachment offsets 0, 0 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 34440,
+   "type": "line",
+   "text": "AF costume stream 56 ($8688-$86AF, 40 bytes), used by component 4 frame 5. Header: origin offsets -1, 25 (added to the component's fixed-point origin), attachment offsets 0, 0 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 34480,
+   "type": "line",
+   "text": "AF costume stream 57 ($86B0-$86C7, 24 bytes), used by component 4 frame 9. Header: origin offsets 4, 34 (added to the component's fixed-point origin), attachment offsets 0, 0 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 34504,
+   "type": "line",
+   "text": "AF costume stream 58 ($86C8-$86E8, 33 bytes), used by component 4 frame 8. Header: origin offsets 4, 37 (added to the component's fixed-point origin), attachment offsets 0, 0 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 34537,
+   "type": "line",
+   "text": "AF costume stream 59 ($86E9-$86FD, 21 bytes), used by component 3 frame 3. Header: origin offsets -8, 31 (added to the component's fixed-point origin), attachment offsets 0, 0 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 34558,
+   "type": "line",
+   "text": "AF costume stream 60 ($86FE-$8723, 38 bytes), used by component 2 frame 10. Header: origin offsets 0, 5 (added to the component's fixed-point origin), attachment offsets 0, 0 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 34596,
+   "type": "line",
+   "text": "AF costume stream 61 ($8724-$8746, 35 bytes), used by component 4 frame 13. Header: origin offsets -4, 31 (added to the component's fixed-point origin), attachment offsets 0, 0 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 34631,
+   "type": "line",
+   "text": "AF costume stream 62 ($8747-$8772, 44 bytes), used by component 6 frame 10. Header: origin offsets 1, 24 (added to the component's fixed-point origin), attachment offsets 8, 34 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 34675,
+   "type": "line",
+   "text": "AF costume stream 63 ($8773-$879E, 44 bytes), used by component 5 frame 6. Header: origin offsets -1, 46 (added to the component's fixed-point origin), attachment offsets 0, 0 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 34719,
+   "type": "line",
+   "text": "AF costume stream 64 ($879F-$87BD, 31 bytes), used by component 2 frame 13. Header: origin offsets 4, 27 (added to the component's fixed-point origin), attachment offsets 0, 0 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 34750,
+   "type": "line",
+   "text": "AF costume stream 65 ($87BE-$8804, 71 bytes), used by component 1 frame 13. Header: origin offsets -14, 3 (added to the component's fixed-point origin), attachment offsets 0, -3 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 34821,
+   "type": "line",
+   "text": "AF costume stream 66 ($8805-$8830, 44 bytes), used by component 6 frame 12. Header: origin offsets -8, 35 (added to the component's fixed-point origin), attachment offsets 0, 32 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 34865,
+   "type": "line",
+   "text": "AF costume stream 67 ($8831-$8870, 64 bytes), used by component 1 frame 14. Header: origin offsets -12, 3 (added to the component's fixed-point origin), attachment offsets 0, -2 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 34929,
+   "type": "line",
+   "text": "AF costume stream 68 ($8871-$88B0, 64 bytes), used by component 1 frame 15. Header: origin offsets -9, 3 (added to the component's fixed-point origin), attachment offsets 0, -3 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 34993,
+   "type": "line",
+   "text": "AF costume stream 69 ($88B1-$88F8, 72 bytes), used by component 1 frame 16. Header: origin offsets -6, 3 (added to the component's fixed-point origin), attachment offsets 0, -2 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 35065,
+   "type": "line",
+   "text": "AF costume stream 70 ($88F9-$8962, 106 bytes), used by component 5 frame 7. Header: origin offsets -4, 46 (added to the component's fixed-point origin), attachment offsets 0, 0 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 35171,
+   "type": "line",
+   "text": "AF costume stream 71 ($8963-$8993, 49 bytes), used by component 6 frame 11. Header: origin offsets 2, 28 (added to the component's fixed-point origin), attachment offsets 12, 39 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 35220,
+   "type": "line",
+   "text": "AF costume stream 72 ($8994-$89A7, 20 bytes), used by component 2 frame 12. Header: origin offsets -8, 34 (added to the component's fixed-point origin), attachment offsets 0, 0 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 35240,
+   "type": "line",
+   "text": "AF costume stream 73 ($89A8-$89D9, 50 bytes), used by component 6 frame 9. Header: origin offsets -6, 21 (added to the component's fixed-point origin), attachment offsets 0, 32 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 35290,
+   "type": "line",
+   "text": "AF costume stream 74 ($89DA-$8A0A, 49 bytes), used by component 2 frame 11. Header: origin offsets -12, 29 (added to the component's fixed-point origin), attachment offsets 0, 0 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 35339,
+   "type": "line",
+   "text": "AF costume stream 75 ($8A0B-$8A2E, 36 bytes), used by component 6 frame 8. Header: origin offsets -2, 19 (added to the component's fixed-point origin), attachment offsets 0, 32 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 35375,
+   "type": "line",
+   "text": "AF costume stream 76 ($8A2F-$8A81, 83 bytes), used by component 6 frame 13. Header: origin offsets 4, 35 (added to the component's fixed-point origin), attachment offsets 12, 39 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 35458,
+   "type": "line",
+   "text": "AF costume stream 77 ($8A82-$8AAF, 46 bytes), used by component 1 frame 12. Header: origin offsets -4, 3 (added to the component's fixed-point origin), attachment offsets 0, -2 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 35504,
+   "type": "line",
+   "text": "AF costume stream 78 ($8AB0-$8ACB, 28 bytes), used by component 4 frame 12. Header: origin offsets -5, 32 (added to the component's fixed-point origin), attachment offsets -4, 2 (zero for both restores the saved attachment origin); the drawing bytes from offset 4 end at $FF and are read by $2C03."
+  },
+  {
+   "address": 35532,
+   "type": "line",
+   "text": "52 bytes ($8ACC-$8AFF) after the last stream's $FF terminator. No stream offset points here and the bytes do not follow the stream pattern; they repeat the end of an earlier stream followed by unrelated bytes, like leftover data from the disk load."
+  },
+  {
+   "address": 48128,
+   "type": "line",
+   "text": "Tile-art page 1 of 13 (256 bytes, $BC00 + $100 x 0): sixteen rows of sixteen character codes in the room font at $E000. Row 12 is mostly code $D3 (a blank top glyph row over $55 stripes) and rows 13 to 15 are mostly code $01 (alternate-pixel stripes). Scene 2 documents how the scene fill routines read a page through the sixteen page selectors $BC-$CB at $4E0E; the same resident routines serve this scene."
+  },
+  {
+   "address": 48384,
+   "type": "line",
+   "text": "Tile-art page 2 of 13 (256 bytes, $BC00 + $100 x 1): sixteen rows of sixteen character codes in the room font at $E000. Row 12 is mostly code $D3 (a blank top glyph row over $55 stripes) and rows 13 to 15 are mostly code $01 (alternate-pixel stripes). Scene 2 documents how the scene fill routines read a page through the sixteen page selectors $BC-$CB at $4E0E; the same resident routines serve this scene."
+  },
+  {
+   "address": 48640,
+   "type": "line",
+   "text": "Tile-art page 3 of 13 (256 bytes, $BC00 + $100 x 2): sixteen rows of sixteen character codes in the room font at $E000. Row 12 is mostly code $D3 (a blank top glyph row over $55 stripes) and rows 13 to 15 are mostly code $01 (alternate-pixel stripes). Scene 2 documents how the scene fill routines read a page through the sixteen page selectors $BC-$CB at $4E0E; the same resident routines serve this scene."
+  },
+  {
+   "address": 48896,
+   "type": "line",
+   "text": "Tile-art page 4 of 13 (256 bytes, $BC00 + $100 x 3): sixteen rows of sixteen character codes in the room font at $E000. Row 12 is mostly code $D3 (a blank top glyph row over $55 stripes) and rows 13 to 15 are mostly code $01 (alternate-pixel stripes). Row 12 also holds $D4 $D5. Scene 2 documents how the scene fill routines read a page through the sixteen page selectors $BC-$CB at $4E0E; the same resident routines serve this scene."
+  },
+  {
+   "address": 49152,
+   "type": "line",
+   "text": "Tile-art page 5 of 13 (256 bytes, $BC00 + $100 x 4): sixteen rows of sixteen character codes in the room font at $E000. Row 12 is mostly code $D3 (a blank top glyph row over $55 stripes) and rows 13 to 15 are mostly code $01 (alternate-pixel stripes). Scene 2 documents how the scene fill routines read a page through the sixteen page selectors $BC-$CB at $4E0E; the same resident routines serve this scene."
+  },
+  {
+   "address": 49408,
+   "type": "line",
+   "text": "Tile-art page 6 of 13 (256 bytes, $BC00 + $100 x 5): sixteen rows of sixteen character codes in the room font at $E000. Row 12 is mostly code $D3 (a blank top glyph row over $55 stripes) and rows 13 to 15 are mostly code $01 (alternate-pixel stripes). Scene 2 documents how the scene fill routines read a page through the sixteen page selectors $BC-$CB at $4E0E; the same resident routines serve this scene."
+  },
+  {
+   "address": 49664,
+   "type": "line",
+   "text": "Tile-art page 7 of 13 (256 bytes, $BC00 + $100 x 6): sixteen rows of sixteen character codes in the room font at $E000. Row 12 is mostly code $D3 (a blank top glyph row over $55 stripes) and rows 13 to 15 are mostly code $01 (alternate-pixel stripes). Row 12 also holds $D6 $D7. Rows 13 to 15 also hold $E3 $E4 $E5. Scene 2 documents how the scene fill routines read a page through the sixteen page selectors $BC-$CB at $4E0E; the same resident routines serve this scene."
+  },
+  {
+   "address": 49920,
+   "type": "line",
+   "text": "Tile-art page 8 of 13 (256 bytes, $BC00 + $100 x 7): sixteen rows of sixteen character codes in the room font at $E000. Row 12 is mostly code $D3 (a blank top glyph row over $55 stripes) and rows 13 to 15 are mostly code $01 (alternate-pixel stripes). Scene 2 documents how the scene fill routines read a page through the sixteen page selectors $BC-$CB at $4E0E; the same resident routines serve this scene."
+  },
+  {
+   "address": 50176,
+   "type": "line",
+   "text": "Tile-art page 9 of 13 (256 bytes, $BC00 + $100 x 8): sixteen rows of sixteen character codes in the room font at $E000. Row 12 is mostly code $D3 (a blank top glyph row over $55 stripes) and rows 13 to 15 are mostly code $01 (alternate-pixel stripes). Scene 2 documents how the scene fill routines read a page through the sixteen page selectors $BC-$CB at $4E0E; the same resident routines serve this scene."
+  },
+  {
+   "address": 50432,
+   "type": "line",
+   "text": "Tile-art page 10 of 13 (256 bytes, $BC00 + $100 x 9): sixteen rows of sixteen character codes in the room font at $E000. Row 12 is mostly code $D3 (a blank top glyph row over $55 stripes) and rows 13 to 15 are mostly code $01 (alternate-pixel stripes). Row 12 also holds $0A $0B $D8 $D9 $DA $DB. Rows 13 to 15 also hold $0B $D8 $DB $E6 $E7 $E8 $F2 $F3 $F8 $F9. Scene 2 documents how the scene fill routines read a page through the sixteen page selectors $BC-$CB at $4E0E; the same resident routines serve this scene."
+  },
+  {
+   "address": 50688,
+   "type": "line",
+   "text": "Tile-art page 11 of 13 (256 bytes, $BC00 + $100 x 10): sixteen rows of sixteen character codes in the room font at $E000. Row 12 is mostly code $D3 (a blank top glyph row over $55 stripes) and rows 13 to 15 are mostly code $01 (alternate-pixel stripes). Row 12 also holds $DC $DD $DE $DF $E0 $E1 $E2. Rows 13 to 15 also hold $E9 $EA $EB $EC $ED $EE $EF. Scene 2 documents how the scene fill routines read a page through the sixteen page selectors $BC-$CB at $4E0E; the same resident routines serve this scene."
+  },
+  {
+   "address": 50944,
+   "type": "line",
+   "text": "Tile-art page 12 of 13 (256 bytes, $BC00 + $100 x 11): sixteen rows of sixteen character codes in the room font at $E000. Row 12 is mostly code $D3 (a blank top glyph row over $55 stripes) and rows 13 to 15 are mostly code $01 (alternate-pixel stripes). Rows 13 to 15 also hold $F0 $F1 $F4 $F5. Scene 2 documents how the scene fill routines read a page through the sixteen page selectors $BC-$CB at $4E0E; the same resident routines serve this scene."
+  },
+  {
+   "address": 51200,
+   "type": "line",
+   "text": "Tile-art page 13 of 13 (256 bytes, $BC00 + $100 x 12): sixteen rows of sixteen character codes in the room font at $E000. Row 12 is mostly code $D3 (a blank top glyph row over $55 stripes) and rows 13 to 15 are mostly code $01 (alternate-pixel stripes). Rows 13 to 15 also hold $F6 $F7. Scene 2 documents how the scene fill routines read a page through the sixteen page selectors $BC-$CB at $4E0E; the same resident routines serve this scene."
+  },
+  {
+   "address": 57344,
+   "type": "line",
+   "text": "C6 room font, glyphs $00-$7F (first 1,024 of 2,000 bytes; 250 glyphs of eight bytes in all). Glyph $00 is blank, $01 and $02 are alternate-pixel stripe fills ($55 and $AA rows) and $03 is solid ($FF). The tile-art pages at $BC00 use codes up to $F9; of $00-$F9, the codes not used in them are $03."
+  },
+  {
+   "address": 58368,
+   "type": "line",
+   "text": "C6 room font, glyphs $80-$F9 (the last 976 bytes). Glyph $D3 fills most of row 12 of the tile-art pages. The gap $E7D0-$FFFF is not part of this resource."
+  },
+  {
+   "address": 37113,
+   "type": "line",
+   "text": "Headered text $90F9-$910D. Layout byte $0F, colour byte $02; zero terminates its body. Content without framing glyph controls: \"You can't eat that.\". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. No instruction or table in the Stone Corridor overlay names this address directly, so what prints it is not traced."
+  },
+  {
+   "address": 37134,
+   "type": "line",
+   "text": "Headered text $910E-$9148. Layout byte $05, colour byte $01; zero terminates its body. Content without framing glyph controls: \"\\nThis has got to be the worst \\npopcorn you have ever tasted.\". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. This text is printed by the Stone Corridor overlay."
+  },
+  {
+   "address": 37193,
+   "type": "line",
+   "text": "Headered text $9149-$9169. Layout byte $05, colour byte $02; zero terminates its body. Content without framing glyph controls: \"All you have is an empty box.\". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. This text is printed by the Stone Corridor overlay."
+  },
+  {
+   "address": 37226,
+   "type": "line",
+   "text": "Headered text $916A-$91A8. Layout byte $05, colour byte $01; zero terminates its body. Content without framing glyph controls: \"\\nYou force yourself to eat it,\\n it tastes surprisingly good.\". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. This text is printed by the Stone Corridor overlay."
+  },
+  {
+   "address": 37289,
+   "type": "line",
+   "text": "Headered text $91A9-$91C3. Layout byte $09, colour byte $02; zero terminates its body. Content without framing glyph controls: \"There is nothing to take.\". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. This text is printed by the Stone Corridor overlay."
+  },
+  {
+   "address": 37316,
+   "type": "line",
+   "text": "Headered text $91C4-$91D5. Layout byte $14, colour byte $02; zero terminates its body. Content without framing glyph controls: \"He's not here.\". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. This text is printed by the Stone Corridor overlay."
+  },
+  {
+   "address": 37334,
+   "type": "line",
+   "text": "Headered text $91D6-$91EE. Layout byte $0D, colour byte $02; zero terminates its body. Content without framing glyph controls: \"There is no one here.\". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. No instruction or table in the Stone Corridor overlay names this address directly, so what prints it is not traced."
+  },
+  {
+   "address": 37402,
+   "type": "line",
+   "text": "Headered text $921A-$9230. Layout byte $01, colour byte $01; zero terminates its body. Content without framing glyph controls: \"Consider the elephant adumbrated.\". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. This text is printed by the Stone Corridor overlay."
+  },
+  {
+   "address": 37425,
+   "type": "line",
+   "text": "Headered text $9231-$9266. Layout byte $07, colour byte $01; zero terminates its body. Content without framing glyph controls: \"\\nThe elephant has had enough\\n  adumbration for a while. \". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. This text is printed by the Stone Corridor overlay."
+  },
+  {
+   "address": 37479,
+   "type": "line",
+   "text": "Headered text $9267-$927D. Layout byte $0F, colour byte $02; zero terminates its body. Content without framing glyph controls: \"You must be joking.\". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. This text is printed by the Stone Corridor overlay."
+  },
+  {
+   "address": 37502,
+   "type": "line",
+   "text": "Headered text $927E-$9292. Layout byte $09, colour byte $02; zero terminates its body. Content without framing glyph controls: \"You can't adumbrate that.\". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. This text is printed by the Stone Corridor overlay."
+  },
+  {
+   "address": 37523,
+   "type": "line",
+   "text": "Headered text $9293-$92C1. Layout byte $0D, colour byte $04; zero terminates its body. Content without framing glyph controls: \"\\nI'll only come if you\\n use the magic word. \". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. This text is printed by the Stone Corridor overlay."
+  },
+  {
+   "address": 37570,
+   "type": "line",
+   "text": "Headered text $92C2-$92DF. Layout byte $08, colour byte $04; zero terminates its body. Content without framing glyph controls: \"Need help do you? Too bad!\". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. This text is printed by the Stone Corridor overlay."
+  },
+  {
+   "address": 37600,
+   "type": "line",
+   "text": "Headered text $92E0-$930F. Layout byte $0C, colour byte $01; zero terminates its body. Content without framing glyph controls: \"\\n    Ludo is hanging   \\naround somewhere else.\". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. No instruction or table in the Stone Corridor overlay names this address directly, so what prints it is not traced."
+  },
+  {
+   "address": 37648,
+   "type": "line",
+   "text": "Headered text $9310-$9346. Layout byte $08, colour byte $01; zero terminates its body. Content without framing glyph controls: \"\\n Here, rocks! Here, rocks!\\nThey don't seem to answer.\". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. This text is printed by the Stone Corridor overlay."
+  },
+  {
+   "address": 37703,
+   "type": "line",
+   "text": "Headered text $9347-$9368. Layout byte $01, colour byte $01; zero terminates its body. Content without framing glyph controls: \"What would you like to call them?\". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. This text is printed by the Stone Corridor overlay."
+  },
+  {
+   "address": 37737,
+   "type": "line",
+   "text": "Headered text $9369-$9398. Layout byte $09, colour byte $02; zero terminates its body. Content without framing glyph controls: \"\\nYou can't drop that here,\\nJareth hates litterbugs. \". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. No instruction or table in the Stone Corridor overlay names this address directly, so what prints it is not traced."
+  },
+  {
+   "address": 37785,
+   "type": "line",
+   "text": "Headered text $9399-$93A9. Layout byte $15, colour byte $04; zero terminates its body. Content without framing glyph controls: \"No thank you.\". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. No instruction or table in the Stone Corridor overlay names this address directly, so what prints it is not traced."
+  },
+  {
+   "address": 37802,
+   "type": "line",
+   "text": "Headered text $93AA-$93BA. Layout byte $15, colour byte $05; zero terminates its body. Content without framing glyph controls: \"No thank you!\". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. This text is printed by the Stone Corridor overlay."
+  },
+  {
+   "address": 37819,
+   "type": "line",
+   "text": "Headered text $93BB-$93CF. Layout byte $0F, colour byte $02; zero terminates its body. Content without framing glyph controls: \"You can't hit that.\". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. No instruction or table in the Stone Corridor overlay names this address directly, so what prints it is not traced."
+  },
+  {
+   "address": 37933,
+   "type": "line",
+   "text": "Headered text $942D-$9438. Layout byte $14, colour byte $02; zero terminates its body. Content without framing glyph controls: \"What elephant?\". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. No instruction or table in the Stone Corridor overlay names this address directly, so what prints it is not traced."
+  },
+  {
+   "address": 37945,
+   "type": "line",
+   "text": "Headered text $9439-$9467. Layout byte $0E, colour byte $01; zero terminates its body. Content without framing glyph controls: \"\\nThey can't hear you,\\n they're stone deaf.\". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. No instruction or table in the Stone Corridor overlay names this address directly, so what prints it is not traced."
+  },
+  {
+   "address": 37992,
+   "type": "line",
+   "text": "Headered text $9468-$9498. Layout byte $0C, colour byte $01; zero terminates its body. Content without framing glyph controls: \"\\nIt's like talking to a\\nwall. Nothing happens.\". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. No instruction or table in the Stone Corridor overlay names this address directly, so what prints it is not traced."
+  },
+  {
+   "address": 38041,
+   "type": "line",
+   "text": "Headered text $9499-$94B7. Layout byte $06, colour byte $01; zero terminates its body. Content without framing glyph controls: \"She is busy watching a movie.\". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. No instruction or table in the Stone Corridor overlay names this address directly, so what prints it is not traced."
+  },
+  {
+   "address": 38072,
+   "type": "line",
+   "text": "Headered text $94B8-$94E6. Layout byte $0E, colour byte $03; zero terminates its body. Content without framing glyph controls: \"\\nI'd spoil the ending\\n    if I told you.  \". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. No instruction or table in the Stone Corridor overlay names this address directly, so what prints it is not traced."
+  },
+  {
+   "address": 38119,
+   "type": "line",
+   "text": "Headered text $94E7-$950B. Layout byte $01, colour byte $01; zero terminates its body. Content without framing glyph controls: \"He is busy counting his treasure.\". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. No instruction or table in the Stone Corridor overlay names this address directly, so what prints it is not traced."
+  },
+  {
+   "address": 38156,
+   "type": "line",
+   "text": "Headered text $950C-$9528. Layout byte $07, colour byte $01; zero terminates its body. Content without framing glyph controls: \"Do you often talk to walls?\". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. No instruction or table in the Stone Corridor overlay names this address directly, so what prints it is not traced."
+  },
+  {
+   "address": 38185,
+   "type": "line",
+   "text": "Headered text $9529-$9545. Layout byte $09, colour byte $04; zero terminates its body. Content without framing glyph controls: \"You're much too generous.\". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. No instruction or table in the Stone Corridor overlay names this address directly, so what prints it is not traced."
+  },
+  {
+   "address": 38214,
+   "type": "line",
+   "text": "Headered text $9546-$9562. Layout byte $06, colour byte $01; zero terminates its body. Content without framing glyph controls: \"The door seems rather board.\". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. No instruction or table in the Stone Corridor overlay names this address directly, so what prints it is not traced."
+  },
+  {
+   "address": 38243,
+   "type": "line",
+   "text": "Headered text $9563-$9590. Layout byte $0B, colour byte $01; zero terminates its body. Content without framing glyph controls: \"\\n The elephant would be \\npleased if it herd you.\". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. This text is printed by the Stone Corridor overlay."
+  },
+  {
+   "address": 38289,
+   "type": "line",
+   "text": "Headered text $9591-$95C5. Layout byte $05, colour byte $02; zero terminates its body. Content without framing glyph controls: \"\\nElephant? There's no elephant\\n    inside the Labyrinth.    \". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. This text is printed by the Stone Corridor overlay."
+  },
+  {
+   "address": 38342,
+   "type": "line",
+   "text": "Headered text $95C6-$95F9. Layout byte $08, colour byte $02; zero terminates its body. Content without framing glyph controls: \"\\n     The elephant is      \\nunavailable at the moment.\". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. This text is printed by the Stone Corridor overlay."
+  },
+  {
+   "address": 38394,
+   "type": "line",
+   "text": "Headered text $95FA-$9616. Layout byte $09, colour byte $02; zero terminates its body. Content without framing glyph controls: \"Ouch! You hurt your hand.\". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. No instruction or table in the Stone Corridor overlay names this address directly, so what prints it is not traced."
+  },
+  {
+   "address": 38423,
+   "type": "line",
+   "text": "Headered text $9617-$9640. Layout byte $0F, colour byte $01; zero terminates its body. Content without framing glyph controls: \"\\nThe wall is crushed\\n  by your remark.  \". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. No instruction or table in the Stone Corridor overlay names this address directly, so what prints it is not traced."
+  },
+  {
+   "address": 38465,
+   "type": "line",
+   "text": "Headered text $9641-$9653. Layout byte $13, colour byte $02; zero terminates its body. Content without framing glyph controls: \"Don't knock it!\". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. No instruction or table in the Stone Corridor overlay names this address directly, so what prints it is not traced."
+  },
+  {
+   "address": 38484,
+   "type": "line",
+   "text": "Headered text $9654-$9690. Layout byte $06, colour byte $04; zero terminates its body. Content without framing glyph controls: \"\\n So, you're having trouble?\\nI knew you couldn't make it\". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. No instruction or table in the Stone Corridor overlay names this address directly, so what prints it is not traced."
+  },
+  {
+   "address": 38545,
+   "type": "line",
+   "text": "Headered text $9691-$96C5. Layout byte $0B, colour byte $01; zero terminates its body. Content without framing glyph controls: \"\\nLuckily, he didn't hear\\n   that crude remark.  \". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. No instruction or table in the Stone Corridor overlay names this address directly, so what prints it is not traced."
+  },
+  {
+   "address": 38598,
+   "type": "line",
+   "text": "Headered text $96C6-$96E2. Layout byte $04, colour byte $02; zero terminates its body. Content without framing glyph controls: \"There's no place to insert it.\". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. No instruction or table in the Stone Corridor overlay names this address directly, so what prints it is not traced."
+  },
+  {
+   "address": 38627,
+   "type": "line",
+   "text": "Headered text $96E3-$9701. Layout byte $00, colour byte $02; zero terminates its body. Content without framing glyph controls: \"You have nothing to manicure with.\". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. This text is printed by the Stone Corridor overlay."
+  },
+  {
+   "address": 38658,
+   "type": "line",
+   "text": "Headered text $9702-$972D. Layout byte $0E, colour byte $01; zero terminates its body. Content without framing glyph controls: \"\\n Boy, will they be  \\nsurprised back home!\". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. This text is printed by the Stone Corridor overlay."
+  },
+  {
+   "address": 38702,
+   "type": "line",
+   "text": "Headered text $972E-$9769. Layout byte $05, colour byte $01; zero terminates its body. Content without framing glyph controls: \"\\nYou have damaged your shears \\nand they will no longer work.\". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. This text is printed by the Stone Corridor overlay."
+  },
+  {
+   "address": 38762,
+   "type": "line",
+   "text": "Headered text $976A-$9781. Layout byte $09, colour byte $02; zero terminates its body. Content without framing glyph controls: \"Your shears were damaged.\". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. This text is printed by the Stone Corridor overlay."
+  },
+  {
+   "address": 38786,
+   "type": "line",
+   "text": "Headered text $9782-$9789. Layout byte $1E, colour byte $06; zero terminates its body. Content without framing glyph controls: \"HUH?\". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. This text is printed by the Stone Corridor overlay."
+  },
+  {
+   "address": 38794,
+   "type": "line",
+   "text": "Headered text $978A-$979A. Layout byte $15, colour byte $06; zero terminates its body. Content without framing glyph controls: \"MOMMY! MOMMY!\". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. This text is printed by the Stone Corridor overlay."
+  },
+  {
+   "address": 38811,
+   "type": "line",
+   "text": "Headered text $979B-$97A5. Layout byte $1B, colour byte $06; zero terminates its body. Content without framing glyph controls: \"Ohhh...\". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. This text is printed by the Stone Corridor overlay."
+  },
+  {
+   "address": 38822,
+   "type": "line",
+   "text": "Headered text $97A6-$97B8. Layout byte $0E, colour byte $01; zero terminates its body. Content without framing glyph controls: \"A goblin approaches.\". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. This text is printed by the Stone Corridor overlay."
+  },
+  {
+   "address": 38841,
+   "type": "line",
+   "text": "Headered text $97B9-$97C7. Layout byte $17, colour byte $06; zero terminates its body. Content without framing glyph controls: \"I'm coming!\". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. This text is printed by the Stone Corridor overlay."
+  },
+  {
+   "address": 38856,
+   "type": "line",
+   "text": "Headered text $97C8-$97DC. Layout byte $11, colour byte $06; zero terminates its body. Content without framing glyph controls: \"I'm here already!\". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. This text is printed by the Stone Corridor overlay."
+  },
+  {
+   "address": 38877,
+   "type": "line",
+   "text": "Headered text $97DD-$97F1. Layout byte $11, colour byte $06; zero terminates its body. Content without framing glyph controls: \"Gee, that's nice.\". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. This text is printed by the Stone Corridor overlay."
+  },
+  {
+   "address": 38898,
+   "type": "line",
+   "text": "Headered text $97F2-$97FE. Layout byte $17, colour byte $06; zero terminates its body. Content without framing glyph controls: \"Oh! A rock!\". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. No instruction or table in the Stone Corridor overlay names this address directly, so what prints it is not traced."
+  },
+  {
+   "address": 38911,
+   "type": "line",
+   "text": "Headered text $97FF-$981A. Layout byte $0A, colour byte $05; zero terminates its body. Content without framing glyph controls: \"An empty box? No thanks!\". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. This text is printed by the Stone Corridor overlay."
+  },
+  {
+   "address": 38939,
+   "type": "line",
+   "text": "Headered text $981B-$982D. Layout byte $13, colour byte $06; zero terminates its body. Content without framing glyph controls: \"I'm not saying.\". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. This text is printed by the Stone Corridor overlay."
+  },
+  {
+   "address": 38958,
+   "type": "line",
+   "text": "Headered text $982E-$9835. Layout byte $1E, colour byte $06; zero terminates its body. Content without framing glyph controls: \"Hah!\". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. This text is printed by the Stone Corridor overlay."
+  },
+  {
+   "address": 38966,
+   "type": "line",
+   "text": "Headered text $9836-$9862. Layout byte $0E, colour byte $06; zero terminates its body. Content without framing glyph controls: \"\\nI'd be happy to take\\nthat off your hands.\". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. No instruction or table in the Stone Corridor overlay names this address directly, so what prints it is not traced."
+  },
+  {
+   "address": 39011,
+   "type": "line",
+   "text": "Headered text $9863-$987C. Layout byte $0A, colour byte $02; zero terminates its body. Content without framing glyph controls: \"It's stuck to your head!\". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. This text is printed by the Stone Corridor overlay."
+  },
+  {
+   "address": 39037,
+   "type": "line",
+   "text": "Headered text $987D-$9890. Layout byte $12, colour byte $01; zero terminates its body. Content without framing glyph controls: \"He's in the way!\". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. This text is printed by the Stone Corridor overlay."
+  },
+  {
+   "address": 39057,
+   "type": "line",
+   "text": "Zero-terminated list of 10 global command-availability entries: $05, $14, $19, $1E, $1F, $20, $23, $28, $2A, $2C. The overlay code at $8CEB loads X=$91, Y=$98 and calls $0833 (api_install_scene_command_availability) at $8CED; as in scene 2, that marks each listed entry negative so the command wheels do not offer it in this scene. Words: the resident table at $6693 turns each entry into a dictionary word, so the list blocks $05 complain, $14 throw, $19 Alph, $1E Firey, $1F hat, $20 Hoggle, $23 knocker, $28 Ralph, $2A Sir Didymus, $2C Wise Man."
+  },
+  {
+   "address": 35584,
+   "type": "line",
+   "text": "Parallel list of two-byte [verb,object] dictionary-index pairs scanned by resident dispatch_wheel_command ($5F43) over offsets $00-$BE. A zero in either field is a wildcard, so a verb's specific objects come first and its [verb,0] pair is the fallback; a negative first byte ($FF at $8BAA) ends the scan. The handler for the pair at $8B00+2n is the word at $8BC0+2n. Verbs in order: ADUMBRATE, ASK, CALL, CLOSE, CONGRATULATE, DROP, EAT, GIVE, HIT, INSERT, INSULT, LOAD GAME, MANICURE, OPEN, SAVE GAME, SPEAK, TAKE, TIME, USE, then the [0,0] pair. Each pair has its own line comment. This stretch ends before the CLOSE DOOR pair at $8B2E."
+  },
+  {
+   "address": 35586,
+   "type": "line",
+   "text": "ADUMBRATE elephant -> stone_adumbrate_elephant ($8E37)"
+  },
+  {
+   "address": 35588,
+   "type": "line",
+   "text": "ADUMBRATE Jareth -> stone_adumbrate_jareth ($8E52)"
+  },
+  {
+   "address": 35590,
+   "type": "line",
+   "text": "ADUMBRATE wall -> stone_adumbrate_wall ($8E59)"
+  },
+  {
+   "address": 35592,
+   "type": "line",
+   "text": "ADUMBRATE goblin -> stone_adumbrate_goblin ($8E74)"
+  },
+  {
+   "address": 35594,
+   "type": "line",
+   "text": "ADUMBRATE any object -> text $93D0 (Nothing happens.)"
+  },
+  {
+   "address": 35596,
+   "type": "line",
+   "text": "ASK door -> stone_door_command_nothing ($8DA9)"
+  },
+  {
+   "address": 35598,
+   "type": "line",
+   "text": "ASK elephant -> text $942D (What elephant?)"
+  },
+  {
+   "address": 35600,
+   "type": "line",
+   "text": "ASK goblin -> stone_ask_goblin ($8D9A)"
+  },
+  {
+   "address": 35602,
+   "type": "line",
+   "text": "ASK nerd -> text $94B8 (I'd spoil the ending     if I told you.)"
+  },
+  {
+   "address": 35604,
+   "type": "line",
+   "text": "ASK rocks -> text $9439 (They can't hear you,  they're stone deaf.)"
+  },
+  {
+   "address": 35606,
+   "type": "line",
+   "text": "ASK wall -> text $9468 (It's like talking to a wall. Nothing happens.)"
+  },
+  {
+   "address": 35608,
+   "type": "line",
+   "text": "ASK any object -> text $93D0 (Nothing happens.)"
+  },
+  {
+   "address": 35610,
+   "type": "line",
+   "text": "CALL door -> text $93D0 (Nothing happens.)"
+  },
+  {
+   "address": 35612,
+   "type": "line",
+   "text": "CALL elephant -> stone_call_elephant ($8E04)"
+  },
+  {
+   "address": 35614,
+   "type": "line",
+   "text": "CALL goblin -> stone_call_goblin ($8DB3)"
+  },
+  {
+   "address": 35616,
+   "type": "line",
+   "text": "CALL Hoggle -> text $94E7 (He is busy counting his treasure.)"
+  },
+  {
+   "address": 35618,
+   "type": "line",
+   "text": "CALL Jareth -> stone_call_jareth ($8DD6)"
+  },
+  {
+   "address": 35620,
+   "type": "line",
+   "text": "CALL Ludo -> text $92E0 (Ludo is hanging    around somewhere else.)"
+  },
+  {
+   "address": 35622,
+   "type": "line",
+   "text": "CALL nerd -> text $9499 (She is busy watching a movie.)"
+  },
+  {
+   "address": 35624,
+   "type": "line",
+   "text": "CALL rocks -> stone_call_rocks ($8DE9)"
+  },
+  {
+   "address": 35626,
+   "type": "line",
+   "text": "CALL wall -> text $93D0 (Nothing happens.)"
+  },
+  {
+   "address": 35628,
+   "type": "line",
+   "text": "CALL any object -> text $93D0 (Nothing happens.)"
+  },
+  {
+   "address": 35632,
+   "type": "line",
+   "text": "Continuation of the [verb,object] pair list after the CLOSE DOOR pair: [CLOSE,0] at $8B30, then CONGRATULATE, DROP, EAT, GIVE, HIT, INSERT, INSULT, LOAD GAME, MANICURE, up to the pair before OPEN DOOR at $8B8A. Pair n pairs with word n of the table at $8BC0."
+  },
+  {
+   "address": 35634,
+   "type": "line",
+   "text": "CONGRATULATE door -> stone_door_command_nothing ($8DA9)"
+  },
+  {
+   "address": 35636,
+   "type": "line",
+   "text": "CONGRATULATE elephant -> stone_congratulate_elephant ($8E21)"
+  },
+  {
+   "address": 35638,
+   "type": "line",
+   "text": "CONGRATULATE goblin -> stone_after_close ($8EBF)"
+  },
+  {
+   "address": 35640,
+   "type": "line",
+   "text": "CONGRATULATE Jareth -> text $9529 (You're much too generous.)"
+  },
+  {
+   "address": 35642,
+   "type": "line",
+   "text": "CONGRATULATE nerd -> text $93D0 (Nothing happens.)"
+  },
+  {
+   "address": 35644,
+   "type": "line",
+   "text": "CONGRATULATE wall -> text $950C (Do you often talk to walls?)"
+  },
+  {
+   "address": 35646,
+   "type": "line",
+   "text": "CONGRATULATE any object -> text $93D0 (Nothing happens.)"
+  },
+  {
+   "address": 35648,
+   "type": "line",
+   "text": "DROP any object -> text $9369 (You can't drop that here, Jareth hates litterbugs.)"
+  },
+  {
+   "address": 35650,
+   "type": "line",
+   "text": "EAT peach -> stone_eat_peach ($90DD)"
+  },
+  {
+   "address": 35652,
+   "type": "line",
+   "text": "EAT popcorn -> stone_eat_popcorn ($8D80)"
+  },
+  {
+   "address": 35654,
+   "type": "line",
+   "text": "EAT ticket -> stone_eat_ticket ($8D76)"
+  },
+  {
+   "address": 35656,
+   "type": "line",
+   "text": "EAT any object -> text $90F9 (You can't eat that.)"
+  },
+  {
+   "address": 35658,
+   "type": "line",
+   "text": "GIVE camcorder -> stone_give_taken_item ($8D2A)"
+  },
+  {
+   "address": 35660,
+   "type": "line",
+   "text": "GIVE crystal ball -> stone_give_taken_item ($8D2A)"
+  },
+  {
+   "address": 35662,
+   "type": "line",
+   "text": "GIVE plank -> stone_give_taken_item ($8D2A)"
+  },
+  {
+   "address": 35664,
+   "type": "line",
+   "text": "GIVE rule book -> stone_give_taken_item ($8D2A)"
+  },
+  {
+   "address": 35666,
+   "type": "line",
+   "text": "GIVE shears -> stone_give_taken_item ($8D2A)"
+  },
+  {
+   "address": 35668,
+   "type": "line",
+   "text": "GIVE perfume -> stone_give_taken_item ($8D2A)"
+  },
+  {
+   "address": 35670,
+   "type": "line",
+   "text": "GIVE cup -> stone_give_cup ($8D12)"
+  },
+  {
+   "address": 35672,
+   "type": "line",
+   "text": "GIVE peach -> stone_give_peach ($8D39)"
+  },
+  {
+   "address": 35674,
+   "type": "line",
+   "text": "GIVE rock -> stone_give_taken_item ($8D2A)"
+  },
+  {
+   "address": 35676,
+   "type": "line",
+   "text": "GIVE popcorn -> stone_give_popcorn ($8D53)"
+  },
+  {
+   "address": 35678,
+   "type": "line",
+   "text": "GIVE helmet -> text $9863 (It's stuck to your head!)"
+  },
+  {
+   "address": 35680,
+   "type": "line",
+   "text": "GIVE any object -> stone_give_refused ($8D1E)"
+  },
+  {
+   "address": 35682,
+   "type": "line",
+   "text": "HIT door -> stone_hit_door ($8EDF)"
+  },
+  {
+   "address": 35684,
+   "type": "line",
+   "text": "HIT goblin -> stone_hit_goblin ($8EE9)"
+  },
+  {
+   "address": 35686,
+   "type": "line",
+   "text": "HIT Hoggle -> text $91C4 (He's not here.)"
+  },
+  {
+   "address": 35688,
+   "type": "line",
+   "text": "HIT Jareth -> text $93E4 (You must be getting desperate to  be trying such primitive tactics.)"
+  },
+  {
+   "address": 35690,
+   "type": "line",
+   "text": "HIT Ludo -> text $91C4 (He's not here.)"
+  },
+  {
+   "address": 35692,
+   "type": "line",
+   "text": "HIT wall -> text $95FA (Ouch! You hurt your hand.)"
+  },
+  {
+   "address": 35694,
+   "type": "line",
+   "text": "HIT any object -> text $93BB (You can't hit that.)"
+  },
+  {
+   "address": 35696,
+   "type": "line",
+   "text": "INSERT any object -> text $96C6 (There's no place to insert it.)"
+  },
+  {
+   "address": 35698,
+   "type": "line",
+   "text": "INSULT door -> text $9641 (Don't knock it!)"
+  },
+  {
+   "address": 35700,
+   "type": "line",
+   "text": "INSULT goblin -> stone_insult_goblin ($8F0F)"
+  },
+  {
+   "address": 35702,
+   "type": "line",
+   "text": "INSULT Jareth -> text $9654 (So, you're having trouble? I knew you couldn't make it)"
+  },
+  {
+   "address": 35704,
+   "type": "line",
+   "text": "INSULT rocks -> text $93D0 (Nothing happens.)"
+  },
+  {
+   "address": 35706,
+   "type": "line",
+   "text": "INSULT wall -> text $9617 (The wall is crushed   by your remark.)"
+  },
+  {
+   "address": 35708,
+   "type": "line",
+   "text": "INSULT any object -> text $9691 (Luckily, he didn't hear    that crude remark.)"
+  },
+  {
+   "address": 35710,
+   "type": "line",
+   "text": "LOAD GAME any object -> stone_load_game ($90F3)"
+  },
+  {
+   "address": 35712,
+   "type": "line",
+   "text": "MANICURE door -> stone_manicure_door ($9016)"
+  },
+  {
+   "address": 35714,
+   "type": "line",
+   "text": "MANICURE Jareth -> text $9399 (No thank you.)"
+  },
+  {
+   "address": 35716,
+   "type": "line",
+   "text": "MANICURE rocks -> stone_manicure_rocks_or_wall ($9019)"
+  },
+  {
+   "address": 35718,
+   "type": "line",
+   "text": "MANICURE wall -> stone_manicure_rocks_or_wall ($9019)"
+  },
+  {
+   "address": 35720,
+   "type": "line",
+   "text": "MANICURE any object -> stone_manicure_any ($902F)"
+  },
+  {
+   "address": 35724,
+   "type": "line",
+   "text": "Continuation of the pair list after OPEN DOOR: [OPEN,0] at $8B8C, SAVE GAME, the four SPEAK password pairs (avocado, jaggies, owl, plastics), [SPEAK,0], TAKE, TIME, the USE pairs, and the [0,0] fallback at $8BA8. $8BAA is the negative terminator; the $FF,$00 filler pairs from there to $8BBF are never reached."
+  },
+  {
+   "address": 35726,
+   "type": "line",
+   "text": "SAVE GAME any object -> stone_save_game ($90F6)"
+  },
+  {
+   "address": 35728,
+   "type": "line",
+   "text": "SPEAK avocado -> stone_speak_password ($9E8B)"
+  },
+  {
+   "address": 35730,
+   "type": "line",
+   "text": "SPEAK jaggies -> stone_speak_password ($9E8B)"
+  },
+  {
+   "address": 35732,
+   "type": "line",
+   "text": "SPEAK owl -> stone_speak_password ($9E8B)"
+  },
+  {
+   "address": 35734,
+   "type": "line",
+   "text": "SPEAK plastics -> stone_speak_password ($9E8B)"
+  },
+  {
+   "address": 35736,
+   "type": "line",
+   "text": "SPEAK any object -> text $93D0 (Nothing happens.)"
+  },
+  {
+   "address": 35738,
+   "type": "line",
+   "text": "TAKE any object -> stone_take ($8F8E)"
+  },
+  {
+   "address": 35740,
+   "type": "line",
+   "text": "TIME any object -> stone_time ($90D9)"
+  },
+  {
+   "address": 35742,
+   "type": "line",
+   "text": "USE camcorder -> stone_use_camcorder ($8FCE)"
+  },
+  {
+   "address": 35744,
+   "type": "line",
+   "text": "USE helmet -> stone_use_helmet ($9043)"
+  },
+  {
+   "address": 35746,
+   "type": "line",
+   "text": "USE perfume -> stone_use_perfume ($90F0)"
+  },
+  {
+   "address": 35748,
+   "type": "line",
+   "text": "USE shears -> stone_use_shears ($9039)"
+  },
+  {
+   "address": 35750,
+   "type": "line",
+   "text": "USE any object -> text $93D0 (Nothing happens.)"
+  },
+  {
+   "address": 35752,
+   "type": "line",
+   "text": "[0,0] fallback pair, last in the scan (matches any verb and object) -> text $93D0 (Nothing happens.)"
+  },
+  {
+   "address": 35776,
+   "type": "line",
+   "text": "Word table parallel to the pair list: word n answers the pair at $8B00+2n. The resident dispatcher jumps to a word whose high byte is $80 or more as code (the routine named in the pair's line comment). A smaller high byte is a message: $8000 is added and the headered text there is shown through $674C; the default $13D0 is text $93D0, Nothing happens. 85 words ($8BC0-$8C69). This first stretch ends before the CLOSE DOOR word at $8BEE."
+  },
+  {
+   "address": 35824,
+   "type": "line",
+   "text": "Handler words 24 to 68 (pairs from [CLOSE,0] at $8B30 to MANICURE any at $8B88), ending before the OPEN DOOR word at $8C4A. Words below $8000 are text pointers with $8000 added; the rest are the handlers named in the pair line comments."
+  },
+  {
+   "address": 35916,
+   "type": "line",
+   "text": "Handler words 70 to 84 ($8C4C-$8C69): [OPEN,0] and SAVE GAME ($90F6), the four SPEAK password pairs (all $9E8B), [SPEAK,0], TAKE ($8F8E), TIME ($90D9), the USE camcorder/helmet/perfume/shears words ($8FCE, $9043, $90F0, $9039) and the defaults for USE any and [0,0] (both text $93D0)."
+  },
+  {
+   "address": 35946,
+   "type": "line",
+   "text": "22 zero bytes between the handler word table and the stream pointer table at $8C80. The dispatcher scans only pair offsets $00-$BE and nothing in the overlay refers to these bytes."
+  },
+  {
+   "address": 35968,
+   "type": "line",
+   "text": "Three stream pointers read by resident $6B63 as the word at $8C80+2*$0343: room text mode 0 uses $9A8D, mode 1 uses $9CED, mode 2 uses $9A8D again. Each stream is (count,value) pairs drawn from screen $CCA0 until a zero count; both streams hold 640 cells (16 rows of 40)."
+  },
+  {
+   "address": 35974,
+   "type": "line",
+   "text": "Overlay entry stub for text mode 0: JMP $9BEB. Resident $6B63 jumps here when the mode-0 stream ends, and the movement classifier $4171 calls it with JSR ($41AC) while $0343 is 0; the response index is read back from $0344."
+  },
+  {
+   "address": 35977,
+   "type": "line",
+   "text": "Overlay entry stub for text mode 1: JMP $9DFB. Resident $6B63 jumps here when the mode-1 stream ends, and $4171 calls it with JSR ($41B6) while $0343 is 1."
+  },
+  {
+   "address": 35980,
+   "type": "line",
+   "text": "Overlay entry stub for text mode 2 (any other nonnegative $0343): JMP $9BEB, the same routine as mode 0. Called from $6BFB at the end of the stream and by JSR from $41BC."
+  },
+  {
+   "address": 35983,
+   "type": "line",
+   "text": "Overlay entry stub called every frame by resident service_command_wheels_and_room ($5D51) and by run_text_adventure_overlay ($6A39): JMP $8C96."
+  },
+  {
+   "address": 35986,
+   "type": "line",
+   "text": "Overlay entry stub called by resident update_player_motion_requests ($342B), update_other_objects_and_room ($39EE) and place_object_at_graph_node ($550F): JMP $8C95, the bare RTS. This room needs no per-move work."
+  },
+  {
+   "address": 35989,
+   "type": "line",
+   "text": "RTS shared by the movement hook stub (and called directly from resident $5DBD)."
+  },
+  {
+   "address": 35990,
+   "type": "line",
+   "text": "Per-frame room logic. In order: stone_room_init ($8CDF); stone_state_sound ($9087); the peach tick $90EA when $90DC is nonnegative; the camcorder tick $8FDC when $8FCD is nonnegative. Then, if message timer $8CDE is nonnegative: at 5 it queues text $979B (Ohhh...) with A=5 and sound $2D; it decrements the timer and when that passes zero stores $FF in $989E, which starts the goblin exit sequence in stone_goblin_update. Finally it runs stone_goblin_update ($992B) and, when $02BB is nonnegative, stone_action_phase_sound ($906B) with X=$02BB."
+  },
+  {
+   "address": 36055,
+   "type": "line",
+   "text": "A second RTS directly after the frame callback's own RTS at $8CD6. Nothing refers to it."
+  },
+  {
+   "address": 36056,
+   "type": "line",
+   "text": "One zero byte before the variables. No instruction in memory addresses it; purpose not identified."
+  },
+  {
+   "address": 36057,
+   "type": "line",
+   "text": "Toggled by CALL ROCKS ($8DE9) with EOR #1: 0 selects the unanswered shout, text $9310, and 1 selects What would you like to call them?, text $9347. Zero in the snapshot."
+  },
+  {
+   "address": 36058,
+   "type": "line",
+   "text": "Two zero bytes ($8CDA-$8CDB) between the variables. No instruction in memory addresses them; purpose not identified."
+  },
+  {
+   "address": 36060,
+   "type": "line",
+   "text": "Setup flag read by stone_room_init: a negative value runs the one-time setup, which clears it to zero first; nonnegative returns at once. Zero in the snapshot (setup already done)."
+  },
+  {
+   "address": 36061,
+   "type": "line",
+   "text": "One zero byte before the message timer. No instruction in memory addresses it; purpose not identified."
+  },
+  {
+   "address": 36062,
+   "type": "line",
+   "text": "Frame countdown started at $14 by GIVE PEACH; $FF when idle. The frame callback queues text $979B (Ohhh...) and sound $2D when it equals 5 and, as it passes zero, stores $FF in $989E."
+  },
+  {
+   "address": 36063,
+   "type": "line",
+   "text": "One-time setup, run while $8CDC is negative (it is cleared first; a nonnegative value returns at $8D11). Calls $0833 with X=$91, Y=$98 to install the blocked-command list at $9891, stores 3 in goblin variant request $0354 and runs stone_goblin_update, stores 2 in $0355, stores $13 (she) over the pronoun byte $949D when $052C is nonzero, and sets $0378=5 and $0377=$0F."
+  },
+  {
+   "address": 36114,
+   "type": "line",
+   "text": "GIVE CUP. Resident $082D requires the goblin within distance limit $15 (otherwise it replies and abandons this handler; in a text view it always fails). Queues text $93AA (No thank you!) through stone_reply_mode5 ($90D4). Nothing is consumed."
+  },
+  {
+   "address": 36126,
+   "type": "line",
+   "text": "GIVE with any object not listed elsewhere. Requires the goblin near (limit $15), selects text $93AA (No thank you!) and jumps to $0827 with A as left by the proximity check, not through $90D4."
+  },
+  {
+   "address": 36138,
+   "type": "line",
+   "text": "GIVE camcorder, crystal ball, plank, rule book, shears, perfume or rock. Requires the goblin near (limit $15), queues text $982E (Hah!) through $0827, then removes one unit of the selected inventory item with $080F."
+  },
+  {
+   "address": 36153,
+   "type": "line",
+   "text": "GIVE PEACH. Requires the goblin near (limit $15). Stores $14 in message timer $8CDE and hold timer $989C, queues text $97DD (Gee, that's nice.) through $0827, removes the peach unit with $080F and increments bonus counter $0568 through $083C. When the timer later reaches 5 the frame callback adds Ohhh..."
+  },
+  {
+   "address": 36179,
+   "type": "line",
+   "text": "GIVE POPCORN. Requires the goblin near (limit $15). When $056D is negative (only the empty box is left) it queues text $97FF (An empty box? No thanks!) and consumes nothing. Otherwise it increments the bonus counter ($083C), stores $28 in hold timer $989C, removes the unit ($080F) and queues text $97DD (Gee, that's nice.)."
+  },
+  {
+   "address": 36214,
+   "type": "line",
+   "text": "EAT TICKET. Removes one unit of the selected item with $080F and queues text $916A (You force yourself to eat it, it tastes surprisingly good.) through stone_reply_mode5."
+  },
+  {
+   "address": 36224,
+   "type": "line",
+   "text": "EAT POPCORN. When $056D is negative the box is empty: text $9149 (All you have is an empty box.). Otherwise $056D is set to $FF and text $910E (the worst popcorn you have ever tasted) is queued. Both go out through $0827 with A=2."
+  },
+  {
+   "address": 36250,
+   "type": "line",
+   "text": "ASK GOBLIN. Requires $98B3 negative ($905C), the goblin near (limit $25), then jumps to $0827 with text $981B (I'm not saying.)."
+  },
+  {
+   "address": 36265,
+   "type": "line",
+   "text": "ASK or CONGRATULATE DOOR. Resident $082A requires a door cell, then text $93D0 (Nothing happens.) is queued through stone_reply_mode5."
+  },
+  {
+   "address": 36275,
+   "type": "line",
+   "text": "CALL GOBLIN. Calls stone_goblin_distance_or_absent ($90C3) and stone_require_goblin_active ($905C). At the CMP #$25 A holds $98B3, which is negative, so the branch to $8DC4 is not taken and text $97B9 (I'm coming!) is queued; the alternative $97C8 (I'm here already!) is reachable only through that branch. Then $989C=0 and $0377=$0A."
+  },
+  {
+   "address": 36310,
+   "type": "line",
+   "text": "CALL JARETH. In a text view ($0343 nonnegative) queues text $9293 (I'll only come if you use the magic word.); in the map view text $92C2 (Need help do you? Too bad!). Both through stone_reply_mode5."
+  },
+  {
+   "address": 36329,
+   "type": "line",
+   "text": "CALL ROCKS. Uses toggle $8CD9: 0 queues text $9310 (Here, rocks! Here, rocks! They don't seem to answer.), 1 queues text $9347 (What would you like to call them?). The toggle is flipped with EOR #1 and the text goes out through stone_reply_mode5."
+  },
+  {
+   "address": 36356,
+   "type": "line",
+   "text": "CALL ELEPHANT. Flag $0566 zero: text $9591 (Elephant? There's no elephant inside the Labyrinth.). Flag set and $0343 equal to 1: JMP $9E2E, the elephant arrival. Flag set in any other mode: text $95C6 (The elephant is unavailable at the moment.). Texts go through stone_reply_mode5."
+  },
+  {
+   "address": 36385,
+   "type": "line",
+   "text": "CONGRATULATE ELEPHANT. Increments the bonus counter ($083C), then text $9591 (no elephant) when $0566 is zero or $9563 (The elephant would be pleased if it herd you.) when it is set, through stone_reply_mode5."
+  },
+  {
+   "address": 36407,
+   "type": "line",
+   "text": "ADUMBRATE ELEPHANT. When $0566 is zero it increments it, queues sound $1A and text $921A (Consider the elephant adumbrated.); otherwise text $9231 (The elephant has had enough adumbration for a while.). Reply through stone_reply_mode5."
+  },
+  {
+   "address": 36434,
+   "type": "line",
+   "text": "ADUMBRATE JARETH. Calls $0869, resident short tune start ($2513), and returns. No text."
+  },
+  {
+   "address": 36438,
+   "type": "line",
+   "text": "ADUMBRATE DOOR. Resident $082A requires a door cell, then execution falls into stone_adumbrate_wall."
+  },
+  {
+   "address": 36441,
+   "type": "line",
+   "text": "ADUMBRATE WALL, and the shared body of ADUMBRATE DOOR. Alternates on $0567: zero queues text $9267 (You must be joking.), nonzero text $927E (You can't adumbrate that.); $0567 is flipped with EOR #1 each time. Reply through stone_reply_mode5."
+  },
+  {
+   "address": 36468,
+   "type": "line",
+   "text": "ADUMBRATE GOBLIN. Calls $90C3 and $905C; A then holds $98B3 (negative), so the compare with $25 never takes the branch to $8E85 and the code queues text $97A6 (A goblin approaches.), clears hold timer $989C and replies through stone_reply_mode5. The Nothing happens text at $8E85 is reachable only through that branch."
+  },
+  {
+   "address": 36543,
+   "type": "line",
+   "text": "CONGRATULATE GOBLIN (pair $8B36 points here; the name is the earlier placeholder). Calls $90C3 and $905C like CALL GOBLIN. With A holding $98B3 the branch to $8ED0 is not taken, so text $91C4 (He's not here.) is queued; the branch target would store $78 in hold timer $989C and queue $97DD (Gee, that's nice.). It replies through $90D4 and then increments the bonus counter ($083C)."
+  },
+  {
+   "address": 36575,
+   "type": "line",
+   "text": "HIT DOOR. Resident $082A requires a door cell, then text $93D0 (Nothing happens.) through stone_reply_mode5."
+  },
+  {
+   "address": 36585,
+   "type": "line",
+   "text": "HIT GOBLIN. Requires $98B3 negative, the goblin near (limit $15); sets walk step $989F=3, exit countdown $989E=$1E and hold timer $989C=0, queues sound $2D and text $978A (MOMMY! MOMMY!) through $0827, and decrements the bonus counter ($083F)."
+  },
+  {
+   "address": 36623,
+   "type": "line",
+   "text": "INSULT GOBLIN. Requires $98B3 negative and the goblin near (limit $25); queues sound $10, sets walk step $989F=3 and hold timer $989C=6, queues text $9782 (HUH?) through stone_reply_mode5 and decrements the bonus counter ($083F)."
+  },
+  {
+   "address": 36750,
+   "type": "line",
+   "text": "TAKE. Queries the player cell ($0818). When its type X is negative the cell is replaced with 0 and the object added to the inventory through $0815 (the JMP at $8F9A after it is never reached). Otherwise all of these are required: $0812 distance below $25, goblin variant $98A0 equal to 3, $989E negative, $0266 nonnegative, and inventory slot 8 absent (resident $0830 returns a negative count; slot 8 is dictionary $3B, cup, by the slot+$33 mapping of slots 21 and 23). Then that negative byte is stored in $0266, slot 8 is added with $0809 and the bonus counter is decremented ($083F). Every failure goes to stone_take_nothing."
+  },
+  {
+   "address": 36806,
+   "type": "line",
+   "text": "TAKE refusal: text $91A9 (There is nothing to take.) through stone_reply_mode5."
+  },
+  {
+   "address": 36813,
+   "type": "line",
+   "text": "Frame countdown for USE CAMCORDER: $FF when idle, started at $12 by $8FCE. The frame callback calls the tick $8FDC while it is nonnegative."
+  },
+  {
+   "address": 36814,
+   "type": "line",
+   "text": "USE CAMCORDER. Clears $057D and $03A8, stores $12 in countdown $8FCD and returns."
+  },
+  {
+   "address": 36828,
+   "type": "line",
+   "text": "Per-frame camcorder tick: decrements $8FCD. When it goes negative it decrements $03A8 and queues text $9702 (Boy, will they be surprised back home!) through stone_reply_mode5. Otherwise, when A (the count before the decrement, loaded by the frame callback) equals $10, it queues sound $1F."
+  },
+  {
+   "address": 36853,
+   "type": "line",
+   "text": "Helper for MANICURE and USE SHEARS. Reads the stored count of inventory slot 21 (shears) with $0830; negative: text $96E3 (You have nothing to manicure with.). With shears, $056C negative (damaged): text $976A (Your shears were damaged.). Either refusal drops the caller's return address and replies through stone_reply_mode5. Otherwise it queues sound $0B and returns."
+  },
+  {
+   "address": 36886,
+   "type": "line",
+   "text": "MANICURE DOOR. Resident $082A requires a door cell, then falls into the shared body at $9019."
+  },
+  {
+   "address": 36889,
+   "type": "line",
+   "text": "MANICURE ROCKS, MANICURE WALL and the shared body of MANICURE DOOR. Requires usable shears ($8FF5), sets $056C=$FF (shears damaged), queues sound $29 and text $972E (You have damaged your shears and they will no longer work.) through $0827 with A=2."
+  },
+  {
+   "address": 36911,
+   "type": "line",
+   "text": "MANICURE with any other object. Requires usable shears ($8FF5), then text $93D0 (Nothing happens.) through stone_reply_mode5."
+  },
+  {
+   "address": 36921,
+   "type": "line",
+   "text": "USE SHEARS. Requires usable shears ($8FF5), then text $93D0 (Nothing happens.) through stone_reply_mode5; the body is the same as MANICURE any."
+  },
+  {
+   "address": 36931,
+   "type": "line",
+   "text": "USE HELMET. When $0264 is negative it is set to 0 and sound 9 is queued. Otherwise text $9863 (It's stuck to your head!) is queued through stone_reply_mode5. The JMP $905C at $9052 is not reached."
+  },
+  {
+   "address": 36956,
+   "type": "line",
+   "text": "Helper. Returns with A=$98B3 when that byte is negative. Otherwise drops the caller's return address and queues text $93D0 (Nothing happens.) through stone_reply_mode5."
+  },
+  {
+   "address": 36971,
+   "type": "line",
+   "text": "Called by the frame callback with X=$02BB (player action phase) when it is nonnegative: phase below 2 queues sound 1, phase 2 sound $0D, phase 8 sound $0E, other phases nothing."
+  },
+  {
+   "address": 36999,
+   "type": "line",
+   "text": "Per-frame sound selection, only while $02BB is negative. A starts as $18 when $0298 equals 3, else 0. When $024A is nonnegative, $98B3 negative and map column $AF is $10-$1E, A becomes 7 if $02A8 equals 3 or 7. A is queued through $081E unless it is zero."
+  },
+  {
+   "address": 37059,
+   "type": "line",
+   "text": "Helper. In the map view ($0343 negative) tail-calls $0812 (distance to the companion, $FF when far). In a text view it drops the caller's return address and queues text $91C4 (He's not here.) through stone_reply_mode5."
+  },
+  {
+   "address": 37081,
+   "type": "line",
+   "text": "TIME. JMP $0848, resident display_remaining_clock."
+  },
+  {
+   "address": 37084,
+   "type": "line",
+   "text": "Frame countdown after EAT PEACH: $FF when idle, started at $12 by $90DD and ticked by $90EA while nonnegative."
+  },
+  {
+   "address": 37085,
+   "type": "line",
+   "text": "EAT PEACH. Clears $02B7, starts countdown $90DC at $12 and jumps to $080F to remove the peach unit."
+  },
+  {
+   "address": 37098,
+   "type": "line",
+   "text": "Per-frame peach tick: decrements $90DC and jumps to $084B (resident handle_consumed_inventory_item) with A the count before the decrement, loaded by the frame callback."
+  },
+  {
+   "address": 37104,
+   "type": "line",
+   "text": "USE PERFUME. JMP $085A, resident advance_player_colour_state ($0CB7)."
+  },
+  {
+   "address": 37107,
+   "type": "line",
+   "text": "LOAD GAME. JMP $0875, resident load_game_from_slot_dialog ($6299)."
+  },
+  {
+   "address": 37110,
+   "type": "line",
+   "text": "SAVE GAME. JMP $0878, resident save_game_from_slot_dialog ($62DE)."
+  },
+  {
+   "address": 37860,
+   "type": "line",
+   "text": "Headered text $93E4-$942C. Layout byte $00, colour byte $04; zero terminates its body. Content without framing glyph controls: \"\\nYou must be getting desperate to \\nbe trying such primitive tactics.\". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. This text is printed by the Stone Corridor overlay (HIT JARETH, pair $8B68)."
+  },
+  {
+   "address": 39068,
+   "type": "line",
+   "text": "Hold counter for the goblin. $FF holds him until something clears it. A positive count is decremented each frame by stone_goblin_update, which also clears the walk request $033B; at zero the walk chooser $99CA runs. Set to $14 by GIVE PEACH, $28 by GIVE POPCORN, 6 by INSULT GOBLIN and a $9A65 check ($FF). Cleared to 0 by CALL, ADUMBRATE and HIT GOBLIN and by $98B4. $FF in the snapshot."
+  },
+  {
+   "address": 39069,
+   "type": "line",
+   "text": "Tested at $9988: when nonnegative, one update stores $FF in $02B9, copies $98A1[$033F] into walk request $033B and decrements this byte. $FF in the snapshot and nothing in the overlay stores a nonnegative value here."
+  },
+  {
+   "address": 39070,
+   "type": "line",
+   "text": "Zero in the snapshot (normal behaviour). A positive count (HIT GOBLIN stores $1E) is decremented each frame and at zero $98B3 and $02B9 are set to $FF. A negative value (the frame callback stores $FF when the gift timer runs out) runs the $98B3 sequence at $9959. TAKE needs it negative."
+  },
+  {
+   "address": 39071,
+   "type": "line",
+   "text": "Index into stone_goblin_walk_direction_table. HIT and INSULT GOBLIN store 3; while nonnegative each update loads table[X] into walk request $033B and decrements it. $FF means none (snapshot value)."
+  },
+  {
+   "address": 39072,
+   "type": "line",
+   "text": "Current goblin variant 0-3: set from request $0354 by stone_goblin_update, or at random by stone_goblin_pick_variant. 3 in the snapshot; TAKE requires 3. Walk chooser $99CA treats 0 and 2 as one behaviour and 1 and 3 as another."
+  },
+  {
+   "address": 39073,
+   "type": "line",
+   "text": "Nine direction codes $02,$07,$06,$05,$06,$03,$02,$01,$02 indexed by relation byte $033F (0-8). Read only at $99C0 in the $989D turn branch, which loads the result into walk request $033B."
+  },
+  {
+   "address": 39082,
+   "type": "line",
+   "text": "Eight walk requests $02,$06,$02,$06,$04,$08,$04,$08 indexed by $989F. HIT and INSULT start the index at 3, so only entries 3 to 0 ($06,$02,$06,$02) are read; the last four are never reached."
+  },
+  {
+   "address": 39090,
+   "type": "line",
+   "text": "Scratch byte of stone_goblin_drift_direction: the candidate direction, replaced by a remapped one and returned in A."
+  },
+  {
+   "address": 39091,
+   "type": "line",
+   "text": "Goblin state. $FF in the snapshot: talk commands that go through $905C are accepted. Update sequence ($9959): negative becomes 0 (with $02B9=0, $033B=0, sound $2B); at 0 it becomes 1 (sound 9, message area cleared) once $02B9 reaches 7; then 1 is final. $9950 restores $FF when the $989E countdown ends."
+  },
+  {
+   "address": 39092,
+   "type": "line",
+   "text": "Sets walk request $033B=1 and hold timer $989C=0, then draws random numbers with $0821 (AND 7) until one is below 4 and enters stone_goblin_apply_variant ($98C7) with it. Nothing in the overlay or the resident engine calls this entry; stone_goblin_update enters $98C7 directly with request $0354."
+  },
+  {
+   "address": 39111,
+   "type": "line",
+   "text": "Store A in variant $98A0 and set the fields for it: variant 0 $0266=1, $0246=7, $0337=$18; variant 1 $0266=$FF, $0246=5, $0337=$18; variant 2 $0266=$FF, $0246=7, $0337=$0C; variant 3 $0266=0, $0246=9, $0337=$0C. $991C then adds $0A to $0337 when $057A is nonzero."
+  },
+  {
+   "address": 39211,
+   "type": "line",
+   "text": "Per-frame goblin logic, called by the room init and the frame callback. If request $0354 differs from variant $98A0 it clears $033B and applies the request through $98C7. In a text view ($0343 nonnegative) it does nothing more. Map view: a positive $989E counts down and sets $98B3 and $02B9 to $FF at zero; a nonzero $989E runs the $98B3 sequence at $9959; with $989E zero it takes the walk branch at $9988."
+  },
+  {
+   "address": 39257,
+   "type": "line",
+   "text": "Runs the $98B3 state sequence: negative resets $02B9, $98B3 and $033B to 0 and queues sound $2B; zero waits until $02B9 equals 7, then sets $98B3=1, queues sound 9 and clears the message area ($0836); 1 does nothing."
+  },
+  {
+   "address": 39304,
+   "type": "line",
+   "text": "Normal walking with $989E zero. A nonnegative $989D takes the turn branch at $99B8. Otherwise a nonnegative walk step $989F loads the next table entry into $033B and decrements; with $989F negative a zero hold timer runs stone_goblin_choose_walk ($99CA), and a positive one counts down with $033B cleared ($FF leaves $033B unchanged)."
+  },
+  {
+   "address": 39370,
+   "type": "line",
+   "text": "Chooses the goblin's walk request $033B from variant $98A0. Variants 0 and 2 always take the branch at $99DA; variants 1 and 3 take $99E9, which acts at once when relation byte $033F is 4, 8 or 0 and otherwise only when a random value AND 3 is zero."
+  },
+  {
+   "address": 39386,
+   "type": "line",
+   "text": "Variants 0 and 2: when $033F is zero run $9A65 first, then stone_goblin_drift_direction with A=$033F (or the value $9A65 left) and store the result in $033B."
+  },
+  {
+   "address": 39401,
+   "type": "line",
+   "text": "Variants 1 and 3: continue at $99FF when $033F is 4, 8 or 0, otherwise with probability 1 in 4 (random AND 3 zero); the rest as $99DA."
+  },
+  {
+   "address": 39438,
+   "type": "line",
+   "text": "Takes a candidate direction in A and returns the direction to use. One random time in 16 it returns A unchanged, as does a negative bonus counter $0568. Otherwise it remaps the value of $033F by the bonus level and returns the result: at $14 or more 2 becomes 1, 3 becomes 2, 6 becomes 7, 5 becomes 6; from $0A to $13 1 becomes 2, 3 becomes 2, 7 becomes 6, 5 becomes 6; below $0A it returns A unchanged."
+  },
+  {
+   "address": 39525,
+   "type": "line",
+   "text": "Called when relation byte $033F is zero. $056E nonnegative: clears $033B and returns A=0. $056E negative: with $0218 or $021C nonzero it returns; otherwise it stores $FF in hold timer $989C and, when $024A is nonnegative, clears $02BB and drops the caller's return address."
+  },
+  {
+   "address": 39565,
+   "type": "line",
+   "text": "Run-length picture stream for text modes 0 and 2, (count,value) pairs for resident $6B63 until the zero count at $9B95 (the byte after it is its unused value): 132 pairs, 640 cells, 16 rows of 40 drawn from $CCA0. The picture is stone wall (code $8E) with a door frame near the left: top $87,$88*6,$86 on stream row 2, sides $84 and $85, and codes $7C-$83 inside it."
+  },
+  {
+   "address": 39831,
+   "type": "line",
+   "text": "Ten rows of eight screen codes for the opened doorway: top row $86,$88*6,$87, then eight rows of $85,$00*6,$84. stone_open_door_in_text_view copies each row to screen right to left, so the left end of the stored row lands on the right."
+  },
+  {
+   "address": 39911,
+   "type": "line",
+   "text": "Negative until the first hook call has set up the text view colours; then $0B. Read by the hooks at $9BEB and $9DFB. $FF in the snapshot."
+  },
+  {
+   "address": 39912,
+   "type": "line",
+   "text": "Negative while the door (mode 0/2) or the blank wall (mode 1) is still shown; OPEN DOOR in the text view and the elephant arrival set it to 0. Both hooks return response index $0A only while it is zero. $FF in the snapshot."
+  },
+  {
+   "address": 39913,
+   "type": "line",
+   "text": "Row countdown for the self-modifying copy loops at $9C77 (ten rows) and $9E3D (nine rows)."
+  },
+  {
+   "address": 39914,
+   "type": "line",
+   "text": "Set to 1 by the mode 0/2 hook ($9C38) and cleared to 0 by OPEN DOOR at $9C5B just before its position check, which queues You're not close enough. only while this byte is zero."
+  },
+  {
+   "address": 39915,
+   "type": "line",
+   "text": "Hook for text modes 0 and 2. While $9BE7 is negative, sets it to $0B, fills colour RAM $DA80-$DB1F with $0B, writes colour $0F to ten rows of eight bytes starting at $D8F7 (the self-modified operand at $9C07 advances by $28 a row), sets $DA64 to $0F, overwrites its own first three bytes with NOPs, and stores saved scene/entry $0346=7, $0345=$0A. Later calls pass through the three NOPs into the BMI; the resident callers ($41AC, $41BC, $6BEB, $6BFB) arrive with N clear, so they reach $9C38. While $9BE7 is nonnegative the entry jumps to $9C38 directly."
+  },
+  {
+   "address": 39992,
+   "type": "line",
+   "text": "Per-frame part of the mode 0/2 hook: $0344=0, $9BEA=1. When the byte at $34 indexed by $024C is $A0 or more and $9BE8 is nonnegative (the door has been opened), response index $0344 becomes $0A."
+  },
+  {
+   "address": 40022,
+   "type": "line",
+   "text": "OPEN DOOR in text modes 0 and 2 (entered from $8F39). When $9BE8 is nonnegative: text $91EF (It's already opened.) with A=6. Otherwise clears $9BEA and runs stone_open_position_check; then queues sound 1, sets $9BE8=0 and copies the ten rows of stone_open_door_rows to screen $CD0B (row base advanced by $28 per row in the operand at $9C7D) with colour $0F at $D90B."
+  },
+  {
+   "address": 40110,
+   "type": "line",
+   "text": "Returns only when $0343 is nonnegative, player depth $0544 is $16 or more and the byte at $34 indexed by $024C is $A0 or more. Otherwise it drops the caller's return address and, when $9BEA is zero, queues text $9CD5 (You're not close enough.) with A=6."
+  },
+  {
+   "address": 40173,
+   "type": "line",
+   "text": "Run-length picture stream for text mode 1, ending with the zero count at $9D8D (the byte after it is unused): 80 pairs, 640 cells, 16 rows of 40 from $CCA0. A plain stone wall without a door frame."
+  },
+  {
+   "address": 40335,
+   "type": "line",
+   "text": "Nine rows of twelve screen codes for the arch the elephant reveals; stone_elephant_arrives copies them to screen $CD20 (operand advanced by $28 a row)."
+  },
+  {
+   "address": 40443,
+   "type": "line",
+   "text": "Hook for text mode 1. While $9BE7 is negative it jumps to $9E03; otherwise to $9E1B."
+  },
+  {
+   "address": 40451,
+   "type": "line",
+   "text": "First call: sets $9BE7=$0B, fills colour RAM $DA80-$DB1F with $0B and stores saved scene/entry $0346=7, $0345=$1C."
+  },
+  {
+   "address": 40475,
+   "type": "line",
+   "text": "Per-frame part of the mode 1 hook: $0344=0, stone_arch_position_check, then response index $0344=$0A unless $9BE8 is negative."
+  },
+  {
+   "address": 40494,
+   "type": "line",
+   "text": "Entered from CALL ELEPHANT in mode 1. Does nothing when $9BE8 is nonnegative. Otherwise sets $9BE8=0 and copies the nine rows of stone_arch_rows to screen $CD20, queues sound $1A and stores saved scene/entry $0346=9, $0345=$0A."
+  },
+  {
+   "address": 40558,
+   "type": "line",
+   "text": "Returns only when $0343 is nonnegative, depth $0544 is $16 or more and the byte at $34 indexed by $024C is $5B-$61. Otherwise it drops the caller's return address, which leaves the hook with $0344 zero."
+  },
+  {
+   "address": 40587,
+   "type": "line",
+   "text": "SPEAK avocado, jaggies, owl or plastics. $0570 nonnegative: map view queues sounds $0D and $0E and clears $02BB; text view text $9EEE (I won't help you!). $0570 negative: map view text $9F03 (Save it for when you REALLY need it.); text view takes one hour from $0376 (a zero count falls back to the refusal), queues text $9F30 (So be it, you are freed in exchange for 1 hour of time.), waits 8 seconds with $0839, sets saved scene/entry $0346=7, $0345=$0A, clears $02BB and queues sound $1C. The JMP $9EE9 at $9EA5 is never reached."
+  },
+  {
+   "address": 40149,
+   "type": "line",
+   "text": "Headered text $9CD5-$9CEC. Layout byte $0A, colour byte $02; zero terminates its body. Content without framing glyph controls: \"You're not close enough.\". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. It is queued by stone_open_position_check."
+  },
+  {
+   "address": 40686,
+   "type": "line",
+   "text": "Headered text $9EEE-$9F02. Layout byte $10, colour byte $04; zero terminates its body. Content without framing glyph controls: \"I won't help you!\". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. It is queued by stone_speak_password."
+  },
+  {
+   "address": 40707,
+   "type": "line",
+   "text": "Headered text $9F03-$9F2F. Layout byte $0E, colour byte $01; zero terminates its body. Content without framing glyph controls: \"\\n Save it for when  \\nyou REALLY need it.\". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. It is queued by stone_speak_password."
+  },
+  {
+   "address": 40752,
+   "type": "line",
+   "text": "Headered text $9F30-$9F6C. Layout byte $08, colour byte $04; zero terminates its body. Content without framing glyph controls: \"\\n So be it, you are freed in \\nexchange for 1 hour of time.\". The resident routine $6782 reads the two header bytes, and the parser $67B7 handles literal text, dictionary tokens and line breaks. It is queued by stone_speak_password."
+  },
+  {
+   "address": 1536,
+   "type": "line",
+   "text": "Cells of columns 0 to 24 of the M6 map strip (64 cells, one per world column, read as $0600,Y by resident $4173 and $3B51; the position mask $5E is $FF here, from $59A1 indexed by header byte $0705 = 0; the map is read as far as column 255, so the cells at $0640-$06FF count too). Bytes: 04 00 01 03 0C 00 05 00 02 00 0B 01 01 00 04 09 04 00 06 01 07 00 00 02 01. The low nibble of a cell selects its block type through the table at $073E; the ladder is the cell in column 25."
+  },
+  {
+   "address": 1562,
+   "type": "line",
+   "text": "Cells of columns 26 to 63 of the map strip ($061A-$063F). Bytes: 00 0A 01 00 04 09 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00."
+  },
+  {
+   "address": 1600,
+   "type": "line",
+   "text": "192 bytes ($0640-$06FF) after the 64-cell strip, all zero except $06FF ($09). The position mask $5E is $FF in this scene ($59A1 indexed by header byte $0705 = 0), so columns 64 to 255 reach these bytes; whether the scene's bounds keep the player inside the first 64 columns was not checked."
+  },
+  {
+   "address": 1792,
+   "type": "line",
+   "text": "Start of the 32-byte scene header that the loader at $557A unpacks after the map. The bytes are $50 36 2D 2D 00 00 00 00 0B 0C 09 09 09 0F 55 36. The loader reads $0701 ($36, \"6\") as the name character of the picture P and character set C resources it loads to $BC00 and $E000, $070F ($36, \"6\") as the name character of the overlay U loaded to $8B00, and $0703 ($2D, \"-\") as the extra costume selector, where a dash means none. $0700 and $0702 are not read by the loader."
+  },
+  {
+   "address": 1796,
+   "type": "line",
+   "text": "Three numeric header bytes, all 0 here: $0704 is the loop limit the loader compares at $568F, $0705 indexes the tables at $59A1 and $59A8 that set $5E, $5F and $60, and $0706 is halved into $02C8 and $02C7 at $566A."
+  },
+  {
+   "address": 1799,
+   "type": "line",
+   "text": "Seven colour bytes ($0707-$070D = 00 0B 0C 09 09 09 0F) read by $5A34: $0708 and $0709 go to the VIC background colour registers $D022 and $D023, $0707 is cached at $02DD as the display colour, and $070A-$070D are copied to the four message palette bytes $6998-$699B."
+  },
+  {
+   "address": 1806,
+   "type": "line",
+   "text": "Two bytes, \"U6\" ($55 $36): the overlay resource name, whose second character the loader compares with its cache at $508E and loads at $8B00 ($070F)."
+  },
+  {
+   "address": 1808,
+   "type": "line",
+   "text": "Ten depth thresholds ($0710-$0719), all zero in this room. $0710 is read by the object grid and placement routines ($37B4, $383F, $5487), $0711 at $548A, $0718 at $5397 and $0719 at $53B9."
+  },
+  {
+   "address": 1818,
+   "type": "line",
+   "text": "Costume selector ($02), the index into the initial-animation table at $5985 read at $51EA and $5985. The three bytes after it ($071B-$071D = FF 18 00) are read at $5201, $5207 and $51E4 when entry placement starts."
+  },
+  {
+   "address": 1886,
+   "type": "line",
+   "text": "Sixteen zero bytes ($075E-$076D) between the column thresholds and the selectors. The scan at $411C stops at index 15 ($075D), so it reads none of them; the resident routine $38FE (update_grid_special_cell) reads and writes $075E,Y with Y the low nibble of a special map cell, so any scene whose map has such cells uses these bytes as per-cell state."
+  },
+  {
+   "address": 1918,
+   "type": "line",
+   "text": "Scene requests of bank 0, one per exit slot ($077E-$078D): slot 2 requests scene 7; slot 4 requests scene 7; slot 6 requests scene 7; slot 12 requests scene 9; slot 13 requests scene 5; the rest are zero. A request of 0 keeps the current scene. Checked: the centred ladder climb requests this and loads the Wall of Hands (scene 5)."
+  },
+  {
+   "address": 1934,
+   "type": "line",
+   "text": "Entry identifiers of bank 0, one per exit slot ($078E-$079D): 05 09 17 11 0D 01 12 05 05 09 01 01 08 01 01 05. The entry belongs to the scene requested by the paired slot. Checked: the return from scene 5 arrives at X84/depth 6."
+  },
+  {
+   "address": 1950,
+   "type": "line",
+   "text": "Scene requests of bank 1, one per exit slot ($079E-$07AD): slot 5 requests scene 7; slot 10 requests scene 7; the rest are zero. A request of 0 keeps the current scene."
+  },
+  {
+   "address": 1966,
+   "type": "line",
+   "text": "Entry identifiers of bank 1, one per exit slot ($07AE-$07BD): 09 0E 15 15 00 15 05 09 09 0E 02 05 00 00 05 09. The entry belongs to the scene requested by the paired slot."
+  },
+  {
+   "address": 1982,
+   "type": "line",
+   "text": "Scene requests of bank 2, one per exit slot ($07BE-$07CD): slot 1 requests scene 7; slot 14 requests scene 7; the rest are zero. A request of 0 keeps the current scene."
+  },
+  {
+   "address": 1998,
+   "type": "line",
+   "text": "Entry identifiers of bank 2, one per exit slot ($07CE-$07DD): 15 0A 1A 1A 00 11 11 15 15 1A 09 09 00 00 1B 15. The entry belongs to the scene requested by the paired slot."
+  },
+  {
+   "address": 2014,
+   "type": "line",
+   "text": "Scene requests of bank 3, one per exit slot ($07DE-$07ED): slot 9 requests scene 7; slot 11 requests scene 7; the rest are zero. A request of 0 keeps the current scene. Checked: with $0501 = $60 the index is $61 and the request is 0, so the doorway refresh keeps scene 6. Checked: the archway at column 30 selects slot 15; with $0501 = $60 the index is $6F and the request is 0, so a live up crossing keeps scene 6."
+  },
+  {
+   "address": 2030,
+   "type": "line",
+   "text": "Entry identifiers of bank 3, one per exit slot ($07EE-$07FD): 1A 1E 1E 1E 00 1E 15 1A 1A 01 0E 1A 00 00 15 1A. The entry belongs to the scene requested by the paired slot. Checked: entry $1E (30) arrives at X1952/depth 6 in a live doorway refresh. Checked: entry $1A (26) arrives at X1696/depth 6 in the checked local route."
+  },
+  {
+   "address": 32768,
+   "type": "line",
+   "text": "The last 3 bytes of af_costume_stream_10 ($7FD9-$8002), which crosses $8000: drawing bytes up to the $FF terminator, read by $2C03."
+  },
+  {
+   "address": 2046,
+   "type": "line",
+   "text": "Two bytes ($15 1A) after the exit arrays, past the 510-byte map resource at $0600-$07FD."
   }
  ]
 }
