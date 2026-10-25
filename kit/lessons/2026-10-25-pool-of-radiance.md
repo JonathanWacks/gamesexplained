@@ -1,4 +1,4 @@
-## next · 2026-10-25 · Pool of Radiance (C64) · air with Claude
+## 0.0.240 · 2026-10-25 · Pool of Radiance (C64) · air with Claude
 
 - **Count a game's interrupts before writing its rate.** The game keeps
   the KERNAL's interrupt, from CIA 1's timer A, and the KERNAL sets its

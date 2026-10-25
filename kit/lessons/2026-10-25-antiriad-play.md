@@ -1,4 +1,4 @@
-## next · 2026-10-25 · The Sacred Armour of Antiriad (C64) · air with Claude
+## 0.0.240 · 2026-10-25 · The Sacred Armour of Antiriad (C64) · air with Claude
 
 - **Cost a routine by the calls the port makes, and a loop inside it by
   a counter.** The Play page moves its clock by each routine's own
