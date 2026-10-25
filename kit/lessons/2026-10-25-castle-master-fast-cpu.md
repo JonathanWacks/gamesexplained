@@ -1,4 +1,4 @@
-## next · 2026-10-25 · Castle Master (C64) · air with Claude
+## 0.0.241 · 2026-10-25 · Castle Master (C64) · air with Claude
 
 - **Give Fast CPU one clock and plug-in points, and nothing else.** The
   first Fast CPU on Castle Master's Play tab counted a loop's cost a
