@@ -176,7 +176,9 @@ demonstration.
 A 3D game's Play tab can offer two switches: the 3D view drawn at the
 screen's own resolution, and moved at the screen's frame rate from one
 of the game's pictures to the next (`port/page/modern.js`). They are
-views of the port, never changes to it.
+views of the port, never changes to it. Smooth motion shows the game
+behind its own frames, so Fast CPU (`fast-cpu.md`) replaces it in a game
+once Fast CPU is shown faithful there.
 
 - **Read, never write.** Watch the port's routines and read the game's
   memory. Hold that with two machines side by side, one with the view
@@ -202,6 +204,13 @@ views of the port, never changes to it.
   within the rounding and, in the C64's pixels, the game's own buffer
   but for a pixel at the edges; the smooth view never moving back and
   arriving as the C64 shows each picture.
+
+## Fast CPU
+
+A game whose speed rides on its render can offer Fast CPU: the game as
+its machine with a much faster processor would play it, at 60 frames a
+second, kept playable. Read `fast-cpu.md` beside this file before you
+start one.
 
 ## The page's test
 
