@@ -61,6 +61,8 @@ trainer options and two extra keys; which version this is is open.
 | Three digitised speech samples (credited to Simon Pick) | open | |
 | No high-score table | open | |
 | REMEMBER version only: CLR/HOME abandons the game, Q returns to the last starting point, trainer options | open | |
+| The game's own list of disc rewards, 17 names in screen codes: TURBO BOOST, SINGLE LAZER, SMART MISSILE, EXTRA SCORE, BULLET SPRAY, ELECTRO SHIELD, EXTENDED PLAY, TWIN LASER SET, HYPERSPACE, MOLECULE BOMB, FAULTY DISC, FUEL INJECTION, BONUS BALL, HYPER BRAKES, TIMER REWIND, LAZER COOLER, RAINBOW RIPPLE | open | `$6131`-`$62B3` |
+| Messages: "COMPLETED LEVEL", "YOU HAVE RESCUED" a friend, "THAT WAS INCREDIBALL YOU HAVE COMPLETED IBALL", "GAME OVER" | open | `$596E`, `$5B5F`, `$6026` |
 
 ## Beyond the documentation
 
