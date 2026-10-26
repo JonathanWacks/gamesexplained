@@ -25,7 +25,7 @@ image: neither of its keys is read (see the last row).
 |---|---|---|
 | Vertically scrolling shoot 'em up, one player | confirmed | `scroll_step`, `draw_playfield` |
 | 16 levels; a friend rescued after every fourth (Lover Ball, Eddy Ball, Glow Ball, No Ball) | confirmed | `level_ptr_lo`, `rescue_screens`; *live*: level 4's end showed YOU HAVE RESCUED LOVER BALL |
-| 50-second time limit per level; running out costs a life | differs | `timer_tick`, `time_up`: the timer starts at 50 and running out kills, but its seconds are 50 logic passes, so the limit lasts well over 50 seconds (*live*: 8 timer seconds in 12 real ones on a quiet screen, 4 in busy play) |
+| 50-second time limit per level; running out costs a life | differs | `timer_tick`, `time_up`: the timer starts at 50 and running out kills, but its seconds are 50 logic passes, so with aliens about the limit lasts longer than 50 seconds (*live*: on a screen with only Iball, 30 timer seconds in 30 real ones; with seven aliens, the logic ran in 695 of 1,350 frames) |
 | Four lives | confirmed | `new_game` sets lives to 3 and the game ends only when a death takes them below 0: four tries |
 | Plain and electrified obstacles on the track; the goal is the home straight at the top | confirmed | `bounce_iball`, `hit_wall` (characters `$06` and up solid, `$EE` and up kill); the goal is a wall hit at the top of the map |
 | Bonus points for the time left at the end of a level | live | `level_end`: 10 a second; *live*: 25 left gave 250 |

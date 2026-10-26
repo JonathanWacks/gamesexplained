@@ -68,7 +68,7 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
 <header class="hero">
   <p class="eyebrow">1987 · Firebird</p>
   <h1>I, Ball</h1>
-  <p class="sub">A rolling eyeball with inertia, sixteen levels of walls that kill, and bonus discs that always come in the same order. The game runs its logic in an interrupt that cannot always keep up, and its timer counts passes of that logic rather than frames: on level 1 with no aliens about, the timer's 50 seconds last about 75 real ones.</p>
+  <p class="sub">A rolling eyeball with inertia, sixteen levels of walls that kill, and bonus discs that always come in the same order. The game runs its logic in an interrupt that cannot always keep up, and its timer counts passes of that logic rather than frames: with seven aliens on the screen, the timer's 50 seconds last about 97 real ones.</p>
 </header>
 <main class="wrap">
 
@@ -151,7 +151,7 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
   </table>
 </section>
 
-<section>
+<section id="controls">
   <p class="fig">08 · Controls</p>
   <h2 class="t">Every key in a column does the same job</h2>
   <div class="plate">
@@ -164,7 +164,7 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
   <p>The same groups answer on the title screen, where the jobs change. I, the key C64-Wiki gives for the "IBALL!" sample, is in the fire column, so it starts a game. X and the other right keys say "IBALL!", Z "OH NO!", and SPACE "GAME OVER!".</p>
 </section>
 
-<section>
+<section id="discs">
   <p class="fig">09 · Discs</p>
   <h2 class="t">The discs always give their extras in the same order</h2>
   <div class="plate">
@@ -190,7 +190,7 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
     <tr><td>Bonus Ball</td><td>one more life</td></tr>
     <tr><td>Hyper Brakes</td><td>the controls read every frame, while its meter empties</td></tr>
     <tr><td>Lazer Cooler</td><td>the laser never overheats</td></tr>
-    <tr><td>Rainbow Ripple</td><td>a band five characters wide, rolling up or down the screen in changing colours</td></tr>
+    <tr><td>Rainbow Ripple</td><td>a band seven characters wide, rolling up or down the screen in changing colours</td></tr>
   </table>
 </section>
 
@@ -207,16 +207,16 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
   <p>Their speed rises with the level. Across, an alien moves 1 pixel a pass on levels 1 to 4, 2 on levels 5 to 13 and 3 on the last three (<code>alien_speed_x</code>). Up and down, it adds 1, 2 or 3 to the scroll's speed, from levels 1, 9 and 16 (<code>alien_accel_y</code>). Iball's shots are characters on the screen, so an alien dies when a shot character is among the 12 characters around it (<code>alien_shot</code>).</p>
 </section>
 
-<section>
+<section id="time">
   <p class="fig">11 · Time</p>
   <h2 class="t">The timer counts the game's logic, not seconds</h2>
-  <p>The work of each frame is split between the interrupts. The third, <code>irq_logic</code> at line <code>$92</code>, runs the aliens, the shots, the scroll and the timer. It can take longer than a frame, and when its interrupt comes round again before it has finished, the new interrupt returns at once. So the logic runs in most frames, but not all. The timer, <code>timer_tick</code>, takes a second off every 50 passes of that logic, not every 50 frames.</p>
+  <p>The work of each frame is split between the interrupts. The third, <code>irq_logic</code> at line <code>$92</code>, runs the aliens, the shots, the scroll and the timer. It can take longer than a frame, and when its interrupt comes round again before it has finished, the new interrupt returns at once. So the more there is on the screen, the more frames the logic misses. The timer, <code>timer_tick</code>, takes a second off every 50 passes of that logic, not every 50 frames.</p>
   <table class="ib-tbl">
-    <tr><th>In 600 frames (12 seconds)</th><th>Logic passes</th><th>Timer seconds</th></tr>
-    <tr><td>Level 1 with aliens</td><td class="ib-n">371</td><td class="ib-n">4</td></tr>
-    <tr><td>Level 1 with no aliens</td><td class="ib-n">493</td><td class="ib-n">8</td></tr>
+    <tr><th>Level 1</th><th class="ib-n">Frames</th><th class="ib-n">Logic passes</th><th class="ib-n">50 timer seconds last</th></tr>
+    <tr><td>Iball alone</td><td class="ib-n">1,500</td><td class="ib-n">1,500</td><td class="ib-n">50 s</td></tr>
+    <tr><td>Seven aliens about</td><td class="ib-n">1,350</td><td class="ib-n">695</td><td class="ib-n">about 97 s</td></tr>
   </table>
-  <p class="cap">Counted in the emulator with checkpoints on the interrupts and on <code>timer_tick</code>. In the first run Iball also spent frames dying and materialising, when the timer stands still.</p>
+  <p class="cap">Counted in the emulator with checkpoints on <code>irq_logic</code>'s work and on <code>timer_tick</code>, only while Iball was alive and no sample played. The timer also stands still while Iball materialises or dies, in hyperspace, and while a word is said.</p>
 </section>
 
 </main>

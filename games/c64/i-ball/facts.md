@@ -66,16 +66,23 @@ uses bank 0 (`$DD00` is never written).
 - **The logic does not run every frame.** `irq_logic`'s work, which runs
   the aliens, the shots, the scroll, the timer and the spawning, can take
   longer than a frame, and `in_logic` makes an interrupt that finds it
-  still running return at once (`$466C`). *Live:* in 600 frames of busy
-  play it ran 371 times and was skipped 149 times; on a screen with no
-  aliens it ran 493 times. Everything it calls counts in these passes.
+  still running return at once (`$466C`). *Live:* with only Iball on
+  the screen it ran in all 1,500 of 1,500 frames; with seven aliens about
+  it ran in 695 of 1,350 frames, counted in 25-frame stretches in which
+  Iball was alive and no sample played. Everything it calls counts in
+  these passes.
 - `irq_top`'s player logic (controls, Iball's move, bounces, friction,
-  materialising, dying) ran 519 times in those 600 frames (*live*):
+  materialising, dying) ran 519 times in 600 frames of play from
+  `play.vsf` (*live*):
   `irq_bottom` skips it when it has not finished.
 - **The timer's seconds are 50 logic passes** (`timer_tick`, `$5594`),
-  not 50 frames. *Live:* with no aliens, eight timer seconds took 600
-  frames (12 real seconds); in busy play, four did. The level's "50
-  seconds" therefore last well over a minute.
+  not 50 frames. With only Iball on the screen the logic runs every frame
+  and the timer keeps time (*live*: 30 timer seconds in 1,500 frames).
+  With seven aliens about it runs at about half speed (*live*: 695 passes
+  in 1,350 frames), so the level's 50 seconds would last about 97 real
+  ones. The timer also stands still while Iball materialises or dies, in
+  hyperspace (`irq_logic` skips `timer_tick` then), and while a sample
+  plays.
 - While a speech sample plays, `irq_panel_end` does not move the
   interrupt chain on, so nothing else runs until it ends.
 
