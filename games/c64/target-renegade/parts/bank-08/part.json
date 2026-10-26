@@ -1,0 +1,34 @@
+{
+  "title": "Bank 8",
+  "order": 18,
+  "kind": "bank",
+  "bank": 8,
+  "seen_by": "resident",
+  "window": [
+    [
+      "$8000",
+      "$9FFF"
+    ],
+    [
+      "$A000",
+      "$BFFF"
+    ]
+  ],
+  "video": {
+    "screen": "",
+    "charset": ""
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$8000",
+        "$BFFF",
+        "Edition loader/boot presentation, padding, or files copied to the RAM parts; native directory and load comparisons are documented in orientation.md"
+      ]
+    ],
+    "extra": [],
+    "include": []
+  },
+  "io": [],
+  "regions": []
+}

@@ -1,0 +1,132 @@
+{
+  "title": "Shared engine",
+  "order": 0,
+  "video": {
+    "screen": "",
+    "charset": ""
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$0000",
+        "$06FF",
+        "Generated pointers, loader destination, stack, bit-reversal lookup tables, screen scratch and actor state; cold loader source is counted in first-load"
+      ],
+      [
+        "$14C9",
+        "$1522",
+        "Music software return/loop stacks overwritten by command handlers $81\u2013$84"
+      ],
+      [
+        "$2023",
+        "$20C1",
+        "Music working state cleared by $0700"
+      ],
+      [
+        "$3400",
+        "$37FF",
+        "Title/status screen output cleared by $A95F and written by title/HUD routines; authored loader source and ending overlay are owned by their parts"
+      ],
+      [
+        "$4000",
+        "$47FF",
+        "Two playfield screen buffers cleared by $A93F and populated by column renderer $2A6C"
+      ],
+      [
+        "$7E00",
+        "$7FFF",
+        "Generated reversed sprite cache written by $FD42\u2013$FFAE"
+      ],
+      [
+        "$215B",
+        "$215C",
+        "Effect-request scratch cells"
+      ],
+      [
+        "$23BA",
+        "$23EE",
+        "Effect-driver runtime voice state"
+      ],
+      [
+        "$23F2",
+        "$2425",
+        "Effect-driver runtime voice state and tick index"
+      ],
+      [
+        "$86F9",
+        "$86F9",
+        "Spawn scratch byte overwritten by $8631"
+      ],
+      [
+        "$277A",
+        "$277A",
+        "Cycling prompt colour changed by $276B"
+      ],
+      [
+        "$FFFA",
+        "$FFFF",
+        "Hardware interrupt vectors installed by $AF0F"
+      ],
+      [
+        "$286E",
+        "$286F",
+        "Shared keyboard/stamp scratch bytes overwritten by their callers"
+      ]
+    ],
+    "extra": [
+      [
+        "$0700",
+        "$2BFF",
+        "Shared music, sound, title and column-drawing code/data before the loaded resources"
+      ],
+      [
+        "$3800",
+        "$3FFF",
+        "Authored title and status charset"
+      ],
+      [
+        "$5000",
+        "$68BF",
+        "Authored shared actor sprite components"
+      ],
+      [
+        "$8000",
+        "$AFFF",
+        "Shared game engine, interrupts and animation/spawn tables"
+      ],
+      [
+        "$FC00",
+        "$FFFF",
+        "Score, map palette/row pointers and sprite reversal routines, plus retained tail bytes"
+      ]
+    ],
+    "include": []
+  },
+  "io": [],
+  "regions": [
+    [
+      "$0700",
+      "$2022",
+      "sound",
+      "Music driver and streams"
+    ],
+    [
+      "$20C2",
+      "$25FF",
+      "sound",
+      "Effects driver, definitions and retained fragment"
+    ],
+    [
+      "$3800",
+      "$3FFF",
+      "graphics",
+      "Title/status charset"
+    ],
+    [
+      "$5000",
+      "$68BF",
+      "graphics",
+      "Shared sprite components"
+    ]
+  ]
+}
