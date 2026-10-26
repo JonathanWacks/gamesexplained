@@ -51,16 +51,6 @@
   },
   {
    "start": 17003,
-   "end": 18183,
-   "type": "Code"
-  },
-  {
-   "start": 18184,
-   "end": 18189,
-   "type": "Undefined"
-  },
-  {
-   "start": 18190,
    "end": 18528,
    "type": "Code"
   },
@@ -111,16 +101,6 @@
   },
   {
    "start": 19776,
-   "end": 20598,
-   "type": "Code"
-  },
-  {
-   "start": 20599,
-   "end": 20602,
-   "type": "Undefined"
-  },
-  {
-   "start": 20603,
    "end": 20721,
    "type": "Code"
   },
@@ -151,16 +131,6 @@
   },
   {
    "start": 21884,
-   "end": 21971,
-   "type": "Code"
-  },
-  {
-   "start": 21972,
-   "end": 21976,
-   "type": "Undefined"
-  },
-  {
-   "start": 21977,
    "end": 22095,
    "type": "Code"
   },
@@ -191,16 +161,6 @@
   },
   {
    "start": 22231,
-   "end": 22322,
-   "type": "Code"
-  },
-  {
-   "start": 22323,
-   "end": 22328,
-   "type": "Undefined"
-  },
-  {
-   "start": 22329,
    "end": 22390,
    "type": "Code"
   },
@@ -261,16 +221,6 @@
   },
   {
    "start": 23436,
-   "end": 23504,
-   "type": "Code"
-  },
-  {
-   "start": 23505,
-   "end": 23507,
-   "type": "Undefined"
-  },
-  {
-   "start": 23508,
    "end": 23799,
    "type": "Code"
   },
@@ -331,16 +281,6 @@
   },
   {
    "start": 25419,
-   "end": 25774,
-   "type": "Code"
-  },
-  {
-   "start": 25775,
-   "end": 25775,
-   "type": "Undefined"
-  },
-  {
-   "start": 25776,
    "end": 25831,
    "type": "Code"
   },
@@ -476,16 +416,6 @@
   },
   {
    "start": 58672,
-   "end": 59106,
-   "type": "Undefined"
-  },
-  {
-   "start": 59107,
-   "end": 59107,
-   "type": "Code"
-  },
-  {
-   "start": 59108,
    "end": 60757,
    "type": "Undefined"
   },
@@ -1250,6 +1180,12 @@
    "kind": "auto"
   },
   {
+   "address": 828,
+   "name": "start_hook",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 843,
    "name": "b_034B",
    "type": "Branch",
@@ -1845,9 +1781,9 @@
   },
   {
    "address": 17003,
-   "name": "j_426B",
+   "name": "new_game",
    "type": "Jump",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 17019,
@@ -1887,9 +1823,9 @@
   },
   {
    "address": 17123,
-   "name": "j_42E3",
+   "name": "start_level",
    "type": "Jump",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 17161,
@@ -1905,9 +1841,9 @@
   },
   {
    "address": 17186,
-   "name": "j_4322",
+   "name": "next_level",
    "type": "Jump",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 17198,
@@ -1917,15 +1853,15 @@
   },
   {
    "address": 17201,
-   "name": "b_4331",
+   "name": "game_over",
    "type": "Branch",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 17220,
-   "name": "s_4344",
+   "name": "reset_level",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 17285,
@@ -1953,9 +1889,15 @@
   },
   {
    "address": 17406,
-   "name": "s_43FE",
+   "name": "init_game_irq",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 17458,
+   "name": "irq_top",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 17515,
@@ -2036,6 +1978,12 @@
    "kind": "auto"
   },
   {
+   "address": 17670,
+   "name": "irq_panel_end",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 17707,
    "name": "b_452B",
    "type": "Branch",
@@ -2088,6 +2036,12 @@
    "name": "a_456B",
    "type": "AbsoluteAddress",
    "kind": "auto"
+  },
+  {
+   "address": 17773,
+   "name": "irq_logic",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 17810,
@@ -2144,6 +2098,12 @@
    "kind": "auto"
   },
   {
+   "address": 18034,
+   "name": "irq_bottom",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 18083,
    "name": "b_46A3",
    "type": "Branch",
@@ -2175,9 +2135,9 @@
   },
   {
    "address": 18114,
-   "name": "s_46C2",
+   "name": "panel_sprites_top",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 18157,
@@ -2192,10 +2152,16 @@
    "kind": "auto"
   },
   {
+   "address": 18184,
+   "name": "unused_sprites_off",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 18190,
-   "name": "s_470E",
+   "name": "panel_sprites_bottom",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 18215,
@@ -2205,9 +2171,9 @@
   },
   {
    "address": 18342,
-   "name": "s_47A6",
+   "name": "scroll_step",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 18362,
@@ -2229,9 +2195,9 @@
   },
   {
    "address": 18390,
-   "name": "s_47D6",
+   "name": "draw_playfield",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 18404,
@@ -2301,9 +2267,9 @@
   },
   {
    "address": 18490,
-   "name": "s_483A",
+   "name": "clear_screen",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 18494,
@@ -2319,9 +2285,9 @@
   },
   {
    "address": 18517,
-   "name": "s_4855",
+   "name": "set_fine_scroll",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 18529,
@@ -2487,9 +2453,9 @@
   },
   {
    "address": 18593,
-   "name": "s_48A1",
+   "name": "fill_colour",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 18595,
@@ -2505,9 +2471,9 @@
   },
   {
    "address": 18618,
-   "name": "j_48BA",
+   "name": "scroll_back",
    "type": "Jump",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 18640,
@@ -2529,9 +2495,9 @@
   },
   {
    "address": 18686,
-   "name": "s_48FE",
+   "name": "sprites_out",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 18695,
@@ -2547,9 +2513,9 @@
   },
   {
    "address": 18729,
-   "name": "s_4929",
+   "name": "read_controls",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 18736,
@@ -2607,9 +2573,9 @@
   },
   {
    "address": 18873,
-   "name": "s_49B9",
+   "name": "push_up",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 18887,
@@ -2619,9 +2585,9 @@
   },
   {
    "address": 18890,
-   "name": "s_49CA",
+   "name": "push_down",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 18904,
@@ -2631,9 +2597,9 @@
   },
   {
    "address": 18907,
-   "name": "s_49DB",
+   "name": "push_left",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 18925,
@@ -2643,9 +2609,9 @@
   },
   {
    "address": 18928,
-   "name": "s_49F0",
+   "name": "push_right",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 18946,
@@ -2655,9 +2621,9 @@
   },
   {
    "address": 18949,
-   "name": "s_4A05",
+   "name": "limit_speeds",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 18963,
@@ -2685,9 +2651,9 @@
   },
   {
    "address": 18994,
-   "name": "s_4A32",
+   "name": "move_iball",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 19019,
@@ -2745,9 +2711,9 @@
   },
   {
    "address": 19091,
-   "name": "s_4A93",
+   "name": "friction",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 19098,
@@ -2775,9 +2741,9 @@
   },
   {
    "address": 19133,
-   "name": "s_4ABD",
+   "name": "animate_iball",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 19147,
@@ -2835,9 +2801,9 @@
   },
   {
    "address": 19247,
-   "name": "s_4B2F",
+   "name": "build_level_map",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 19279,
@@ -2913,9 +2879,9 @@
   },
   {
    "address": 19440,
-   "name": "s_4BF0",
+   "name": "next_tile_slot",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 19451,
@@ -2949,9 +2915,9 @@
   },
   {
    "address": 19509,
-   "name": "s_4C35",
+   "name": "animate_chars",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 19530,
@@ -2991,9 +2957,9 @@
   },
   {
    "address": 19646,
-   "name": "s_4CBE",
+   "name": "place_dots",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 19648,
@@ -3039,9 +3005,9 @@
   },
   {
    "address": 19776,
-   "name": "s_4D40",
+   "name": "clear_dot_char",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 19780,
@@ -3051,9 +3017,9 @@
   },
   {
    "address": 19792,
-   "name": "s_4D50",
+   "name": "rotate_char_fe",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 19794,
@@ -3081,9 +3047,9 @@
   },
   {
    "address": 19828,
-   "name": "s_4D74",
+   "name": "probe_background",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 19857,
@@ -3099,9 +3065,9 @@
   },
   {
    "address": 19864,
-   "name": "s_4D98",
+   "name": "probe_at",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 19885,
@@ -3141,9 +3107,9 @@
   },
   {
    "address": 19920,
-   "name": "s_4DD0",
+   "name": "bounce_iball",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 19928,
@@ -3231,15 +3197,15 @@
   },
   {
    "address": 20080,
-   "name": "s_4E70",
+   "name": "start_materialise",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 20120,
-   "name": "s_4E98",
+   "name": "materialise_step",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 20135,
@@ -3285,9 +3251,9 @@
   },
   {
    "address": 20330,
-   "name": "s_4F6A",
+   "name": "move_sprites",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 20347,
@@ -3363,9 +3329,9 @@
   },
   {
    "address": 20489,
-   "name": "s_5009",
+   "name": "bottom_limit",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 20507,
@@ -3375,9 +3341,9 @@
   },
   {
    "address": 20513,
-   "name": "s_5021",
+   "name": "hit_wall",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 20529,
@@ -3399,15 +3365,15 @@
   },
   {
    "address": 20536,
-   "name": "j_5038",
+   "name": "kill_iball",
    "type": "Jump",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 20577,
-   "name": "s_5061",
+   "name": "death_step",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 20596,
@@ -3417,9 +3383,9 @@
   },
   {
    "address": 20603,
-   "name": "b_507B",
+   "name": "death_explode",
    "type": "Branch",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 20623,
@@ -3441,9 +3407,9 @@
   },
   {
    "address": 20684,
-   "name": "b_50CC",
+   "name": "death_flash",
    "type": "Branch",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 20708,
@@ -3459,15 +3425,15 @@
   },
   {
    "address": 20722,
-   "name": "f_50F2",
+   "name": "death_colours",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 20735,
-   "name": "j_50FF",
+   "name": "death_fly",
    "type": "Jump",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 20782,
@@ -3489,9 +3455,9 @@
   },
   {
    "address": 20797,
-   "name": "s_513D",
+   "name": "remove_sprite",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 20815,
@@ -3513,9 +3479,9 @@
   },
   {
    "address": 20839,
-   "name": "j_5167",
+   "name": "materialise_wait",
    "type": "Jump",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 20875,
@@ -3543,9 +3509,9 @@
   },
   {
    "address": 20923,
-   "name": "s_51BB",
+   "name": "fire",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 20948,
@@ -3579,9 +3545,9 @@
   },
   {
    "address": 21061,
-   "name": "s_5245",
+   "name": "shot_down",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 21083,
@@ -3621,9 +3587,9 @@
   },
   {
    "address": 21134,
-   "name": "s_528E",
+   "name": "shot_up",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 21156,
@@ -3663,9 +3629,9 @@
   },
   {
    "address": 21209,
-   "name": "s_52D9",
+   "name": "shot_char_step",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 21224,
@@ -3681,9 +3647,9 @@
   },
   {
    "address": 21237,
-   "name": "s_52F5",
+   "name": "move_shots",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 21239,
@@ -3957,9 +3923,9 @@
   },
   {
    "address": 21607,
-   "name": "s_5467",
+   "name": "alien_anim_step",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 21609,
@@ -3975,9 +3941,9 @@
   },
   {
    "address": 21692,
-   "name": "s_54BC",
+   "name": "draw_score",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 21694,
@@ -4023,9 +3989,9 @@
   },
   {
    "address": 21750,
-   "name": "s_54F6",
+   "name": "score_init",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 21762,
@@ -4137,9 +4103,9 @@
   },
   {
    "address": 21884,
-   "name": "s_557C",
+   "name": "add_score",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 21886,
@@ -4155,9 +4121,9 @@
   },
   {
    "address": 21908,
-   "name": "s_5594",
+   "name": "timer_tick",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 21915,
@@ -4179,9 +4145,9 @@
   },
   {
    "address": 21940,
-   "name": "s_55B4",
+   "name": "clear_adder",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 21944,
@@ -4191,9 +4157,9 @@
   },
   {
    "address": 21951,
-   "name": "s_55BF",
+   "name": "spawn_step",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 21977,
@@ -4209,9 +4175,9 @@
   },
   {
    "address": 21984,
-   "name": "s_55E0",
+   "name": "spawn_alien",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 21990,
@@ -4251,9 +4217,9 @@
   },
   {
    "address": 22078,
-   "name": "s_563E",
+   "name": "random_colour",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 22096,
@@ -4263,9 +4229,9 @@
   },
   {
    "address": 22112,
-   "name": "s_5660",
+   "name": "pick_kind",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 22138,
@@ -4281,9 +4247,9 @@
   },
   {
    "address": 22163,
-   "name": "s_5693",
+   "name": "place_alien",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 22182,
@@ -4299,9 +4265,9 @@
   },
   {
    "address": 22197,
-   "name": "s_56B5",
+   "name": "random_x",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 22215,
@@ -4317,15 +4283,15 @@
   },
   {
    "address": 22231,
-   "name": "s_56D7",
+   "name": "random_y",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 22249,
-   "name": "s_56E9",
+   "name": "alien_pointers",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 22255,
@@ -4341,9 +4307,9 @@
   },
   {
    "address": 22277,
-   "name": "s_5705",
+   "name": "ride_scroll",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 22283,
@@ -4365,15 +4331,15 @@
   },
   {
    "address": 22329,
-   "name": "s_5739",
+   "name": "start_forming",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 22351,
-   "name": "s_574F",
+   "name": "forming_step",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 22357,
@@ -4395,15 +4361,15 @@
   },
   {
    "address": 22441,
-   "name": "s_57A9",
+   "name": "end_forming",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 22461,
-   "name": "s_57BD",
+   "name": "probe_alien",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 22513,
@@ -4443,9 +4409,9 @@
   },
   {
    "address": 22549,
-   "name": "s_5815",
+   "name": "alien_near_walls",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 22557,
@@ -4479,15 +4445,15 @@
   },
   {
    "address": 22579,
-   "name": "s_5833",
+   "name": "unspawn",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 22596,
-   "name": "s_5844",
+   "name": "alien_near_iball",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 22618,
@@ -4521,9 +4487,9 @@
   },
   {
    "address": 22664,
-   "name": "s_5888",
+   "name": "molecule_key",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 22701,
@@ -4533,15 +4499,15 @@
   },
   {
    "address": 22702,
-   "name": "s_58AE",
+   "name": "smart_key",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 22741,
-   "name": "s_58D5",
+   "name": "lasers_follow_up",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 22743,
@@ -4551,9 +4517,9 @@
   },
   {
    "address": 22753,
-   "name": "s_58E1",
+   "name": "lasers_follow_down",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 22755,
@@ -4563,9 +4529,9 @@
   },
   {
    "address": 22765,
-   "name": "j_58ED",
+   "name": "level_end",
    "type": "Jump",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 22779,
@@ -4587,9 +4553,9 @@
   },
   {
    "address": 22828,
-   "name": "s_592C",
+   "name": "delay",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 22831,
@@ -4665,9 +4631,9 @@
   },
   {
    "address": 22990,
-   "name": "j_59CE",
+   "name": "rescue_screens",
    "type": "Jump",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 23011,
@@ -4719,9 +4685,9 @@
   },
   {
    "address": 23167,
-   "name": "s_5A7F",
+   "name": "you_have_rescued",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 23169,
@@ -4761,9 +4727,9 @@
   },
   {
    "address": 23237,
-   "name": "j_5AC5",
+   "name": "show_friend",
    "type": "Jump",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 23274,
@@ -4821,9 +4787,9 @@
   },
   {
    "address": 23436,
-   "name": "j_5B8C",
+   "name": "wait_fire_release",
    "type": "Jump",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 23463,
@@ -4845,9 +4811,9 @@
   },
   {
    "address": 23508,
-   "name": "s_5BD4",
+   "name": "alien_hits",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 23514,
@@ -4863,9 +4829,9 @@
   },
   {
    "address": 23545,
-   "name": "s_5BF9",
+   "name": "alien_shot",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 23558,
@@ -4929,9 +4895,9 @@
   },
   {
    "address": 23700,
-   "name": "s_5C94",
+   "name": "clear_shot",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 23730,
@@ -4965,9 +4931,9 @@
   },
   {
    "address": 23762,
-   "name": "s_5CD2",
+   "name": "explode_step",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 23768,
@@ -4995,9 +4961,9 @@
   },
   {
    "address": 23816,
-   "name": "s_5D08",
+   "name": "alien_touch",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 23827,
@@ -5037,9 +5003,9 @@
   },
   {
    "address": 23904,
-   "name": "s_5D60",
+   "name": "steer_aliens",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 23910,
@@ -5061,9 +5027,9 @@
   },
   {
    "address": 23953,
-   "name": "s_5D91",
+   "name": "steer_across",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 23981,
@@ -5097,9 +5063,9 @@
   },
   {
    "address": 24037,
-   "name": "s_5DE5",
+   "name": "steer_down",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 24055,
@@ -5163,9 +5129,9 @@
   },
   {
    "address": 24187,
-   "name": "s_5E7B",
+   "name": "alien_walls",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 24195,
@@ -5247,9 +5213,9 @@
   },
   {
    "address": 24333,
-   "name": "s_5F0D",
+   "name": "show_lives",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 24348,
@@ -5265,21 +5231,27 @@
   },
   {
    "address": 24354,
-   "name": "s_5F22",
+   "name": "time_up",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 24366,
-   "name": "j_5F2E",
+   "name": "game_over_screen",
    "type": "Jump",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 24391,
-   "name": "s_5F47",
+   "name": "take_disc",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 24403,
+   "name": "msg_irq_top",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 24495,
@@ -5306,6 +5278,12 @@
    "kind": "auto"
   },
   {
+   "address": 24502,
+   "name": "msg_irq_charset",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 24545,
    "name": "a_5FE1",
    "type": "AbsoluteAddress",
@@ -5313,9 +5291,9 @@
   },
   {
    "address": 24547,
-   "name": "s_5FE3",
+   "name": "screen_between",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 24549,
@@ -5325,9 +5303,9 @@
   },
   {
    "address": 24570,
-   "name": "j_5FFA",
+   "name": "game_over_text",
    "type": "Jump",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 24572,
@@ -5349,9 +5327,9 @@
   },
   {
    "address": 24622,
-   "name": "s_602E",
+   "name": "give_extra",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 24656,
@@ -5403,9 +5381,9 @@
   },
   {
    "address": 25315,
-   "name": "s_62E3",
+   "name": "restore_rows",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 25317,
@@ -5415,9 +5393,9 @@
   },
   {
    "address": 25333,
-   "name": "s_62F5",
+   "name": "extras_names_init",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 25345,
@@ -5457,9 +5435,9 @@
   },
   {
    "address": 25419,
-   "name": "s_634B",
+   "name": "apply_extra",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 25429,
@@ -5685,9 +5663,9 @@
   },
   {
    "address": 25812,
-   "name": "s_64D4",
+   "name": "show_overheat",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 25822,
@@ -5703,9 +5681,9 @@
   },
   {
    "address": 25856,
-   "name": "s_6500",
+   "name": "save_rows",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 25858,
@@ -5721,9 +5699,9 @@
   },
   {
    "address": 25886,
-   "name": "s_651E",
+   "name": "smart_missile",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 25892,
@@ -5739,9 +5717,9 @@
   },
   {
    "address": 25958,
-   "name": "s_6566",
+   "name": "clear_meter",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 25962,
@@ -5751,9 +5729,9 @@
   },
   {
    "address": 25969,
-   "name": "s_6571",
+   "name": "fill_meter",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 25971,
@@ -5775,9 +5753,9 @@
   },
   {
    "address": 26011,
-   "name": "s_659B",
+   "name": "shield_meters",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 26026,
@@ -5817,9 +5795,9 @@
   },
   {
    "address": 26119,
-   "name": "s_6607",
+   "name": "check_pause",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 26149,
@@ -5841,9 +5819,9 @@
   },
   {
    "address": 26184,
-   "name": "s_6648",
+   "name": "disc_rollback",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 26221,
@@ -5967,9 +5945,9 @@
   },
   {
    "address": 26406,
-   "name": "s_6726",
+   "name": "laser_fire",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 26421,
@@ -5997,9 +5975,9 @@
   },
   {
    "address": 26439,
-   "name": "s_6747",
+   "name": "laser_right",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 26441,
@@ -6063,9 +6041,9 @@
   },
   {
    "address": 26548,
-   "name": "s_67B4",
+   "name": "laser_left",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 26550,
@@ -6129,9 +6107,9 @@
   },
   {
    "address": 26654,
-   "name": "s_681E",
+   "name": "move_lasers",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 26656,
@@ -6153,9 +6131,9 @@
   },
   {
    "address": 26679,
-   "name": "s_6837",
+   "name": "move_beam_right",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 26697,
@@ -6279,9 +6257,9 @@
   },
   {
    "address": 26868,
-   "name": "j_68F4",
+   "name": "end_beam_right",
    "type": "Jump",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 26889,
@@ -6309,9 +6287,9 @@
   },
   {
    "address": 26912,
-   "name": "s_6920",
+   "name": "move_beam_left",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 26930,
@@ -6453,9 +6431,9 @@
   },
   {
    "address": 27143,
-   "name": "j_6A07",
+   "name": "end_beam_left",
    "type": "Jump",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 27164,
@@ -6501,9 +6479,9 @@
   },
   {
    "address": 27171,
-   "name": "s_6A23",
+   "name": "ripple_fire",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 27189,
@@ -6525,9 +6503,9 @@
   },
   {
    "address": 27296,
-   "name": "s_6AA0",
+   "name": "ripple_step",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 27309,
@@ -6741,9 +6719,9 @@
   },
   {
    "address": 27609,
-   "name": "j_6BD9",
+   "name": "end_ripple",
    "type": "Jump",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 27633,
@@ -6957,9 +6935,9 @@
   },
   {
    "address": 27933,
-   "name": "j_6D1D",
+   "name": "game_start",
    "type": "Jump",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 27967,
@@ -6993,9 +6971,15 @@
   },
   {
    "address": 28071,
-   "name": "s_6DA7",
+   "name": "init_title_irq",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 28119,
+   "name": "title_irq",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 28208,
@@ -7089,15 +7073,15 @@
   },
   {
    "address": 28375,
-   "name": "s_6ED7",
+   "name": "title_sprites",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 28520,
-   "name": "s_6F68",
+   "name": "title_text",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 28522,
@@ -7173,9 +7157,9 @@
   },
   {
    "address": 28708,
-   "name": "j_7024",
+   "name": "title_text_names",
    "type": "Jump",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 28710,
@@ -7257,15 +7241,15 @@
   },
   {
    "address": 49153,
-   "name": "s_C001",
+   "name": "sample_start",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 49185,
-   "name": "a_C021",
+   "name": "sample_pitch",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 49212,
@@ -7281,9 +7265,9 @@
   },
   {
    "address": 49214,
-   "name": "s_C03E",
+   "name": "sample_stop",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 49246,
@@ -7305,9 +7289,9 @@
   },
   {
    "address": 49503,
-   "name": "s_C15F",
+   "name": "make_nybble_table",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 49520,
@@ -7335,15 +7319,21 @@
   },
   {
    "address": 49540,
-   "name": "s_C184",
+   "name": "play_sample",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 49550,
-   "name": "s_C18E",
+   "name": "set_sample_nmi",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 49561,
+   "name": "sample_nmi",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 49571,
@@ -7401,9 +7391,9 @@
   },
   {
    "address": 49651,
-   "name": "s_C1F3",
+   "name": "say",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 53453,
@@ -7599,9 +7589,9 @@
   },
   {
    "address": 57353,
-   "name": "s_E009",
+   "name": "music_play",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 57362,
@@ -7989,15 +7979,15 @@
   },
   {
    "address": 58655,
-   "name": "s_E51F",
+   "name": "music_on",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 58666,
-   "name": "s_E52A",
+   "name": "music_off",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 58679,
@@ -8331,9 +8321,9 @@
   },
   {
    "address": 60758,
-   "name": "s_ED56",
+   "name": "effects_play",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 60763,
@@ -8655,9 +8645,9 @@
   },
   {
    "address": 61350,
-   "name": "s_EFA6",
+   "name": "effect_start",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 61495,
@@ -8744,5 +8734,1586 @@
    "kind": "system"
   }
  ],
- "comments": []
+ "comments": [
+  {
+   "address": 828,
+   "type": "line",
+   "text": "The hook the saved file starts through, in the cassette buffer: the file's first two bytes point the KERNAL's IRQ vector here, so the first interrupt after the file is in memory runs it. It acknowledges the video chip, blanks the screen, blacks the border and background and clears colour RAM, resets the stack, copies the KERNAL's default vectors back to $0314-$0333, waits 25 frames, calls IOINIT ($FDA3), unblanks, sets $01 to $36 and jumps to the game's start at $6D1D. Not the game's code: whoever saved the memory image added it."
+  },
+  {
+   "address": 17003,
+   "type": "line",
+   "text": "Starts a game from the title. Banks everything but the I/O to RAM ($01 = $35), starts the music (music_on) when the title chose music and stops it otherwise (music_off), copies the 25 screen-row addresses into zero page (row_lo at $B9, row_hi at $D2), sets up the score digits (score_init), installs the interrupt chain, clears the meters, the disc sequence, the random index, the level, the extras icons' colours, the score, the extras flags at $41BE-$41CE and the molecule timer, sets lives to 3, both speed limits to 3 and the disc countdown to $FF (the first alien to form is a disc), then falls into start_level."
+  },
+  {
+   "address": 17123,
+   "type": "line",
+   "text": "Starts the level in level: silences the SID, blanks the screen, builds the level's map (build_level_map), clears the screen, resets the level (reset_level), installs the interrupt chain (four times) and starts Iball materialising. Then the level's main loop: each pass shows the lives (show_lives), ends the game when lives has gone below zero, kills Iball when both timer digits reach zero (time_up), and leaves for level_end ($58ED) when level_over is set. Everything else happens in the interrupts."
+  },
+  {
+   "address": 17186,
+   "type": "line",
+   "text": "Advances level by one, back to 0 after level 15, and starts it (start_level). Reached from the level-complete screen."
+  },
+  {
+   "address": 17201,
+   "type": "line",
+   "text": "Lives have run out: waits until sprite_enable is 0 (the last death's pieces have flown off), sets level_over and the freeze flag, clears the screen (blank_for_message), shows the lives (none) and goes to the GAME OVER screen (game_over_screen)."
+  },
+  {
+   "address": 17220,
+   "type": "line",
+   "text": "Resets everything for the start of a level: puts the map pointer at the bottom of the map and draws the first screen (draw_playfield), prepares the dot character, fills the extras-name pointer table (extras_names_init), clears the laser heat counters, sets the timer to 50 (tens 5, units 0), clears the per-sprite sets and the extras in use, the shot table $4001-$4095, the alien animation counters at $5452, the laser tables at $66AE and the ripple laser at $6A1C, sets the friction delay to 20 frames, the input rate to every 2 frames, the shot character and colour to 1, the animated-character frame count to 12, the row count to 24, multicolour text on, the timer's frame count to 50, clears the score adder, and zeroes the scroll, the speeds, the directions and the animation counters, with every sprite multicoloured and the sprite multicolours light grey ($0F) and dark grey ($0B)."
+  },
+  {
+   "address": 17406,
+   "type": "line",
+   "text": "Installs the game's raster interrupt chain: turns off CIA 1's interrupts (with the value in zero page $7F, where the constant $7F was surely meant), stops its timer A, enables the video chip's raster interrupt at line 0 and points the hardware IRQ vector at irq_top ($4432). Called once from new_game and four times from start_level."
+  },
+  {
+   "address": 17458,
+   "type": "line",
+   "text": "Raster interrupt 1 of 4, at line 0. Sets the next at line $36 (irq_panel_end) and enables interrupts, so the rest can overrun. Unless the extras message is up (freeze), cools the laser by one every four frames and counts the overheat lock-out down. Turns on extended colour mode and the top panel's character set (its own operand at $4480, $0C for $3000 or $0E for $3800), puts the timer's two digits into the top panel's sprite pointers ($8A plus the digit, at $487F/$4880), sets up the top panel's sprites (panel_sprites_top) and the fine scroll. Then the frame's player logic: while materialising, only materialise_step; while dying, only death_step; otherwise, unless the level is over, the message is up, hyperspace is on or the game is paused: the brakes (friction), the bottom limit (bottom_limit), the controls (read_controls), the speed limits (limit_speeds), Iball's move (move_iball), the probe round him (probe_background) and his bounces (bounce_iball)."
+  },
+  {
+   "address": 17536,
+   "type": "line",
+   "text": "Self-modified: the operand of ORA #$0C at $447F, the top panel's character set ($0C for $3000 in play, $0E for $3800 on the screens between levels), set by the STA at $4290, $5BCB and $5FF3."
+  },
+  {
+   "address": 17659,
+   "type": "line",
+   "text": "Self-modified: the interrupt handler saves X here with the STX at $4435 on entry, and the LDX #$00 at $44FA puts it back on the way out."
+  },
+  {
+   "address": 17661,
+   "type": "line",
+   "text": "Self-modified: the interrupt handler saves Y here with the STY at $4438 on entry, and the LDY #$00 at $44FC puts it back on the way out."
+  },
+  {
+   "address": 17668,
+   "type": "line",
+   "text": "Self-modified: the interrupt handler saves A here with the STA at $4432 on entry, and the LDA #$00 at $4503 puts it back on the way out."
+  },
+  {
+   "address": 17670,
+   "type": "line",
+   "text": "Raster interrupt 2 of 4, at line $36, where the top panel ends. While a speech sample plays (sample_busy) it only blacks the background and does not move the chain on, so the same interrupt comes back each frame and the game stands still until the sample has finished. Otherwise sets the next at line $92 (irq_logic), turns extended colour off, puts the background colour back, steps multicolour register 1 every frame (the electrified walls' flashing) and register 2 with it while faulty_disc is set, writes the play sprites to the chip (sprites_out) and runs the music or the sound effects, as the title chose (music_flag)."
+  },
+  {
+   "address": 17767,
+   "type": "line",
+   "text": "Self-modified: the interrupt handler saves A here with the STA at $4506 on entry, and the LDA #$00 at $4566 puts it back on the way out."
+  },
+  {
+   "address": 17769,
+   "type": "line",
+   "text": "Self-modified: the interrupt handler saves X here with the STX at $4509 on entry, and the LDX #$00 at $4568 puts it back on the way out."
+  },
+  {
+   "address": 17771,
+   "type": "line",
+   "text": "Self-modified: the interrupt handler saves Y here with the STY at $450C on entry, and the LDY #$00 at $456A puts it back on the way out."
+  },
+  {
+   "address": 17773,
+   "type": "line",
+   "text": "Raster interrupt 3 of 4, at line $92: the game's logic for the frame, which can take longer than a frame. in_logic guards it: an interrupt that finds it set only re-arms irq_bottom and leaves (via $466C). Otherwise sets the next interrupt, irq_bottom at $F8, or while the extras message is up the message band's own (msg_irq_top) at $E0 plus the fine scroll. Then, every frame: on the rescue screen (sprite 1's pointer $F3) cycles sprite 1's colour, rotates character $FE, steps the colour of the top panel's sprite 5. Unless the level is over or the message is up: the pause key (check_pause), the end of faulty_disc once the map pointer is below $0B00, and unless paused the scroll (scroll_step); then, unless Iball is dying, materialising or in hyperspace, the meters (shield_meters), the timer (timer_tick), the aliens riding the scroll, their steering, their hits and their moves, and unless a row was just drawn, the shot's character, the alien animations, fire, explosions, Iball's touches, spawning, the two armed keys and Iball's roll. Unless the message is up, the lasers and shots move. Every frame it redraws the score (draw_score) and steps the animated characters, and in play sets the aliens' sprite pointers."
+  },
+  {
+   "address": 18028,
+   "type": "line",
+   "text": "irq_logic's early exit when the previous frame's logic is still running: restores the registers and returns from the interrupt."
+  },
+  {
+   "address": 18034,
+   "type": "line",
+   "text": "Raster interrupt 4 of 4, at line $F8, the bottom panel. Sets the next interrupt at line 0 (irq_top), or straight to $36 (irq_panel_end) when irq_top has not finished this frame (irq_top_busy), turns extended colour on for the panel, blacks the background and sets up the bottom panel's sprites (panel_sprites_bottom)."
+  },
+  {
+   "address": 18108,
+   "type": "line",
+   "text": "Self-modified: the interrupt handler saves A here with the STA at $4672 on entry, and the LDA #$00 at $46BB puts it back on the way out."
+  },
+  {
+   "address": 18110,
+   "type": "line",
+   "text": "Self-modified: the interrupt handler saves X here with the STX at $4675 on entry, and the LDX #$00 at $46BD puts it back on the way out."
+  },
+  {
+   "address": 18112,
+   "type": "line",
+   "text": "Self-modified: the interrupt handler saves Y here with the STY at $4678 on entry, and the LDY #$00 at $46BF puts it back on the way out."
+  },
+  {
+   "address": 18114,
+   "type": "line",
+   "text": "Sets up the eight sprites of the top panel: 25-row mode on ($D011 bit 3), all eight sprites shown, multicolour on sprites 0-4, no expansion, X high bits for sprites 6 and 7, the sprite multicolours, and each sprite's colour, pointer and position from the tables at $4871 (colours), $4879 (pointers) and $4861 (positions). The first five are extras icons; the last two are the timer's digits."
+  },
+  {
+   "address": 18184,
+   "type": "line",
+   "text": "Turns all sprites off and returns. Nothing calls it."
+  },
+  {
+   "address": 18190,
+   "type": "line",
+   "text": "Sets up the eight sprites of the bottom panel from the tables at $4881 (positions), $4891 (colours) and $4899 (pointers): all shown, multicolour on sprites 0-4 and 7, sprite 7's X high bit, the sprite multicolours, border and background black. The store at $4760 writes sprite 7's colour to $D027+X with X at $FF from the loop before, which is $D126, a mirror of $D026: it sets sprite multicolour 1 to the same value, and the store at $4798 then puts $0B back."
+  },
+  {
+   "address": 18342,
+   "type": "line",
+   "text": "The frame's scroll. In hyperspace: hides every sprite (sprite_enable 0), turns the scroll forward and sets its speed to 6. Otherwise backward scrolling goes to scroll_back. Forward: adds scroll_speed to the fine scroll, and when it passes 7, takes eight off, sets row_drawn and moves a row up the map (draw_playfield)."
+  },
+  {
+   "address": 18390,
+   "type": "line",
+   "text": "Moves the map pointer up one row (24 bytes) and redraws the playfield: 25 rows of 24 characters from the map buffer at the pointer into the screen at columns 8-31 ($0408 onwards), through a copy loop whose source and destination it writes into its own operands ($4812/$4813, $4815/$4816). Also moves the lasers' rows with the map (lasers_follow_up), counts the rows (rows_scrolled), and in hyperspace sets level_over once the pointer is below $099E (the top two rows of the map)."
+  },
+  {
+   "address": 18450,
+   "type": "line",
+   "text": "Self-modified: the low byte of the address in LDA $9800 at $4811, set by the STA at $47DD, the STA at $4820, the STA at $48F1."
+  },
+  {
+   "address": 18451,
+   "type": "line",
+   "text": "Self-modified: the high byte of the address in LDA $9800 at $4811, set by the STA at $47E9, the INC at $4825."
+  },
+  {
+   "address": 18453,
+   "type": "line",
+   "text": "Self-modified: the low byte of the address in STA $0408 at $4814, set by the STA at $47EE, the STA at $482E."
+  },
+  {
+   "address": 18454,
+   "type": "line",
+   "text": "Self-modified: the high byte of the address in STA $0408 at $4814, set by the STA at $47F3, the INC at $4833."
+  },
+  {
+   "address": 18490,
+   "type": "line",
+   "text": "Fills the screen memory $0400-$07E7 with character 0."
+  },
+  {
+   "address": 18517,
+   "type": "line",
+   "text": "Puts the fine scroll (fine_scroll, 0-7) into the low three bits of $D011."
+  },
+  {
+   "address": 18593,
+   "type": "line",
+   "text": "Fills colour RAM $D800-$DBE7 with A."
+  },
+  {
+   "address": 18618,
+   "type": "line",
+   "text": "The backward scroll. At the bottom of the map (pointer at or past $1DA6) there is nowhere to go: Iball's bottom Y limit becomes $E6 and the scroll speed 0. Otherwise the limit is $AA, and scroll_speed comes off the fine scroll; when it goes below 0, eight go back on, row_drawn is set, the map pointer moves a row down and the playfield is redrawn (from $47E7), with the lasers' rows moved too (lasers_follow_down)."
+  },
+  {
+   "address": 18686,
+   "type": "line",
+   "text": "Writes the eight play sprites to the video chip: the enable mask (sprite_enable), the 17 position bytes at $12-$22 to $D000-$D010, the pointers at $02-$09, the colours at $0A-$11, and the two sprite multicolours ($23, $24)."
+  },
+  {
+   "address": 18729,
+   "type": "line",
+   "text": "Reads the stick in port 2 and the movement keys, once every input_rate frames (2, or 1 with the Hyper Brakes). Each test drives seven of the keyboard's eight rows at once, so several keys do each job. Up: stick up, or E, T, U, O, @, up-arrow or Q (column 6, rows 1-7). Down: stick down, or S, F, H, K, colon, = or C= (column 5, rows 1-7). Left: stick left, or Z, B or right SHIFT (column 4, rows 1, 3 and 6). Right: stick right, or cursor down, left SHIFT, X, V, N, comma or / (column 7, rows 0-6)."
+  },
+  {
+   "address": 18873,
+   "type": "line",
+   "text": "Up: notes the last vertical push as up (last_push = 0) and adds one to vertical_speed when Iball moves up, or takes one off when he moves down."
+  },
+  {
+   "address": 18890,
+   "type": "line",
+   "text": "Down: notes the last vertical push as down (last_push = 1) and adds one to vertical_speed when Iball moves down, or takes one off when he moves up."
+  },
+  {
+   "address": 18907,
+   "type": "line",
+   "text": "Left: Iball faces left (facing_left = 1, facing_right = 0); adds one to horizontal_speed when he moves left, or takes one off when he moves right."
+  },
+  {
+   "address": 18928,
+   "type": "line",
+   "text": "Right: Iball faces right (facing_left = 0, facing_right = 1); adds one to horizontal_speed when he moves right, or takes one off when he moves left."
+  },
+  {
+   "address": 18949,
+   "type": "line",
+   "text": "A speed pushed below zero turns Iball round: the direction bit of sprite 0 flips and the speed becomes 1. A speed that reaches its limit is taken down by one: vertical_speed against vertical_limit, horizontal_speed against horizontal_limit, so the top speed is one less than the limit."
+  },
+  {
+   "address": 18994,
+   "type": "line",
+   "text": "Moves Iball by his speeds. Vertically he stays between Y $6C and the bottom limit (its own operand at $4A56, $AA or $E6): going up past $6C hands his speed to the scroll (scroll_speed, forward), going down past the limit hands it to a backward scroll. Horizontally he stays between X $57 and $FF; reaching either side turns him round."
+  },
+  {
+   "address": 19030,
+   "type": "line",
+   "text": "Self-modified: the operand of CMP #$AA at $4A55, Iball's bottom Y limit ($AA, or $E6 at the bottom of the map), set by bottom_limit ($5017, $501D) and scroll_back ($48C8, $48D2)."
+  },
+  {
+   "address": 19091,
+   "type": "line",
+   "text": "The brakes: every friction_delay frames (reloaded from friction_reload, 20) takes one off the scroll speed and both of Iball's speeds, none going below zero."
+  },
+  {
+   "address": 19133,
+   "type": "line",
+   "text": "Steps Iball's roll: sprite 0's pointer from the eight-frame table at $4AE7 when facing left, or $4ADF otherwise, with the frame counter at $8B."
+  },
+  {
+   "address": 19247,
+   "type": "line",
+   "text": "Builds the level's map before play, into the buffer at $097E-$1FFD: 60 rows of six tiles from the level's 360-byte tile list (its address from level_ptr_lo/level_ptr_hi), each tile four characters by four from the tile set at $7380 (16 bytes a tile; numbers $10-$1F reach the second page of tiles, $20 and up the third). Also sets $D023 from level_colour3, the walls' colour (level_char_colour plus 8, for multicolour) into wall_colour and the whole of colour RAM."
+  },
+  {
+   "address": 19279,
+   "type": "line",
+   "text": "Self-modified: the operand of LDA #$01 at $4B4E, the low byte of the level's tile list, from level_ptr_lo (the STA at $4B34)."
+  },
+  {
+   "address": 19283,
+   "type": "line",
+   "text": "Self-modified: the operand of LDA #$01 at $4B52, the high byte of the level's tile list, from level_ptr_hi (the STA at $4B3A)."
+  },
+  {
+   "address": 19398,
+   "type": "line",
+   "text": "Self-modified: the low byte of the address in STA $8C80 at $4BC5, set by the STA at $4B58, the STA at $4BB7, the STA at $4BD8."
+  },
+  {
+   "address": 19399,
+   "type": "line",
+   "text": "Self-modified: the high byte of the address in STA $8C80 at $4BC5, set by the STA at $4B5F, the STA at $4BBC, the INC at $4BDD."
+  },
+  {
+   "address": 19440,
+   "type": "line",
+   "text": "Moves build_level_map's destination to the next tile: four characters right, and after six tiles on to the next row of tiles (72 more bytes, three character rows). After 60 rows of tiles sets the finished flag ($58)."
+  },
+  {
+   "address": 19509,
+   "type": "line",
+   "text": "Copies the next 128-byte frame of the animated characters into the character set at $36F0-$376F (16 characters), from the frame addresses at anim_frame_lo/anim_frame_hi, through anim_frames (12) frames, one a call."
+  },
+  {
+   "address": 19535,
+   "type": "line",
+   "text": "Self-modified: the low byte of the address in LDA $7200 at $4C4E, set by the STA at $4C3A."
+  },
+  {
+   "address": 19536,
+   "type": "line",
+   "text": "Self-modified: the high byte of the address in LDA $7200 at $4C4E, set by the STA at $4C40."
+  },
+  {
+   "address": 19646,
+   "type": "line",
+   "text": "Puts character $FF at 50 fixed places on the screen, wherever character 0 is: rows from the list at $4C58, columns from $4C8A. Used for the screens between levels."
+  },
+  {
+   "address": 19681,
+   "type": "line",
+   "text": "Self-modified: the low byte of the address in LDA $AD9C at $4CE0, set by the STA at $4CD2."
+  },
+  {
+   "address": 19682,
+   "type": "line",
+   "text": "Self-modified: the high byte of the address in LDA $AD9C at $4CE0, set by the STA at $4CC6, the INC at $4CDA."
+  },
+  {
+   "address": 19688,
+   "type": "line",
+   "text": "Self-modified: the low byte of the address in STA $AD9C at $4CE7, set by the STA at $4CD5."
+  },
+  {
+   "address": 19689,
+   "type": "line",
+   "text": "Self-modified: the high byte of the address in STA $AD9C at $4CE7, set by the STA at $4CC9, the INC at $4CDD."
+  },
+  {
+   "address": 19776,
+   "type": "line",
+   "text": "Clears character $FF's eight bytes ($37F8-$37FF) and sets one pixel in its last row ($10): the dot."
+  },
+  {
+   "address": 19792,
+   "type": "line",
+   "text": "Rotates each of the eight bytes of character $FE ($37F0-$37F7) two bits to the left, wrapping round: a pattern that moves one multicolour pixel a frame."
+  },
+  {
+   "address": 19828,
+   "type": "line",
+   "text": "Copies the twelve screen characters round Iball into probe ($97-$A2), three rows of four, from the column under his X and the row under his Y, the fine scroll allowed for in the direction he moves. Entry $4D98 does the same from the row in A and the column in $96, for materialise_wait."
+  },
+  {
+   "address": 19864,
+   "type": "line",
+   "text": "The second half of probe_background, entered by materialise_wait with the character row in A and the column in $96: copies the twelve characters there into probe."
+  },
+  {
+   "address": 19891,
+   "type": "line",
+   "text": "Self-modified: the low byte of the address in LDA $AD9C at $4DB2, set by the STA at $4DA5, the STA at $4DC3."
+  },
+  {
+   "address": 19892,
+   "type": "line",
+   "text": "Self-modified: the high byte of the address in LDA $AD9C at $4DB2, set by the STA at $4D9C, the INC at $4DAA, the INC at $4DC8."
+  },
+  {
+   "address": 19920,
+   "type": "line",
+   "text": "Bounces Iball off the walls: a probe character of $06 or more is solid. Moving right the right-hand column is tested, moving left the left-hand one, then moving down the bottom row and moving up the top row. A hit reverses that direction (a vertical hit also stops the scroll) and goes to hit_wall with the character. A hit on the top row while the map pointer is in its top two rows (below $09AE) is the goal: level_over is set instead."
+  },
+  {
+   "address": 20080,
+   "type": "line",
+   "text": "Starts Iball materialising at X $AE, Y $A0: materialising = 1, its delays, the death flag cleared, and the materialise sound on all three voices ($49, $40, $49)."
+  },
+  {
+   "address": 20120,
+   "type": "line",
+   "text": "One frame of Iball materialising. Stage 1 (materialise_wait) waits for the place to be clear of walls; stage 2 puts eight pieces round it, 70 pixels out in each direction, all eight sprites shown and multicoloured, and the materialise sound; stage 3 (from $4F1C) brings them in a little faster each frame (to at most 5 pixels) until they meet: then only sprite 0 is left, on the start position, coloured grey ($0C), and play begins."
+  },
+  {
+   "address": 20330,
+   "type": "line",
+   "text": "Moves the sprites by their speeds: for each sprite in sprite_enable (from sprite 1 in play, from 0 while materialising or dying), X by its horizontal speed ($29 + 2n) in the direction of bit n of $26 (set: right), Y by its vertical speed ($2A + 2n) in the direction of bit n of $27 (set: down). A sprite that would leave X $57-$FF or Y $3C-$E6 is taken off (remove_sprite)."
+  },
+  {
+   "address": 20489,
+   "type": "line",
+   "text": "Sets Iball's bottom Y limit in move_iball's operand ($4A56): $E6 when the map pointer is at or past $1DA6, the bottom of the map, else $AA."
+  },
+  {
+   "address": 20513,
+   "type": "line",
+   "text": "A bounce off character A. With the Electro Shield on (shield_on) nothing happens; with faulty_disc set every wall kills; otherwise characters $EE and up, the electrified ones, kill. The comparison is made on its own operand ($5032), where it stores A."
+  },
+  {
+   "address": 20530,
+   "type": "line",
+   "text": "Self-modified: the operand of LDA #$01 at $5031, the character Iball has just bounced off, set by the STA at $5021 (hit_wall's entry)."
+  },
+  {
+   "address": 20536,
+   "type": "line",
+   "text": "Iball dies: dying = 1, the disc sequence goes back (disc_rollback), faulty_disc is cleared and $D023 gets the level's colour back, the death sound starts and \"OH NO!\" plays (sample 1, pitch $8C). Reached from hit_wall, from an alien's touch and from time_up."
+  },
+  {
+   "address": 20577,
+   "type": "line",
+   "text": "One frame of the death. Stage 1 (death_explode) breaks Iball up; stage 2 (death_flash) flashes the background; stage 3 (death_fly) sends the pieces off and, when they have gone, starts a new materialise. Any other stage only sets $3F to 2."
+  },
+  {
+   "address": 20599,
+   "type": "line",
+   "text": "Never reached: an RTS and a JMP $4662 after death_step's last branch, left over from an earlier version."
+  },
+  {
+   "address": 20603,
+   "type": "line",
+   "text": "Stage 1 of the death: remembers where Iball was ($EE/$EF), shows all eight sprites multicoloured, stops the scroll, puts the eight sprites at his place with every speed 0, takes a life, and gives the pieces their directions ($D6 across, $F8 up and down). Its colour-and-pointer loop at $508F ends with dex and beq, so it runs for sprite 7 alone; death_flash sets every pointer afterwards."
+  },
+  {
+   "address": 20684,
+   "type": "line",
+   "text": "Stage 2 of the death: the background colour steps through the 13 colours at death_colours, one a frame; then sprite 0 turns white, every sprite gets the piece shape ($9E) and stage 3 begins."
+  },
+  {
+   "address": 20722,
+   "type": "line",
+   "text": "The 13 background colours the screen flashes through when Iball dies."
+  },
+  {
+   "address": 20735,
+   "type": "line",
+   "text": "Stage 3 of the death: every piece moves at the same speed, starting at 10 and slowing by one every two frames to 1, until all have left the screen; then stage 4 and a new materialise (start_materialise)."
+  },
+  {
+   "address": 20797,
+   "type": "line",
+   "text": "Takes off the sprite whose bit is in $39: clears it from sprite_enable and from the three per-sprite sets, forming ($41B0), exploding ($41B9) and is_disc ($41BC). Writes the inverted mask into its own operands."
+  },
+  {
+   "address": 20815,
+   "type": "line",
+   "text": "Self-modified: the operand of LDA #$00 at $514E, set by the STA at $5141."
+  },
+  {
+   "address": 20823,
+   "type": "line",
+   "text": "Self-modified: the operand of LDA #$00 at $5156, set by the STA at $5144."
+  },
+  {
+   "address": 20831,
+   "type": "line",
+   "text": "Self-modified: the operand of LDA #$00 at $515E, set by the STA at $5147."
+  },
+  {
+   "address": 20839,
+   "type": "line",
+   "text": "Stage 1 of materialising: probes the twelve characters at the start position; while the delay ($40, from 50) lasts, or while any is a wall, it scrolls the map backward, a little faster every four frames (up to 6), to clear the place. When the delay is over and the place is clear, stage 2."
+  },
+  {
+   "address": 20923,
+   "type": "line",
+   "text": "Fire: the stick's button in port 2, or W, R, Y, I, P, * or left-arrow (column 1, rows 1-7). Nothing while the overheat lock-out lasts. Each frame of fire heats the laser by one unless the Lazer Cooler is on; at 250 it overheats: the message band goes up for 50 frames (freeze, freeze_frames), fire is locked out for 100 frames and LASER OVERHEATED is shown (show_overheat). Otherwise works out Iball's character column and row (shot and laser starts), runs the lasers (laser_fire) and the ripple (ripple_fire), and puts a shot in the shot table: with the Bullet Spray both ways, else down when the last vertical push was down and up otherwise."
+  },
+  {
+   "address": 21061,
+   "type": "line",
+   "text": "Starts a shot going down, two rows below Iball, if that screen character is below 5 (empty, or a shot or laser) and a slot is free among the 24 at $407D: its character, column, row, colour and direction (1, down)."
+  },
+  {
+   "address": 21084,
+   "type": "line",
+   "text": "Self-modified: the low byte of the address in LDA $AD9C at $525B, set by the STA at $5253."
+  },
+  {
+   "address": 21085,
+   "type": "line",
+   "text": "Self-modified: the high byte of the address in LDA $AD9C at $525B, set by the STA at $524A, the INC at $5258."
+  },
+  {
+   "address": 21134,
+   "type": "line",
+   "text": "Starts a shot going up, a row below Iball's top, if that screen character is below 5 and a slot is free among the 24: its character, column, row, colour and direction (0, up)."
+  },
+  {
+   "address": 21157,
+   "type": "line",
+   "text": "Self-modified: the low byte of the address in LDA $AD9C at $52A4, set by the STA at $529C."
+  },
+  {
+   "address": 21158,
+   "type": "line",
+   "text": "Self-modified: the high byte of the address in LDA $AD9C at $52A4, set by the STA at $5293, the INC at $52A1."
+  },
+  {
+   "address": 21209,
+   "type": "line",
+   "text": "Steps the shot character through 1, 2, 3 and the shot colour through 1-7, once a frame: new shots take them."
+  },
+  {
+   "address": 21237,
+   "type": "line",
+   "text": "Moves every live shot one character row a frame, up or down. It puts the wall colour back in the shot's colour cell; unless a row has just been drawn, it ends the shot if the character there is now 5 or more, and clears it otherwise. Then the shot moves; one that reaches row 0 or row 24, or a character of 5 or more, ends, and the others are written at the new place in their character and colour. Addresses go into its own operands (the screen row from row_lo/row_hi, colour RAM $D4 pages above)."
+  },
+  {
+   "address": 21288,
+   "type": "line",
+   "text": "Self-modified: the low byte of the address in STA $AD9C at $5327, set by the STA at $531A."
+  },
+  {
+   "address": 21289,
+   "type": "line",
+   "text": "Self-modified: the high byte of the address in STA $AD9C at $5327, set by the STA at $530D, the INC at $5322."
+  },
+  {
+   "address": 21295,
+   "type": "line",
+   "text": "Self-modified: the low byte of the address in LDA $AD9C at $532E, set by the STA at $5317."
+  },
+  {
+   "address": 21296,
+   "type": "line",
+   "text": "Self-modified: the high byte of the address in LDA $AD9C at $532E, set by the STA at $5307, the INC at $531F."
+  },
+  {
+   "address": 21319,
+   "type": "line",
+   "text": "Self-modified: the low byte of the address in STA $AD9C at $5346, set by the STA at $5341."
+  },
+  {
+   "address": 21320,
+   "type": "line",
+   "text": "Self-modified: the high byte of the address in STA $AD9C at $5346, set by the STA at $533B."
+  },
+  {
+   "address": 21388,
+   "type": "line",
+   "text": "Self-modified: the low byte of the address in LDA $AD9C at $538B, set by the STA at $5364, the STA at $5383."
+  },
+  {
+   "address": 21389,
+   "type": "line",
+   "text": "Self-modified: the high byte of the address in LDA $AD9C at $538B, set by the STA at $535B, the INC at $5369, the STA at $537A, the DEC at $5388."
+  },
+  {
+   "address": 21418,
+   "type": "line",
+   "text": "Self-modified: the low byte of the address in STA $AD9C at $53A9, set by the STA at $53A3."
+  },
+  {
+   "address": 21419,
+   "type": "line",
+   "text": "Self-modified: the high byte of the address in STA $AD9C at $53A9, set by the STA at $539D."
+  },
+  {
+   "address": 21439,
+   "type": "line",
+   "text": "Self-modified: the low byte of the address in STA $AD9C at $53BE, set by the STA at $53B8."
+  },
+  {
+   "address": 21440,
+   "type": "line",
+   "text": "Self-modified: the high byte of the address in STA $AD9C at $53BE, set by the STA at $53B2."
+  },
+  {
+   "address": 21607,
+   "type": "line",
+   "text": "Steps the seven alien animation counters at $5452 (each wrapping at its limit in $5459) and looks up each one's current sprite pointer in its frame list ($53C4, $53CC, $53D6, $53EA, $5402, $540A, $5418) into $5460-$5466, one pointer per kind of alien."
+  },
+  {
+   "address": 21692,
+   "type": "line",
+   "text": "Draws the six score digits into the score sprites: for each digit, its eight-byte glyph (from the address in digit_glyph_lo/hi) into the sprite at the place in score_dest_lo/hi, one byte every three (a sprite's row)."
+  },
+  {
+   "address": 21724,
+   "type": "line",
+   "text": "Self-modified: the low byte of the address in LDA $AD9C at $54DB, set by the STA at $54C4."
+  },
+  {
+   "address": 21725,
+   "type": "line",
+   "text": "Self-modified: the high byte of the address in LDA $AD9C at $54DB, set by the STA at $54CA."
+  },
+  {
+   "address": 21727,
+   "type": "line",
+   "text": "Self-modified: the low byte of the address in STA $AD9C at $54DE, set by the STA at $54D0, the STA at $54E7."
+  },
+  {
+   "address": 21728,
+   "type": "line",
+   "text": "Self-modified: the high byte of the address in STA $AD9C at $54DE, set by the STA at $54D6, the DEC at $54EC."
+  },
+  {
+   "address": 21750,
+   "type": "line",
+   "text": "Fills digit_glyph_lo/hi with the addresses of the ten digit glyphs, eight bytes apart from $38D7 (in the second character set), and score_dest_lo/hi with each score digit's place in the score sprites ($26B0, $26B1, $26B2, $26F0, $26F1, $26F2)."
+  },
+  {
+   "address": 21763,
+   "type": "line",
+   "text": "Self-modified: the operand of LDA #$00 at $5502, set by the STA at $54FA, the STA at $5512."
+  },
+  {
+   "address": 21768,
+   "type": "line",
+   "text": "Self-modified: the operand of LDA #$00 at $5507, set by the STA at $54FF, the INC at $5517."
+  },
+  {
+   "address": 21884,
+   "type": "line",
+   "text": "Adds the six digits of the score adder ($409C-$40A1, highest first) to the score ($41-$46), carrying into the digit to the left. Every caller first clears the adder (clear_adder) and puts one value in one digit."
+  },
+  {
+   "address": 21908,
+   "type": "line",
+   "text": "The level timer: every 50 frames ($49) takes one off the units digit (timer_units), borrowing from the tens (timer_tens), and stops at 00."
+  },
+  {
+   "address": 21940,
+   "type": "line",
+   "text": "Clears the six digits of the score adder at $409C."
+  },
+  {
+   "address": 21951,
+   "type": "line",
+   "text": "Spawning, once a frame. While the Molecule Bomb lasts (molecule_frames, 255 frames) counts it down and sets the bottom panel's sprite 1 colour from it, the icon fading; no alien forms. Otherwise tries to start one (spawn_alien) and steps the colours of those forming (forming_step)."
+  },
+  {
+   "address": 21972,
+   "type": "line",
+   "text": "Never reached: would turn the Molecule Bomb's icon black. spawn_step jumps past it."
+  },
+  {
+   "address": 21984,
+   "type": "line",
+   "text": "Starts an alien in the first sprite of 1-7 not in use, if there is one: speeds 0, a random place (place_alien) away from walls and from Iball (probe_alien, alien_near_walls, alien_near_iball). If it fits: it joins sprite_enable, becomes a disc when the disc countdown is negative (the countdown starts again at 20), begins forming (start_forming) and takes a random kind (pick_kind). If not, it is taken away again (unspawn)."
+  },
+  {
+   "address": 22028,
+   "type": "line",
+   "text": "Self-modified: the operand of LDX #$00 at $560B, set by the STX at $5602."
+  },
+  {
+   "address": 22030,
+   "type": "line",
+   "text": "Self-modified: the operand of LDY #$00 at $560D, set by the STY at $5605."
+  },
+  {
+   "address": 22078,
+   "type": "line",
+   "text": "Gives sprite X a colour from the 16 at $5650, picked by the low four bits of the next byte of the random table ($40B0, index random_index)."
+  },
+  {
+   "address": 22112,
+   "type": "line",
+   "text": "Gives the new alien a kind (0-7 from the random table, through the list at $568B) in alien_kind, or kind 6 when it is a disc, which also sets the disc sound on all three voices."
+  },
+  {
+   "address": 22163,
+   "type": "line",
+   "text": "Places the new alien: when the screen is scrolling it appears at the edge the map comes from, Y $41 (scrolling forward) or $D7 (backward), else at a random Y from the eight at $56CF; X is one of the eight at $56C7, picked at random."
+  },
+  {
+   "address": 22197,
+   "type": "line",
+   "text": "Picks the alien's X from the eight at $56C7 with the next random byte."
+  },
+  {
+   "address": 22231,
+   "type": "line",
+   "text": "Picks the alien's Y from the eight at $56CF with the next random byte."
+  },
+  {
+   "address": 22249,
+   "type": "line",
+   "text": "Sets sprites 7 down to 1's pointers from their kinds: each alien not exploding gets the current frame for its kind ($5460 plus alien_kind)."
+  },
+  {
+   "address": 22277,
+   "type": "line",
+   "text": "Gives every alien (sprites 1-7) the scroll's speed and direction vertically, so they keep their place on the map as it moves; their own steering adds to it afterwards."
+  },
+  {
+   "address": 22323,
+   "type": "line",
+   "text": "Never reached: the end of an interrupt handler (PLA, TAY, PLA, TAX, PLA, RTI) that nothing jumps to."
+  },
+  {
+   "address": 22329,
+   "type": "line",
+   "text": "Marks the new alien as forming: in the forming set, its frame count at 0, and out of the multicolour set, so it shows in one colour while it flickers into being."
+  },
+  {
+   "address": 22351,
+   "type": "line",
+   "text": "Steps every forming alien's colour through the 50 colours at $5777, one a frame; at the end it is formed (end_forming)."
+  },
+  {
+   "address": 22441,
+   "type": "line",
+   "text": "An alien has finished forming: multicolour on, out of the forming set, and a random colour (random_colour). From now on it can harm Iball."
+  },
+  {
+   "address": 22461,
+   "type": "line",
+   "text": "Copies the twelve screen characters round the sprite whose position is at $12+Y into alien_probe ($A3-$AE), three rows of four, and its character row into alien_row ($B0)."
+  },
+  {
+   "address": 22518,
+   "type": "line",
+   "text": "Self-modified: the low byte of the address in LDA $AD9C at $57F5, set by the STA at $57E9, the STA at $5806."
+  },
+  {
+   "address": 22519,
+   "type": "line",
+   "text": "Self-modified: the high byte of the address in LDA $AD9C at $57F5, set by the STA at $57E0, the INC at $57EE, the INC at $580B."
+  },
+  {
+   "address": 22549,
+   "type": "line",
+   "text": "Sets spawn_blocked when any of the twelve characters round the new alien is a wall ($06 or more)."
+  },
+  {
+   "address": 22574,
+   "type": "line",
+   "text": "Common exit: puts back the X and Y saved in its own operands ($582F, $5831) and returns."
+  },
+  {
+   "address": 22575,
+   "type": "line",
+   "text": "Self-modified: the operand of LDX #$00 at $582E, set by the STX at $57BD, the STX at $5815, the STX at $5BFC, the STX at $5E7E, the STX at $602E."
+  },
+  {
+   "address": 22577,
+   "type": "line",
+   "text": "Self-modified: the operand of LDY #$00 at $5830, set by the STY at $57C0, the STY at $5818, the STY at $5BF9, the STY at $5E7B, the STY at $6031."
+  },
+  {
+   "address": 22579,
+   "type": "line",
+   "text": "Takes the alien just placed away again: out of sprite_enable, its position zeroed."
+  },
+  {
+   "address": 22596,
+   "type": "line",
+   "text": "Sets spawn_blocked when the sprite at $12+Y is within 20 pixels of Iball across and 18 down; spawning uses it to keep new aliens away from him, and alien_touch to find a collision."
+  },
+  {
+   "address": 22664,
+   "type": "line",
+   "text": "With the Molecule Bomb armed, F1, M or right SHIFT (column 4, rows 0, 4 and 6) sets it off: no aliens form for 255 frames (molecule_frames), and its sound."
+  },
+  {
+   "address": 22702,
+   "type": "line",
+   "text": "With the Smart Missile armed, full stop, right SHIFT or SPACE (column 4, rows 5-7) fires it: its icon goes dark, every alien on screen but the discs explodes (smart_missile), and its sound."
+  },
+  {
+   "address": 22741,
+   "type": "line",
+   "text": "When the map moves down a row on screen, moves the row of every laser down one too (the row tables at $66CC and $6708)."
+  },
+  {
+   "address": 22753,
+   "type": "line",
+   "text": "The other way: every laser's row up one."
+  },
+  {
+   "address": 22765,
+   "type": "line",
+   "text": "The level is won. Hides the sprites, starts the fanfare, and turns the time left into points: one second at a time, with a short wait, adds 10 to the score until the timer reads 00. Then clears the screen and writes WELL DONE and COMPLETED LEVEL, and the level's number in two digit sprites (from level_digit_units/tens); after levels 4, 8, 12 and 16 the friend rescued (rescue screens); then waits for fire to be released and pressed again, and starts the next level. After level 16 it shows THAT WAS INCREDIBALL, YOU HAVE COMPLETED IBALL, waits, and goes back to the title."
+  },
+  {
+   "address": 22828,
+   "type": "line",
+   "text": "Waits X times Y turns of an inner loop (Y is written into its own operand at $5930; 0 counts 256)."
+  },
+  {
+   "address": 22832,
+   "type": "line",
+   "text": "Self-modified: the operand of LDY #$00 at $592F, the inner count of delay, set by the STY at $592C from the caller's Y."
+  },
+  {
+   "address": 22873,
+   "type": "line",
+   "text": "Writes COMPLETED LEVEL on row 4 of the level-end screen, in cyan."
+  },
+  {
+   "address": 22909,
+   "type": "line",
+   "text": "Shows the level's number in sprites 0 and 1 (tens and units, digit sprites from $8A, from level_digit_tens/units), both light blue and single-colour, with sprites 0 and 1 the only ones on."
+  },
+  {
+   "address": 22990,
+   "type": "line",
+   "text": "After levels 4, 8, 12 and 16 (level 3, 7, 11, 15): writes YOU HAVE RESCUED and the friend's name in green, with the fanfare on all three voices, and shows the friend (show_friend); after the others goes straight to waiting for fire."
+  },
+  {
+   "address": 23167,
+   "type": "line",
+   "text": "Writes YOU HAVE RESCUED on row 12, in green."
+  },
+  {
+   "address": 23237,
+   "type": "line",
+   "text": "Shows Iball (sprite 2, pointer $94, grey) and the friend rescued (sprite 3, pointer A, colour X) side by side, with the level number still in sprites 0 and 1. After No Ball, the fourth, writes THAT WAS INCREDIBALL, YOU HAVE COMPLETED and IBALL on rows 20, 21 and 23, waits five long delays and for fire, and goes back to the title."
+  },
+  {
+   "address": 23436,
+   "type": "line",
+   "text": "Waits until fire is released, waits a moment, waits for fire again, and starts the next level."
+  },
+  {
+   "address": 23505,
+   "type": "line",
+   "text": "Never reached: a JMP to wait_fire_release after rescue_screens' last branch."
+  },
+  {
+   "address": 23508,
+   "type": "line",
+   "text": "For each alien in play that is not exploding: probes the characters round it (probe_alien), checks them for shots and lasers (alien_shot) and for walls (alien_walls)."
+  },
+  {
+   "address": 23545,
+   "type": "line",
+   "text": "An alien whose twelve surrounding characters include a shot (character 1-3) on the row of a live shot, or a laser or ripple character (4 or 5), is hit: it starts exploding and the shot is cleared (clear_shot), for 10 points. Killing an alien that is not a disc takes one off the disc countdown. Shooting a disc sets a sound of its own, but the hit sound written after it in the same frame replaces it. For a laser or ripple hit, X holds the character's place in the probe (0-3), not a shot's slot, so clear_shot ends shot slot 0-3 instead."
+  },
+  {
+   "address": 23561,
+   "type": "line",
+   "text": "Self-modified: the zero-page address of LDA $A3 at $5C08, set by the STA at $5C01, the STA at $5C1F."
+  },
+  {
+   "address": 23700,
+   "type": "line",
+   "text": "Ends shot X: marks it free and puts the wall colour and character 0 back at its place."
+  },
+  {
+   "address": 23748,
+   "type": "line",
+   "text": "Self-modified: the low byte of the address in STA $AD9C at $5CC3, set by the STA at $5CBE."
+  },
+  {
+   "address": 23749,
+   "type": "line",
+   "text": "Self-modified: the high byte of the address in STA $AD9C at $5CC3, set by the STA at $5CB8."
+  },
+  {
+   "address": 23753,
+   "type": "line",
+   "text": "Self-modified: the low byte of the address in STA $AD9C at $5CC8, set by the STA at $5CAA."
+  },
+  {
+   "address": 23754,
+   "type": "line",
+   "text": "Self-modified: the high byte of the address in STA $AD9C at $5CC8, set by the STA at $5CA0, the INC at $5CAF."
+  },
+  {
+   "address": 23762,
+   "type": "line",
+   "text": "Steps every exploding alien through the 16 explosion frames at $5CF8, one a frame; after the last it is taken off (remove_sprite)."
+  },
+  {
+   "address": 23816,
+   "type": "line",
+   "text": "Iball against the aliens: an alien in play, not exploding and not forming (a disc counts even while forming) that comes within 20 pixels across and 18 down of him (alien_near_iball) kills him, or if it is a disc gives him the disc's extra (take_disc)."
+  },
+  {
+   "address": 23904,
+   "type": "line",
+   "text": "Steers the aliens that are formed and not exploding: sprites 1 and 2 home in on Iball vertically only, 3 and 4 both ways, 5 to 7 across only."
+  },
+  {
+   "address": 23953,
+   "type": "line",
+   "text": "Turns the alien towards Iball across and sets its horizontal speed to the level's (alien_speed_x); near either side (X $FB and up, or below $5B) it stops."
+  },
+  {
+   "address": 24037,
+   "type": "line",
+   "text": "Steers the alien towards Iball vertically: ride_scroll has just given it the scroll's speed, and this adds the level's step (alien_accel_y) towards him, or takes it off when it moves away, turning it round when the result goes below zero."
+  },
+  {
+   "address": 24097,
+   "type": "line",
+   "text": "Self-modified: the operand of SBC #$00 at $5E20, set by the STA at $5E1A."
+  },
+  {
+   "address": 24157,
+   "type": "line",
+   "text": "Self-modified: the operand of SBC #$00 at $5E5C, set by the STA at $5E56."
+  },
+  {
+   "address": 24187,
+   "type": "line",
+   "text": "An alien next to a wall: one above or below it puts it back on the scroll (the scroll's speed and direction vertically); one on the side it moves towards stops it across."
+  },
+  {
+   "address": 24333,
+   "type": "line",
+   "text": "Puts the lives into the bottom panel's last sprite: pointer $E5 plus the lives, for 0 to 3, unchanged above 3, and $9D when none are left."
+  },
+  {
+   "address": 24354,
+   "type": "line",
+   "text": "The timer has run out: kills Iball and sets the timer back to 50."
+  },
+  {
+   "address": 24366,
+   "type": "line",
+   "text": "Waits for any speech to finish, waits, says \"GAME OVER!\" (sample 2 at pitch $8C), writes GAME OVER (game_over_text), waits and goes back to the title."
+  },
+  {
+   "address": 24391,
+   "type": "line",
+   "text": "Iball has taken a disc: the message band goes up for 100 frames (freeze) and the next extra in the disc sequence is given and named (give_extra)."
+  },
+  {
+   "address": 24403,
+   "type": "line",
+   "text": "The extras message's first interrupt, at line $E7 plus the fine scroll: sets the next (msg_irq_charset) at line $E7 plus the fine scroll, puts every sprite at X 0 so none shows on the message row, multicolour and extended colour on, and counts the message's frames down; at 0 the freeze ends and the two rows are put back (restore_rows)."
+  },
+  {
+   "address": 24496,
+   "type": "line",
+   "text": "Self-modified: the interrupt handler saves A here with the STA at $5F53 on entry, and the LDA #$00 at $5FAF puts it back on the way out."
+  },
+  {
+   "address": 24498,
+   "type": "line",
+   "text": "Self-modified: the interrupt handler saves X here with the STX at $5F56 on entry, and the LDX #$00 at $5FB1 puts it back on the way out."
+  },
+  {
+   "address": 24500,
+   "type": "line",
+   "text": "Self-modified: the interrupt handler saves Y here with the STY at $5F59 on entry, and the LDY #$00 at $5FB3 puts it back on the way out."
+  },
+  {
+   "address": 24502,
+   "type": "line",
+   "text": "The extras message's second interrupt: sets irq_bottom at $F8 next, switches to the character set at $3800 and extended colour off, for the message's letters."
+  },
+  {
+   "address": 24545,
+   "type": "line",
+   "text": "Self-modified: the interrupt handler saves A here with the STA at $5FB6 on entry, and the LDA #$00 at $5FE0 puts it back on the way out."
+  },
+  {
+   "address": 24547,
+   "type": "line",
+   "text": "Prepares a screen between levels or at the game's end: copies the dot character into the second character set ($3FF8), clears the screen, sets the top panel's character set to $3800 (irq_top's operand at $4480 = $0E) and puts the dots on the screen (place_dots)."
+  },
+  {
+   "address": 24570,
+   "type": "line",
+   "text": "Writes GAME and OVER on rows 11 and 12 in white, waits two long delays and goes back to the title (game_start)."
+  },
+  {
+   "address": 24622,
+   "type": "line",
+   "text": "Saves the bottom two rows and clears them in green (save_rows, its colour operand at $6514 set to 5), copies the next extra's name (24 characters, through the pointer tables extra_name_lo/hi) into row 23, gives the extra (apply_extra) and moves the disc sequence on; after the 32nd disc it carries on from the 29th."
+  },
+  {
+   "address": 24657,
+   "type": "line",
+   "text": "Self-modified: the low byte of the address in LDA $AD9C at $6050, set by the STA at $6045."
+  },
+  {
+   "address": 24658,
+   "type": "line",
+   "text": "Self-modified: the high byte of the address in LDA $AD9C at $6050, set by the STA at $604B."
+  },
+  {
+   "address": 25315,
+   "type": "line",
+   "text": "Puts back the bottom two rows of the screen and their colours from where save_rows kept them ($608B, $60DB)."
+  },
+  {
+   "address": 25333,
+   "type": "line",
+   "text": "Fills the tables extra_name_lo/hi with the addresses of the 17 extras' names, 24 bytes apart from $612B."
+  },
+  {
+   "address": 25346,
+   "type": "line",
+   "text": "Self-modified: the operand of LDA #$00 at $6301, set by the STA at $62F9, the STA at $6311."
+  },
+  {
+   "address": 25351,
+   "type": "line",
+   "text": "Self-modified: the operand of LDA #$00 at $6306, set by the STA at $62FE, the INC at $6316."
+  },
+  {
+   "address": 25419,
+   "type": "line",
+   "text": "Gives the extra whose number is next in the disc sequence (disc_order), through a chain of comparisons to one routine per extra ($63C6-$64D3)."
+  },
+  {
+   "address": 25542,
+   "type": "line",
+   "text": "Extra 0, Turbo Boost: its icon lit (top panel sprite 0, red), vertical_limit 4, horizontal_limit 3."
+  },
+  {
+   "address": 25561,
+   "type": "line",
+   "text": "Extra 1, Single Lazer: its icon lit (blue), single_laser on."
+  },
+  {
+   "address": 25572,
+   "type": "line",
+   "text": "Extra 2, Smart Missile: its icon lit (purple), armed."
+  },
+  {
+   "address": 25583,
+   "type": "line",
+   "text": "Extra 3, Extra Score: adds the level halved plus one, in hundreds, to the score."
+  },
+  {
+   "address": 25599,
+   "type": "line",
+   "text": "Extra 4, Bullet Spray: its icon lit (green), shots go both ways."
+  },
+  {
+   "address": 25610,
+   "type": "line",
+   "text": "Extra 5, Electro Shield: its icon lit (orange), shield_on, its meter full and the Hyper Brakes cancelled (their meter cleared, their icon dark), the meter sprite filled, the input rate back to every 2 frames."
+  },
+  {
+   "address": 25654,
+   "type": "line",
+   "text": "Extra 6, Extended Play: 20 more seconds (the tens digit up by two, at most 9)."
+  },
+  {
+   "address": 25673,
+   "type": "line",
+   "text": "Extra 7, Twin Laser Set: its icon lit (bottom panel sprite 0, cyan), twin_laser on."
+  },
+  {
+   "address": 25684,
+   "type": "line",
+   "text": "Extra 8, Hyperspace: hyperspace on and its sound."
+  },
+  {
+   "address": 25700,
+   "type": "line",
+   "text": "Extra 9, Molecule Bomb: its icon lit (bottom panel sprite 1, light blue), armed."
+  },
+  {
+   "address": 25711,
+   "type": "line",
+   "text": "Extra 10, Faulty Disc: faulty_disc on, so every wall kills."
+  },
+  {
+   "address": 25717,
+   "type": "line",
+   "text": "Extra 11, Fuel Injection: vertical_limit 5."
+  },
+  {
+   "address": 25722,
+   "type": "line",
+   "text": "Extra 12, Bonus Ball: one more life (at most 127)."
+  },
+  {
+   "address": 25731,
+   "type": "line",
+   "text": "Extra 13, Hyper Brakes: brakes_on, its icon lit (light green), the Electro Shield cancelled (its icon dark), its meter full, the meter sprite filled, and the controls read every frame (input rate 1)."
+  },
+  {
+   "address": 25775,
+   "type": "line",
+   "text": "Never reached: a second RTS after the Hyper Brakes' routine."
+  },
+  {
+   "address": 25776,
+   "type": "line",
+   "text": "Extra 14, Timer Rewind: 40 more seconds (the tens digit up by four, at most 9)."
+  },
+  {
+   "address": 25790,
+   "type": "line",
+   "text": "Extra 15, Lazer Cooler: cooler_on (no overheating), its icon lit (red)."
+  },
+  {
+   "address": 25801,
+   "type": "line",
+   "text": "Extra 16, Rainbow Ripple: ripple_on, its icon lit (purple)."
+  },
+  {
+   "address": 25812,
+   "type": "line",
+   "text": "Saves the bottom two rows and clears them in red (save_rows, its colour operand at $6514 set to 2), and writes LASER OVERHEATED in row 23."
+  },
+  {
+   "address": 25856,
+   "type": "line",
+   "text": "Copies the bottom two rows of the screen and their colours ($0798-$07E7) to $608B and $60DB, and clears them: character 0, in the colour its callers write into its own operand at $6514."
+  },
+  {
+   "address": 25876,
+   "type": "line",
+   "text": "Self-modified: the operand of LDA #$00 at $6513, the colour save_rows clears the message rows to: 5 (green) for an extra's name, 2 (red) for LASER OVERHEATED."
+  },
+  {
+   "address": 25886,
+   "type": "line",
+   "text": "Sets sprites 1-7 exploding, all but the discs and those already exploding, each with 10 points and one off the disc countdown. It does not test sprite_enable, so a slot with no alien in it scores and counts too."
+  },
+  {
+   "address": 25958,
+   "type": "line",
+   "text": "Clears the meter sprite at $2700 (63 bytes)."
+  },
+  {
+   "address": 25969,
+   "type": "line",
+   "text": "Fills the meter sprite at $2700 with the 21-byte pattern at $6586, three times."
+  },
+  {
+   "address": 26011,
+   "type": "line",
+   "text": "While the Electro Shield is on, every sixth frame clears one more byte of the meter sprite; when all 63 are clear the shield ends (icon dark). The Hyper Brakes' meter runs the same way, and when it ends the input rate goes back to every 2 frames."
+  },
+  {
+   "address": 26119,
+   "type": "line",
+   "text": "Pause: RUN/STOP, or cursor down, left SHIFT, V, N, comma or / (column 7, every row but 2), toggles paused, once per press."
+  },
+  {
+   "address": 26184,
+   "type": "line",
+   "text": "Iball has died: moves the disc sequence back to its last checkpoint (from the table at $606B) and takes away the extra given there: positions 1 (Single Lazer), 2 (Smart Missile), 4 (Bullet Spray), 8 (Twin Laser Set), 13 (Fuel Injection: vertical_limit back to 4), 18 (Lazer Cooler) and 26 (Rainbow Ripple). The next disc offers it again."
+  },
+  {
+   "address": 26406,
+   "type": "line",
+   "text": "With the Single Lazer: fires a laser beam the way Iball faces (laser_right or laser_left); with the Twin Laser Set as well, both ways. Each beam takes a free slot of eight."
+  },
+  {
+   "address": 26439,
+   "type": "line",
+   "text": "Starts a beam to the right of Iball, if a slot is free and the character beside him is not a wall: its row, length, direction and limit. The laser sound plays unless the Rainbow Ripple is on."
+  },
+  {
+   "address": 26497,
+   "type": "line",
+   "text": "Self-modified: the operand of ADC #$01 at $6780, set by the STA at $6769."
+  },
+  {
+   "address": 26507,
+   "type": "line",
+   "text": "Self-modified: the low byte of the address in LDA $AD9C at $678A, set by the STA at $6782."
+  },
+  {
+   "address": 26508,
+   "type": "line",
+   "text": "Self-modified: the high byte of the address in LDA $AD9C at $678A, set by the STA at $6779, the INC at $6787."
+  },
+  {
+   "address": 26534,
+   "type": "line",
+   "text": "Self-modified: the operand of LDA #$00 at $67A5, set by the STA at $676C."
+  },
+  {
+   "address": 26548,
+   "type": "line",
+   "text": "Starts a beam to the left of Iball, the same way."
+  },
+  {
+   "address": 26606,
+   "type": "line",
+   "text": "Self-modified: the operand of ADC #$00 at $67ED, set by the STA at $67D6."
+  },
+  {
+   "address": 26616,
+   "type": "line",
+   "text": "Self-modified: the low byte of the address in LDA $AD9C at $67F7, set by the STA at $67EF."
+  },
+  {
+   "address": 26617,
+   "type": "line",
+   "text": "Self-modified: the high byte of the address in LDA $AD9C at $67F7, set by the STA at $67E6, the INC at $67F4."
+  },
+  {
+   "address": 26643,
+   "type": "line",
+   "text": "Self-modified: the operand of LDA #$00 at $6812, set by the STA at $67D9."
+  },
+  {
+   "address": 26654,
+   "type": "line",
+   "text": "Grows or shrinks every right-hand beam (move_beam_right), then the left-hand ones (from $6909)."
+  },
+  {
+   "address": 26670,
+   "type": "line",
+   "text": "Self-modified: the operand of LDX #$00 at $682D, set by the STX at $6827."
+  },
+  {
+   "address": 26679,
+   "type": "line",
+   "text": "One frame of a right-hand beam: unless a row has just been drawn, clears its characters; then it grows (to eight characters) as it moves right, and once it reaches column $20 or a wall it shrinks from behind until it is gone, when it ends (end_beam_right). Its characters are 4, the laser character. The test at $683B meant to end a beam on a row drawn away never ends one: both of its branches go on."
+  },
+  {
+   "address": 26735,
+   "type": "line",
+   "text": "Self-modified: the low byte of the address in STA $AD9C at $686E, set by the STA at $685A."
+  },
+  {
+   "address": 26736,
+   "type": "line",
+   "text": "Self-modified: the high byte of the address in STA $AD9C at $686E, set by the STA at $6850, the INC at $685F."
+  },
+  {
+   "address": 26739,
+   "type": "line",
+   "text": "Self-modified: the operand of CPY #$00 at $6872, set by the STA at $6869."
+  },
+  {
+   "address": 26841,
+   "type": "line",
+   "text": "Self-modified: the low byte of the address in LDA $AD9C at $68D8, set by the STA at $68C5."
+  },
+  {
+   "address": 26842,
+   "type": "line",
+   "text": "Self-modified: the high byte of the address in LDA $AD9C at $68D8, set by the STA at $68B8, the INC at $68CD."
+  },
+  {
+   "address": 26860,
+   "type": "line",
+   "text": "Self-modified: the low byte of the address in STA $AD9C at $68EB, set by the STA at $68C2."
+  },
+  {
+   "address": 26861,
+   "type": "line",
+   "text": "Self-modified: the high byte of the address in STA $AD9C at $68EB, set by the STA at $68B5, the INC at $68CA."
+  },
+  {
+   "address": 26864,
+   "type": "line",
+   "text": "Self-modified: the operand of CPY #$00 at $68EF, set by the STA at $68D5."
+  },
+  {
+   "address": 26868,
+   "type": "line",
+   "text": "Frees right-hand beam X."
+  },
+  {
+   "address": 26905,
+   "type": "line",
+   "text": "Self-modified: the operand of LDX #$00 at $6918, set by the STX at $6912."
+  },
+  {
+   "address": 26912,
+   "type": "line",
+   "text": "The same for a left-hand beam, moving left to column 8."
+  },
+  {
+   "address": 26968,
+   "type": "line",
+   "text": "Self-modified: the low byte of the address in STA $AD9C at $6957, set by the STA at $6943, the STA at $6960."
+  },
+  {
+   "address": 26969,
+   "type": "line",
+   "text": "Self-modified: the high byte of the address in STA $AD9C at $6957, set by the STA at $6939, the INC at $6948, the DEC at $6965."
+  },
+  {
+   "address": 26986,
+   "type": "line",
+   "text": "Self-modified: the operand of CPY #$00 at $6969, set by the STA at $6952."
+  },
+  {
+   "address": 27088,
+   "type": "line",
+   "text": "Self-modified: the low byte of the address in LDA $AD9C at $69CF, set by the STA at $69BC, the STA at $69EB."
+  },
+  {
+   "address": 27089,
+   "type": "line",
+   "text": "Self-modified: the high byte of the address in LDA $AD9C at $69CF, set by the STA at $69AF, the INC at $69C4, the DEC at $69F0."
+  },
+  {
+   "address": 27107,
+   "type": "line",
+   "text": "Self-modified: the low byte of the address in STA $AD9C at $69E2, set by the STA at $69B9, the STA at $69F9."
+  },
+  {
+   "address": 27108,
+   "type": "line",
+   "text": "Self-modified: the high byte of the address in STA $AD9C at $69E2, set by the STA at $69AC, the INC at $69C1, the DEC at $69FE."
+  },
+  {
+   "address": 27139,
+   "type": "line",
+   "text": "Self-modified: the operand of CPY #$00 at $6A02, set by the STA at $69CC."
+  },
+  {
+   "address": 27143,
+   "type": "line",
+   "text": "Frees left-hand beam X."
+  },
+  {
+   "address": 27171,
+   "type": "line",
+   "text": "With the Rainbow Ripple, starts a ripple if none is running: a band five characters wide, centred on Iball, going up, or down when the last push was down; and its sound."
+  },
+  {
+   "address": 27296,
+   "type": "line",
+   "text": "One frame of the ripple: puts the wall colour back where it was, clears its characters (5), grows the band by a row (up to nine rows) as it moves, writing character 5 in the empty cells with the row count as colour, so the rows flash in many colours; ends at the screen's top or bottom."
+  },
+  {
+   "address": 27365,
+   "type": "line",
+   "text": "Self-modified: the low byte of the address in STA $AD9C at $6AE4, set by the STA at $6AC7, the STA at $6AF0."
+  },
+  {
+   "address": 27366,
+   "type": "line",
+   "text": "Self-modified: the high byte of the address in STA $AD9C at $6AE4, set by the STA at $6ABD, the INC at $6AD2, the INC at $6AF5."
+  },
+  {
+   "address": 27395,
+   "type": "line",
+   "text": "Self-modified: the low byte of the address in LDA $AD9C at $6B02, set by the STA at $6ACD, the STA at $6B1A."
+  },
+  {
+   "address": 27396,
+   "type": "line",
+   "text": "Self-modified: the high byte of the address in LDA $AD9C at $6B02, set by the STA at $6AB7, the INC at $6AD8, the INC at $6B1F."
+  },
+  {
+   "address": 27407,
+   "type": "line",
+   "text": "Self-modified: the low byte of the address in STA $AD9C at $6B0E, set by the STA at $6ACA, the STA at $6B25."
+  },
+  {
+   "address": 27408,
+   "type": "line",
+   "text": "Self-modified: the high byte of the address in STA $AD9C at $6B0E, set by the STA at $6AB4, the INC at $6AD5, the STA at $6B2B."
+  },
+  {
+   "address": 27546,
+   "type": "line",
+   "text": "Self-modified: the low byte of the address in LDA $AD9C at $6B99, set by the STA at $6B80, the STA at $6BB3."
+  },
+  {
+   "address": 27547,
+   "type": "line",
+   "text": "Self-modified: the high byte of the address in LDA $AD9C at $6B99, set by the STA at $6B6E, the INC at $6B8B, the INC at $6BB8."
+  },
+  {
+   "address": 27556,
+   "type": "line",
+   "text": "Self-modified: the low byte of the address in STA $AD9C at $6BA3, set by the STA at $6B83, the STA at $6BBE."
+  },
+  {
+   "address": 27557,
+   "type": "line",
+   "text": "Self-modified: the high byte of the address in STA $AD9C at $6BA3, set by the STA at $6B71, the INC at $6B8E, the STA at $6BC4."
+  },
+  {
+   "address": 27560,
+   "type": "line",
+   "text": "Self-modified: the low byte of the address in STA $AD9C at $6BA7, set by the STA at $6B86, the STA at $6BCD."
+  },
+  {
+   "address": 27561,
+   "type": "line",
+   "text": "Self-modified: the high byte of the address in STA $AD9C at $6BA7, set by the STA at $6B77, the INC at $6B91, the INC at $6BD2."
+  },
+  {
+   "address": 27609,
+   "type": "line",
+   "text": "Ends the ripple: clears its table at $6A1C."
+  },
+  {
+   "address": 27688,
+   "type": "line",
+   "text": "Self-modified: the low byte of the address in STA $AD9C at $6C27, set by the STA at $6C0A, the STA at $6C33."
+  },
+  {
+   "address": 27689,
+   "type": "line",
+   "text": "Self-modified: the high byte of the address in STA $AD9C at $6C27, set by the STA at $6C00, the INC at $6C15, the DEC at $6C38."
+  },
+  {
+   "address": 27718,
+   "type": "line",
+   "text": "Self-modified: the low byte of the address in LDA $AD9C at $6C45, set by the STA at $6C10, the STA at $6C5D."
+  },
+  {
+   "address": 27719,
+   "type": "line",
+   "text": "Self-modified: the high byte of the address in LDA $AD9C at $6C45, set by the STA at $6BFA, the INC at $6C1B, the DEC at $6C62."
+  },
+  {
+   "address": 27730,
+   "type": "line",
+   "text": "Self-modified: the low byte of the address in STA $AD9C at $6C51, set by the STA at $6C0D, the STA at $6C68."
+  },
+  {
+   "address": 27731,
+   "type": "line",
+   "text": "Self-modified: the high byte of the address in STA $AD9C at $6C51, set by the STA at $6BF7, the INC at $6C18, the STA at $6C6E."
+  },
+  {
+   "address": 27869,
+   "type": "line",
+   "text": "Self-modified: the low byte of the address in LDA $AD9C at $6CDC, set by the STA at $6CC3, the STA at $6CF6."
+  },
+  {
+   "address": 27870,
+   "type": "line",
+   "text": "Self-modified: the high byte of the address in LDA $AD9C at $6CDC, set by the STA at $6CB1, the INC at $6CCE, the DEC at $6CFB."
+  },
+  {
+   "address": 27879,
+   "type": "line",
+   "text": "Self-modified: the low byte of the address in STA $AD9C at $6CE6, set by the STA at $6CC6, the STA at $6D01."
+  },
+  {
+   "address": 27880,
+   "type": "line",
+   "text": "Self-modified: the high byte of the address in STA $AD9C at $6CE6, set by the STA at $6CB4, the INC at $6CD1, the STA at $6D07."
+  },
+  {
+   "address": 27883,
+   "type": "line",
+   "text": "Self-modified: the low byte of the address in STA $AD9C at $6CEA, set by the STA at $6CC9, the STA at $6D10."
+  },
+  {
+   "address": 27884,
+   "type": "line",
+   "text": "Self-modified: the high byte of the address in STA $AD9C at $6CEA, set by the STA at $6CBA, the INC at $6CD4, the DEC at $6D15."
+  },
+  {
+   "address": 27933,
+   "type": "line",
+   "text": "The game's first instruction, and where the end of every game comes back to. Installs the title interrupt (four times), starts the music, clears the screen, writes the title page and its sprites, then says \"IBALL!\" (sample 0, pitch $8C), waits for it, says it again four times with short waits between, waits, says it once more at a lower pitch ($5A), and waits. Then the title loop: fire or the column-1 keys (W, R, Y, I, P, * or left-arrow) start a game, unless a sample is playing; the music stops when music was not chosen."
+  },
+  {
+   "address": 28071,
+   "type": "line",
+   "text": "Installs the title screen's interrupt: CIA 1's interrupts off (with zero page $7F, as in init_game_irq), its timer stopped, a raster interrupt at line 0 going to title_irq ($6DD7), $01 = $35. Its read of $D0CD (a mirror of $D00D) does nothing."
+  },
+  {
+   "address": 28119,
+   "type": "line",
+   "text": "The title screen's interrupt, once a frame: runs the music driver, selects the character set at $3800, multicolour text off, border and background black, extended colour off, 25 rows, fine scroll 3. Reads 1 (music: music_flag 1) and 2 (effects: 0) and shows MUSIC or FX in the bottom row. Steps sprite 4's colour (Glow Ball's glow). Plays a speech sample on a key: cursor down, left SHIFT, X, V, N, comma or / say sample 0 (\"IBALL!\"), Z, B or right SHIFT sample 1, full stop, right SHIFT or SPACE sample 2. The stick in port 2 sets the pitch: up raises it, down lowers it, through the CIA timer value at $C021 from $5A to $FA."
+  },
+  {
+   "address": 28369,
+   "type": "line",
+   "text": "Self-modified: the interrupt handler saves A here with the STA at $6DD7 on entry, and the LDA #$00 at $6ED0 puts it back on the way out."
+  },
+  {
+   "address": 28371,
+   "type": "line",
+   "text": "Self-modified: the interrupt handler saves X here with the STX at $6DDA on entry, and the LDX #$00 at $6ED2 puts it back on the way out."
+  },
+  {
+   "address": 28373,
+   "type": "line",
+   "text": "Self-modified: the interrupt handler saves Y here with the STY at $6DDD on entry, and the LDY #$00 at $6ED4 puts it back on the way out."
+  },
+  {
+   "address": 28375,
+   "type": "line",
+   "text": "Puts the six sprites of the title screen: two Iballs beside the title and the four friends below RESCUE, with their colours, multicolours and pointers ($94, $97, $F1-$F4)."
+  },
+  {
+   "address": 28520,
+   "type": "line",
+   "text": "Writes the title page: FIREBIRD SOFTWARE, PRESENTS, IBALL, COMMODORE VERSION BY ANDREW BETTS, RESCUE, PRESS FIRE TO PLAY, the four friends' names and 1 MUSIC ON 2 FX ON, each in its colour."
+  },
+  {
+   "address": 28708,
+   "type": "line",
+   "text": "The rest of title_text: the four friends' names under their sprites and the line 1 MUSIC ON 2 FX ON."
+  },
+  {
+   "address": 49153,
+   "type": "line",
+   "text": "Starts the sample whose first and last pages are in sample_first and sample_end: points the player's two reads ($C1A9/$C1AA, $C1B4/$C1B5) at the first page, sets CIA 2's timer A to the pitch (its own operand at $C021, $5A-$FA cycles) and its interrupt on, so the timer raises an NMI every pitch cycles, and sets sample_busy. Its INC $0185,X changes a byte of the stack page and does nothing for the sample."
+  },
+  {
+   "address": 49185,
+   "type": "line",
+   "text": "Self-modified: the operand of LDA #$8C at $C020, the speech pitch: CIA 2 timer A's count, so the cycles between two of the sample's four-bit volumes. The game sets $8C and $5A; on the title screen the stick moves it between $5A and $FA."
+  },
+  {
+   "address": 49214,
+   "type": "line",
+   "text": "Ends the sample: CIA 2's interrupts off, its timer A stopped (one-shot mode), the KERNAL's NMI vector at $0318 set to $FE47 (unused while the KERNAL is banked out) and sample_busy cleared."
+  },
+  {
+   "address": 49503,
+   "type": "line",
+   "text": "Fills the 256 bytes at $C05F with each index's high four bits (byte N holds N / 16): the table the player turns a sample byte's upper half into a volume with. It means to skip the work when the table is there already, but it tests the last byte for $10 where the table holds $0F, so it builds it on every call."
+  },
+  {
+   "address": 49540,
+   "type": "line",
+   "text": "Starts a sample: the NMI vector at $FFFA to sample_nmi, the high-nybble table, then sample_start."
+  },
+  {
+   "address": 49550,
+   "type": "line",
+   "text": "Points the hardware NMI vector at sample_nmi ($C199)."
+  },
+  {
+   "address": 49561,
+   "type": "line",
+   "text": "The sample player, on every CIA 2 timer NMI: each sample byte holds two four-bit volumes, played one per NMI through the SID's volume register ($D418), the lower half first and then the upper (looked up in the table at $C05F), when the pointer moves on. At the end page it stops (sample_stop). The half it plays is the low bit of its own operand at $C1A3, counted up each NMI."
+  },
+  {
+   "address": 49571,
+   "type": "line",
+   "text": "Self-modified: the operand of LDA #$00 at $C1A2, set by the INC at $C19F."
+  },
+  {
+   "address": 49577,
+   "type": "line",
+   "text": "Self-modified: the low byte of the address in LDA $C05F at $C1A8, set by the STA at $C003, the STA at $C01A, the INC at $C1C0."
+  },
+  {
+   "address": 49578,
+   "type": "line",
+   "text": "Self-modified: the high byte of the address in LDA $C05F at $C1A8, set by the STA at $C012, the INC at $C1C5."
+  },
+  {
+   "address": 49588,
+   "type": "line",
+   "text": "Self-modified: the low byte of the address in LDA $C05F at $C1B3, set by the STA at $C006, the STA at $C01D, the INC at $C1BD."
+  },
+  {
+   "address": 49589,
+   "type": "line",
+   "text": "Self-modified: the high byte of the address in LDA $C05F at $C1B3, set by the STA at $C015, the INC at $C1C8."
+  },
+  {
+   "address": 49651,
+   "type": "line",
+   "text": "Plays speech sample A (0 \"IBALL!\", 1 \"OH NO!\", 2 \"GAME OVER!\"): takes its first and end pages from sample_first_pages and sample_end_pages and starts it (play_sample)."
+  },
+  {
+   "address": 57353,
+   "type": "line",
+   "text": "The music driver, called once a frame by the title screen and, in play, when music was chosen. Its state byte music_state says what to do: $00 play; $40 reset the three voices and start from the beginning; $C0 silence the voices, then stay stopped ($80). Playing: for each voice, steps its track (a list of pattern numbers) and its pattern (notes with lengths, instrument changes and slides), and each frame applies the instrument's effects: vibrato, pulse-width sweep, arpeggio, filter sweep and others."
+  },
+  {
+   "address": 57772,
+   "type": "line",
+   "text": "A note ending: when the pattern's bit 5 is clear, the note's length has run out and the driver's tempo counter is at 0, releases the voice (attack, sustain and release 0) and changes the border colour (INC $D020). None of these instructions ran in the play recorded for the code map."
+  },
+  {
+   "address": 58050,
+   "type": "line",
+   "text": "Self-modified: the operand of CMP #$0E at $E2C1, set by the STA at $E2A9."
+  },
+  {
+   "address": 58076,
+   "type": "line",
+   "text": "Self-modified: the operand of CMP #$08 at $E2DB, set by the STA at $E29F."
+  },
+  {
+   "address": 58428,
+   "type": "line",
+   "text": "Steps the driver's three-frame counter (for the arpeggio), and returns."
+  },
+  {
+   "address": 58437,
+   "type": "line",
+   "text": "The note frequency table at $E447 read one note down: the slide at $E228 reads entries at $E445 and $E446 plus twice the note, which are the previous note's. These two addresses are only that table's base minus 2, inside the code before it."
+  },
+  {
+   "address": 58438,
+   "type": "line",
+   "text": "The RTS that ends music_play. The label here is the note table base minus 1 (see $E445): the slide reads the previous note's high byte through it."
+  },
+  {
+   "address": 58655,
+   "type": "line",
+   "text": "Starts the music: full volume ($D418 = $1F) and the driver's state to \"start\" ($40)."
+  },
+  {
+   "address": 58666,
+   "type": "line",
+   "text": "Stops the music: the driver's state to \"silence and stop\" ($C0)."
+  },
+  {
+   "address": 60758,
+   "type": "line",
+   "text": "The sound effects player, called once a frame in play when effects were chosen. Each voice takes requests in its byte at $ED50-$ED52: bit 7 set is idle, $40 plus a number starts that effect (effect_start), and anything else runs the effect: a frequency that slides up or down by a step that itself changes, by a script of steps (the scripts' addresses at $EF96/$EF9E), with its waveform and its gate held for a length, then the voice off and the request back to idle ($FF)."
+  },
+  {
+   "address": 60826,
+   "type": "line",
+   "text": "Self-modified: the low byte of the address in LDA $C000 at $ED99, set by the STA at $ED8D."
+  },
+  {
+   "address": 60827,
+   "type": "line",
+   "text": "Self-modified: the high byte of the address in LDA $C000 at $ED99, set by the STA at $ED93."
+  },
+  {
+   "address": 61350,
+   "type": "line",
+   "text": "Starts effect N on voice X from its eight-byte definitions in the tables at $F0BA and $F16A: the start frequency, the step and its change, waveform, gate time, a second waveform and its length, the script, and the pitch (a note from the table at $EE93). Writes the first seven SID registers of the voice from the definition, and sets the volume to 15."
+  }
+ ]
 }
