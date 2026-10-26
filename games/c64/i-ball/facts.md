@@ -8,6 +8,8 @@ tests are listed at the end.
 
 ## Build
 
+- The contributor's copy comes from the OneLoad64 games collection,
+  version 5 (the contributor, 26 October 2026).
 - One program file, `I_Ball.prg`, loading at `$0314` and running to
   `$FFFF`: a memory image of the game, not the tape. Its own hook
   (`start_hook`, `$033C`) starts it; `orientation.md` says why it cannot be
@@ -282,9 +284,10 @@ stays 0), and CIA timers other than CIA 2's A.
 
 ## Open questions
 
-- Which release the image was saved from; no second copy was compared.
-- Whether the three samples say exactly what C64-Wiki says; the names
-  rest on where they are played.
+- Which release the image was saved from. The contributor's copy came
+  from the OneLoad64 games collection, version 5, which loads each game
+  as one file; whether the code inside is the original release's or
+  another crack's, unknown: no second copy was compared.
 
 ## The listing's error rate
 

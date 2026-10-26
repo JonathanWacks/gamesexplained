@@ -56,7 +56,7 @@ image: neither of its keys is read (see the last row).
 | Title screen: I, O, G play the samples "IBALL!", "OH NO!", "GAME OVER!" | differs | *live*: I starts a game, O and G do nothing; X (or its group) says sample 0, Z sample 1, SPACE sample 2 (`title_irq`) |
 | Title screen: joystick forward and back raise and lower the samples' pitch | confirmed | `title_irq`, `sample_pitch` from `$5A` to `$FA` |
 | Rob Hubbard's music, after Cabaret Voltaire's "Whip Blow" and "I Want You" | traced | `music_play` and its data; the credit is the sources', not the game's |
-| Three digitised speech samples (credited to Simon Pick) | confirmed | `say`, `sample_nmi`, three samples at `$A000`; the credit is C64-Wiki's |
+| Three digitised speech samples (credited to Simon Pick) | confirmed | `say`, `sample_nmi`, three samples at `$A000`; the contributor heard them say "IBALL!", "OH NO!" and "GAME OVER!" (26 October 2026); the credit is C64-Wiki's |
 | No high-score table | confirmed | nothing stores the score past `game_over_screen` |
 | REMEMBER version only: CLR/HOME abandons the game, Q returns to the last starting point, trainer options | open | not this image: no test reads CLR/HOME alone; Q is only one of the up keys; searched every `$DC00` write in the listing |
 | The game's own list of disc rewards, 17 names in screen codes | confirmed | `extra_names` |
@@ -79,5 +79,6 @@ Found in the code, not in the manual.
 
 ## Open questions
 
-- Which release is this image? It is not REMEMBER's version; whether it
-  is the original or another crack is unknown.
+- Which release is this image? It came from the OneLoad64 games
+  collection, version 5, and is not REMEMBER's version; whether the code
+  is the original release's or another crack's is unknown.

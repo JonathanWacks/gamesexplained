@@ -17,9 +17,9 @@ open; one sample of the listing's comments checked.
 
 ## Open questions
 
-- Which release is this image? Not REMEMBER's improved version; whether it
-  is the original or another crack is unknown.
-- Whether the three samples say exactly the words C64-Wiki gives them.
+- Which release is this image? It came from the OneLoad64 games
+  collection, version 5, not REMEMBER's improved version; whether the code
+  is the original release's or another crack's is unknown.
 - The laser-hit slip in `alien_shot` (it frees shot slot 0-3) is traced,
   not seen in play.
 
