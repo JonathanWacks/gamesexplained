@@ -1,4 +1,4 @@
-## next · 2026-10-25 · The Sacred Armour of Antiriad (C64) · air with Claude
+## 0.0.242 · 2026-10-25 · The Sacred Armour of Antiriad (C64) · air with Claude
 
 - **Play a recording on a port by the game's reads of the input, not by
   the frame.** The Maps page's route is the stick a frame at a time, and
