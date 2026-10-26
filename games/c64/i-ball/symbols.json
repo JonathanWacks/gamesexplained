@@ -15,9 +15,110 @@
     53248,
     57343,
     "I/O and colour RAM"
+   ],
+   [
+    1024,
+    2047,
+    "screen RAM"
+   ],
+   [
+    0,
+    255,
+    "runtime: zero page, the game's variables (named in the listing) and the music driver's pointers"
+   ],
+   [
+    512,
+    827,
+    "system: the KERNAL's work area, which the game does not use once it runs"
+   ],
+   [
+    903,
+    1023,
+    "system: the rest of the cassette buffer and the KERNAL's vectors after start_hook"
+   ],
+   [
+    1024,
+    2047,
+    "runtime: the screen and the sprite pointers, written by clear_screen, draw_playfield and the text routines"
+   ],
+   [
+    2048,
+    2429,
+    "never read: the RAM's power-on pattern ($00 and $FF in blocks) and zeros"
+   ],
+   [
+    2430,
+    8191,
+    "runtime: the map buffer, built from the level's tile list by build_level_map at the start of every level (at the hand-over it holds a map, and at $1FB3 the text SEARCHING LOADING BLOCK? REWIND TO, which the build overwrites); the last two bytes are never written or read"
+   ],
+   [
+    16384,
+    16559,
+    "runtime: the shot table and the variables after it, cleared by new_game and reset_level; at the hand-over they hold leftover code"
+   ],
+   [
+    16816,
+    16860,
+    "runtime: the per-sprite sets and the extras flags; at the hand-over they hold leftover code"
+   ],
+   [
+    28833,
+    29183,
+    "never read: zeros, with seven stray bytes at $70A7"
+   ],
+   [
+    35968,
+    40959,
+    "never read: the RAM's power-on pattern, with leftovers of a loader at $8CD0-$8DFF (code that copies memory and sets up the screen, and two lines of text), which the game never runs"
+   ],
+   [
+    49247,
+    49502,
+    "runtime: the high-nybble table, built by make_nybble_table before every sample"
+   ],
+   [
+    49920,
+    53247,
+    "never read: the RAM's power-on pattern"
+   ],
+   [
+    53248,
+    57343,
+    "never read: RAM under the I/O area, which the game never banks in for the processor and the video chip (bank 0) cannot see. $D000-$D3FF holds what looks like map rows, left from before the image was saved; the rest is the RAM's power-on pattern"
+   ],
+   [
+    61978,
+    65529,
+    "never read: leftovers after the effects' definitions, which no pointer reaches: four-bit data like the speech samples', multicolour graphics, and at $FF00 the text **LOADING 12"
+   ],
+   [
+    65530,
+    65535,
+    "runtime: the hardware NMI and IRQ vectors, written by set_sample_nmi and the interrupt handlers"
    ]
   ],
-  "extra": [],
+  "extra": [
+   [
+    12288,
+    14335,
+    "character set"
+   ],
+   [
+    8192,
+    12287,
+    "the sprite shapes $80-$BF: the panels' icons, timer digits, score and meter sprites, Iball's roll, the aliens, the disc, the explosions and the pieces"
+   ],
+   [
+    12288,
+    14335,
+    "the playfield's character set, which the video chip reads through $D018 (the animated characters at $36F0 and the dot at $37F8 are rewritten in play)"
+   ],
+   [
+    14336,
+    16383,
+    "the text character set of the title and the screens between levels, with the sprite shapes $E0-$FF above it: the lives, the friends and the explosion"
+   ]
+  ],
   "edges": [
    0,
    256,
@@ -46,18 +147,38 @@
   },
   {
    "start": 903,
-   "end": 17002,
+   "end": 8191,
    "type": "Undefined"
   },
   {
-   "start": 17003,
+   "start": 8192,
+   "end": 16383,
+   "type": "Byte"
+  },
+  {
+   "start": 16384,
+   "end": 16559,
+   "type": "Undefined"
+  },
+  {
+   "start": 16560,
+   "end": 16815,
+   "type": "Byte"
+  },
+  {
+   "start": 16816,
+   "end": 16860,
+   "type": "Undefined"
+  },
+  {
+   "start": 16861,
    "end": 18528,
    "type": "Code"
   },
   {
    "start": 18529,
    "end": 18592,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 18593,
@@ -67,7 +188,7 @@
   {
    "start": 19167,
    "end": 19246,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 19247,
@@ -77,7 +198,7 @@
   {
    "start": 19485,
    "end": 19508,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 19509,
@@ -87,27 +208,17 @@
   {
    "start": 19544,
    "end": 19645,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 19646,
-   "end": 19693,
-   "type": "Code"
-  },
-  {
-   "start": 19694,
-   "end": 19775,
-   "type": "Undefined"
-  },
-  {
-   "start": 19776,
    "end": 20721,
    "type": "Code"
   },
   {
    "start": 20722,
    "end": 20734,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 20735,
@@ -117,7 +228,7 @@
   {
    "start": 21444,
    "end": 21606,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 21607,
@@ -127,7 +238,7 @@
   {
    "start": 21852,
    "end": 21883,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 21884,
@@ -137,7 +248,7 @@
   {
    "start": 22096,
    "end": 22111,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 22112,
@@ -147,7 +258,7 @@
   {
    "start": 22155,
    "end": 22162,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 22163,
@@ -157,7 +268,7 @@
   {
    "start": 22215,
    "end": 22230,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 22231,
@@ -167,7 +278,7 @@
   {
    "start": 22391,
    "end": 22440,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 22441,
@@ -177,7 +288,7 @@
   {
    "start": 22864,
    "end": 22872,
-   "type": "Undefined"
+   "type": "Screencode Text"
   },
   {
    "start": 22873,
@@ -187,7 +298,7 @@
   {
    "start": 22894,
    "end": 22908,
-   "type": "Undefined"
+   "type": "Screencode Text"
   },
   {
    "start": 22909,
@@ -197,7 +308,7 @@
   {
    "start": 22958,
    "end": 22989,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 22990,
@@ -207,7 +318,7 @@
   {
    "start": 23186,
    "end": 23236,
-   "type": "Undefined"
+   "type": "Screencode Text"
   },
   {
    "start": 23237,
@@ -217,7 +328,7 @@
   {
    "start": 23393,
    "end": 23435,
-   "type": "Undefined"
+   "type": "Screencode Text"
   },
   {
    "start": 23436,
@@ -227,7 +338,7 @@
   {
    "start": 23800,
    "end": 23815,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 23816,
@@ -237,7 +348,7 @@
   {
    "start": 24020,
    "end": 24036,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 24037,
@@ -247,7 +358,7 @@
   {
    "start": 24170,
    "end": 24186,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 24187,
@@ -257,7 +368,7 @@
   {
    "start": 24614,
    "end": 24621,
-   "type": "Undefined"
+   "type": "Screencode Text"
   },
   {
    "start": 24622,
@@ -266,8 +377,18 @@
   },
   {
    "start": 24683,
+   "end": 24874,
+   "type": "Byte"
+  },
+  {
+   "start": 24875,
+   "end": 25282,
+   "type": "Screencode Text"
+  },
+  {
+   "start": 25283,
    "end": 25314,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 25315,
@@ -277,7 +398,7 @@
   {
    "start": 25375,
    "end": 25418,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 25419,
@@ -287,7 +408,7 @@
   {
    "start": 25832,
    "end": 25855,
-   "type": "Undefined"
+   "type": "Screencode Text"
   },
   {
    "start": 25856,
@@ -297,7 +418,7 @@
   {
    "start": 25990,
    "end": 26010,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 26011,
@@ -307,7 +428,7 @@
   {
    "start": 26286,
    "end": 26405,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 26406,
@@ -317,7 +438,7 @@
   {
    "start": 27164,
    "end": 27170,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 27171,
@@ -336,8 +457,13 @@
   },
   {
    "start": 28619,
+   "end": 28619,
+   "type": "Byte"
+  },
+  {
+   "start": 28620,
    "end": 28707,
-   "type": "Undefined"
+   "type": "Screencode Text"
   },
   {
    "start": 28708,
@@ -346,6 +472,31 @@
   },
   {
    "start": 28799,
+   "end": 28828,
+   "type": "Screencode Text"
+  },
+  {
+   "start": 28829,
+   "end": 29183,
+   "type": "Undefined"
+  },
+  {
+   "start": 29184,
+   "end": 35967,
+   "type": "Byte"
+  },
+  {
+   "start": 35968,
+   "end": 40959,
+   "type": "Undefined"
+  },
+  {
+   "start": 40960,
+   "end": 49151,
+   "type": "Byte"
+  },
+  {
+   "start": 49152,
    "end": 49152,
    "type": "Undefined"
   },
@@ -356,6 +507,11 @@
   },
   {
    "start": 49210,
+   "end": 49211,
+   "type": "Byte"
+  },
+  {
+   "start": 49212,
    "end": 49213,
    "type": "Undefined"
   },
@@ -387,7 +543,7 @@
   {
    "start": 49626,
    "end": 49650,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 49651,
@@ -396,8 +552,28 @@
   },
   {
    "start": 49670,
-   "end": 57352,
+   "end": 49672,
+   "type": "Byte"
+  },
+  {
+   "start": 49673,
+   "end": 49732,
+   "type": "Code"
+  },
+  {
+   "start": 49733,
+   "end": 49919,
+   "type": "Byte"
+  },
+  {
+   "start": 49920,
+   "end": 57343,
    "type": "Undefined"
+  },
+  {
+   "start": 57344,
+   "end": 57352,
+   "type": "Byte"
   },
   {
    "start": 57353,
@@ -407,7 +583,7 @@
   {
    "start": 58439,
    "end": 58654,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 58655,
@@ -416,18 +592,18 @@
   },
   {
    "start": 58672,
-   "end": 60757,
-   "type": "Undefined"
+   "end": 60754,
+   "type": "Byte"
   },
   {
-   "start": 60758,
-   "end": 61053,
+   "start": 60755,
+   "end": 61074,
    "type": "Code"
   },
   {
-   "start": 61054,
+   "start": 61075,
    "end": 61349,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 61350,
@@ -436,6 +612,11 @@
   },
   {
    "start": 61520,
+   "end": 61977,
+   "type": "Byte"
+  },
+  {
+   "start": 61978,
    "end": 65535,
    "type": "Undefined"
   }
@@ -455,9 +636,9 @@
   },
   {
    "address": 2,
-   "name": "zpf_02",
+   "name": "sprite_ptrs",
    "type": "ZeroPageField",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 3,
@@ -479,9 +660,9 @@
   },
   {
    "address": 10,
-   "name": "zpf_0A",
+   "name": "sprite_colours",
    "type": "ZeroPageField",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 11,
@@ -503,9 +684,9 @@
   },
   {
    "address": 18,
-   "name": "zpf_12",
+   "name": "sprite_pos",
    "type": "ZeroPageField",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 19,
@@ -599,57 +780,57 @@
   },
   {
    "address": 34,
-   "name": "zpa_22",
+   "name": "sprite_x_msb",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 35,
-   "name": "zpa_23",
+   "name": "sprite_mc0",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 36,
-   "name": "zpa_24",
+   "name": "sprite_mc1",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 37,
-   "name": "zpa_25",
+   "name": "sprite_enable",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 38,
-   "name": "zpa_26",
+   "name": "dir_x",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 39,
-   "name": "zpa_27",
+   "name": "dir_y",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 40,
-   "name": "zpa_28",
+   "name": "level",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 41,
-   "name": "zpa_29",
+   "name": "sprite_speeds",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 42,
-   "name": "zpa_2A",
+   "name": "vertical_speed",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 44,
@@ -713,93 +894,93 @@
   },
   {
    "address": 57,
-   "name": "zpa_39",
+   "name": "sprite_bit",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 58,
-   "name": "zpa_3A",
+   "name": "sprite_multi",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 59,
-   "name": "zpa_3B",
+   "name": "lives",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 60,
-   "name": "zpa_3C",
+   "name": "dying",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 61,
-   "name": "zpa_3D",
+   "name": "death_colour",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 62,
-   "name": "zpa_3E",
+   "name": "background",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 63,
-   "name": "zpa_3F",
+   "name": "death_delay",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 64,
-   "name": "zpa_40",
+   "name": "wait_delay",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 65,
-   "name": "zpf_41",
+   "name": "score",
    "type": "ZeroPageField",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 71,
-   "name": "zpa_47",
+   "name": "timer_units",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 72,
-   "name": "zpa_48",
+   "name": "timer_tens",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 73,
-   "name": "zpa_49",
+   "name": "timer_frames",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 74,
-   "name": "zpa_4A",
+   "name": "in_logic",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 75,
-   "name": "zpa_4B",
+   "name": "logic_skipped",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 78,
-   "name": "zpa_4E",
+   "name": "tile_list",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 79,
@@ -809,9 +990,9 @@
   },
   {
    "address": 80,
-   "name": "zpa_50",
+   "name": "tile_ptr",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 81,
@@ -821,9 +1002,9 @@
   },
   {
    "address": 82,
-   "name": "zpa_52",
+   "name": "tile_num",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 83,
@@ -833,9 +1014,9 @@
   },
   {
    "address": 84,
-   "name": "zpa_54",
+   "name": "tile_dest",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 85,
@@ -845,45 +1026,45 @@
   },
   {
    "address": 86,
-   "name": "zpa_56",
+   "name": "tiles_left",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 87,
-   "name": "zpa_57",
+   "name": "tile_rows",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 88,
-   "name": "zpa_58",
+   "name": "map_done",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 127,
-   "name": "zpa_7F",
+   "name": "cia_mask",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 128,
-   "name": "zpa_80",
+   "name": "fine_scroll",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 129,
-   "name": "zpa_81",
+   "name": "row_drawn",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 130,
-   "name": "zpa_82",
+   "name": "map_ptr",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 131,
@@ -893,69 +1074,69 @@
   },
   {
    "address": 132,
-   "name": "zpa_84",
+   "name": "scroll_speed",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 133,
-   "name": "zpa_85",
+   "name": "scroll_dir",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 134,
-   "name": "zpa_86",
+   "name": "friction_delay",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 135,
-   "name": "zpa_87",
+   "name": "friction_reload",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 136,
-   "name": "zpa_88",
+   "name": "input_delay",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 137,
-   "name": "zpa_89",
+   "name": "input_rate",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 138,
-   "name": "zpa_8A",
+   "name": "facing_left",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 139,
-   "name": "zpa_8B",
+   "name": "roll_frame",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 140,
-   "name": "zpa_8C",
+   "name": "anim_frame",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 141,
-   "name": "zpa_8D",
+   "name": "anim_frames",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 143,
-   "name": "zpa_8F",
+   "name": "rows_scrolled",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 147,
@@ -971,50 +1152,56 @@
   },
   {
    "address": 149,
-   "name": "zpa_95",
+   "name": "level_over",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 150,
-   "name": "zpa_96",
+   "name": "probe_col",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 151,
-   "name": "zpf_97",
+   "name": "probe",
    "type": "ZeroPageField",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 163,
-   "name": "zpf_A3",
+   "name": "alien_probe",
    "type": "ZeroPageField",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 175,
-   "name": "zpa_AF",
+   "name": "hit_row",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 176,
-   "name": "zpa_B0",
+   "name": "alien_row",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 177,
-   "name": "f_00B1",
+   "name": "explode_frame",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 185,
-   "name": "zpf_B9",
+   "name": "row_lo",
    "type": "ZeroPageField",
+   "kind": "user"
+  },
+  {
+   "address": 197,
+   "name": "zpa_C5",
+   "type": "ZeroPageAbsoluteAddress",
    "kind": "auto"
   },
   {
@@ -1025,117 +1212,117 @@
   },
   {
    "address": 210,
-   "name": "zpf_D2",
+   "name": "row_hi",
    "type": "ZeroPageField",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 235,
-   "name": "zpa_EB",
+   "name": "vertical_limit",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 236,
-   "name": "zpa_EC",
+   "name": "horizontal_limit",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 237,
-   "name": "zpa_ED",
+   "name": "materialising",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 238,
-   "name": "zpa_EE",
+   "name": "start_x",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 239,
-   "name": "zpa_EF",
+   "name": "start_y",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 240,
-   "name": "zpa_F0",
+   "name": "gather_left",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 241,
-   "name": "zpa_F1",
+   "name": "piece_speed",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 242,
-   "name": "zpa_F2",
+   "name": "wall_colour",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 243,
-   "name": "zpa_F3",
+   "name": "shot_colour",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 244,
-   "name": "zpa_F4",
+   "name": "disc_countdown",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 245,
-   "name": "zpa_F5",
+   "name": "disc_index",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 246,
-   "name": "zpa_F6",
+   "name": "game_ended",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 247,
-   "name": "zpa_F7",
+   "name": "freeze",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 248,
-   "name": "zpa_F8",
+   "name": "freeze_frames",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 249,
-   "name": "zpa_F9",
+   "name": "laser_heat",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 250,
-   "name": "zpa_FA",
+   "name": "cool_count",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 251,
-   "name": "zpa_FB",
+   "name": "overheat_lock",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 252,
-   "name": "zpa_FC",
+   "name": "music_ptr",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 253,
@@ -1432,100 +1619,172 @@
    "kind": "auto"
   },
   {
+   "address": 8192,
+   "name": "sprites",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 9216,
+   "name": "sprites_90",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 9984,
-   "name": "f_2700",
+   "name": "meter_sprite",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 10048,
+   "name": "sprites_9d",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 11072,
+   "name": "sprites_ad",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 11264,
+   "name": "sprites_b0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 12288,
+   "name": "charset",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 13312,
+   "name": "charset_80",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 14064,
-   "name": "f_36F0",
+   "name": "anim_chars",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 14128,
+   "name": "charset_e6",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 14320,
-   "name": "f_37F0",
+   "name": "char_fe",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 14328,
-   "name": "f_37F8",
+   "name": "char_dot",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 14329,
+   "name": "char_dot_rows",
+   "type": "Field",
+   "kind": "user"
   },
   {
    "address": 14335,
-   "name": "a_37FF",
+   "name": "char_dot_last",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 14336,
+   "name": "charset_text",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 14656,
+   "name": "charset_sprites",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 15680,
+   "name": "sprites_f5",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 16376,
-   "name": "f_3FF8",
+   "name": "char_dot_text",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16384,
-   "name": "f_4000",
+   "name": "shot_col",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16409,
-   "name": "f_4019",
+   "name": "shot_row",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16434,
-   "name": "f_4032",
+   "name": "shot_char",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16459,
-   "name": "f_404B",
+   "name": "shot_col_ram",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16484,
-   "name": "f_4064",
+   "name": "shot_dir",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16509,
-   "name": "f_407D",
+   "name": "shot_live",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16534,
-   "name": "a_4096",
+   "name": "up_shot_col",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16535,
-   "name": "a_4097",
+   "name": "up_shot_row",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16536,
-   "name": "a_4098",
+   "name": "last_push",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16537,
-   "name": "a_4099",
+   "name": "shot_char_now",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16539,
@@ -1535,9 +1794,9 @@
   },
   {
    "address": 16540,
-   "name": "f_409C",
+   "name": "score_adder",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16543,
@@ -1553,230 +1812,272 @@
   },
   {
    "address": 16546,
-   "name": "f_40A2",
+   "name": "alien_kind",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16554,
-   "name": "a_40AA",
+   "name": "random_index",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16560,
-   "name": "f_40B0",
+   "name": "random_table",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16816,
-   "name": "a_41B0",
+   "name": "forming",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16817,
-   "name": "f_41B1",
+   "name": "forming_frames",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16825,
-   "name": "a_41B9",
+   "name": "exploding",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16826,
-   "name": "a_41BA",
+   "name": "spawn_blocked",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16827,
-   "name": "a_41BB",
+   "name": "colour_cycle",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16828,
-   "name": "a_41BC",
+   "name": "is_disc",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16829,
-   "name": "a_41BD",
+   "name": "single_laser",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16830,
-   "name": "f_41BE",
+   "name": "turbo_on",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16831,
-   "name": "a_41BF",
+   "name": "smart_armed",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16833,
-   "name": "a_41C1",
+   "name": "spray_on",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16834,
-   "name": "a_41C2",
+   "name": "shield_on",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16835,
-   "name": "a_41C3",
+   "name": "extended_on",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16836,
-   "name": "a_41C4",
+   "name": "twin_laser",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16837,
-   "name": "a_41C5",
+   "name": "hyper_on",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16838,
-   "name": "a_41C6",
+   "name": "molecule_armed",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16839,
-   "name": "a_41C7",
+   "name": "faulty_disc",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16840,
-   "name": "a_41C8",
+   "name": "fuel_on",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16842,
-   "name": "a_41CA",
+   "name": "brakes_on",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16844,
-   "name": "a_41CC",
+   "name": "cooler_on",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16845,
-   "name": "a_41CD",
+   "name": "ripple_on",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16846,
-   "name": "a_41CE",
+   "name": "down_shot_col",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16847,
-   "name": "a_41CF",
+   "name": "down_shot_row",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16848,
-   "name": "a_41D0",
+   "name": "molecule_frames",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16849,
-   "name": "a_41D1",
+   "name": "shield_meter",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16850,
-   "name": "a_41D2",
+   "name": "brakes_meter",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16851,
-   "name": "a_41D3",
+   "name": "shield_tick",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16852,
-   "name": "a_41D4",
+   "name": "brakes_tick",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16853,
-   "name": "a_41D5",
+   "name": "paused",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16854,
-   "name": "a_41D6",
+   "name": "pause_held",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16855,
-   "name": "a_41D7",
+   "name": "laser_col",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16856,
-   "name": "a_41D8",
+   "name": "iball_col",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16857,
-   "name": "a_41D9",
+   "name": "laser_row",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16858,
-   "name": "a_41DA",
+   "name": "iball_row",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16859,
-   "name": "a_41DB",
+   "name": "facing_right",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16860,
-   "name": "a_41DC",
+   "name": "irq_top_busy",
    "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 16861,
+   "name": "old_irq_end",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 16869,
+   "name": "old_panel_top",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 16912,
+   "name": "b_4210",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 16929,
+   "name": "b_4221",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 16939,
+   "name": "old_panel_bottom",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 16964,
+   "name": "b_4244",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 16975,
+   "name": "b_424F",
+   "type": "Branch",
    "kind": "auto"
   },
   {
@@ -1834,6 +2135,12 @@
    "kind": "auto"
   },
   {
+   "address": 17173,
+   "name": "old_tbl_4315",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
    "address": 17179,
    "name": "b_431B",
    "type": "Branch",
@@ -1843,6 +2150,18 @@
    "address": 17186,
    "name": "next_level",
    "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 17189,
+   "name": "old_tbl_4325",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 17197,
+   "name": "old_tbl_432D",
+   "type": "Field",
    "kind": "user"
   },
   {
@@ -1858,9 +2177,27 @@
    "kind": "user"
   },
   {
+   "address": 17205,
+   "name": "old_tbl_4335",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
    "address": 17220,
    "name": "reset_level",
    "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 17221,
+   "name": "old_tbl_4345",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 17229,
+   "name": "old_tbl_434D",
+   "type": "Field",
    "kind": "user"
   },
   {
@@ -2291,165 +2628,177 @@
   },
   {
    "address": 18529,
-   "name": "f_4861",
+   "name": "panel_top_pos",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 18545,
-   "name": "f_4871",
+   "name": "panel_top_colours",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 18546,
-   "name": "a_4872",
+   "name": "panel_top_colour_1",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 18547,
-   "name": "a_4873",
+   "name": "panel_top_colour_2",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 18548,
-   "name": "a_4874",
+   "name": "panel_top_colour_3",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 18549,
-   "name": "a_4875",
+   "name": "panel_top_colour_4",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 18550,
-   "name": "a_4876",
+   "name": "panel_top_colour_5",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 18551,
+   "name": "panel_top_colour_6",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 18552,
+   "name": "panel_top_colour_7",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 18553,
-   "name": "f_4879",
+   "name": "panel_top_ptrs",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 18559,
-   "name": "a_487F",
+   "name": "timer_tens_ptr",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 18560,
-   "name": "a_4880",
+   "name": "timer_units_ptr",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 18561,
-   "name": "f_4881",
+   "name": "panel_bottom_pos",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 18577,
-   "name": "f_4891",
+   "name": "panel_bottom_colours",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 18578,
-   "name": "a_4892",
+   "name": "panel_bottom_colour_1",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 18579,
-   "name": "a_4893",
+   "name": "panel_bottom_colour_2",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 18580,
-   "name": "a_4894",
+   "name": "panel_bottom_colour_3",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 18581,
-   "name": "a_4895",
+   "name": "panel_bottom_colour_4",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 18582,
-   "name": "a_4896",
+   "name": "panel_bottom_colour_5",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 18583,
-   "name": "a_4897",
+   "name": "panel_bottom_colour_6",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 18584,
-   "name": "a_4898",
+   "name": "panel_bottom_colour_7",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 18585,
-   "name": "a_4899",
+   "name": "panel_bottom_ptrs",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 18586,
-   "name": "a_489A",
+   "name": "panel_bottom_ptr_1",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 18587,
-   "name": "a_489B",
+   "name": "panel_bottom_ptr_2",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 18588,
-   "name": "a_489C",
+   "name": "panel_bottom_ptr_3",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 18589,
-   "name": "a_489D",
+   "name": "panel_bottom_ptr_4",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 18590,
-   "name": "a_489E",
+   "name": "panel_bottom_ptr_5",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 18591,
-   "name": "a_489F",
+   "name": "panel_bottom_ptr_6",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 18592,
-   "name": "a_48A0",
+   "name": "panel_bottom_ptr_7",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 18593,
@@ -2765,39 +3114,39 @@
   },
   {
    "address": 19167,
-   "name": "f_4ADF",
+   "name": "roll_right",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 19175,
-   "name": "f_4AE7",
+   "name": "roll_left",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 19183,
-   "name": "f_4AEF",
+   "name": "level_ptr_lo",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 19199,
-   "name": "f_4AFF",
+   "name": "level_ptr_hi",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 19215,
-   "name": "f_4B0F",
+   "name": "level_colour3",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 19231,
-   "name": "f_4B1F",
+   "name": "level_char_colour",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 19247,
@@ -2903,15 +3252,15 @@
   },
   {
    "address": 19485,
-   "name": "f_4C1D",
+   "name": "anim_frame_lo",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 19497,
-   "name": "f_4C29",
+   "name": "anim_frame_hi",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 19509,
@@ -2945,15 +3294,15 @@
   },
   {
    "address": 19544,
-   "name": "f_4C58",
+   "name": "dot_rows",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 19594,
-   "name": "f_4C8A",
+   "name": "dot_cols",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 19646,
@@ -3002,6 +3351,78 @@
    "name": "b_4CEA",
    "type": "Branch",
    "kind": "auto"
+  },
+  {
+   "address": 19694,
+   "name": "old_dot_scroll",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 19702,
+   "name": "b_4CF6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19712,
+   "name": "b_4D00",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19719,
+   "name": "b_4D07",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19721,
+   "name": "b_4D09",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19727,
+   "name": "r_4D0F",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 19728,
+   "name": "old_dot_down",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 19736,
+   "name": "b_4D18",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19746,
+   "name": "old_dot_wrap_a",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 19751,
+   "name": "old_dot_up",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 19759,
+   "name": "b_4D2F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19771,
+   "name": "old_dot_wrap_b",
+   "type": "AbsoluteAddress",
+   "kind": "user"
   },
   {
    "address": 19776,
@@ -3785,141 +4206,141 @@
   },
   {
    "address": 21444,
-   "name": "f_53C4",
+   "name": "alien_frames",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 21452,
-   "name": "f_53CC",
+   "name": "alien_frames_1",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 21462,
-   "name": "f_53D6",
+   "name": "alien_frames_2",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 21482,
-   "name": "f_53EA",
+   "name": "alien_frames_3",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 21506,
-   "name": "f_5402",
+   "name": "alien_frames_4",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 21514,
-   "name": "f_540A",
+   "name": "alien_frames_5",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 21528,
-   "name": "f_5418",
+   "name": "alien_frames_6",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 21536,
-   "name": "f_5420",
+   "name": "screen_rows",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 21586,
-   "name": "f_5452",
+   "name": "anim_counts",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 21587,
-   "name": "a_5453",
+   "name": "anim_count_1",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 21588,
-   "name": "a_5454",
+   "name": "anim_count_2",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 21589,
-   "name": "a_5455",
+   "name": "anim_count_3",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 21590,
-   "name": "a_5456",
+   "name": "anim_count_4",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 21591,
-   "name": "a_5457",
+   "name": "anim_count_5",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 21592,
-   "name": "a_5458",
+   "name": "anim_count_6",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 21593,
-   "name": "f_5459",
+   "name": "anim_limits",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 21600,
-   "name": "a_5460",
+   "name": "anim_ptrs",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 21601,
-   "name": "a_5461",
+   "name": "anim_ptr_1",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 21602,
-   "name": "a_5462",
+   "name": "anim_ptr_2",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 21603,
-   "name": "a_5463",
+   "name": "anim_ptr_3",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 21604,
-   "name": "a_5464",
+   "name": "anim_ptr_4",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 21605,
-   "name": "a_5465",
+   "name": "anim_ptr_5",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 21606,
-   "name": "a_5466",
+   "name": "anim_ptr_6",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 21607,
@@ -4019,87 +4440,87 @@
   },
   {
    "address": 21852,
-   "name": "f_555C",
+   "name": "digit_glyph_lo",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 21862,
-   "name": "f_5566",
+   "name": "digit_glyph_hi",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 21872,
-   "name": "f_5570",
+   "name": "score_dest_lo",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 21873,
-   "name": "a_5571",
+   "name": "score_dest_lo_1",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 21874,
-   "name": "a_5572",
+   "name": "score_dest_lo_2",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 21875,
-   "name": "a_5573",
+   "name": "score_dest_lo_3",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 21876,
-   "name": "a_5574",
+   "name": "score_dest_lo_4",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 21877,
-   "name": "a_5575",
+   "name": "score_dest_lo_5",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 21878,
-   "name": "f_5576",
+   "name": "score_dest_hi",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 21879,
-   "name": "a_5577",
+   "name": "score_dest_hi_1",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 21880,
-   "name": "a_5578",
+   "name": "score_dest_hi_2",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 21881,
-   "name": "a_5579",
+   "name": "score_dest_hi_3",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 21882,
-   "name": "a_557A",
+   "name": "score_dest_hi_4",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 21883,
-   "name": "a_557B",
+   "name": "score_dest_hi_5",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 21884,
@@ -4223,9 +4644,9 @@
   },
   {
    "address": 22096,
-   "name": "f_5650",
+   "name": "alien_colours",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 22112,
@@ -4241,9 +4662,9 @@
   },
   {
    "address": 22155,
-   "name": "f_568B",
+   "name": "kind_choices",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 22163,
@@ -4271,15 +4692,15 @@
   },
   {
    "address": 22215,
-   "name": "f_56C7",
+   "name": "spawn_x",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 22223,
-   "name": "f_56CF",
+   "name": "spawn_y",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 22231,
@@ -4355,9 +4776,9 @@
   },
   {
    "address": 22391,
-   "name": "f_5777",
+   "name": "forming_colours",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 22441,
@@ -4589,9 +5010,9 @@
   },
   {
    "address": 22864,
-   "name": "f_5950",
+   "name": "txt_well_done",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 22873,
@@ -4607,9 +5028,9 @@
   },
   {
    "address": 22894,
-   "name": "f_596E",
+   "name": "txt_completed",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 22909,
@@ -4619,15 +5040,15 @@
   },
   {
    "address": 22958,
-   "name": "f_59AE",
+   "name": "level_digit_units",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 22974,
-   "name": "f_59BE",
+   "name": "level_digit_tens",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 22990,
@@ -4697,33 +5118,33 @@
   },
   {
    "address": 23186,
-   "name": "f_5A92",
+   "name": "txt_rescued",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 23202,
-   "name": "f_5AA2",
+   "name": "txt_lover",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 23212,
-   "name": "f_5AAC",
+   "name": "txt_eddy",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 23221,
-   "name": "f_5AB5",
+   "name": "txt_glow",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 23230,
-   "name": "f_5ABE",
+   "name": "txt_noball",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 23237,
@@ -4769,21 +5190,21 @@
   },
   {
    "address": 23393,
-   "name": "f_5B61",
+   "name": "txt_incredible",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 23413,
-   "name": "f_5B75",
+   "name": "txt_completed_game",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 23431,
-   "name": "f_5B87",
+   "name": "txt_iball",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 23436,
@@ -4955,9 +5376,9 @@
   },
   {
    "address": 23800,
-   "name": "f_5CF8",
+   "name": "explode_frames",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 23816,
@@ -5057,9 +5478,9 @@
   },
   {
    "address": 24020,
-   "name": "f_5DD4",
+   "name": "alien_speed_x",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 24037,
@@ -5123,9 +5544,9 @@
   },
   {
    "address": 24170,
-   "name": "f_5E6A",
+   "name": "alien_accel_y",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 24187,
@@ -5315,15 +5736,15 @@
   },
   {
    "address": 24614,
-   "name": "f_6026",
+   "name": "txt_game",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 24618,
-   "name": "f_602A",
+   "name": "txt_over",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 24622,
@@ -5357,27 +5778,33 @@
   },
   {
    "address": 24683,
-   "name": "f_606B",
+   "name": "disc_checkpoints",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 24715,
-   "name": "f_608B",
+   "name": "saved_chars",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 24795,
-   "name": "f_60DB",
+   "name": "saved_colours",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 24875,
+   "name": "extra_names",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 25283,
-   "name": "f_62C3",
+   "name": "disc_order",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 25315,
@@ -5423,15 +5850,15 @@
   },
   {
    "address": 25375,
-   "name": "f_631F",
+   "name": "extra_name_lo",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 25397,
-   "name": "f_6335",
+   "name": "extra_name_hi",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 25419,
@@ -5675,9 +6102,9 @@
   },
   {
    "address": 25832,
-   "name": "f_64E8",
+   "name": "txt_overheat",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 25856,
@@ -5747,9 +6174,9 @@
   },
   {
    "address": 25990,
-   "name": "f_6586",
+   "name": "meter_pattern",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 26011,
@@ -5873,75 +6300,75 @@
   },
   {
    "address": 26286,
-   "name": "f_66AE",
+   "name": "beam_r_back",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 26296,
-   "name": "f_66B8",
+   "name": "beam_r_front",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 26306,
-   "name": "f_66C2",
+   "name": "beam_r_length",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 26316,
-   "name": "f_66CC",
+   "name": "beam_r_row",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 26326,
-   "name": "f_66D6",
+   "name": "beam_r_live",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 26336,
-   "name": "f_66E0",
+   "name": "beam_r_shrink",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 26346,
-   "name": "f_66EA",
+   "name": "beam_l_back",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 26356,
-   "name": "f_66F4",
+   "name": "beam_l_front",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 26366,
-   "name": "f_66FE",
+   "name": "beam_l_length",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 26376,
-   "name": "f_6708",
+   "name": "beam_l_row",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 26386,
-   "name": "f_6712",
+   "name": "beam_l_live",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 26396,
-   "name": "f_671C",
+   "name": "beam_l_shrink",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 26406,
@@ -6437,45 +6864,45 @@
   },
   {
    "address": 27164,
-   "name": "f_6A1C",
+   "name": "ripple",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 27165,
-   "name": "a_6A1D",
+   "name": "ripple_1",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 27166,
-   "name": "a_6A1E",
+   "name": "ripple_2",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 27167,
-   "name": "a_6A1F",
+   "name": "ripple_3",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 27168,
-   "name": "a_6A20",
+   "name": "ripple_4",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 27169,
-   "name": "a_6A21",
+   "name": "ripple_5",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 27170,
-   "name": "a_6A22",
+   "name": "ripple_6",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 27171,
@@ -6929,9 +7356,9 @@
   },
   {
    "address": 27932,
-   "name": "a_6D1C",
+   "name": "music_flag",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 27933,
@@ -7121,39 +7548,39 @@
   },
   {
    "address": 28620,
-   "name": "f_6FCC",
+   "name": "txt_firebird",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 28637,
-   "name": "f_6FDD",
+   "name": "txt_presents",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 28645,
-   "name": "f_6FE5",
+   "name": "txt_title",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 28650,
-   "name": "f_6FEA",
+   "name": "txt_credit",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 28684,
-   "name": "f_700C",
+   "name": "txt_rescue",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 28690,
-   "name": "f_7012",
+   "name": "txt_press_fire",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 28708,
@@ -7193,27 +7620,135 @@
   },
   {
    "address": 28799,
-   "name": "f_707F",
+   "name": "txt_choice",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 28819,
-   "name": "f_7093",
+   "name": "txt_music",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 28824,
-   "name": "f_7098",
+   "name": "txt_fx",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 29184,
-   "name": "f_7200",
+   "name": "anim_char_frames",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 29568,
+   "name": "tiles",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 30208,
+   "name": "level_1",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 30568,
+   "name": "level_2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 30928,
+   "name": "level_3",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 31288,
+   "name": "level_4",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 31648,
+   "name": "level_5",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 32008,
+   "name": "level_6",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 32368,
+   "name": "level_7",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 32728,
+   "name": "level_8",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 32768,
+   "name": "level_8_rest",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 33088,
+   "name": "level_9",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 33448,
+   "name": "level_10",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 33808,
+   "name": "level_11",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 34168,
+   "name": "level_12",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 34528,
+   "name": "level_13",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 34888,
+   "name": "level_14",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 35248,
+   "name": "level_15",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 35608,
+   "name": "level_16",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 35968,
@@ -7228,10 +7763,70 @@
    "kind": "auto"
   },
   {
+   "address": 40960,
+   "name": "sample_iball",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 41984,
+   "name": "sample_iball_2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 43008,
+   "name": "sample_iball_3",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 44032,
+   "name": "sample_oh_no",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 44444,
-   "name": "a_AD9C",
+   "name": "sample_oh_no_ad9c",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 44508,
+   "name": "sample_oh_no_addc",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 45056,
+   "name": "sample_oh_no_2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 46080,
+   "name": "sample_oh_no_3",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 46848,
+   "name": "sample_game_over",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 47872,
+   "name": "sample_game_over_2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 48896,
+   "name": "sample_game_over_3",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 49152,
@@ -7253,15 +7848,15 @@
   },
   {
    "address": 49212,
-   "name": "a_C03C",
+   "name": "sample_first",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 49213,
-   "name": "a_C03D",
+   "name": "sample_end",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 49214,
@@ -7271,15 +7866,15 @@
   },
   {
    "address": 49246,
-   "name": "a_C05E",
+   "name": "sample_busy",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 49247,
-   "name": "a_C05F",
+   "name": "nybble_table",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 49502,
@@ -7313,9 +7908,9 @@
   },
   {
    "address": 49539,
-   "name": "a_C183",
+   "name": "nybble_index",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 49540,
@@ -7378,21 +7973,69 @@
    "kind": "auto"
   },
   {
+   "address": 49626,
+   "name": "pitch_steps",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 49643,
-   "name": "f_C1EB",
+   "name": "sample_first_pages",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 49647,
-   "name": "f_C1EF",
+   "name": "sample_end_pages",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 49651,
    "name": "say",
    "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 49670,
+   "name": "test_keys",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 49673,
+   "name": "sample_test",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 49696,
+   "name": "b_C220",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 49703,
+   "name": "b_C227",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 49717,
+   "name": "b_C235",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 49725,
+   "name": "b_C23D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 49733,
+   "name": "test_held",
+   "type": "AbsoluteAddress",
    "kind": "user"
   },
   {
@@ -7571,21 +8214,21 @@
   },
   {
    "address": 57344,
-   "name": "f_E000",
+   "name": "vibrato_state",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 57347,
-   "name": "f_E003",
+   "name": "vibrato_depth",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 57350,
-   "name": "f_E006",
+   "name": "vibrato_dir",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 57353,
@@ -7919,63 +8562,69 @@
   },
   {
    "address": 58439,
-   "name": "f_E447",
+   "name": "note_freqs",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 58440,
-   "name": "f_E448",
+   "name": "note_freqs_hi",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 58504,
+   "name": "note_freqs_mid",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 58633,
-   "name": "f_E509",
+   "name": "voice_regs",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 58636,
-   "name": "a_E50C",
+   "name": "music_vars",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 58637,
-   "name": "f_E50D",
+   "name": "music_track_pos",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 58640,
-   "name": "f_E510",
+   "name": "music_pat_pos",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 58643,
-   "name": "f_E513",
+   "name": "music_note_left",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 58646,
-   "name": "f_E516",
+   "name": "music_pat_byte",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 58649,
-   "name": "f_E519",
+   "name": "music_wave",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 58652,
-   "name": "f_E51C",
+   "name": "music_note",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 58655,
@@ -7990,334 +8639,592 @@
    "kind": "user"
   },
   {
+   "address": 58672,
+   "name": "music_vars_b",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 58679,
-   "name": "f_E537",
+   "name": "music_gate_mask",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 58682,
-   "name": "a_E53A",
+   "name": "music_byte",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 58684,
-   "name": "a_E53C",
+   "name": "music_voice",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 58685,
-   "name": "a_E53D",
+   "name": "music_inst_wave",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 58686,
-   "name": "a_E53E",
+   "name": "music_vib_speed",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 58687,
-   "name": "a_E53F",
+   "name": "music_pw_speed",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 58688,
-   "name": "f_E540",
+   "name": "music_e540",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 58691,
-   "name": "f_E543",
+   "name": "music_pulse_dir",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 58694,
-   "name": "a_E546",
+   "name": "music_tempo",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 58695,
-   "name": "a_E547",
+   "name": "music_tempo_reload",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 58696,
-   "name": "a_E548",
+   "name": "music_bar",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 58697,
-   "name": "a_E549",
+   "name": "music_inst_ofs",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 58698,
-   "name": "a_E54A",
+   "name": "music_state",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 58699,
-   "name": "f_E54B",
+   "name": "music_freq_hi",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 58702,
-   "name": "f_E54E",
+   "name": "music_freq_lo",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 58705,
-   "name": "f_E551",
+   "name": "music_slide",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 58708,
-   "name": "f_E554",
+   "name": "music_slide_flag",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 58711,
-   "name": "a_E557",
+   "name": "music_flags",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 58713,
-   "name": "a_E559",
+   "name": "music_note_byte",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 58715,
-   "name": "f_E55B",
+   "name": "music_pulse_lo",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 58718,
-   "name": "f_E55E",
+   "name": "music_pulse_hi",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 58721,
-   "name": "f_E561",
+   "name": "music_first_frames",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 58724,
-   "name": "f_E564",
+   "name": "music_frame",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 58726,
-   "name": "a_E566",
+   "name": "music_noise_count",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 58730,
-   "name": "f_E56A",
+   "name": "music_filter",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 58733,
-   "name": "f_E56D",
+   "name": "music_drum_pos",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 58736,
-   "name": "a_E570",
+   "name": "music_arp_step",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 58737,
-   "name": "f_E571",
+   "name": "music_transpose",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 58740,
-   "name": "f_E574",
+   "name": "music_arp_0",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 58741,
-   "name": "a_E575",
+   "name": "music_arp_1",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 58742,
-   "name": "a_E576",
+   "name": "music_arp_2",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 58743,
-   "name": "f_E577",
+   "name": "arpeggios",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 58744,
-   "name": "f_E578",
+   "name": "arpeggio_second",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 58755,
+   "name": "pattern_21",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 58781,
+   "name": "pattern_26",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 58803,
+   "name": "pattern_22",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 58829,
+   "name": "pattern_23",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 58854,
+   "name": "pattern_24",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 58874,
+   "name": "pattern_25",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 58892,
+   "name": "drum_2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 58917,
+   "name": "pattern_14",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 58991,
+   "name": "pattern_15",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 59004,
+   "name": "pattern_20",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 59017,
+   "name": "pattern_16",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 59049,
+   "name": "drum_6",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 59078,
+   "name": "pattern_18",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 59092,
+   "name": "pattern_19",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 59120,
+   "name": "pattern_17",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 59147,
-   "name": "f_E70B",
+   "name": "instruments",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 59148,
-   "name": "f_E70C",
+   "name": "inst_pw_hi",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 59149,
-   "name": "f_E70D",
+   "name": "inst_wave",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 59150,
-   "name": "f_E70E",
+   "name": "inst_ad",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 59151,
-   "name": "f_E70F",
+   "name": "inst_sr",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 59152,
-   "name": "f_E710",
+   "name": "inst_vibrato",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 59153,
-   "name": "f_E711",
+   "name": "inst_pw_speed",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 59154,
-   "name": "f_E712",
+   "name": "inst_flags_b",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 59218,
+   "name": "instruments_mid",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 59291,
+   "name": "pattern_33",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 59315,
-   "name": "f_E7B3",
+   "name": "instruments_b",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 59316,
-   "name": "f_E7B4",
+   "name": "inst_b1",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 59318,
-   "name": "f_E7B6",
+   "name": "inst_b3",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 59320,
-   "name": "f_E7B8",
+   "name": "inst_b5",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 59321,
-   "name": "f_E7B9",
+   "name": "inst_b6",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 59322,
-   "name": "f_E7BA",
+   "name": "inst_b7",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 59386,
+   "name": "instruments_b_mid",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 59459,
-   "name": "f_E843",
+   "name": "track_ptrs",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 59462,
-   "name": "f_E846",
+   "name": "track_ptrs_hi",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 59465,
-   "name": "f_E849",
+   "name": "pattern_ptrs",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 59500,
-   "name": "f_E86C",
+   "name": "pattern_ptrs_hi",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 59535,
+   "name": "pattern_34",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 59563,
+   "name": "track_1",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 59610,
+   "name": "track_2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 59733,
+   "name": "track_3",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 59912,
+   "name": "pattern_00",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 59914,
+   "name": "pattern_02",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 59962,
+   "name": "pattern_29",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 60015,
+   "name": "pattern_01",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 60034,
+   "name": "pattern_05",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 60056,
-   "name": "f_EA98",
+   "name": "voice_instrument",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 60059,
+   "name": "pattern_04",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 60092,
+   "name": "pattern_06",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 60113,
+   "name": "pattern_07",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 60148,
+   "name": "pattern_08",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 60247,
+   "name": "pattern_09",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 60338,
+   "name": "pattern_12",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 60430,
+   "name": "pattern_13",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 60475,
+   "name": "pattern_10",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 60504,
+   "name": "pattern_11",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 60594,
+   "name": "pattern_27",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 60654,
+   "name": "pattern_31",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 60658,
+   "name": "pattern_28",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 60661,
+   "name": "pattern_32",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 60676,
+   "name": "pattern_30",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 60752,
-   "name": "a_ED50",
+   "name": "effect_req",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 60753,
-   "name": "a_ED51",
+   "name": "effect_req_2",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 60754,
-   "name": "a_ED52",
+   "name": "effect_req_3",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 60755,
+   "name": "effects_stop_entry",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 60758,
@@ -8470,178 +9377,190 @@
    "kind": "auto"
   },
   {
+   "address": 61054,
+   "name": "effects_stop",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
    "address": 61075,
-   "name": "f_EE93",
+   "name": "effect_notes",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 61076,
-   "name": "f_EE94",
+   "name": "effect_notes_hi",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 61140,
+   "name": "effect_notes_mid",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 61267,
-   "name": "f_EF53",
+   "name": "effect_voice_regs",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 61270,
-   "name": "a_EF56",
+   "name": "effect_vars",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 61271,
-   "name": "a_EF57",
+   "name": "effect_frame",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 61272,
-   "name": "a_EF58",
+   "name": "effect_voice",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 61273,
-   "name": "f_EF59",
+   "name": "effect_freq_lo",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 61276,
-   "name": "f_EF5C",
+   "name": "effect_freq_hi",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 61279,
-   "name": "f_EF5F",
+   "name": "effect_start_lo",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 61282,
-   "name": "f_EF62",
+   "name": "effect_start_hi",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 61285,
-   "name": "f_EF65",
+   "name": "effect_dstep_lo",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 61288,
-   "name": "f_EF68",
+   "name": "effect_dstep_hi",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 61291,
-   "name": "f_EF6B",
+   "name": "effect_step_lo",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 61294,
-   "name": "f_EF6E",
+   "name": "effect_step_hi",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 61297,
-   "name": "f_EF71",
+   "name": "effect_flags",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 61300,
-   "name": "f_EF74",
+   "name": "effect_rate",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 61303,
-   "name": "f_EF77",
+   "name": "effect_wave_a",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 61306,
-   "name": "f_EF7A",
+   "name": "effect_wave_first",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 61309,
-   "name": "f_EF7D",
+   "name": "effect_script_pos",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 61312,
-   "name": "f_EF80",
+   "name": "effect_first_count",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 61315,
-   "name": "f_EF83",
+   "name": "effect_left",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 61318,
-   "name": "f_EF86",
+   "name": "effect_wave",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 61321,
-   "name": "f_EF89",
+   "name": "effect_length",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 61324,
-   "name": "f_EF8C",
+   "name": "effect_wave_now",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 61327,
-   "name": "f_EF8F",
+   "name": "effect_script",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 61330,
-   "name": "f_EF92",
+   "name": "effect_tick",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 61333,
-   "name": "a_EF95",
+   "name": "effect_work",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 61334,
-   "name": "f_EF96",
+   "name": "effect_scripts",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 61342,
-   "name": "f_EF9E",
+   "name": "effect_scripts_hi",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 61350,
@@ -8656,70 +9575,88 @@
    "kind": "auto"
   },
   {
+   "address": 61520,
+   "name": "effect_script_data",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 61626,
-   "name": "f_F0BA",
+   "name": "effect_defs_a",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 61627,
-   "name": "f_F0BB",
+   "name": "edef_freq_hi",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 61630,
-   "name": "f_F0BE",
+   "name": "edef_wave",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 61633,
-   "name": "f_F0C1",
+   "name": "edef_note_b",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 61697,
+   "name": "effect_defs_a_mid",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 61802,
-   "name": "f_F16A",
+   "name": "effect_defs_b",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 61803,
-   "name": "f_F16B",
+   "name": "edef_wave_a",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 61804,
-   "name": "f_F16C",
+   "name": "edef_wave_first",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 61805,
-   "name": "f_F16D",
+   "name": "edef_script",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 61806,
-   "name": "f_F16E",
+   "name": "edef_length",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 61807,
-   "name": "f_F16F",
+   "name": "edef_dstep_lo",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 61808,
-   "name": "f_F170",
+   "name": "edef_dstep_hi_b",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 61872,
+   "name": "effect_defs_b_mid",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 64816,
@@ -8736,9 +9673,734 @@
  ],
  "comments": [
   {
+   "address": 2,
+   "type": "line",
+   "text": "The play sprites' eight pointers (sprites 0-7), written to $07F8 by sprites_out. Sprite 0 is Iball."
+  },
+  {
+   "address": 10,
+   "type": "line",
+   "text": "The play sprites' eight colours, written to $D027-$D02E by sprites_out."
+  },
+  {
+   "address": 18,
+   "type": "line",
+   "text": "The play sprites' positions, X and Y for each of the eight ($12/$13 is Iball), written to $D000-$D00F by sprites_out."
+  },
+  {
+   "address": 34,
+   "type": "line",
+   "text": "The play sprites' X high bits ($D010), always 0 in play."
+  },
+  {
+   "address": 35,
+   "type": "line",
+   "text": "Sprite multicolour 0 in play ($D025)."
+  },
+  {
+   "address": 36,
+   "type": "line",
+   "text": "Sprite multicolour 1 in play ($D026)."
+  },
+  {
+   "address": 37,
+   "type": "line",
+   "text": "Which play sprites are on (bit n for sprite n), written to $D015."
+  },
+  {
+   "address": 38,
+   "type": "line",
+   "text": "Each sprite's horizontal direction, bit n for sprite n: set is right."
+  },
+  {
+   "address": 39,
+   "type": "line",
+   "text": "Each sprite's vertical direction, bit n for sprite n: set is down."
+  },
+  {
+   "address": 40,
+   "type": "line",
+   "text": "The level, 0-15."
+  },
+  {
+   "address": 41,
+   "type": "line",
+   "text": "Each sprite's two speeds, horizontal and vertical, in pixels a frame ($29/$2A is Iball: horizontal_speed, vertical_speed)."
+  },
+  {
+   "address": 42,
+   "type": "line",
+   "text": "Iball's vertical speed (sprite 0's), pixels a frame."
+  },
+  {
+   "address": 57,
+   "type": "line",
+   "text": "Work: the bit of the sprite a loop is on."
+  },
+  {
+   "address": 58,
+   "type": "line",
+   "text": "Which play sprites are multicolour ($D01C); a forming alien is taken out of it."
+  },
+  {
+   "address": 59,
+   "type": "line",
+   "text": "Lives left; below zero the game is over."
+  },
+  {
+   "address": 60,
+   "type": "line",
+   "text": "The death's stage: 0 alive, 1 to 3 the stages of death_step."
+  },
+  {
+   "address": 61,
+   "type": "line",
+   "text": "death_flash's place in death_colours."
+  },
+  {
+   "address": 62,
+   "type": "line",
+   "text": "The playfield's background colour ($D021), 0 except during death_flash."
+  },
+  {
+   "address": 63,
+   "type": "line",
+   "text": "Frames between steps in death_fly and materialise_wait."
+  },
+  {
+   "address": 64,
+   "type": "line",
+   "text": "materialise_wait's delay before Iball may appear."
+  },
+  {
+   "address": 65,
+   "type": "line",
+   "text": "The score, six decimal digits, highest first."
+  },
+  {
+   "address": 71,
+   "type": "line",
+   "text": "The level timer's units digit."
+  },
+  {
+   "address": 72,
+   "type": "line",
+   "text": "The level timer's tens digit."
+  },
+  {
+   "address": 73,
+   "type": "line",
+   "text": "Frames to the timer's next second (from 50)."
+  },
+  {
+   "address": 74,
+   "type": "line",
+   "text": "Set while irq_logic's work runs, so a second interrupt does not start it again."
+  },
+  {
+   "address": 75,
+   "type": "line",
+   "text": "Set when irq_logic found its work still running."
+  },
+  {
+   "address": 78,
+   "type": "line",
+   "text": "build_level_map's pointer into the level's tile list."
+  },
+  {
+   "address": 80,
+   "type": "line",
+   "text": "build_level_map's pointer to the current tile's 16 characters."
+  },
+  {
+   "address": 82,
+   "type": "line",
+   "text": "build_level_map's work on the tile number (times 16, and its page in $53)."
+  },
+  {
+   "address": 84,
+   "type": "line",
+   "text": "build_level_map's destination in the map buffer."
+  },
+  {
+   "address": 86,
+   "type": "line",
+   "text": "Tiles left in the current row of six."
+  },
+  {
+   "address": 87,
+   "type": "line",
+   "text": "Rows of tiles built."
+  },
+  {
+   "address": 88,
+   "type": "line",
+   "text": "Set when the 60th row of tiles is built."
+  },
+  {
+   "address": 127,
+   "type": "line",
+   "text": "Read by init_game_irq and init_title_irq as the value to write to CIA 1's interrupt control; nothing in the game writes it (its value is the KERNAL's)."
+  },
+  {
+   "address": 128,
+   "type": "line",
+   "text": "The vertical fine scroll, 0-7."
+  },
+  {
+   "address": 129,
+   "type": "line",
+   "text": "Set in a frame when the playfield moved by a whole row and was redrawn."
+  },
+  {
+   "address": 130,
+   "type": "line",
+   "text": "The map buffer address of the playfield's top row."
+  },
+  {
+   "address": 132,
+   "type": "line",
+   "text": "The scroll's speed, pixels a frame."
+  },
+  {
+   "address": 133,
+   "type": "line",
+   "text": "The scroll's direction: 0 forward (the map moves down the screen), 1 backward."
+  },
+  {
+   "address": 134,
+   "type": "line",
+   "text": "Frames to the next friction step."
+  },
+  {
+   "address": 135,
+   "type": "line",
+   "text": "Frames between friction steps (20)."
+  },
+  {
+   "address": 136,
+   "type": "line",
+   "text": "Frames to the next reading of the controls."
+  },
+  {
+   "address": 137,
+   "type": "line",
+   "text": "Frames between readings of the controls: 2, or 1 with the Hyper Brakes."
+  },
+  {
+   "address": 138,
+   "type": "line",
+   "text": "1 when Iball last pushed left."
+  },
+  {
+   "address": 139,
+   "type": "line",
+   "text": "Iball's roll frame, 0-7."
+  },
+  {
+   "address": 140,
+   "type": "line",
+   "text": "animate_chars's frame number."
+  },
+  {
+   "address": 141,
+   "type": "line",
+   "text": "How many frames animate_chars cycles through (12)."
+  },
+  {
+   "address": 143,
+   "type": "line",
+   "text": "Rows the playfield has moved, counted by draw_playfield and scroll_back; not read."
+  },
+  {
+   "address": 149,
+   "type": "line",
+   "text": "Set when the level ends: won, or the game is over."
+  },
+  {
+   "address": 150,
+   "type": "line",
+   "text": "The character column the probes start from."
+  },
+  {
+   "address": 151,
+   "type": "line",
+   "text": "The twelve characters round Iball, three rows of four (probe_background)."
+  },
+  {
+   "address": 163,
+   "type": "line",
+   "text": "The twelve characters round an alien, three rows of four (probe_alien)."
+  },
+  {
+   "address": 175,
+   "type": "line",
+   "text": "alien_shot's work: the screen row of a shot character beside the alien."
+  },
+  {
+   "address": 176,
+   "type": "line",
+   "text": "The character row of the alien probe_alien last looked at."
+  },
+  {
+   "address": 177,
+   "type": "line",
+   "text": "Each sprite's frame in its explosion ($B1 + sprite number)."
+  },
+  {
+   "address": 185,
+   "type": "line",
+   "text": "The low bytes of the 25 screen rows' addresses, copied from $5420 at the start of a game."
+  },
+  {
+   "address": 210,
+   "type": "line",
+   "text": "The high bytes of the 25 screen rows' addresses."
+  },
+  {
+   "address": 235,
+   "type": "line",
+   "text": "Iball's vertical speed limit: 3, 4 with the Turbo Boost, 5 with the Fuel Injection."
+  },
+  {
+   "address": 236,
+   "type": "line",
+   "text": "Iball's horizontal speed limit, 3."
+  },
+  {
+   "address": 237,
+   "type": "line",
+   "text": "Iball's materialising stage: 0 done, 1-3 the stages of materialise_step."
+  },
+  {
+   "address": 238,
+   "type": "line",
+   "text": "Where Iball appears and where he died: X."
+  },
+  {
+   "address": 239,
+   "type": "line",
+   "text": "Where Iball appears and where he died: Y."
+  },
+  {
+   "address": 240,
+   "type": "line",
+   "text": "The distance the pieces still have to travel while materialising."
+  },
+  {
+   "address": 241,
+   "type": "line",
+   "text": "The pieces' speed while materialising or dying."
+  },
+  {
+   "address": 242,
+   "type": "line",
+   "text": "The level's character colour plus 8, written into colour RAM wherever a shot or laser has been."
+  },
+  {
+   "address": 243,
+   "type": "line",
+   "text": "The colour new shots take, 1-7."
+  },
+  {
+   "address": 244,
+   "type": "line",
+   "text": "Aliens to kill before the next to form is a disc; below zero the next is one."
+  },
+  {
+   "address": 245,
+   "type": "line",
+   "text": "The place in the disc sequence (disc_order), 0-31."
+  },
+  {
+   "address": 246,
+   "type": "line",
+   "text": "Set at game over: materialising stops."
+  },
+  {
+   "address": 247,
+   "type": "line",
+   "text": "Set while a message is in the bottom rows (an extra's name, LASER OVERHEATED): the play stands still."
+  },
+  {
+   "address": 248,
+   "type": "line",
+   "text": "Frames the message stays."
+  },
+  {
+   "address": 249,
+   "type": "line",
+   "text": "The laser's heat: up one each frame of fire, down one every four frames; at 250 it overheats."
+  },
+  {
+   "address": 250,
+   "type": "line",
+   "text": "Frames to the laser's next cooling step."
+  },
+  {
+   "address": 251,
+   "type": "line",
+   "text": "Frames left in which an overheated laser cannot fire."
+  },
+  {
+   "address": 252,
+   "type": "line",
+   "text": "The music driver's and the effects player's pointers ($FC-$FF)."
+  },
+  {
    "address": 828,
    "type": "line",
    "text": "The hook the saved file starts through, in the cassette buffer: the file's first two bytes point the KERNAL's IRQ vector here, so the first interrupt after the file is in memory runs it. It acknowledges the video chip, blanks the screen, blacks the border and background and clears colour RAM, resets the stack, copies the KERNAL's default vectors back to $0314-$0333, waits 25 frames, calls IOINIT ($FDA3), unblanks, sets $01 to $36 and jumps to the game's start at $6D1D. Not the game's code: whoever saved the memory image added it."
+  },
+  {
+   "address": 8192,
+   "type": "line",
+   "text": "The sprite shapes $80-$8F (64 bytes each): the ten extras icons ($80-$89, top panel then bottom), then the digits 0-5 ($8A-$8F) of the timer and the level number."
+  },
+  {
+   "address": 9216,
+   "type": "line",
+   "text": "The sprite shapes $90-$9B: digits 6-9, Iball's six faces ($94-$99, three for each way he faces) and the two score sprites ($9A, $9B), blank until draw_score writes the digits into them."
+  },
+  {
+   "address": 9984,
+   "type": "line",
+   "text": "Sprite $9C, the meter: filled by fill_meter and emptied a byte at a time while the Electro Shield or the Hyper Brakes last."
+  },
+  {
+   "address": 10048,
+   "type": "line",
+   "text": "The sprite shapes $9D-$AF: a small ball ($9D, the lives sprite when none are left), the big striped ball the pieces of Iball are drawn with ($9E), and the aliens: kind 0's spinning ball ($9F-$A2), kind 1's sparkle ($A3-$A7) and kind 2's bug ($A8-$AC), then kind 3's first frames."
+  },
+  {
+   "address": 11072,
+   "type": "line",
+   "text": "The sprite shapes $AD-$AF: kind 3's flipping half-disc, its first three frames."
+  },
+  {
+   "address": 11264,
+   "type": "line",
+   "text": "The sprite shapes $B0-$BF: kind 3's flipping half-disc (to $B3), kind 4's face ($B4-$B6), kind 5's face ($B7-$BA), the bonus disc ($BB-$BE), and $BF, which no pointer the game sets names."
+  },
+  {
+   "address": 12288,
+   "type": "line",
+   "text": "The playfield's character set, 256 multicolour characters: the walls, the shot and laser characters (1-5), the animated characters ($DE-$ED) and the electrified walls ($EE and up), which kill."
+  },
+  {
+   "address": 13312,
+   "type": "line",
+   "text": "The playfield's characters $80-$DD."
+  },
+  {
+   "address": 14064,
+   "type": "line",
+   "text": "The 16 animated characters $DE-$ED, rewritten from anim_char_frames by animate_chars."
+  },
+  {
+   "address": 14128,
+   "type": "line",
+   "text": "The playfield's characters $E6-$FD, the electrified walls from $EE."
+  },
+  {
+   "address": 14320,
+   "type": "line",
+   "text": "Character $FE, rotated two bits left every frame by rotate_char_fe."
+  },
+  {
+   "address": 14328,
+   "type": "line",
+   "text": "Character $FF, the dot, set up by clear_dot_char."
+  },
+  {
+   "address": 14329,
+   "type": "line",
+   "text": "Character $FF's rows 1-7, read and written by the old dot routines."
+  },
+  {
+   "address": 14335,
+   "type": "line",
+   "text": "Character $FF's last row, the one clear_dot_char sets to $10."
+  },
+  {
+   "address": 14336,
+   "type": "line",
+   "text": "The text character set of the title page and the screens between levels: the letters A-Z as characters 1-26, the digits as $1B-$24 (draw_score takes the score's glyphs from here, one byte early, at $38D7), and punctuation. Its upper part is sprite shapes (charset_sprites)."
+  },
+  {
+   "address": 14656,
+   "type": "line",
+   "text": "The sprite shapes $E5-$F4, in the text set's upper half: the lives ($E5-$E8, by lives left), the alien explosion ($E9-$F0) and the four friends ($F1 Lover Ball, $F2 Eddy Ball, $F3 Glow Ball, $F4 No Ball)."
+  },
+  {
+   "address": 15680,
+   "type": "line",
+   "text": "The sprite shapes $F5-$FF, empty: no pointer the game sets names them."
+  },
+  {
+   "address": 16376,
+   "type": "line",
+   "text": "Character $FF of the text set, the dot, copied from the playfield set by screen_between."
+  },
+  {
+   "address": 16384,
+   "type": "line",
+   "text": "The 24 shots' columns."
+  },
+  {
+   "address": 16409,
+   "type": "line",
+   "text": "The 24 shots' rows."
+  },
+  {
+   "address": 16434,
+   "type": "line",
+   "text": "The 24 shots' characters (1-3)."
+  },
+  {
+   "address": 16459,
+   "type": "line",
+   "text": "The 24 shots' colours."
+  },
+  {
+   "address": 16484,
+   "type": "line",
+   "text": "The 24 shots' directions: 1 down, 0 up."
+  },
+  {
+   "address": 16509,
+   "type": "line",
+   "text": "The 24 shots' slots: 1 in use."
+  },
+  {
+   "address": 16534,
+   "type": "line",
+   "text": "Where an upward shot starts: column."
+  },
+  {
+   "address": 16535,
+   "type": "line",
+   "text": "Where an upward shot starts: row."
+  },
+  {
+   "address": 16536,
+   "type": "line",
+   "text": "The last vertical push: 0 up, 1 down. Shots and the ripple go that way."
+  },
+  {
+   "address": 16537,
+   "type": "line",
+   "text": "The shot character new shots take (1-3)."
+  },
+  {
+   "address": 16540,
+   "type": "line",
+   "text": "Six digits added to the score by add_score."
+  },
+  {
+   "address": 16546,
+   "type": "line",
+   "text": "Each sprite's kind of alien, 0-7 (the frame list it animates with)."
+  },
+  {
+   "address": 16554,
+   "type": "line",
+   "text": "The place in the random table at $40B0."
+  },
+  {
+   "address": 16560,
+   "type": "line",
+   "text": "256 bytes of random numbers, read in turn (random_index) to choose a new alien's place, kind and colour. Nothing writes them."
+  },
+  {
+   "address": 16816,
+   "type": "line",
+   "text": "The aliens still forming (bit n for sprite n): they flicker and cannot harm Iball."
+  },
+  {
+   "address": 16817,
+   "type": "line",
+   "text": "Each forming alien's frame count, to 50."
+  },
+  {
+   "address": 16825,
+   "type": "line",
+   "text": "The aliens exploding (bit n)."
+  },
+  {
+   "address": 16826,
+   "type": "line",
+   "text": "Set when a new alien's place is no good, or when an alien touches Iball."
+  },
+  {
+   "address": 16827,
+   "type": "line",
+   "text": "Counted up every frame; multicolour register 1 shows it, so walls in that colour flash."
+  },
+  {
+   "address": 16828,
+   "type": "line",
+   "text": "Which aliens are bonus discs (bit n)."
+  },
+  {
+   "address": 16829,
+   "type": "line",
+   "text": "The Single Lazer is held."
+  },
+  {
+   "address": 16830,
+   "type": "line",
+   "text": "Set by the Turbo Boost; nothing reads it."
+  },
+  {
+   "address": 16831,
+   "type": "line",
+   "text": "The Smart Missile is held, ready to fire."
+  },
+  {
+   "address": 16833,
+   "type": "line",
+   "text": "The Bullet Spray is held: shots go up and down at once."
+  },
+  {
+   "address": 16834,
+   "type": "line",
+   "text": "The Electro Shield is on: walls do not kill."
+  },
+  {
+   "address": 16835,
+   "type": "line",
+   "text": "Set by Extended Play; nothing reads it."
+  },
+  {
+   "address": 16836,
+   "type": "line",
+   "text": "The Twin Laser Set is held."
+  },
+  {
+   "address": 16837,
+   "type": "line",
+   "text": "Hyperspace is on: the playfield runs to the goal."
+  },
+  {
+   "address": 16838,
+   "type": "line",
+   "text": "The Molecule Bomb is held, ready to set off."
+  },
+  {
+   "address": 16839,
+   "type": "line",
+   "text": "The Faulty Disc is on: every wall kills."
+  },
+  {
+   "address": 16840,
+   "type": "line",
+   "text": "Cleared when the Fuel Injection is taken away; nothing sets it."
+  },
+  {
+   "address": 16842,
+   "type": "line",
+   "text": "The Hyper Brakes are on."
+  },
+  {
+   "address": 16844,
+   "type": "line",
+   "text": "The Lazer Cooler is held: the laser does not overheat."
+  },
+  {
+   "address": 16845,
+   "type": "line",
+   "text": "The Rainbow Ripple is held."
+  },
+  {
+   "address": 16846,
+   "type": "line",
+   "text": "Where a downward shot starts: column."
+  },
+  {
+   "address": 16847,
+   "type": "line",
+   "text": "Where a downward shot starts: row."
+  },
+  {
+   "address": 16848,
+   "type": "line",
+   "text": "Frames left of the Molecule Bomb."
+  },
+  {
+   "address": 16849,
+   "type": "line",
+   "text": "The Electro Shield's place in clearing the meter sprite."
+  },
+  {
+   "address": 16850,
+   "type": "line",
+   "text": "The Hyper Brakes' place in clearing the meter sprite."
+  },
+  {
+   "address": 16851,
+   "type": "line",
+   "text": "Frames to the shield meter's next step."
+  },
+  {
+   "address": 16852,
+   "type": "line",
+   "text": "Frames to the brakes meter's next step."
+  },
+  {
+   "address": 16853,
+   "type": "line",
+   "text": "The game is paused."
+  },
+  {
+   "address": 16854,
+   "type": "line",
+   "text": "The pause key is still down from the last toggle."
+  },
+  {
+   "address": 16855,
+   "type": "line",
+   "text": "Iball's column plus 2, where beams start."
+  },
+  {
+   "address": 16856,
+   "type": "line",
+   "text": "Iball's character column."
+  },
+  {
+   "address": 16857,
+   "type": "line",
+   "text": "Iball's row plus 1, where beams run."
+  },
+  {
+   "address": 16858,
+   "type": "line",
+   "text": "Iball's character row."
+  },
+  {
+   "address": 16859,
+   "type": "line",
+   "text": "1 when Iball last pushed right."
+  },
+  {
+   "address": 16860,
+   "type": "line",
+   "text": "Set while irq_top's work runs."
+  },
+  {
+   "address": 16861,
+   "type": "line",
+   "text": "Never reached: the end of an interrupt handler (NOP, then A, X and Y set to 1 and RTI) that nothing jumps to."
+  },
+  {
+   "address": 16869,
+   "type": "line",
+   "text": "Never called: an older panel_sprites_top, the same work from tables at $4315, $4325 and $432D, where new_game's code is now."
+  },
+  {
+   "address": 16939,
+   "type": "line",
+   "text": "Never called: an older panel_sprites_bottom, its tables at $4335, $4345 and $434D, ending with a jump to game_start."
   },
   {
    "address": 17003,
@@ -8751,9 +10413,24 @@
    "text": "Starts the level in level: silences the SID, blanks the screen, builds the level's map (build_level_map), clears the screen, resets the level (reset_level), installs the interrupt chain (four times) and starts Iball materialising. Then the level's main loop: each pass shows the lives (show_lives), ends the game when lives has gone below zero, kills Iball when both timer digits reach zero (time_up), and leaves for level_end ($58ED) when level_over is set. Everything else happens in the interrupts."
   },
   {
+   "address": 17173,
+   "type": "line",
+   "text": "Not a table: old_panel_top would read its sprite positions here, where start_level's code now is."
+  },
+  {
    "address": 17186,
    "type": "line",
    "text": "Advances level by one, back to 0 after level 15, and starts it (start_level). Reached from the level-complete screen."
+  },
+  {
+   "address": 17189,
+   "type": "line",
+   "text": "Not a table: old_panel_top's colours, inside start_level's code now."
+  },
+  {
+   "address": 17197,
+   "type": "line",
+   "text": "Not a table: old_panel_top's pointers, inside start_level's code now."
   },
   {
    "address": 17201,
@@ -8761,9 +10438,24 @@
    "text": "Lives have run out: waits until sprite_enable is 0 (the last death's pieces have flown off), sets level_over and the freeze flag, clears the screen (blank_for_message), shows the lives (none) and goes to the GAME OVER screen (game_over_screen)."
   },
   {
+   "address": 17205,
+   "type": "line",
+   "text": "Not a table: old_panel_bottom's positions, inside start_level's code now."
+  },
+  {
    "address": 17220,
    "type": "line",
    "text": "Resets everything for the start of a level: puts the map pointer at the bottom of the map and draws the first screen (draw_playfield), prepares the dot character, fills the extras-name pointer table (extras_names_init), clears the laser heat counters, sets the timer to 50 (tens 5, units 0), clears the per-sprite sets and the extras in use, the shot table $4001-$4095, the alien animation counters at $5452, the laser tables at $66AE and the ripple laser at $6A1C, sets the friction delay to 20 frames, the input rate to every 2 frames, the shot character and colour to 1, the animated-character frame count to 12, the row count to 24, multicolour text on, the timer's frame count to 50, clears the score adder, and zeroes the scroll, the speeds, the directions and the animation counters, with every sprite multicoloured and the sprite multicolours light grey ($0F) and dark grey ($0B)."
+  },
+  {
+   "address": 17221,
+   "type": "line",
+   "text": "Not a table: old_panel_bottom's colours, inside reset_level's code now."
+  },
+  {
+   "address": 17229,
+   "type": "line",
+   "text": "Not a table: old_panel_bottom's pointers, inside reset_level's code now."
   },
   {
    "address": 17406,
@@ -8901,6 +10593,151 @@
    "text": "Puts the fine scroll (fine_scroll, 0-7) into the low three bits of $D011."
   },
   {
+   "address": 18529,
+   "type": "line",
+   "text": "The top panel's eight sprite positions, X and Y in turn: five extras icons from X $4D, 30 pixels apart, at Y $19, then the timer's two digits."
+  },
+  {
+   "address": 18545,
+   "type": "line",
+   "text": "The top panel's eight sprite colours: the five extras icons (0, dark, until their extra is given; Turbo Boost, Single Lazer, Smart Missile, Bullet Spray, Electro Shield), then the top panel's sixth sprite (stepped every frame by irq_logic) and the timer's two digits (yellow)."
+  },
+  {
+   "address": 18546,
+   "type": "line",
+   "text": "The colour of the top panel's sprite 1 (Single Lazer)."
+  },
+  {
+   "address": 18547,
+   "type": "line",
+   "text": "The colour of the top panel's sprite 2 (Smart Missile)."
+  },
+  {
+   "address": 18548,
+   "type": "line",
+   "text": "The colour of the top panel's sprite 3 (Bullet Spray)."
+  },
+  {
+   "address": 18549,
+   "type": "line",
+   "text": "The colour of the top panel's sprite 4 (Electro Shield)."
+  },
+  {
+   "address": 18550,
+   "type": "line",
+   "text": "The colour of the top panel's sprite 5 (the meter)."
+  },
+  {
+   "address": 18551,
+   "type": "line",
+   "text": "The colour of the top panel's sprite 6 (the timer's tens)."
+  },
+  {
+   "address": 18552,
+   "type": "line",
+   "text": "The colour of the top panel's sprite 7 (the timer's units)."
+  },
+  {
+   "address": 18553,
+   "type": "line",
+   "text": "The top panel's eight sprite pointers: the icons $80-$84, the meter sprite $9C, and the timer's two digits ($8A plus the digit, written by irq_top)."
+  },
+  {
+   "address": 18559,
+   "type": "line",
+   "text": "The top panel's sprite 6 pointer: the timer's tens digit, $8A plus the digit, written by irq_top."
+  },
+  {
+   "address": 18560,
+   "type": "line",
+   "text": "The top panel's sprite 7 pointer: the timer's units digit, $8A plus the digit."
+  },
+  {
+   "address": 18561,
+   "type": "line",
+   "text": "The bottom panel's eight sprite positions, X and Y in turn, at Y $FF: five extras icons, the two score sprites and the lives sprite."
+  },
+  {
+   "address": 18577,
+   "type": "line",
+   "text": "The bottom panel's eight sprite colours: five extras icons (Twin Laser Set, Molecule Bomb, Hyper Brakes, Lazer Cooler, Rainbow Ripple; 0 until given), the two score sprites (light blue) and the lives sprite (grey)."
+  },
+  {
+   "address": 18578,
+   "type": "line",
+   "text": "The colour of the bottom panel's sprite 1 (Molecule Bomb)."
+  },
+  {
+   "address": 18579,
+   "type": "line",
+   "text": "The colour of the bottom panel's sprite 2 (Hyper Brakes)."
+  },
+  {
+   "address": 18580,
+   "type": "line",
+   "text": "The colour of the bottom panel's sprite 3 (Lazer Cooler)."
+  },
+  {
+   "address": 18581,
+   "type": "line",
+   "text": "The colour of the bottom panel's sprite 4 (Rainbow Ripple)."
+  },
+  {
+   "address": 18582,
+   "type": "line",
+   "text": "The colour of the bottom panel's sprite 5 (the score's left half)."
+  },
+  {
+   "address": 18583,
+   "type": "line",
+   "text": "The colour of the bottom panel's sprite 6 (the score's right half)."
+  },
+  {
+   "address": 18584,
+   "type": "line",
+   "text": "The colour of the bottom panel's sprite 7 (the lives)."
+  },
+  {
+   "address": 18585,
+   "type": "line",
+   "text": "The bottom panel's eight sprite pointers: the icons $85-$89, the score sprites $9A and $9B, and the lives sprite (written by show_lives)."
+  },
+  {
+   "address": 18586,
+   "type": "line",
+   "text": "The bottom panel's sprite 1 pointer: the Molecule Bomb icon ($86)."
+  },
+  {
+   "address": 18587,
+   "type": "line",
+   "text": "The bottom panel's sprite 2 pointer: the Hyper Brakes icon ($87)."
+  },
+  {
+   "address": 18588,
+   "type": "line",
+   "text": "The bottom panel's sprite 3 pointer: the Lazer Cooler icon ($88)."
+  },
+  {
+   "address": 18589,
+   "type": "line",
+   "text": "The bottom panel's sprite 4 pointer: the Rainbow Ripple icon ($89)."
+  },
+  {
+   "address": 18590,
+   "type": "line",
+   "text": "The bottom panel's sprite 5 pointer: the score sprite, left half ($9A)."
+  },
+  {
+   "address": 18591,
+   "type": "line",
+   "text": "The bottom panel's sprite 6 pointer: the score sprite, right half ($9B)."
+  },
+  {
+   "address": 18592,
+   "type": "line",
+   "text": "The bottom panel's sprite 7 pointer: the lives sprite, set by show_lives."
+  },
+  {
    "address": 18593,
    "type": "line",
    "text": "Fills colour RAM $D800-$DBE7 with A."
@@ -8966,6 +10803,36 @@
    "text": "Steps Iball's roll: sprite 0's pointer from the eight-frame table at $4AE7 when facing left, or $4ADF otherwise, with the frame counter at $8B."
   },
   {
+   "address": 19167,
+   "type": "line",
+   "text": "Iball's roll facing right: eight sprite pointers, each shown twice ($94-$96 and back)."
+  },
+  {
+   "address": 19175,
+   "type": "line",
+   "text": "Iball's roll facing left: eight sprite pointers ($97-$99 and back)."
+  },
+  {
+   "address": 19183,
+   "type": "line",
+   "text": "The low bytes of the 16 levels' tile lists, 360 bytes apart from $7600."
+  },
+  {
+   "address": 19199,
+   "type": "line",
+   "text": "The high bytes of the 16 levels' tile lists."
+  },
+  {
+   "address": 19215,
+   "type": "line",
+   "text": "Each level's multicolour register 2 ($D023), five colours that repeat."
+  },
+  {
+   "address": 19231,
+   "type": "line",
+   "text": "Each level's character colour (plus 8 for multicolour), five that repeat."
+  },
+  {
    "address": 19247,
    "type": "line",
    "text": "Builds the level's map before play, into the buffer at $097E-$1FFD: 60 rows of six tiles from the level's 360-byte tile list (its address from level_ptr_lo/level_ptr_hi), each tile four characters by four from the tile set at $7380 (16 bytes a tile; numbers $10-$1F reach the second page of tiles, $20 and up the third). Also sets $D023 from level_colour3, the walls' colour (level_char_colour plus 8, for multicolour) into wall_colour and the whole of colour RAM."
@@ -8996,6 +10863,16 @@
    "text": "Moves build_level_map's destination to the next tile: four characters right, and after six tiles on to the next row of tiles (72 more bytes, three character rows). After 60 rows of tiles sets the finished flag ($58)."
   },
   {
+   "address": 19485,
+   "type": "line",
+   "text": "The low bytes of animate_chars's 12 frames: three 128-byte frames at $7200, $7280 and $7300, each three times, in the order $7200, $7280, $7300, $7280."
+  },
+  {
+   "address": 19497,
+   "type": "line",
+   "text": "The high bytes of animate_chars's 12 frames."
+  },
+  {
    "address": 19509,
    "type": "line",
    "text": "Copies the next 128-byte frame of the animated characters into the character set at $36F0-$376F (16 characters), from the frame addresses at anim_frame_lo/anim_frame_hi, through anim_frames (12) frames, one a call."
@@ -9009,6 +10886,16 @@
    "address": 19536,
    "type": "line",
    "text": "Self-modified: the high byte of the address in LDA $7200 at $4C4E, set by the STA at $4C40."
+  },
+  {
+   "address": 19544,
+   "type": "line",
+   "text": "The rows of place_dots's 50 dots, two to a row."
+  },
+  {
+   "address": 19594,
+   "type": "line",
+   "text": "The columns of place_dots's 50 dots (between 8 and 31)."
   },
   {
    "address": 19646,
@@ -9034,6 +10921,31 @@
    "address": 19689,
    "type": "line",
    "text": "Self-modified: the high byte of the address in STA $AD9C at $4CE7, set by the STA at $4CC9, the INC at $4CDD."
+  },
+  {
+   "address": 19694,
+   "type": "line",
+   "text": "Never called: an older way of moving the dot character with the scroll, shifting character $FF's rows up or down (old_dot_up, old_dot_down) once for each pixel of scroll_speed, or setting it afresh (clear_dot_char) when the fine scroll is 0."
+  },
+  {
+   "address": 19728,
+   "type": "line",
+   "text": "Never called: rotates character $FF's eight rows down by one, the last coming round to the top through its own operand at $4D22."
+  },
+  {
+   "address": 19746,
+   "type": "line",
+   "text": "Self-modified: the operand of LDA #$04 at $4D21, where old_dot_down keeps the row that comes round."
+  },
+  {
+   "address": 19751,
+   "type": "line",
+   "text": "Never called: rotates character $FF's eight rows up by one, the first coming round to the bottom through its own operand at $4D3B."
+  },
+  {
+   "address": 19771,
+   "type": "line",
+   "text": "Self-modified: the operand of LDA #$04 at $4D3A, where old_dot_up keeps the row that comes round."
   },
   {
    "address": 19776,
@@ -9266,6 +11178,121 @@
    "text": "Self-modified: the high byte of the address in STA $AD9C at $53BE, set by the STA at $53B2."
   },
   {
+   "address": 21444,
+   "type": "line",
+   "text": "The seven kinds of alien's animations: sprite pointer lists, each frame shown twice. Kind 0, the spinning ball, at $53C4 (8 entries); kind 1 at $53CC (10), 2 at $53D6 (20), 3 at $53EA (24), 4 at $5402 (8), 5 at $540A (14) and the bonus disc, kind 6, at $5418 (8). The counts are the limits at $5459."
+  },
+  {
+   "address": 21452,
+   "type": "line",
+   "text": "Kind 1's animation, the sparkle: 10 sprite pointers, each frame twice."
+  },
+  {
+   "address": 21462,
+   "type": "line",
+   "text": "Kind 2's animation, the bug: 20 sprite pointers, each frame twice."
+  },
+  {
+   "address": 21482,
+   "type": "line",
+   "text": "Kind 3's animation, the flipping half-disc: 24 sprite pointers, each frame twice."
+  },
+  {
+   "address": 21506,
+   "type": "line",
+   "text": "Kind 4's animation, the face: 8 sprite pointers, each frame twice."
+  },
+  {
+   "address": 21514,
+   "type": "line",
+   "text": "Kind 5's animation, the face: 14 sprite pointers, each frame twice."
+  },
+  {
+   "address": 21528,
+   "type": "line",
+   "text": "Kind 6's animation, the bonus disc: 8 sprite pointers, each frame twice."
+  },
+  {
+   "address": 21536,
+   "type": "line",
+   "text": "The 25 screen rows' addresses from $0400, low bytes then high bytes, copied to row_lo and row_hi at the start of a game."
+  },
+  {
+   "address": 21586,
+   "type": "line",
+   "text": "The seven alien animations' frame counters."
+  },
+  {
+   "address": 21587,
+   "type": "line",
+   "text": "Kind 1's animation counter."
+  },
+  {
+   "address": 21588,
+   "type": "line",
+   "text": "Kind 2's animation counter."
+  },
+  {
+   "address": 21589,
+   "type": "line",
+   "text": "Kind 3's animation counter."
+  },
+  {
+   "address": 21590,
+   "type": "line",
+   "text": "Kind 4's animation counter."
+  },
+  {
+   "address": 21591,
+   "type": "line",
+   "text": "Kind 5's animation counter."
+  },
+  {
+   "address": 21592,
+   "type": "line",
+   "text": "Kind 6's animation counter."
+  },
+  {
+   "address": 21593,
+   "type": "line",
+   "text": "The seven alien animations' lengths: 8, 10, 20, 24, 8, 14 and 8."
+  },
+  {
+   "address": 21600,
+   "type": "line",
+   "text": "Each kind of alien's current sprite pointer, set by alien_anim_step."
+  },
+  {
+   "address": 21601,
+   "type": "line",
+   "text": "Kind 1's current sprite pointer."
+  },
+  {
+   "address": 21602,
+   "type": "line",
+   "text": "Kind 2's current sprite pointer."
+  },
+  {
+   "address": 21603,
+   "type": "line",
+   "text": "Kind 3's current sprite pointer."
+  },
+  {
+   "address": 21604,
+   "type": "line",
+   "text": "Kind 4's current sprite pointer."
+  },
+  {
+   "address": 21605,
+   "type": "line",
+   "text": "Kind 5's current sprite pointer."
+  },
+  {
+   "address": 21606,
+   "type": "line",
+   "text": "Kind 6's current sprite pointer (the disc)."
+  },
+  {
    "address": 21607,
    "type": "line",
    "text": "Steps the seven alien animation counters at $5452 (each wrapping at its limit in $5459) and looks up each one's current sprite pointer in its frame list ($53C4, $53CC, $53D6, $53EA, $5402, $540A, $5418) into $5460-$5466, one pointer per kind of alien."
@@ -9309,6 +11336,76 @@
    "address": 21768,
    "type": "line",
    "text": "Self-modified: the operand of LDA #$00 at $5507, set by the STA at $54FF, the INC at $5517."
+  },
+  {
+   "address": 21852,
+   "type": "line",
+   "text": "The low bytes of the ten digit glyphs' addresses, filled by score_init."
+  },
+  {
+   "address": 21862,
+   "type": "line",
+   "text": "The high bytes of the ten digit glyphs' addresses."
+  },
+  {
+   "address": 21872,
+   "type": "line",
+   "text": "The low bytes of the six score digits' places in the score sprites, filled by score_init."
+  },
+  {
+   "address": 21873,
+   "type": "line",
+   "text": "The low byte of score digit 2's place in the score sprites ($$B1)."
+  },
+  {
+   "address": 21874,
+   "type": "line",
+   "text": "The low byte of score digit 3's place in the score sprites ($$B2)."
+  },
+  {
+   "address": 21875,
+   "type": "line",
+   "text": "The low byte of score digit 4's place in the score sprites ($$F0)."
+  },
+  {
+   "address": 21876,
+   "type": "line",
+   "text": "The low byte of score digit 5's place in the score sprites ($$F1)."
+  },
+  {
+   "address": 21877,
+   "type": "line",
+   "text": "The low byte of score digit 6's place in the score sprites ($$F2)."
+  },
+  {
+   "address": 21878,
+   "type": "line",
+   "text": "The high bytes of the six score digits' places."
+  },
+  {
+   "address": 21879,
+   "type": "line",
+   "text": "The high byte of score digit 2's place in the score sprites ($26)."
+  },
+  {
+   "address": 21880,
+   "type": "line",
+   "text": "The high byte of score digit 3's place in the score sprites ($26)."
+  },
+  {
+   "address": 21881,
+   "type": "line",
+   "text": "The high byte of score digit 4's place in the score sprites ($26)."
+  },
+  {
+   "address": 21882,
+   "type": "line",
+   "text": "The high byte of score digit 5's place in the score sprites ($26)."
+  },
+  {
+   "address": 21883,
+   "type": "line",
+   "text": "The high byte of score digit 6's place in the score sprites ($26)."
   },
   {
    "address": 21884,
@@ -9356,9 +11453,19 @@
    "text": "Gives sprite X a colour from the 16 at $5650, picked by the low four bits of the next byte of the random table ($40B0, index random_index)."
   },
   {
+   "address": 22096,
+   "type": "line",
+   "text": "The 16 colours a formed alien can take."
+  },
+  {
    "address": 22112,
    "type": "line",
    "text": "Gives the new alien a kind (0-7 from the random table, through the list at $568B) in alien_kind, or kind 6 when it is a disc, which also sets the disc sound on all three voices."
+  },
+  {
+   "address": 22155,
+   "type": "line",
+   "text": "The eight kinds a new alien can be, picked at random: 0, 1, 2, 3, 4, 5, 3 and 2 (kind 3 and 2 twice, kind 6 only for discs, 7 never)."
   },
   {
    "address": 22163,
@@ -9369,6 +11476,16 @@
    "address": 22197,
    "type": "line",
    "text": "Picks the alien's X from the eight at $56C7 with the next random byte."
+  },
+  {
+   "address": 22215,
+   "type": "line",
+   "text": "The eight X places where a new alien can appear."
+  },
+  {
+   "address": 22223,
+   "type": "line",
+   "text": "The eight Y places where a new alien can appear when the screen is still."
   },
   {
    "address": 22231,
@@ -9399,6 +11516,11 @@
    "address": 22351,
    "type": "line",
    "text": "Steps every forming alien's colour through the 50 colours at $5777, one a frame; at the end it is formed (end_forming)."
+  },
+  {
+   "address": 22391,
+   "type": "line",
+   "text": "The 50 colours a forming alien flickers through: greys, then every colour twice in turn."
   },
   {
    "address": 22441,
@@ -9486,14 +11608,34 @@
    "text": "Self-modified: the operand of LDY #$00 at $592F, the inner count of delay, set by the STY at $592C from the caller's Y."
   },
   {
+   "address": 22864,
+   "type": "line",
+   "text": "WELL DONE, the level-end screen's first line (written in yellow at row 2)."
+  },
+  {
    "address": 22873,
    "type": "line",
    "text": "Writes COMPLETED LEVEL on row 4 of the level-end screen, in cyan."
   },
   {
+   "address": 22894,
+   "type": "line",
+   "text": "COMPLETED LEVEL."
+  },
+  {
    "address": 22909,
    "type": "line",
    "text": "Shows the level's number in sprites 0 and 1 (tens and units, digit sprites from $8A, from level_digit_tens/units), both light blue and single-colour, with sprites 0 and 1 the only ones on."
+  },
+  {
+   "address": 22958,
+   "type": "line",
+   "text": "The units digit of each level's number (1-16), for the level-end screen."
+  },
+  {
+   "address": 22974,
+   "type": "line",
+   "text": "The tens digit of each level's number."
   },
   {
    "address": 22990,
@@ -9506,9 +11648,49 @@
    "text": "Writes YOU HAVE RESCUED on row 12, in green."
   },
   {
+   "address": 23186,
+   "type": "line",
+   "text": "YOU HAVE RESCUED."
+  },
+  {
+   "address": 23202,
+   "type": "line",
+   "text": "LOVER BALL, rescued after level 4; also on the title page."
+  },
+  {
+   "address": 23212,
+   "type": "line",
+   "text": "EDDY BALL, rescued after level 8."
+  },
+  {
+   "address": 23221,
+   "type": "line",
+   "text": "GLOW BALL, rescued after level 12."
+  },
+  {
+   "address": 23230,
+   "type": "line",
+   "text": "NO BALL, rescued after level 16."
+  },
+  {
    "address": 23237,
    "type": "line",
    "text": "Shows Iball (sprite 2, pointer $94, grey) and the friend rescued (sprite 3, pointer A, colour X) side by side, with the level number still in sprites 0 and 1. After No Ball, the fourth, writes THAT WAS INCREDIBALL, YOU HAVE COMPLETED and IBALL on rows 20, 21 and 23, waits five long delays and for fire, and goes back to the title."
+  },
+  {
+   "address": 23393,
+   "type": "line",
+   "text": "THAT WAS INCREDIBALL, the end of the game."
+  },
+  {
+   "address": 23413,
+   "type": "line",
+   "text": "YOU HAVE COMPLETED."
+  },
+  {
+   "address": 23431,
+   "type": "line",
+   "text": "IBALL, the last line of the end."
   },
   {
    "address": 23436,
@@ -9566,6 +11748,11 @@
    "text": "Steps every exploding alien through the 16 explosion frames at $5CF8, one a frame; after the last it is taken off (remove_sprite)."
   },
   {
+   "address": 23800,
+   "type": "line",
+   "text": "An alien's explosion: 16 sprite pointers, $E9-$F0 each twice."
+  },
+  {
    "address": 23816,
    "type": "line",
    "text": "Iball against the aliens: an alien in play, not exploding and not forming (a disc counts even while forming) that comes within 20 pixels across and 18 down of him (alien_near_iball) kills him, or if it is a disc gives him the disc's extra (take_disc)."
@@ -9581,6 +11768,11 @@
    "text": "Turns the alien towards Iball across and sets its horizontal speed to the level's (alien_speed_x); near either side (X $FB and up, or below $5B) it stops."
   },
   {
+   "address": 24020,
+   "type": "line",
+   "text": "Each level's horizontal speed for the aliens that home in across: 1 on levels 1-4, 2 on 5-13, 3 on 14-16 (17 bytes; the last is not read)."
+  },
+  {
    "address": 24037,
    "type": "line",
    "text": "Steers the alien towards Iball vertically: ride_scroll has just given it the scroll's speed, and this adds the level's step (alien_accel_y) towards him, or takes it off when it moves away, turning it round when the result goes below zero."
@@ -9594,6 +11786,11 @@
    "address": 24157,
    "type": "line",
    "text": "Self-modified: the operand of SBC #$00 at $5E5C, set by the STA at $5E56."
+  },
+  {
+   "address": 24170,
+   "type": "line",
+   "text": "Each level's vertical step for the aliens that home in vertically: 1 on levels 1-8, 2 on 9-15, 3 on 16 (17 bytes; the last is not read)."
   },
   {
    "address": 24187,
@@ -9661,6 +11858,16 @@
    "text": "Writes GAME and OVER on rows 11 and 12 in white, waits two long delays and goes back to the title (game_start)."
   },
   {
+   "address": 24614,
+   "type": "line",
+   "text": "GAME."
+  },
+  {
+   "address": 24618,
+   "type": "line",
+   "text": "OVER."
+  },
+  {
    "address": 24622,
    "type": "line",
    "text": "Saves the bottom two rows and clears them in green (save_rows, its colour operand at $6514 set to 5), copies the next extra's name (24 characters, through the pointer tables extra_name_lo/hi) into row 23, gives the extra (apply_extra) and moves the disc sequence on; after the 32nd disc it carries on from the 29th."
@@ -9674,6 +11881,31 @@
    "address": 24658,
    "type": "line",
    "text": "Self-modified: the high byte of the address in LDA $AD9C at $6050, set by the STA at $604B."
+  },
+  {
+   "address": 24683,
+   "type": "line",
+   "text": "For each place in the disc sequence, the checkpoint a death sends it back to: 1, 2, 4, 8, 13, 18 or 26."
+  },
+  {
+   "address": 24715,
+   "type": "line",
+   "text": "The bottom two rows' characters, kept by save_rows while a message is up."
+  },
+  {
+   "address": 24795,
+   "type": "line",
+   "text": "The bottom two rows' colours, kept by save_rows."
+  },
+  {
+   "address": 24875,
+   "type": "line",
+   "text": "The 17 extras' names, 24 characters each, centred: TURBO BOOST, SINGLE LAZER, SMART MISSILE, EXTRA SCORE, BULLET SPRAY, ELECTRO SHIELD, EXTENDED PLAY, TWIN LASER SET, HYPERSPACE, MOLECULE BOMB, FAULTY DISC, FUEL INJECTION, BONUS BALL, HYPER BRAKES, TIMER REWIND, LAZER COOLER, RAINBOW RIPPLE."
+  },
+  {
+   "address": 25283,
+   "type": "line",
+   "text": "The order the discs give their extras in, 32 places: Turbo Boost, Single Lazer, Smart Missile, Extra Score, Bullet Spray, Electro Shield, Extra Score, Extended Play, Twin Laser Set, Hyperspace, Molecule Bomb, Extended Play, Faulty Disc, Fuel Injection, Bonus Ball, Hyper Brakes, Timer Rewind, Faulty Disc, Lazer Cooler, Electro Shield, Timer Rewind, Extra Score, Extra Score, Hyper Brakes, Faulty Disc, Timer Rewind, Rainbow Ripple, Bonus Ball, Hyper Brakes, Faulty Disc, Extra Score, Extra Score; after the last, places 29-32 again."
   },
   {
    "address": 25315,
@@ -9694,6 +11926,16 @@
    "address": 25351,
    "type": "line",
    "text": "Self-modified: the operand of LDA #$00 at $6306, set by the STA at $62FE, the INC at $6316."
+  },
+  {
+   "address": 25375,
+   "type": "line",
+   "text": "The low bytes of the 17 extras' names' addresses, filled by extras_names_init (22 bytes reserved)."
+  },
+  {
+   "address": 25397,
+   "type": "line",
+   "text": "The high bytes of the names' addresses."
   },
   {
    "address": 25419,
@@ -9796,6 +12038,11 @@
    "text": "Saves the bottom two rows and clears them in red (save_rows, its colour operand at $6514 set to 2), and writes LASER OVERHEATED in row 23."
   },
   {
+   "address": 25832,
+   "type": "line",
+   "text": "LASER OVERHEATED, centred in 24 characters."
+  },
+  {
    "address": 25856,
    "type": "line",
    "text": "Copies the bottom two rows of the screen and their colours ($0798-$07E7) to $608B and $60DB, and clears them: character 0, in the colour its callers write into its own operand at $6514."
@@ -9821,6 +12068,11 @@
    "text": "Fills the meter sprite at $2700 with the 21-byte pattern at $6586, three times."
   },
   {
+   "address": 25990,
+   "type": "line",
+   "text": "Seven rows of the meter sprite (21 bytes), which fill_meter writes three times over the sprite at $2700."
+  },
+  {
    "address": 26011,
    "type": "line",
    "text": "While the Electro Shield is on, every sixth frame clears one more byte of the meter sprite; when all 63 are clear the shield ends (icon dark). The Hyper Brakes' meter runs the same way, and when it ends the input rate goes back to every 2 frames."
@@ -9834,6 +12086,66 @@
    "address": 26184,
    "type": "line",
    "text": "Iball has died: moves the disc sequence back to its last checkpoint (from the table at $606B) and takes away the extra given there: positions 1 (Single Lazer), 2 (Smart Missile), 4 (Bullet Spray), 8 (Twin Laser Set), 13 (Fuel Injection: vertical_limit back to 4), 18 (Lazer Cooler) and 26 (Rainbow Ripple). The next disc offers it again."
+  },
+  {
+   "address": 26286,
+   "type": "line",
+   "text": "Each right-hand beam's back, as a column offset (8 beams, two spare bytes)."
+  },
+  {
+   "address": 26296,
+   "type": "line",
+   "text": "Each right-hand beam's front column."
+  },
+  {
+   "address": 26306,
+   "type": "line",
+   "text": "Each right-hand beam's length in characters."
+  },
+  {
+   "address": 26316,
+   "type": "line",
+   "text": "Each right-hand beam's screen row."
+  },
+  {
+   "address": 26326,
+   "type": "line",
+   "text": "Each right-hand beam's slot: 1 in use."
+  },
+  {
+   "address": 26336,
+   "type": "line",
+   "text": "Set when a right-hand beam has stopped and is shrinking."
+  },
+  {
+   "address": 26346,
+   "type": "line",
+   "text": "Each left-hand beam's back, as a column offset."
+  },
+  {
+   "address": 26356,
+   "type": "line",
+   "text": "Each left-hand beam's front column."
+  },
+  {
+   "address": 26366,
+   "type": "line",
+   "text": "Each left-hand beam's length."
+  },
+  {
+   "address": 26376,
+   "type": "line",
+   "text": "Each left-hand beam's screen row."
+  },
+  {
+   "address": 26386,
+   "type": "line",
+   "text": "Each left-hand beam's slot."
+  },
+  {
+   "address": 26396,
+   "type": "line",
+   "text": "Set when a left-hand beam is shrinking."
   },
   {
    "address": 26406,
@@ -10006,6 +12318,41 @@
    "text": "Frees left-hand beam X."
   },
   {
+   "address": 27164,
+   "type": "line",
+   "text": "The ripple's state: running, its column, its rows of height, its first and last rows, its direction (1 down), and whether it is shrinking."
+  },
+  {
+   "address": 27165,
+   "type": "line",
+   "text": "The ripple: the band's column (Iball's column less 2)."
+  },
+  {
+   "address": 27166,
+   "type": "line",
+   "text": "The ripple: its height in rows."
+  },
+  {
+   "address": 27167,
+   "type": "line",
+   "text": "The ripple: its first row."
+  },
+  {
+   "address": 27168,
+   "type": "line",
+   "text": "The ripple: its last row."
+  },
+  {
+   "address": 27169,
+   "type": "line",
+   "text": "The ripple: its direction: 1 down, 0 up."
+  },
+  {
+   "address": 27170,
+   "type": "line",
+   "text": "The ripple: set while it shrinks."
+  },
+  {
    "address": 27171,
    "type": "line",
    "text": "With the Rainbow Ripple, starts a ripple if none is running: a band five characters wide, centred on Iball, going up, or down when the last push was down; and its sound."
@@ -10141,6 +12488,11 @@
    "text": "Self-modified: the high byte of the address in STA $AD9C at $6CEA, set by the STA at $6CBA, the INC at $6CD4, the DEC at $6D15."
   },
   {
+   "address": 27932,
+   "type": "line",
+   "text": "The title's choice: 1 music, 0 sound effects."
+  },
+  {
    "address": 27933,
    "type": "line",
    "text": "The game's first instruction, and where the end of every game comes back to. Installs the title interrupt (four times), starts the music, clears the screen, writes the title page and its sprites, then says \"IBALL!\" (sample 0, pitch $8C), waits for it, says it again four times with short waits between, waits, says it once more at a lower pitch ($5A), and waits. Then the title loop: fire or the column-1 keys (W, R, Y, I, P, * or left-arrow) start a game, unless a sample is playing; the music stops when music was not chosen."
@@ -10181,9 +12533,214 @@
    "text": "Writes the title page: FIREBIRD SOFTWARE, PRESENTS, IBALL, COMMODORE VERSION BY ANDREW BETTS, RESCUE, PRESS FIRE TO PLAY, the four friends' names and 1 MUSIC ON 2 FX ON, each in its colour."
   },
   {
+   "address": 28619,
+   "type": "line",
+   "text": "One byte, $60, after title_text's last JMP; nothing reads it."
+  },
+  {
+   "address": 28620,
+   "type": "line",
+   "text": "FIREBIRD SOFTWARE, the title page's first line."
+  },
+  {
+   "address": 28637,
+   "type": "line",
+   "text": "PRESENTS."
+  },
+  {
+   "address": 28645,
+   "type": "line",
+   "text": "IBALL."
+  },
+  {
+   "address": 28650,
+   "type": "line",
+   "text": "COMMODORE VERSION  BY ANDREW BETTS."
+  },
+  {
+   "address": 28684,
+   "type": "line",
+   "text": "RESCUE."
+  },
+  {
+   "address": 28690,
+   "type": "line",
+   "text": "PRESS FIRE TO PLAY."
+  },
+  {
    "address": 28708,
    "type": "line",
    "text": "The rest of title_text: the four friends' names under their sprites and the line 1 MUSIC ON 2 FX ON."
+  },
+  {
+   "address": 28799,
+   "type": "line",
+   "text": "1 MUSIC ON  2 FX ON, the title's bottom line."
+  },
+  {
+   "address": 28819,
+   "type": "line",
+   "text": "MUSIC, shown in the bottom row when music is chosen."
+  },
+  {
+   "address": 28824,
+   "type": "line",
+   "text": "FX, padded to five characters, shown when sound effects are chosen."
+  },
+  {
+   "address": 29184,
+   "type": "line",
+   "text": "Three 128-byte frames of the 16 animated characters ($DE-$ED in the playfield set), which animate_chars copies to $36F0 in turn."
+  },
+  {
+   "address": 29568,
+   "type": "line",
+   "text": "The playfield's 40 tiles, 16 bytes each: four rows of four character numbers. Levels are built from them by build_level_map. Tile 33 is empty (all character 0) and makes up most of every level; tiles 28-32 are the same block, the 16 animated characters ($DE-$ED), and no level uses tile 32."
+  },
+  {
+   "address": 30208,
+   "type": "line",
+   "text": "Level 1's tile list: 60 rows of six tile numbers (360 bytes), the top of the level first."
+  },
+  {
+   "address": 30568,
+   "type": "line",
+   "text": "Level 2's tile list, 60 rows of six tiles."
+  },
+  {
+   "address": 30928,
+   "type": "line",
+   "text": "Level 3's tile list, 60 rows of six tiles."
+  },
+  {
+   "address": 31288,
+   "type": "line",
+   "text": "Level 4's tile list, 60 rows of six tiles; Lover Ball is rescued after it."
+  },
+  {
+   "address": 31648,
+   "type": "line",
+   "text": "Level 5's tile list, 60 rows of six tiles."
+  },
+  {
+   "address": 32008,
+   "type": "line",
+   "text": "Level 6's tile list, 60 rows of six tiles."
+  },
+  {
+   "address": 32368,
+   "type": "line",
+   "text": "Level 7's tile list, 60 rows of six tiles."
+  },
+  {
+   "address": 32728,
+   "type": "line",
+   "text": "Level 8's tile list, 60 rows of six tiles; Eddy Ball is rescued after it."
+  },
+  {
+   "address": 32768,
+   "type": "line",
+   "text": "Level 8's tile list continued past $8000."
+  },
+  {
+   "address": 33088,
+   "type": "line",
+   "text": "Level 9's tile list, 60 rows of six tiles."
+  },
+  {
+   "address": 33448,
+   "type": "line",
+   "text": "Level 10's tile list, 60 rows of six tiles."
+  },
+  {
+   "address": 33808,
+   "type": "line",
+   "text": "Level 11's tile list, 60 rows of six tiles."
+  },
+  {
+   "address": 34168,
+   "type": "line",
+   "text": "Level 12's tile list, 60 rows of six tiles; Glow Ball is rescued after it."
+  },
+  {
+   "address": 34528,
+   "type": "line",
+   "text": "Level 13's tile list, 60 rows of six tiles."
+  },
+  {
+   "address": 34888,
+   "type": "line",
+   "text": "Level 14's tile list, 60 rows of six tiles."
+  },
+  {
+   "address": 35248,
+   "type": "line",
+   "text": "Level 15's tile list, 60 rows of six tiles."
+  },
+  {
+   "address": 35608,
+   "type": "line",
+   "text": "Level 16's tile list, 60 rows of six tiles; No Ball is rescued after it, and the game ends."
+  },
+  {
+   "address": 40960,
+   "type": "line",
+   "text": "Speech sample 0, \"IBALL!\": 3 KB of four-bit volumes, two to a byte, played low half first through the SID's volume register by sample_nmi."
+  },
+  {
+   "address": 41984,
+   "type": "line",
+   "text": "The second kilobyte of sample 0 (\"IBALL!\")."
+  },
+  {
+   "address": 43008,
+   "type": "line",
+   "text": "The third kilobyte of sample 0 (\"IBALL!\")."
+  },
+  {
+   "address": 44032,
+   "type": "line",
+   "text": "Speech sample 1, \"OH NO!\": 2.75 KB of four-bit volumes, two to a byte, played when Iball dies."
+  },
+  {
+   "address": 44444,
+   "type": "line",
+   "text": "A byte of sample 1 (\"OH NO!\"). The self-modifying routines are assembled with $AD9C as a placeholder address, written over before they run, which is why the disassembler names it."
+  },
+  {
+   "address": 44508,
+   "type": "line",
+   "text": "Sample 1 (\"OH NO!\") continued."
+  },
+  {
+   "address": 45056,
+   "type": "line",
+   "text": "The second kilobyte of sample 1 (\"OH NO!\")."
+  },
+  {
+   "address": 46080,
+   "type": "line",
+   "text": "The last three-quarters of a kilobyte of sample 1 (\"OH NO!\")."
+  },
+  {
+   "address": 46848,
+   "type": "line",
+   "text": "Speech sample 2, \"GAME OVER!\": 2.25 KB of four-bit volumes, two to a byte. Sample number 3 plays the same bytes."
+  },
+  {
+   "address": 47872,
+   "type": "line",
+   "text": "The second kilobyte of sample 2 (\"GAME OVER!\")."
+  },
+  {
+   "address": 48896,
+   "type": "line",
+   "text": "The last page of sample 2 (\"GAME OVER!\")."
+  },
+  {
+   "address": 49152,
+   "type": "line",
+   "text": "One byte, $3F, before the speech code; nothing reads it."
   },
   {
    "address": 49153,
@@ -10196,14 +12753,44 @@
    "text": "Self-modified: the operand of LDA #$8C at $C020, the speech pitch: CIA 2 timer A's count, so the cycles between two of the sample's four-bit volumes. The game sets $8C and $5A; on the title screen the stick moves it between $5A and $FA."
   },
   {
+   "address": 49210,
+   "type": "line",
+   "text": "Two zero bytes between sample_start and its variables; nothing reads them."
+  },
+  {
+   "address": 49212,
+   "type": "line",
+   "text": "The playing sample's first page."
+  },
+  {
+   "address": 49213,
+   "type": "line",
+   "text": "The playing sample's end page."
+  },
+  {
    "address": 49214,
    "type": "line",
    "text": "Ends the sample: CIA 2's interrupts off, its timer A stopped (one-shot mode), the KERNAL's NMI vector at $0318 set to $FE47 (unused while the KERNAL is banked out) and sample_busy cleared."
   },
   {
+   "address": 49246,
+   "type": "line",
+   "text": "Set while a speech sample plays."
+  },
+  {
+   "address": 49247,
+   "type": "line",
+   "text": "256 bytes, each its index's high four bits, built by make_nybble_table before every sample."
+  },
+  {
    "address": 49503,
    "type": "line",
    "text": "Fills the 256 bytes at $C05F with each index's high four bits (byte N holds N / 16): the table the player turns a sample byte's upper half into a volume with. It means to skip the work when the table is there already, but it tests the last byte for $10 where the table holds $0F, so it builds it on every call."
+  },
+  {
+   "address": 49539,
+   "type": "line",
+   "text": "make_nybble_table's count, 0-255."
   },
   {
    "address": 49540,
@@ -10246,9 +12833,59 @@
    "text": "Self-modified: the high byte of the address in LDA $C05F at $C1B3, set by the STA at $C015, the INC at $C1C8."
   },
   {
+   "address": 49626,
+   "type": "line",
+   "text": "17 values from $5A to $E3, each about 6 % above the one before (a semitone), within the range of sample_pitch. No instruction reads them: perhaps the speech was once played along a scale."
+  },
+  {
+   "address": 49643,
+   "type": "line",
+   "text": "The first page of each speech sample: $A0, $AC, $B7, and $B7 again for number 3."
+  },
+  {
+   "address": 49647,
+   "type": "line",
+   "text": "The page each sample stops at: $AC, $B7, $C0, $C0."
+  },
+  {
    "address": 49651,
    "type": "line",
    "text": "Plays speech sample A (0 \"IBALL!\", 1 \"OH NO!\", 2 \"GAME OVER!\"): takes its first and end pages from sample_first_pages and sample_end_pages and starts it (play_sample)."
+  },
+  {
+   "address": 49670,
+   "type": "line",
+   "text": "Three key numbers ($38, $3B, $08: the KERNAL's numbers for keys 1, 2 and 3) for sample_test."
+  },
+  {
+   "address": 49673,
+   "type": "line",
+   "text": "A test program for the speech that nothing calls: loops for ever, showing sample_busy in the border and counting the background colour, and says sample 0, 1 or 2 when key 1, 2 or 3 is pressed (read from the KERNAL's last key, $C5), once per press."
+  },
+  {
+   "address": 49733,
+   "type": "line",
+   "text": "sample_test's flag: a key is still held."
+  },
+  {
+   "address": 49734,
+   "type": "line",
+   "text": "A stale copy of the game's code as it once stood at $4246-$42FF (the end of panel_sprites_bottom's older version and the start of new_game), never run here."
+  },
+  {
+   "address": 57344,
+   "type": "line",
+   "text": "The music driver's vibrato state for the three voices: the current step ($E000-$E002), the depth ($E003-$E005) and the direction ($E006-$E008)."
+  },
+  {
+   "address": 57347,
+   "type": "line",
+   "text": "Each voice's vibrato depth."
+  },
+  {
+   "address": 57350,
+   "type": "line",
+   "text": "Each voice's vibrato direction."
   },
   {
    "address": 57353,
@@ -10286,6 +12923,61 @@
    "text": "The RTS that ends music_play. The label here is the note table base minus 1 (see $E445): the slide reads the previous note's high byte through it."
   },
   {
+   "address": 58439,
+   "type": "line",
+   "text": "The music driver's note table: 97 frequencies, low byte then high, from note 0 up."
+  },
+  {
+   "address": 58440,
+   "type": "line",
+   "text": "The note table read one byte on: each note's high byte."
+  },
+  {
+   "address": 58504,
+   "type": "line",
+   "text": "The note table continued."
+  },
+  {
+   "address": 58633,
+   "type": "line",
+   "text": "The SID register offsets of the three voices: 0, 7 and 14."
+  },
+  {
+   "address": 58636,
+   "type": "line",
+   "text": "The music driver's working variables, three bytes each for the three voices: the voice being worked on ($E50C), each voice's place in its track ($E50D) and in its pattern ($E510), the note's frames left ($E513), the pattern byte ($E516), the gate and waveform ($E519), the note ($E51C), the frequency ($E54B high, $E54E low), the pulse width ($E55B, $E55E), the transpose ($E571), the tempo counters ($E546-$E548), the state ($E54A) and the arpeggio's three offsets ($E574-$E576)."
+  },
+  {
+   "address": 58637,
+   "type": "line",
+   "text": "Each voice's place in its track."
+  },
+  {
+   "address": 58640,
+   "type": "line",
+   "text": "Each voice's place in its pattern."
+  },
+  {
+   "address": 58643,
+   "type": "line",
+   "text": "Each voice's frames left in its note."
+  },
+  {
+   "address": 58646,
+   "type": "line",
+   "text": "Each voice's current pattern byte (its length and flags)."
+  },
+  {
+   "address": 58649,
+   "type": "line",
+   "text": "Each voice's waveform and gate."
+  },
+  {
+   "address": 58652,
+   "type": "line",
+   "text": "Each voice's note, transposed."
+  },
+  {
    "address": 58655,
    "type": "line",
    "text": "Starts the music: full volume ($D418 = $1F) and the driver's state to \"start\" ($40)."
@@ -10294,6 +12986,511 @@
    "address": 58666,
    "type": "line",
    "text": "Stops the music: the driver's state to \"silence and stop\" ($C0)."
+  },
+  {
+   "address": 58672,
+   "type": "line",
+   "text": "The music driver's variables after music_off: more of them, three bytes a voice (see music_vars)."
+  },
+  {
+   "address": 58679,
+   "type": "line",
+   "text": "Each voice's gate mask ($FF, or $FE to release)."
+  },
+  {
+   "address": 58682,
+   "type": "line",
+   "text": "Work: the pattern byte being decoded."
+  },
+  {
+   "address": 58684,
+   "type": "line",
+   "text": "Work: the voice number being played."
+  },
+  {
+   "address": 58685,
+   "type": "line",
+   "text": "Work: the instrument's waveform."
+  },
+  {
+   "address": 58686,
+   "type": "line",
+   "text": "Work: the vibrato's speed."
+  },
+  {
+   "address": 58687,
+   "type": "line",
+   "text": "Work: the pulse sweep's speed."
+  },
+  {
+   "address": 58688,
+   "type": "line",
+   "text": "Each voice's byte cleared at a note's start; nothing else uses it."
+  },
+  {
+   "address": 58691,
+   "type": "line",
+   "text": "Each voice's pulse sweep direction."
+  },
+  {
+   "address": 58694,
+   "type": "line",
+   "text": "The tempo counter: frames to the next step."
+  },
+  {
+   "address": 58695,
+   "type": "line",
+   "text": "The tempo: frames between steps."
+  },
+  {
+   "address": 58696,
+   "type": "line",
+   "text": "A long counter, from $70; its wrap holds the tempo for a frame."
+  },
+  {
+   "address": 58697,
+   "type": "line",
+   "text": "Work: the instrument's offset in the tables (number times 8)."
+  },
+  {
+   "address": 58698,
+   "type": "line",
+   "text": "The music driver's state: $00 playing, $40 start, $C0 stop, $80 stopped."
+  },
+  {
+   "address": 58699,
+   "type": "line",
+   "text": "Each voice's frequency, high byte."
+  },
+  {
+   "address": 58702,
+   "type": "line",
+   "text": "Each voice's frequency, low byte."
+  },
+  {
+   "address": 58705,
+   "type": "line",
+   "text": "Each voice's slide amount from the pattern."
+  },
+  {
+   "address": 58708,
+   "type": "line",
+   "text": "Each voice's slide flag from the pattern."
+  },
+  {
+   "address": 58711,
+   "type": "line",
+   "text": "Work: the instrument's effect flags."
+  },
+  {
+   "address": 58713,
+   "type": "line",
+   "text": "Work: the pattern's note byte."
+  },
+  {
+   "address": 58715,
+   "type": "line",
+   "text": "Each voice's pulse width, low byte."
+  },
+  {
+   "address": 58718,
+   "type": "line",
+   "text": "Each voice's pulse width, high byte."
+  },
+  {
+   "address": 58721,
+   "type": "line",
+   "text": "Each voice's count of first frames left."
+  },
+  {
+   "address": 58724,
+   "type": "line",
+   "text": "Each voice's frames since its note began."
+  },
+  {
+   "address": 58726,
+   "type": "line",
+   "text": "The voice-3 noise burst's frame count."
+  },
+  {
+   "address": 58730,
+   "type": "line",
+   "text": "The filter cutoff each voice's instrument sweeps."
+  },
+  {
+   "address": 58733,
+   "type": "line",
+   "text": "Each voice's place in its drum table."
+  },
+  {
+   "address": 58736,
+   "type": "line",
+   "text": "The arpeggio's step, 0-2, stepped each frame."
+  },
+  {
+   "address": 58737,
+   "type": "line",
+   "text": "Each voice's transpose from its track."
+  },
+  {
+   "address": 58740,
+   "type": "line",
+   "text": "The arpeggio's first offset, 0."
+  },
+  {
+   "address": 58741,
+   "type": "line",
+   "text": "The arpeggio's second offset."
+  },
+  {
+   "address": 58742,
+   "type": "line",
+   "text": "The arpeggio's third offset."
+  },
+  {
+   "address": 58743,
+   "type": "line",
+   "text": "The arpeggios' two upper notes, in semitones above the note played, a pair for each arpeggio number: 24 and 0, 7 and 12, 4 and 9, 5 and 8, 5 and 0, 0 and $FA. An instrument with the arpeggio flag names one in its second half."
+  },
+  {
+   "address": 58744,
+   "type": "line",
+   "text": "The arpeggio table read one byte on: each pair's second value."
+  },
+  {
+   "address": 58755,
+   "type": "line",
+   "text": "Music pattern 21, 12 notes and rests, ending $FF; played by voice 3."
+  },
+  {
+   "address": 58781,
+   "type": "line",
+   "text": "Music pattern 26, 8 notes and rests, ending $FF; played by voice 3."
+  },
+  {
+   "address": 58803,
+   "type": "line",
+   "text": "Music pattern 22, 10 notes and rests, ending $FF; played by voice 2."
+  },
+  {
+   "address": 58829,
+   "type": "line",
+   "text": "Music pattern 23, 10 notes and rests, ending $FF; played by voice 2."
+  },
+  {
+   "address": 58854,
+   "type": "line",
+   "text": "Music pattern 24, 7 notes and rests, ending $FF; played by voice 2."
+  },
+  {
+   "address": 58874,
+   "type": "line",
+   "text": "Music pattern 25, 7 notes and rests, ending $FF; played by voice 2."
+  },
+  {
+   "address": 58892,
+   "type": "line",
+   "text": "Instrument 2's drum table: waveform and pitch steps, one a frame, ending $85."
+  },
+  {
+   "address": 58917,
+   "type": "line",
+   "text": "Music pattern 14, 23 notes and rests, ending $FF; played by voice 1."
+  },
+  {
+   "address": 58991,
+   "type": "line",
+   "text": "Music pattern 15, 4 notes and rests, ending $FF; played by voice 3."
+  },
+  {
+   "address": 59004,
+   "type": "line",
+   "text": "Music pattern 20, 4 notes and rests, ending $FF; played by voice 3."
+  },
+  {
+   "address": 59017,
+   "type": "line",
+   "text": "Music pattern 16, 6 notes and rests, ending $FF; played by voice 2."
+  },
+  {
+   "address": 59032,
+   "type": "line",
+   "text": "17 bytes laid out like a pattern, ending $FF, that no pattern pointer names: never read."
+  },
+  {
+   "address": 59049,
+   "type": "line",
+   "text": "Instrument 6's drum table, ending $85, then ten zero bytes."
+  },
+  {
+   "address": 59078,
+   "type": "line",
+   "text": "Music pattern 18, 5 notes and rests, ending $FF; played by voice 3."
+  },
+  {
+   "address": 59092,
+   "type": "line",
+   "text": "Music pattern 19, 10 notes and rests, ending $FF; played by voice 3."
+  },
+  {
+   "address": 59120,
+   "type": "line",
+   "text": "Music pattern 17, 4 notes and rests, ending $FF; played by voice 3."
+  },
+  {
+   "address": 59130,
+   "type": "line",
+   "text": "17 bytes laid out like a drum table, ending $85, that no instrument names: never read."
+  },
+  {
+   "address": 59147,
+   "type": "line",
+   "text": "The music's 18 instruments, eight bytes each: pulse width low and high, waveform, attack/decay, sustain/release, vibrato (depth and speed), pulse sweep speed and effect flags: bit 2 a different waveform for the first frames, 3 a drum table, 4 the arpeggio, 5 the filter sweep, 6 a different pitch for the first frames, 7 a noise burst on voice 3."
+  },
+  {
+   "address": 59148,
+   "type": "line",
+   "text": "The instruments read from their byte 1: pulse width high."
+  },
+  {
+   "address": 59149,
+   "type": "line",
+   "text": "The instruments read from their byte 2: waveform."
+  },
+  {
+   "address": 59150,
+   "type": "line",
+   "text": "The instruments read from their byte 3: attack/decay."
+  },
+  {
+   "address": 59151,
+   "type": "line",
+   "text": "The instruments read from their byte 4: sustain/release."
+  },
+  {
+   "address": 59152,
+   "type": "line",
+   "text": "The instruments read from their byte 5: vibrato."
+  },
+  {
+   "address": 59153,
+   "type": "line",
+   "text": "The instruments read from their byte 6: pulse sweep speed."
+  },
+  {
+   "address": 59154,
+   "type": "line",
+   "text": "The instruments read from byte 7, their effect flags (the same byte as inst_flags, through another base)."
+  },
+  {
+   "address": 59218,
+   "type": "line",
+   "text": "The instruments' first halves continued."
+  },
+  {
+   "address": 59291,
+   "type": "line",
+   "text": "Music pattern 33, 9 notes and rests, ending $FF; played by voice 1."
+  },
+  {
+   "address": 59315,
+   "type": "line",
+   "text": "The 18 instruments' second eight bytes, read by the effects their flags select: a drum table's address (or the arpeggio number, or the first frames' pitch and waveform), the starting pulse width, the pulse sweep's two limits (one in each half of a byte), the filter's resonance and its sweep step."
+  },
+  {
+   "address": 59316,
+   "type": "line",
+   "text": "The instruments' second half, byte 1: a drum table's high byte, or the first frames' waveform."
+  },
+  {
+   "address": 59318,
+   "type": "line",
+   "text": "The instruments' second half, byte 3: the starting pulse width's low byte."
+  },
+  {
+   "address": 59320,
+   "type": "line",
+   "text": "The instruments' second half, byte 5: the pulse sweep's two limits."
+  },
+  {
+   "address": 59321,
+   "type": "line",
+   "text": "The instruments' second half, byte 6: the filter's resonance and routing ($D417)."
+  },
+  {
+   "address": 59322,
+   "type": "line",
+   "text": "The instruments' second half, byte 7: the filter sweep's step."
+  },
+  {
+   "address": 59386,
+   "type": "line",
+   "text": "The instruments' second halves continued."
+  },
+  {
+   "address": 59459,
+   "type": "line",
+   "text": "The three voices' track addresses, low bytes then high: $E8AB, $E8DA and $E955."
+  },
+  {
+   "address": 59462,
+   "type": "line",
+   "text": "The three tracks' addresses, high bytes."
+  },
+  {
+   "address": 59465,
+   "type": "line",
+   "text": "The 35 patterns' addresses, low bytes ($E849) then high ($E86C)."
+  },
+  {
+   "address": 59500,
+   "type": "line",
+   "text": "The 35 patterns' addresses, high bytes."
+  },
+  {
+   "address": 59535,
+   "type": "line",
+   "text": "Music pattern 34, 9 notes and rests, ending $FF; played by voice 1."
+  },
+  {
+   "address": 59563,
+   "type": "line",
+   "text": "The track of voice 1: 46 pattern numbers, with transposes ($80 plus the step), ending $FF."
+  },
+  {
+   "address": 59610,
+   "type": "line",
+   "text": "The track of voice 2: 122 pattern numbers, with transposes ($80 plus the step), ending $FF."
+  },
+  {
+   "address": 59733,
+   "type": "line",
+   "text": "The track of voice 3: 178 pattern numbers, with transposes ($80 plus the step), ending $FF."
+  },
+  {
+   "address": 59912,
+   "type": "line",
+   "text": "Music pattern 0, 0 notes and rests, ending $FF; played by voice 1 and 2 and 3."
+  },
+  {
+   "address": 59914,
+   "type": "line",
+   "text": "Music pattern 2, 22 notes and rests, ending $FF; played by voice 2."
+  },
+  {
+   "address": 59962,
+   "type": "line",
+   "text": "Music pattern 29, 23 notes and rests, ending $FF; played by voice 2."
+  },
+  {
+   "address": 60015,
+   "type": "line",
+   "text": "Music pattern 1 (also pattern 3), 7 notes and rests, ending $FF; played by voice 2."
+  },
+  {
+   "address": 60034,
+   "type": "line",
+   "text": "Music pattern 5, 8 notes and rests, ending $FF; played by voice 2."
+  },
+  {
+   "address": 60056,
+   "type": "line",
+   "text": "Each voice's current instrument, between patterns 3 and 4 in memory; the driver starts them at 17."
+  },
+  {
+   "address": 60059,
+   "type": "line",
+   "text": "Music pattern 4, 13 notes and rests, ending $FF; played by voice 2."
+  },
+  {
+   "address": 60092,
+   "type": "line",
+   "text": "Music pattern 6, 9 notes and rests, ending $FF; played by voice 2."
+  },
+  {
+   "address": 60113,
+   "type": "line",
+   "text": "Music pattern 7, 13 notes and rests, ending $FF; played by voice 2."
+  },
+  {
+   "address": 60148,
+   "type": "line",
+   "text": "Music pattern 8, 48 notes and rests, ending $FF; played by voice 3."
+  },
+  {
+   "address": 60247,
+   "type": "line",
+   "text": "Music pattern 9, 44 notes and rests, ending $FF; played by voice 3."
+  },
+  {
+   "address": 60338,
+   "type": "line",
+   "text": "Music pattern 12, 45 notes and rests, ending $FF; played by voice 3."
+  },
+  {
+   "address": 60430,
+   "type": "line",
+   "text": "Music pattern 13, 21 notes and rests, ending $FF; played by voice 3."
+  },
+  {
+   "address": 60475,
+   "type": "line",
+   "text": "Music pattern 10, 12 notes and rests, ending $FF; played by voice 1."
+  },
+  {
+   "address": 60504,
+   "type": "line",
+   "text": "Music pattern 11, 44 notes and rests, ending $FF; played by voice 1."
+  },
+  {
+   "address": 60594,
+   "type": "line",
+   "text": "Music pattern 27, 27 notes and rests, ending $FF; played by voice 1."
+  },
+  {
+   "address": 60654,
+   "type": "line",
+   "text": "Music pattern 31, 1 notes and rests, ending $FF; played by voice 1."
+  },
+  {
+   "address": 60658,
+   "type": "line",
+   "text": "Music pattern 28, 8 notes and rests, ending $FF; played by voice 1."
+  },
+  {
+   "address": 60661,
+   "type": "line",
+   "text": "Music pattern 32, 7 notes and rests, ending $FF; played by voice 1."
+  },
+  {
+   "address": 60676,
+   "type": "line",
+   "text": "Music pattern 30, 34 notes and rests, ending $FF; played by voice 1."
+  },
+  {
+   "address": 60747,
+   "type": "line",
+   "text": "Five bytes before the effects player's requests: $FF and four zeros, which no instruction reads."
+  },
+  {
+   "address": 60752,
+   "type": "line",
+   "text": "The three voices' effect requests: $40 plus a number starts that effect, $FF is idle."
+  },
+  {
+   "address": 60753,
+   "type": "line",
+   "text": "Voice 2's effect request."
+  },
+  {
+   "address": 60754,
+   "type": "line",
+   "text": "Voice 3's effect request."
+  },
+  {
+   "address": 60755,
+   "type": "line",
+   "text": "A jump to effects_stop, the effects player's second entry. The game never calls it."
   },
   {
    "address": 60758,
@@ -10311,9 +13508,234 @@
    "text": "Self-modified: the high byte of the address in LDA $C000 at $ED99, set by the STA at $ED93."
   },
   {
+   "address": 61054,
+   "type": "line",
+   "text": "Stops the effect on voice A: its request back to idle and the voice's control, attack/decay and sustain/release registers to 0. Nothing in the game calls it (through effects_stop_entry or otherwise)."
+  },
+  {
+   "address": 61075,
+   "type": "line",
+   "text": "The effects player's note table: 96 frequencies, low byte then high, from note 0 up; an effect's definition names its starting note."
+  },
+  {
+   "address": 61076,
+   "type": "line",
+   "text": "The effects' note table read one byte on: each note's high byte."
+  },
+  {
+   "address": 61140,
+   "type": "line",
+   "text": "The effects' note table continued."
+  },
+  {
+   "address": 61267,
+   "type": "line",
+   "text": "The SID register offsets of the three voices for the effects player: 0, 7 and 14."
+  },
+  {
+   "address": 61270,
+   "type": "line",
+   "text": "The effects player's working variables, three bytes each (one per voice) from $EF59: frequency low and high, its starting value, the step and its change, the waveform, the tick rate and count, the script and its place, the gate time and length."
+  },
+  {
+   "address": 61271,
+   "type": "line",
+   "text": "The effects player's frame counter."
+  },
+  {
+   "address": 61272,
+   "type": "line",
+   "text": "Work: the voice number."
+  },
+  {
+   "address": 61273,
+   "type": "line",
+   "text": "Each voice's effect frequency, low byte."
+  },
+  {
+   "address": 61276,
+   "type": "line",
+   "text": "Each voice's effect frequency, high byte."
+  },
+  {
+   "address": 61279,
+   "type": "line",
+   "text": "Each voice's starting frequency, low byte."
+  },
+  {
+   "address": 61282,
+   "type": "line",
+   "text": "Each voice's starting frequency, high byte."
+  },
+  {
+   "address": 61285,
+   "type": "line",
+   "text": "Each voice's step change, low byte."
+  },
+  {
+   "address": 61288,
+   "type": "line",
+   "text": "Each voice's step change, high byte."
+  },
+  {
+   "address": 61291,
+   "type": "line",
+   "text": "Each voice's slide step, low byte."
+  },
+  {
+   "address": 61294,
+   "type": "line",
+   "text": "Each voice's slide step, high byte."
+  },
+  {
+   "address": 61297,
+   "type": "line",
+   "text": "Each voice's effect flags."
+  },
+  {
+   "address": 61300,
+   "type": "line",
+   "text": "Each voice's tick rate."
+  },
+  {
+   "address": 61303,
+   "type": "line",
+   "text": "Each voice's alternate waveform."
+  },
+  {
+   "address": 61306,
+   "type": "line",
+   "text": "Each voice's first frames' waveform."
+  },
+  {
+   "address": 61309,
+   "type": "line",
+   "text": "Each voice's place in its script."
+  },
+  {
+   "address": 61312,
+   "type": "line",
+   "text": "Each voice's first frames left."
+  },
+  {
+   "address": 61315,
+   "type": "line",
+   "text": "Each voice's ticks left."
+  },
+  {
+   "address": 61318,
+   "type": "line",
+   "text": "Each voice's main waveform."
+  },
+  {
+   "address": 61321,
+   "type": "line",
+   "text": "Each voice's length, for the gate test."
+  },
+  {
+   "address": 61324,
+   "type": "line",
+   "text": "Each voice's waveform this frame."
+  },
+  {
+   "address": 61327,
+   "type": "line",
+   "text": "Each voice's script number."
+  },
+  {
+   "address": 61330,
+   "type": "line",
+   "text": "Each voice's frames to its next tick."
+  },
+  {
+   "address": 61333,
+   "type": "line",
+   "text": "Work: the definition's offset, then a count."
+  },
+  {
+   "address": 61334,
+   "type": "line",
+   "text": "The addresses of the eight effect scripts, low bytes at $EF96 then high at $EF9E, all in page $F0."
+  },
+  {
+   "address": 61342,
+   "type": "line",
+   "text": "The effect scripts' addresses, high bytes."
+  },
+  {
    "address": 61350,
    "type": "line",
    "text": "Starts effect N on voice X from its eight-byte definitions in the tables at $F0BA and $F16A: the start frequency, the step and its change, waveform, gate time, a second waveform and its length, the script, and the pitch (a note from the table at $EE93). Writes the first seven SID registers of the voice from the definition, and sets the volume to 15."
+  },
+  {
+   "address": 61520,
+   "type": "line",
+   "text": "The eight effect scripts: each a list of steps, one a tick: 1 slides the frequency up, 2 down, $80 and up go back to the starting frequency, $FF loops to the start, anything else holds."
+  },
+  {
+   "address": 61626,
+   "type": "line",
+   "text": "The first eight bytes of each of the 22 effects' definitions: seven values effect_start writes straight into the voice's SID registers (frequency, pulse width, waveform, attack/decay, sustain/release; the frequency's two bytes are also the slide's first step and the waveform the one the effect returns to), then the starting note."
+  },
+  {
+   "address": 61627,
+   "type": "line",
+   "text": "The effects' definitions read from byte 1: the frequency's high byte, also the step's."
+  },
+  {
+   "address": 61630,
+   "type": "line",
+   "text": "The effects' definitions read from byte 4: the waveform."
+  },
+  {
+   "address": 61633,
+   "type": "line",
+   "text": "The effects' definitions read from byte 7 (the starting note)."
+  },
+  {
+   "address": 61697,
+   "type": "line",
+   "text": "The effects' first definitions continued."
+  },
+  {
+   "address": 61802,
+   "type": "line",
+   "text": "The second eight bytes of each of the 22 effects' definitions: the flags and tick rate, two more waveforms (one alternated with, one for the first frames), the script number and the first frames' count in one byte, the length, and the step's change (two bytes); the eighth is not read."
+  },
+  {
+   "address": 61803,
+   "type": "line",
+   "text": "The effects' second definitions read from byte 1: alternate waveform."
+  },
+  {
+   "address": 61804,
+   "type": "line",
+   "text": "The effects' second definitions read from byte 2: first frames' waveform."
+  },
+  {
+   "address": 61805,
+   "type": "line",
+   "text": "The effects' second definitions read from byte 3: script number and first frames' count."
+  },
+  {
+   "address": 61806,
+   "type": "line",
+   "text": "The effects' second definitions read from byte 4: length."
+  },
+  {
+   "address": 61807,
+   "type": "line",
+   "text": "The effects' second definitions read from byte 5: step change, low byte."
+  },
+  {
+   "address": 61808,
+   "type": "line",
+   "text": "The effects' second definitions read from byte 6."
+  },
+  {
+   "address": 61872,
+   "type": "line",
+   "text": "The effects' second definitions continued."
   }
  ]
 }
