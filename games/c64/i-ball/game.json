@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "platform": "c64",
+  "slug": "i-ball",
+  "title": "I, Ball",
+  "year": 1987,
+  "publisher": "Firebird",
+  "developer": "",
+  "title_image": "",
+  "build": "",
+  "tier": "none",
+  "coverage_percent": null,
+  "copy": "agent-draft",
+  "steward": "",
+  "credits": [],
+  "tools": {},
+  "model": "",
+  "step_models": {},
+  "accuracy": [],
+  "kit_version": "0.0.242",
+  "created": "2026-10-26",
+  "video": {
+    "screen": "",
+    "charset": ""
+  },
+  "coverage": {
+    "exclude": [],
+    "extra": [],
+    "include": []
+  },
+  "io": [],
+  "regions": [],
+  "links": {
+    "wiki": {
+      "title": "I, Ball – C64-Wiki",
+      "url": "https://www.c64-wiki.com/wiki/I,_Ball"
+    },
+    "manual": {
+      "title": "",
+      "url": ""
+    }
+  }
+}
