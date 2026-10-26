@@ -6,7 +6,7 @@
   "year": 1987,
   "publisher": "Firebird",
   "developer": "Andrew Betts (Commodore version)",
-  "title_image": "",
+  "title_image": "reference/title.png",
   "build": "one-file whole-memory image, $0314-$FFFF, started by an IRQ hook at $033C (I_Ball.prg, MD5 ab57fa0a25cfa9ab7b411317f9a305ca); release unknown",
   "tier": "none",
   "coverage_percent": 100,
@@ -39,9 +39,48 @@
     ],
     "50-coverage": [
       "claude-opus-5-5"
+    ],
+    "60-verify": [
+      "claude-opus-5-5"
+    ],
+    "70-minisite": [
+      "claude-opus-5-5"
     ]
   },
-  "accuracy": [],
+  "accuracy": [
+    {
+      "step": "research",
+      "web": true,
+      "models": [
+        "claude-opus-5-5"
+      ]
+    },
+    {
+      "step": "annotate",
+      "models": [
+        "claude-opus-5-5"
+      ]
+    },
+    {
+      "step": "sample",
+      "size": 80,
+      "wrong": 6,
+      "fixed": 6,
+      "seed": 20261026,
+      "models": [
+        "claude-opus-5-5"
+      ],
+      "note": "60 hand-written and 20 generated comments, from 647 and 166, checked by a fresh agent against the code; 19 others that shared the wrong ones' beliefs were corrected with them"
+    },
+    {
+      "step": "port",
+      "fixed": 0,
+      "models": [
+        "claude-opus-5-5"
+      ],
+      "note": "the tune, effects, speech, level maps, keys and disc sequence, by test_music.js, test_speech.js, test_levels.js, test_keys.js and test_discs.js"
+    }
+  ],
   "kit_version": "0.0.242",
   "created": "2026-10-26",
   "video": {

@@ -9725,12 +9725,12 @@
   {
    "address": 41,
    "type": "line",
-   "text": "Each sprite's two speeds, horizontal and vertical, in pixels a frame ($29/$2A is Iball: horizontal_speed, vertical_speed)."
+   "text": "Each sprite's two speeds, horizontal and vertical, in pixels a step: a logic pass for the aliens, a run of irq_top for Iball ($29/$2A is Iball: horizontal_speed, vertical_speed)."
   },
   {
    "address": 42,
    "type": "line",
-   "text": "Iball's vertical speed (sprite 0's), pixels a frame."
+   "text": "Iball's vertical speed (sprite 0's), pixels for each run of irq_top."
   },
   {
    "address": 57,
@@ -9790,7 +9790,7 @@
   {
    "address": 73,
    "type": "line",
-   "text": "Frames to the timer's next second (from 50)."
+   "text": "Logic passes to the timer's next second (from 50)."
   },
   {
    "address": 74,
@@ -9850,7 +9850,7 @@
   {
    "address": 129,
    "type": "line",
-   "text": "Set in a frame when the playfield moved by a whole row and was redrawn."
+   "text": "Set in a logic pass when the playfield moved by a whole row and was redrawn."
   },
   {
    "address": 130,
@@ -9860,7 +9860,7 @@
   {
    "address": 132,
    "type": "line",
-   "text": "The scroll's speed, pixels a frame."
+   "text": "The scroll's speed, pixels a logic pass."
   },
   {
    "address": 133,
@@ -9870,22 +9870,22 @@
   {
    "address": 134,
    "type": "line",
-   "text": "Frames to the next friction step."
+   "text": "Runs of irq_top to the next friction step."
   },
   {
    "address": 135,
    "type": "line",
-   "text": "Frames between friction steps (20)."
+   "text": "Runs of irq_top between friction steps (20)."
   },
   {
    "address": 136,
    "type": "line",
-   "text": "Frames to the next reading of the controls."
+   "text": "Runs of irq_top to the next reading of the controls."
   },
   {
    "address": 137,
    "type": "line",
-   "text": "Frames between readings of the controls: 2, or 1 with the Hyper Brakes."
+   "text": "Runs of irq_top between readings of the controls: 2, or 1 with the Hyper Brakes."
   },
   {
    "address": 138,
@@ -10030,17 +10030,17 @@
   {
    "address": 249,
    "type": "line",
-   "text": "The laser's heat: up one each frame of fire, down one every four frames; at 250 it overheats."
+   "text": "The laser's heat: up one for each logic pass with fire held, down one every fourth run of irq_top; at 250 it overheats."
   },
   {
    "address": 250,
    "type": "line",
-   "text": "Frames to the laser's next cooling step."
+   "text": "Runs of irq_top to the laser's next cooling step (from 4)."
   },
   {
    "address": 251,
    "type": "line",
-   "text": "Frames left in which an overheated laser cannot fire."
+   "text": "Runs of irq_top left in which an overheated laser cannot fire (from 100)."
   },
   {
    "address": 252,
@@ -10105,7 +10105,7 @@
   {
    "address": 14320,
    "type": "line",
-   "text": "Character $FE, rotated two bits left every frame by rotate_char_fe."
+   "text": "Character $FE, rotated two bits left every logic pass by rotate_char_fe."
   },
   {
    "address": 14328,
@@ -10130,7 +10130,7 @@
   {
    "address": 14656,
    "type": "line",
-   "text": "The sprite shapes $E5-$F4, in the text set's upper half: the lives ($E5-$E8, by lives left), the alien explosion ($E9-$F0) and the four friends ($F1 Lover Ball, $F2 Eddy Ball, $F3 Glow Ball, $F4 No Ball)."
+   "text": "The sprite shapes $E5-$F4, at $3940-$3D3F: in the text set at $3800, after its characters and on into its upper half. The lives ($E5-$E8, by lives left), the alien explosion ($E9-$F0) and the four friends ($F1 Lover Ball, $F2 Eddy Ball, $F3 Glow Ball, $F4 No Ball)."
   },
   {
    "address": 15680,
@@ -10325,7 +10325,7 @@
   {
    "address": 16848,
    "type": "line",
-   "text": "Frames left of the Molecule Bomb."
+   "text": "Logic passes left of the Molecule Bomb (from 255)."
   },
   {
    "address": 16849,
@@ -10340,12 +10340,12 @@
   {
    "address": 16851,
    "type": "line",
-   "text": "Frames to the shield meter's next step."
+   "text": "Logic passes to the shield meter's next step."
   },
   {
    "address": 16852,
    "type": "line",
-   "text": "Frames to the brakes meter's next step."
+   "text": "Logic passes to the brakes meter's next step."
   },
   {
    "address": 16853,
@@ -10425,12 +10425,12 @@
   {
    "address": 17189,
    "type": "line",
-   "text": "Not a table: old_panel_top's colours, inside start_level's code now."
+   "text": "Not a table: old_panel_top's colours, inside next_level's code now."
   },
   {
    "address": 17197,
    "type": "line",
-   "text": "Not a table: old_panel_top's pointers, inside start_level's code now."
+   "text": "Not a table: old_panel_top's pointers, inside next_level's code now."
   },
   {
    "address": 17201,
@@ -10440,7 +10440,7 @@
   {
    "address": 17205,
    "type": "line",
-   "text": "Not a table: old_panel_bottom's positions, inside start_level's code now."
+   "text": "Not a table: old_panel_bottom's positions, inside game_over's code now."
   },
   {
    "address": 17220,
@@ -10465,7 +10465,7 @@
   {
    "address": 17458,
    "type": "line",
-   "text": "Raster interrupt 1 of 4, at line 0. Sets the next at line $36 (irq_panel_end) and enables interrupts, so the rest can overrun. Unless the extras message is up (freeze), cools the laser by one every four frames and counts the overheat lock-out down. Turns on extended colour mode and the top panel's character set (its own operand at $4480, $0C for $3000 or $0E for $3800), puts the timer's two digits into the top panel's sprite pointers ($8A plus the digit, at $487F/$4880), sets up the top panel's sprites (panel_sprites_top) and the fine scroll. Then the frame's player logic: while materialising, only materialise_step; while dying, only death_step; otherwise, unless the level is over, the message is up, hyperspace is on or the game is paused: the brakes (friction), the bottom limit (bottom_limit), the controls (read_controls), the speed limits (limit_speeds), Iball's move (move_iball), the probe round him (probe_background) and his bounces (bounce_iball)."
+   "text": "Raster interrupt 1 of 4, at line 0. Sets the next at line $36 (irq_panel_end) and enables interrupts, so the rest can overrun. Unless the extras message is up (freeze), cools the laser by one every fourth time it runs and counts the overheat lock-out down. Turns on extended colour mode and the top panel's character set (its own operand at $4480, $0C for $3000 or $0E for $3800), puts the timer's two digits into the top panel's sprite pointers ($8A plus the digit, at $487F/$4880), sets up the top panel's sprites (panel_sprites_top) and the fine scroll. Then the frame's player logic: while materialising, only materialise_step; while dying, only death_step; otherwise, unless the level is over, the message is up, hyperspace is on or the game is paused: the brakes (friction), the bottom limit (bottom_limit), the controls (read_controls), the speed limits (limit_speeds), Iball's move (move_iball), the probe round him (probe_background) and his bounces (bounce_iball)."
   },
   {
    "address": 17536,
@@ -10510,7 +10510,7 @@
   {
    "address": 17773,
    "type": "line",
-   "text": "Raster interrupt 3 of 4, at line $92: the game's logic for the frame, which can take longer than a frame. in_logic guards it: an interrupt that finds it set only re-arms irq_bottom and leaves (via $466C). Otherwise sets the next interrupt, irq_bottom at $F8, or while the extras message is up the message band's own (msg_irq_top) at $E0 plus the fine scroll. Then, every frame: on the rescue screen (sprite 1's pointer $F3) cycles sprite 1's colour, rotates character $FE, steps the colour of the top panel's sprite 5. Unless the level is over or the message is up: the pause key (check_pause), the end of faulty_disc once the map pointer is below $0B00, and unless paused the scroll (scroll_step); then, unless Iball is dying, materialising or in hyperspace, the meters (shield_meters), the timer (timer_tick), the aliens riding the scroll, their steering, their hits and their moves, and unless a row was just drawn, the shot's character, the alien animations, fire, explosions, Iball's touches, spawning, the two armed keys and Iball's roll. Unless the message is up, the lasers and shots move. Every frame it redraws the score (draw_score) and steps the animated characters, and in play sets the aliens' sprite pointers."
+   "text": "Raster interrupt 3 of 4, at line $92: the game's logic, which can take longer than a frame. in_logic guards it: an interrupt that finds it set only re-arms irq_bottom and leaves (via $466C), so the logic runs in most frames but not all: in 600 frames of busy play it ran 371 times, on a quiet screen 493. Everything it calls counts in these logic passes, not in frames. Otherwise sets the next interrupt, irq_bottom at $F8, or while the extras message is up the message band's own (msg_irq_top) at $E0 plus the fine scroll. Then, every frame: on the rescue screen (sprite 1's pointer $F3) cycles sprite 1's colour, rotates character $FE, steps the colour of the top panel's sprite 5. Unless the level is over or the message is up: the pause key (check_pause), the end of faulty_disc once the map pointer is below $0B00, and unless paused the scroll (scroll_step); then, unless Iball is dying, materialising or in hyperspace, the meters (shield_meters), the timer (timer_tick), the aliens riding the scroll, their steering, their hits and their moves, and unless a row was just drawn, the shot's character, the alien animations, fire, explosions, Iball's touches, spawning, the two armed keys and Iball's roll. Unless the message is up, the lasers and shots move. Every frame it redraws the score (draw_score) and steps the animated characters, and in play sets the aliens' sprite pointers."
   },
   {
    "address": 18028,
@@ -10555,7 +10555,7 @@
   {
    "address": 18342,
    "type": "line",
-   "text": "The frame's scroll. In hyperspace: hides every sprite (sprite_enable 0), turns the scroll forward and sets its speed to 6. Otherwise backward scrolling goes to scroll_back. Forward: adds scroll_speed to the fine scroll, and when it passes 7, takes eight off, sets row_drawn and moves a row up the map (draw_playfield)."
+   "text": "The logic pass's scroll. In hyperspace: hides every sprite (sprite_enable 0), turns the scroll forward and sets its speed to 6. Otherwise backward scrolling goes to scroll_back. Forward: adds scroll_speed to the fine scroll, and when it passes 7, takes eight off, sets row_drawn and moves a row up the map (draw_playfield)."
   },
   {
    "address": 18390,
@@ -10600,7 +10600,7 @@
   {
    "address": 18545,
    "type": "line",
-   "text": "The top panel's eight sprite colours: the five extras icons (0, dark, until their extra is given; Turbo Boost, Single Lazer, Smart Missile, Bullet Spray, Electro Shield), then the top panel's sixth sprite (stepped every frame by irq_logic) and the timer's two digits (yellow)."
+   "text": "The top panel's eight sprite colours: the five extras icons (0, dark, until their extra is given; Turbo Boost, Single Lazer, Smart Missile, Bullet Spray, Electro Shield), then the top panel's sixth sprite (stepped every logic pass) and the timer's two digits (yellow)."
   },
   {
    "address": 18546,
@@ -10755,7 +10755,7 @@
   {
    "address": 18729,
    "type": "line",
-   "text": "Reads the stick in port 2 and the movement keys, once every input_rate frames (2, or 1 with the Hyper Brakes). Each test drives seven of the keyboard's eight rows at once, so several keys do each job. Up: stick up, or E, T, U, O, @, up-arrow or Q (column 6, rows 1-7). Down: stick down, or S, F, H, K, colon, = or C= (column 5, rows 1-7). Left: stick left, or Z, B or right SHIFT (column 4, rows 1, 3 and 6). Right: stick right, or cursor down, left SHIFT, X, V, N, comma or / (column 7, rows 0-6)."
+   "text": "Reads the stick in port 2 and the movement keys, once every input_rate runs of irq_top (2, or 1 with the Hyper Brakes). Each test drives seven of the keyboard's eight rows at once, so several keys do each job. Up: stick up, or E, T, U, O, @, up-arrow or Q (column 6, rows 1-7). Down: stick down, or S, F, H, K, colon, = or C= (column 5, rows 1-7). Left: stick left, or Z, B or right SHIFT (column 4, rows 1, 3 and 6). Right: stick right, or cursor down, left SHIFT, X, V, N, comma or / (column 7, rows 0-6)."
   },
   {
    "address": 18873,
@@ -10795,7 +10795,7 @@
   {
    "address": 19091,
    "type": "line",
-   "text": "The brakes: every friction_delay frames (reloaded from friction_reload, 20) takes one off the scroll speed and both of Iball's speeds, none going below zero."
+   "text": "The brakes: every friction_delay runs of irq_top (reloaded from friction_reload, 20) takes one off the scroll speed and both of Iball's speeds, none going below zero."
   },
   {
    "address": 19133,
@@ -10955,7 +10955,7 @@
   {
    "address": 19792,
    "type": "line",
-   "text": "Rotates each of the eight bytes of character $FE ($37F0-$37F7) two bits to the left, wrapping round: a pattern that moves one multicolour pixel a frame."
+   "text": "Rotates each of the eight bytes of character $FE ($37F0-$37F7) two bits to the left, wrapping round: a pattern that moves one multicolour pixel each logic pass."
   },
   {
    "address": 19828,
@@ -10990,7 +10990,7 @@
   {
    "address": 20120,
    "type": "line",
-   "text": "One frame of Iball materialising. Stage 1 (materialise_wait) waits for the place to be clear of walls; stage 2 puts eight pieces round it, 70 pixels out in each direction, all eight sprites shown and multicoloured, and the materialise sound; stage 3 (from $4F1C) brings them in a little faster each frame (to at most 5 pixels) until they meet: then only sprite 0 is left, on the start position, coloured grey ($0C), and play begins."
+   "text": "One step of Iball materialising, run by irq_top. Stage 1 (materialise_wait) waits for the place to be clear of walls; stage 2 puts eight pieces round it, 70 pixels out in each direction, all eight sprites shown and multicoloured, and the materialise sound; stage 3 (from $4F1C) brings them in a little faster each step (to at most 5 pixels) until they meet: then only sprite 0 is left, on the start position, coloured grey ($0C), and play begins."
   },
   {
    "address": 20330,
@@ -11020,7 +11020,7 @@
   {
    "address": 20577,
    "type": "line",
-   "text": "One frame of the death. Stage 1 (death_explode) breaks Iball up; stage 2 (death_flash) flashes the background; stage 3 (death_fly) sends the pieces off and, when they have gone, starts a new materialise. Any other stage only sets $3F to 2."
+   "text": "One step of the death, run by irq_top. Stage 1 (death_explode) breaks Iball up; stage 2 (death_flash) flashes the background; stage 3 (death_fly) sends the pieces off and, when they have gone, starts a new materialise. Any other stage only sets $3F to 2."
   },
   {
    "address": 20599,
@@ -11035,7 +11035,7 @@
   {
    "address": 20684,
    "type": "line",
-   "text": "Stage 2 of the death: the background colour steps through the 13 colours at death_colours, one a frame; then sprite 0 turns white, every sprite gets the piece shape ($9E) and stage 3 begins."
+   "text": "Stage 2 of the death: the background colour steps through the 13 colours at death_colours, one a step; then sprite 0 turns white, every sprite gets the piece shape ($9E) and stage 3 begins."
   },
   {
    "address": 20722,
@@ -11045,7 +11045,7 @@
   {
    "address": 20735,
    "type": "line",
-   "text": "Stage 3 of the death: every piece moves at the same speed, starting at 10 and slowing by one every two frames to 1, until all have left the screen; then stage 4 and a new materialise (start_materialise)."
+   "text": "Stage 3 of the death: every piece moves at the same speed, starting at 10 and slowing by one every two steps to 1, until all have left the screen; then stage 4 and a new materialise (start_materialise)."
   },
   {
    "address": 20797,
@@ -11070,12 +11070,12 @@
   {
    "address": 20839,
    "type": "line",
-   "text": "Stage 1 of materialising: probes the twelve characters at the start position; while the delay ($40, from 50) lasts, or while any is a wall, it scrolls the map backward, a little faster every four frames (up to 6), to clear the place. When the delay is over and the place is clear, stage 2."
+   "text": "Stage 1 of materialising: probes the twelve characters at the start position; while the delay ($40, from 50) lasts, or while any is a wall, it scrolls the map backward, a little faster every four steps (up to 6), to clear the place. When the delay is over and the place is clear, stage 2."
   },
   {
    "address": 20923,
    "type": "line",
-   "text": "Fire: the stick's button in port 2, or W, R, Y, I, P, * or left-arrow (column 1, rows 1-7). Nothing while the overheat lock-out lasts. Each frame of fire heats the laser by one unless the Lazer Cooler is on; at 250 it overheats: the message band goes up for 50 frames (freeze, freeze_frames), fire is locked out for 100 frames and LASER OVERHEATED is shown (show_overheat). Otherwise works out Iball's character column and row (shot and laser starts), runs the lasers (laser_fire) and the ripple (ripple_fire), and puts a shot in the shot table: with the Bullet Spray both ways, else down when the last vertical push was down and up otherwise."
+   "text": "Fire: the stick's button in port 2, or W, R, Y, I, P, * or left-arrow (column 1, rows 1-7). Nothing while the overheat lock-out lasts. Each logic pass with fire held heats the laser by one (and fires again) unless the Lazer Cooler is on; at 250 it overheats: the message band goes up for 50 frames (freeze, freeze_frames), fire is locked out for 100 frames and LASER OVERHEATED is shown (show_overheat). Otherwise works out Iball's character column and row (shot and laser starts), runs the lasers (laser_fire) and the ripple (ripple_fire), and puts a shot in the shot table: with the Bullet Spray both ways, else down when the last vertical push was down and up otherwise."
   },
   {
    "address": 21061,
@@ -11110,12 +11110,12 @@
   {
    "address": 21209,
    "type": "line",
-   "text": "Steps the shot character through 1, 2, 3 and the shot colour through 1-7, once a frame: new shots take them."
+   "text": "Steps the shot character through 1, 2, 3 and the shot colour through 1-7, once a logic pass: new shots take them."
   },
   {
    "address": 21237,
    "type": "line",
-   "text": "Moves every live shot one character row a frame, up or down. It puts the wall colour back in the shot's colour cell; unless a row has just been drawn, it ends the shot if the character there is now 5 or more, and clears it otherwise. Then the shot moves; one that reaches row 0 or row 24, or a character of 5 or more, ends, and the others are written at the new place in their character and colour. Addresses go into its own operands (the screen row from row_lo/row_hi, colour RAM $D4 pages above)."
+   "text": "Moves every live shot one character row each logic pass, up or down. It puts the wall colour back in the shot's colour cell; unless a row has just been drawn, it ends the shot if the character there is now 5 or more, and clears it otherwise. Then the shot moves; one that reaches row 0 or row 24, or a character of 5 or more, ends, and the others are written at the new place in their character and colour. Addresses go into its own operands (the screen row from row_lo/row_hi, colour RAM $D4 pages above)."
   },
   {
    "address": 21288,
@@ -11355,27 +11355,27 @@
   {
    "address": 21873,
    "type": "line",
-   "text": "The low byte of score digit 2's place in the score sprites ($$B1)."
+   "text": "The low byte of score digit 2's place in the score sprites ($B1)."
   },
   {
    "address": 21874,
    "type": "line",
-   "text": "The low byte of score digit 3's place in the score sprites ($$B2)."
+   "text": "The low byte of score digit 3's place in the score sprites ($B2)."
   },
   {
    "address": 21875,
    "type": "line",
-   "text": "The low byte of score digit 4's place in the score sprites ($$F0)."
+   "text": "The low byte of score digit 4's place in the score sprites ($F0)."
   },
   {
    "address": 21876,
    "type": "line",
-   "text": "The low byte of score digit 5's place in the score sprites ($$F1)."
+   "text": "The low byte of score digit 5's place in the score sprites ($F1)."
   },
   {
    "address": 21877,
    "type": "line",
-   "text": "The low byte of score digit 6's place in the score sprites ($$F2)."
+   "text": "The low byte of score digit 6's place in the score sprites ($F2)."
   },
   {
    "address": 21878,
@@ -11415,7 +11415,7 @@
   {
    "address": 21908,
    "type": "line",
-   "text": "The level timer: every 50 frames ($49) takes one off the units digit (timer_units), borrowing from the tens (timer_tens), and stops at 00."
+   "text": "The level timer: every 50 logic passes ($49), so a second of the timer is more than a second: on a quiet screen eight of them took 600 frames (12 seconds), in busy play four did takes one off the units digit (timer_units), borrowing from the tens (timer_tens), and stops at 00."
   },
   {
    "address": 21940,
@@ -11425,7 +11425,7 @@
   {
    "address": 21951,
    "type": "line",
-   "text": "Spawning, once a frame. While the Molecule Bomb lasts (molecule_frames, 255 frames) counts it down and sets the bottom panel's sprite 1 colour from it, the icon fading; no alien forms. Otherwise tries to start one (spawn_alien) and steps the colours of those forming (forming_step)."
+   "text": "Spawning, once a logic pass. While the Molecule Bomb lasts (molecule_frames, 255 logic passes) counts it down and sets the bottom panel's sprite 1 colour from it, the icon fading; no alien forms. Otherwise tries to start one (spawn_alien) and steps the colours of those forming (forming_step)."
   },
   {
    "address": 21972,
@@ -11500,7 +11500,7 @@
   {
    "address": 22277,
    "type": "line",
-   "text": "Gives every alien (sprites 1-7) the scroll's speed and direction vertically, so they keep their place on the map as it moves; their own steering adds to it afterwards."
+   "text": "Gives every alien (sprites 1-7) the scroll's speed and direction vertically, so they keep their place on the map as it moves. steer_aliens then changes it for sprites 1-4, which steer up and down towards Iball, adding speed or taking it off; sprites 5-7 steer only across and keep the scroll's speed."
   },
   {
    "address": 22323,
@@ -11515,7 +11515,7 @@
   {
    "address": 22351,
    "type": "line",
-   "text": "Steps every forming alien's colour through the 50 colours at $5777, one a frame; at the end it is formed (end_forming)."
+   "text": "Steps every forming alien's colour through the 50 colours at $5777, one a logic pass; at the end it is formed (end_forming)."
   },
   {
    "address": 22391,
@@ -11575,7 +11575,7 @@
   {
    "address": 22664,
    "type": "line",
-   "text": "With the Molecule Bomb armed, F1, M or right SHIFT (column 4, rows 0, 4 and 6) sets it off: no aliens form for 255 frames (molecule_frames), and its sound."
+   "text": "With the Molecule Bomb armed, F1, M or right SHIFT (column 4, rows 0, 4 and 6) sets it off: no aliens form for 255 logic passes (molecule_frames), and its sound."
   },
   {
    "address": 22702,
@@ -11745,7 +11745,7 @@
   {
    "address": 23762,
    "type": "line",
-   "text": "Steps every exploding alien through the 16 explosion frames at $5CF8, one a frame; after the last it is taken off (remove_sprite)."
+   "text": "Steps every exploding alien through the 16 explosion frames at $5CF8, one a logic pass; after the last it is taken off (remove_sprite)."
   },
   {
    "address": 23800,
@@ -11970,7 +11970,7 @@
   {
    "address": 25610,
    "type": "line",
-   "text": "Extra 5, Electro Shield: its icon lit (orange), shield_on, its meter full and the Hyper Brakes cancelled (their meter cleared, their icon dark), the meter sprite filled, the input rate back to every 2 frames."
+   "text": "Extra 5, Electro Shield: its icon lit (orange), shield_on, its meter full and the Hyper Brakes cancelled (their meter cleared, their icon dark), the meter sprite filled, the input rate back to every 2 runs of irq_top."
   },
   {
    "address": 25654,
@@ -12010,7 +12010,7 @@
   {
    "address": 25731,
    "type": "line",
-   "text": "Extra 13, Hyper Brakes: brakes_on, its icon lit (light green), the Electro Shield cancelled (its icon dark), its meter full, the meter sprite filled, and the controls read every frame (input rate 1)."
+   "text": "Extra 13, Hyper Brakes: brakes_on, its icon lit (light green), the Electro Shield cancelled (its icon dark), its meter full, the meter sprite filled, and the controls read every run of irq_top (input rate 1)."
   },
   {
    "address": 25775,
@@ -12075,7 +12075,7 @@
   {
    "address": 26011,
    "type": "line",
-   "text": "While the Electro Shield is on, every sixth frame clears one more byte of the meter sprite; when all 63 are clear the shield ends (icon dark). The Hyper Brakes' meter runs the same way, and when it ends the input rate goes back to every 2 frames."
+   "text": "While the Electro Shield is on, every seventh logic pass clears one more byte of the meter sprite (its count, from 5, has to pass below zero), 63 bytes in about 441 passes; when all 63 are clear the shield ends (icon dark). The Hyper Brakes' meter runs the same way, and when it ends the input rate goes back to every 2 frames."
   },
   {
    "address": 26119,
@@ -12215,7 +12215,7 @@
   {
    "address": 26679,
    "type": "line",
-   "text": "One frame of a right-hand beam: unless a row has just been drawn, clears its characters; then it grows (to eight characters) as it moves right, and once it reaches column $20 or a wall it shrinks from behind until it is gone, when it ends (end_beam_right). Its characters are 4, the laser character. The test at $683B meant to end a beam on a row drawn away never ends one: both of its branches go on."
+   "text": "One logic pass of a right-hand beam: unless a row has just been drawn, clears its characters; then it grows (to eight characters) as it moves right, and once it reaches column $20 or a wall it shrinks from behind until it is gone, when it ends (end_beam_right). Its characters are 4, the laser character. The test at $683B meant to end a beam on a row drawn away never ends one: both of its branches go on."
   },
   {
    "address": 26735,
@@ -12355,12 +12355,12 @@
   {
    "address": 27171,
    "type": "line",
-   "text": "With the Rainbow Ripple, starts a ripple if none is running: a band five characters wide, centred on Iball, going up, or down when the last push was down; and its sound."
+   "text": "With the Rainbow Ripple, starts a ripple if none is running: a band seven characters wide, from two columns left of Iball's to four right of it, going up, or down when the last push was down; and its sound."
   },
   {
    "address": 27296,
    "type": "line",
-   "text": "One frame of the ripple: puts the wall colour back where it was, clears its characters (5), grows the band by a row (up to nine rows) as it moves, writing character 5 in the empty cells with the row count as colour, so the rows flash in many colours; ends at the screen's top or bottom."
+   "text": "One logic pass of the ripple: puts the wall colour back where it was, clears its characters (5), grows the band by a row (up to nine rows) as it moves, writing character 5 in the empty cells with the row count as colour, so the rows flash in many colours; ends at the screen's top or bottom."
   },
   {
    "address": 27365,
@@ -13160,32 +13160,32 @@
   {
    "address": 58755,
    "type": "line",
-   "text": "Music pattern 21, 12 notes and rests, ending $FF; played by voice 3."
+   "text": "Music pattern 21, 12 notes, ending $FF; played by voice 3."
   },
   {
    "address": 58781,
    "type": "line",
-   "text": "Music pattern 26, 8 notes and rests, ending $FF; played by voice 3."
+   "text": "Music pattern 26, 8 notes, ending $FF; played by voice 3."
   },
   {
    "address": 58803,
    "type": "line",
-   "text": "Music pattern 22, 10 notes and rests, ending $FF; played by voice 2."
+   "text": "Music pattern 22, 10 notes, ending $FF; played by voice 2."
   },
   {
    "address": 58829,
    "type": "line",
-   "text": "Music pattern 23, 10 notes and rests, ending $FF; played by voice 2."
+   "text": "Music pattern 23, 10 notes, ending $FF; played by voice 2."
   },
   {
    "address": 58854,
    "type": "line",
-   "text": "Music pattern 24, 7 notes and rests, ending $FF; played by voice 2."
+   "text": "Music pattern 24, 7 notes, ending $FF; played by voice 2."
   },
   {
    "address": 58874,
    "type": "line",
-   "text": "Music pattern 25, 7 notes and rests, ending $FF; played by voice 2."
+   "text": "Music pattern 25, 7 notes, ending $FF; played by voice 2."
   },
   {
    "address": 58892,
@@ -13195,22 +13195,22 @@
   {
    "address": 58917,
    "type": "line",
-   "text": "Music pattern 14, 23 notes and rests, ending $FF; played by voice 1."
+   "text": "Music pattern 14, 23 notes and 19 rests, ending $FF; played by voice 1."
   },
   {
    "address": 58991,
    "type": "line",
-   "text": "Music pattern 15, 4 notes and rests, ending $FF; played by voice 3."
+   "text": "Music pattern 15, 4 notes and 3 rests, ending $FF; played by voice 3."
   },
   {
    "address": 59004,
    "type": "line",
-   "text": "Music pattern 20, 4 notes and rests, ending $FF; played by voice 3."
+   "text": "Music pattern 20, 4 notes and 3 rests, ending $FF; played by voice 3."
   },
   {
    "address": 59017,
    "type": "line",
-   "text": "Music pattern 16, 6 notes and rests, ending $FF; played by voice 2."
+   "text": "Music pattern 16, 6 notes, ending $FF; played by voice 2."
   },
   {
    "address": 59032,
@@ -13225,17 +13225,17 @@
   {
    "address": 59078,
    "type": "line",
-   "text": "Music pattern 18, 5 notes and rests, ending $FF; played by voice 3."
+   "text": "Music pattern 18, 5 notes, ending $FF; played by voice 3."
   },
   {
    "address": 59092,
    "type": "line",
-   "text": "Music pattern 19, 10 notes and rests, ending $FF; played by voice 3."
+   "text": "Music pattern 19, 10 notes and 2 rests, ending $FF; played by voice 3."
   },
   {
    "address": 59120,
    "type": "line",
-   "text": "Music pattern 17, 4 notes and rests, ending $FF; played by voice 3."
+   "text": "Music pattern 17, 4 notes, ending $FF; played by voice 3."
   },
   {
    "address": 59130,
@@ -13290,7 +13290,7 @@
   {
    "address": 59291,
    "type": "line",
-   "text": "Music pattern 33, 9 notes and rests, ending $FF; played by voice 1."
+   "text": "Music pattern 33, 9 notes and 2 rests, ending $FF; played by voice 1."
   },
   {
    "address": 59315,
@@ -13350,7 +13350,7 @@
   {
    "address": 59535,
    "type": "line",
-   "text": "Music pattern 34, 9 notes and rests, ending $FF; played by voice 1."
+   "text": "Music pattern 34, 9 notes and 4 rests, ending $FF; played by voice 1."
   },
   {
    "address": 59563,
@@ -13370,102 +13370,102 @@
   {
    "address": 59912,
    "type": "line",
-   "text": "Music pattern 0, 0 notes and rests, ending $FF; played by voice 1 and 2 and 3."
+   "text": "Music pattern 0, no notes, 1 rest, ending $FF; played by voice 1 and 2 and 3."
   },
   {
    "address": 59914,
    "type": "line",
-   "text": "Music pattern 2, 22 notes and rests, ending $FF; played by voice 2."
+   "text": "Music pattern 2, 22 notes and 1 rest, ending $FF; played by voice 2."
   },
   {
    "address": 59962,
    "type": "line",
-   "text": "Music pattern 29, 23 notes and rests, ending $FF; played by voice 2."
+   "text": "Music pattern 29, 23 notes, ending $FF; played by voice 2."
   },
   {
    "address": 60015,
    "type": "line",
-   "text": "Music pattern 1 (also pattern 3), 7 notes and rests, ending $FF; played by voice 2."
+   "text": "Music pattern 1 (also pattern 3), 7 notes, ending $FF; played by voice 2."
   },
   {
    "address": 60034,
    "type": "line",
-   "text": "Music pattern 5, 8 notes and rests, ending $FF; played by voice 2."
+   "text": "Music pattern 5, 8 notes, ending $FF; played by voice 2."
   },
   {
    "address": 60056,
    "type": "line",
-   "text": "Each voice's current instrument, between patterns 3 and 4 in memory; the driver starts them at 17."
+   "text": "Each voice's current instrument, between patterns 5 and 4 in memory; the driver starts them at 17."
   },
   {
    "address": 60059,
    "type": "line",
-   "text": "Music pattern 4, 13 notes and rests, ending $FF; played by voice 2."
+   "text": "Music pattern 4, 13 notes, ending $FF; played by voice 2."
   },
   {
    "address": 60092,
    "type": "line",
-   "text": "Music pattern 6, 9 notes and rests, ending $FF; played by voice 2."
+   "text": "Music pattern 6, 9 notes, ending $FF; played by voice 2."
   },
   {
    "address": 60113,
    "type": "line",
-   "text": "Music pattern 7, 13 notes and rests, ending $FF; played by voice 2."
+   "text": "Music pattern 7, 13 notes, ending $FF; played by voice 2."
   },
   {
    "address": 60148,
    "type": "line",
-   "text": "Music pattern 8, 48 notes and rests, ending $FF; played by voice 3."
+   "text": "Music pattern 8, 48 notes and 1 rest, ending $FF; played by voice 3."
   },
   {
    "address": 60247,
    "type": "line",
-   "text": "Music pattern 9, 44 notes and rests, ending $FF; played by voice 3."
+   "text": "Music pattern 9, 44 notes and 2 rests, ending $FF; played by voice 3."
   },
   {
    "address": 60338,
    "type": "line",
-   "text": "Music pattern 12, 45 notes and rests, ending $FF; played by voice 3."
+   "text": "Music pattern 12, 45 notes and 1 rest, ending $FF; played by voice 3."
   },
   {
    "address": 60430,
    "type": "line",
-   "text": "Music pattern 13, 21 notes and rests, ending $FF; played by voice 3."
+   "text": "Music pattern 13, 21 notes and 2 rests, ending $FF; played by voice 3."
   },
   {
    "address": 60475,
    "type": "line",
-   "text": "Music pattern 10, 12 notes and rests, ending $FF; played by voice 1."
+   "text": "Music pattern 10, 12 notes, ending $FF; played by voice 1."
   },
   {
    "address": 60504,
    "type": "line",
-   "text": "Music pattern 11, 44 notes and rests, ending $FF; played by voice 1."
+   "text": "Music pattern 11, 44 notes, ending $FF; played by voice 1."
   },
   {
    "address": 60594,
    "type": "line",
-   "text": "Music pattern 27, 27 notes and rests, ending $FF; played by voice 1."
+   "text": "Music pattern 27, 27 notes and 4 rests, ending $FF; played by voice 1."
   },
   {
    "address": 60654,
    "type": "line",
-   "text": "Music pattern 31, 1 notes and rests, ending $FF; played by voice 1."
+   "text": "Music pattern 31, 1 note, ending $FF; played by voice 1."
   },
   {
    "address": 60658,
    "type": "line",
-   "text": "Music pattern 28, 8 notes and rests, ending $FF; played by voice 1."
+   "text": "Music pattern 28, 8 notes, ending $FF; played by voice 1."
   },
   {
    "address": 60661,
    "type": "line",
-   "text": "Music pattern 32, 7 notes and rests, ending $FF; played by voice 1."
+   "text": "Music pattern 32, 7 notes, ending $FF; played by voice 1."
   },
   {
    "address": 60676,
    "type": "line",
-   "text": "Music pattern 30, 34 notes and rests, ending $FF; played by voice 1."
+   "text": "Music pattern 30, 34 notes and 2 rests, ending $FF; played by voice 1."
   },
   {
    "address": 60747,
